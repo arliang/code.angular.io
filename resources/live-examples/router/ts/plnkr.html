@@ -1,0 +1,397 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/app.component.ts]" value="import {Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+
+import {CrisisCenterComponent} from './crisis-center/crisis-center.component';
+import {HeroListComponent}     from './heroes/hero-list.component';
+import {HeroDetailComponent}   from './heroes/hero-detail.component';
+
+@Component({
+  selector: 'my-app',
+  template: `
+    <h1 class=&quot;title&quot;>Component Router</h1>
+    <a [routerLink]=&quot;['CrisisCenter']&quot;>Crisis Center</a>
+    <a [routerLink]=&quot;['Heroes']&quot;>Heroes</a>
+    <router-outlet></router-outlet>
+  `,
+  directives: [ROUTER_DIRECTIVES]
+})
+@RouteConfig([
+
+  { // Crisis Center child route
+    path: '/crisis-center/...',
+    name: 'CrisisCenter',
+    component: CrisisCenterComponent,
+    useAsDefault: true
+  },
+
+  {path: '/heroes',   name: 'Heroes',     component: HeroListComponent},
+  {path: '/hero/:id', name: 'HeroDetail', component: HeroDetailComponent},
+  {path: '/disaster', name: 'Asteroid', redirectTo: ['CrisisCenter', 'CrisisDetail', {id:3}]}
+])
+export class AppComponent { }
+"><input type="hidden" name="files[app/boot.ts]" value="import {bootstrap}        from 'angular2/platform/browser';
+import {ROUTER_PROVIDERS} from 'angular2/router';
+
+import {AppComponent}     from './app.component';
+import {DialogService}    from './dialog.service';
+import {HeroService}      from  './heroes/hero.service';
+
+bootstrap(AppComponent, [
+  ROUTER_PROVIDERS,
+  DialogService,
+  HeroService
+]);
+"><input type="hidden" name="files[app/crisis-center/crisis-center.component.ts]" value="import {Component}     from 'angular2/core';
+import {RouteConfig, RouterOutlet} from 'angular2/router';
+
+import {CrisisListComponent}   from './crisis-list.component';
+import {CrisisDetailComponent} from './crisis-detail.component';
+import {CrisisService}         from './crisis.service';
+
+@Component({
+  template:  `
+    <h2>CRISIS CENTER</h2>
+    <router-outlet></router-outlet>
+  `,
+  directives: [RouterOutlet],
+  providers:  [CrisisService]
+})
+@RouteConfig([
+  {path:'/',         name: 'CrisisCenter', component: CrisisListComponent, useAsDefault: true},
+  {path:'/:id',      name: 'CrisisDetail', component: CrisisDetailComponent},
+  {path:'/list/:id', name: 'CrisisList',   component: CrisisListComponent}
+])
+export class CrisisCenterComponent { }
+"><input type="hidden" name="files[app/crisis-center/crisis-detail.component.ts]" value="
+import {Component, OnInit} from 'angular2/core';
+import {Crisis, CrisisService} from './crisis.service';
+import {RouteParams, Router} from 'angular2/router';
+import {CanDeactivate, ComponentInstruction} from 'angular2/router';
+import {DialogService} from '../dialog.service';
+
+
+@Component({
+  template: `
+  <div *ngIf=&quot;crisis&quot;>
+    <h3>&quot;{{editName}}&quot;</h3>
+    <div>
+      <label>Id: </label>{{crisis.id}}</div>
+    <div>
+      <label>Name: </label>
+      <input [(ngModel)]=&quot;editName&quot; placeholder=&quot;name&quot;/>
+    </div>
+    <button (click)=&quot;save()&quot;>Save</button>
+    <button (click)=&quot;cancel()&quot;>Cancel</button>
+  </div>
+  `,
+  styles: ['input {width: 20em}']
+})
+export class CrisisDetailComponent implements OnInit, CanDeactivate {
+
+  public crisis: Crisis;
+  public editName: string;
+
+  constructor(
+    private _service: CrisisService,
+    private _router: Router,
+    private _routeParams: RouteParams,
+    private _dialog: DialogService
+    ) { }
+
+  ngOnInit() {
+    let id = +this._routeParams.get('id');
+    this._service.getCrisis(id).then(crisis => {
+      if (crisis) {
+        this.editName = crisis.name;
+        this.crisis = crisis;
+      } else { // id not found
+        this.gotoCrises();
+      }
+    });
+  }
+
+  routerCanDeactivate(next: ComponentInstruction, prev: ComponentInstruction) {
+    // Allow navigation (`true`) if no crisis or the crisis is unchanged.
+    // Otherwise ask the user with the dialog service and return its
+    // promise which resolves true-or-false when the user decides
+    return !this.crisis ||
+           this.crisis.name === this.editName ||
+           this._dialog.confirm('Discard changes?');
+  }
+
+  cancel() {
+    this.editName = this.crisis.name;
+    this.gotoCrises();
+  }
+
+  save() {
+    this.crisis.name = this.editName;
+    this.gotoCrises();
+  }
+
+  gotoCrises() {
+    let route =
+      ['CrisisList',  {id: this.crisis ? this.crisis.id : null} ]
+
+    this._router.navigate(route);
+  }
+}
+"><input type="hidden" name="files[app/crisis-center/crisis-list.component.ts]" value="
+import {Component, OnInit} from 'angular2/core';
+import {Crisis, CrisisService} from './crisis.service';
+import {Router, RouteParams} from 'angular2/router';
+
+@Component({
+  template: `
+    <ul>
+      <li *ngFor=&quot;#crisis of crises&quot;
+        [class.selected]=&quot;isSelected(crisis)&quot;
+        (click)=&quot;onSelect(crisis)&quot;>
+        <span class=&quot;badge&quot;>{{crisis.id}}</span> {{crisis.name}}
+      </li>
+    </ul>
+  `,
+})
+export class CrisisListComponent implements OnInit {
+  public crises: Crisis[];
+  private _selectedId: number;
+
+  constructor(
+    private _service: CrisisService,
+    private _router: Router,
+    routeParams: RouteParams) {
+      this._selectedId = +routeParams.get('id');
+  }
+
+  ngOnInit() {
+    this._service.getCrises().then(crises => this.crises = crises);
+  }
+
+  isSelected(crisis: Crisis) { return crisis.id === this._selectedId; }
+
+  onSelect(crisis: Crisis) {
+    this._router.navigate( ['CrisisDetail', { id: crisis.id }]  );
+  }
+}
+"><input type="hidden" name="files[app/crisis-center/crisis.service.ts]" value="
+import {Injectable} from 'angular2/core';
+
+export class Crisis {
+  constructor(public id: number, public name: string) { }
+}
+
+@Injectable()
+export class CrisisService {
+  getCrises() { return crisesPromise; }
+
+  getCrisis(id: number | string) {
+    return crisesPromise
+      .then(crises => crises.filter(c => c.id === +id)[0]);
+  }
+
+
+  static nextCrisisId = 100;
+
+  addCrisis(name:string) {
+    name = name.trim();
+    if (name){
+      let crisis = new Crisis(CrisisService.nextCrisisId++, name);
+      crisesPromise.then(crises => crises.push(crisis));
+    }
+  }
+}
+
+var crises = [
+  new Crisis(1, 'Princess Held Captive'),
+  new Crisis(2, 'Dragon Burning Cities'),
+  new Crisis(3, 'Giant Asteroid Heading For Earth'),
+  new Crisis(4, 'Release Deadline Looms')
+];
+
+var crisesPromise = Promise.resolve(crises);
+"><input type="hidden" name="files[app/dialog.service.ts]" value="import {Injectable} from 'angular2/core';
+/**
+ * Async modal dialog service
+ * DialogService makes this app easier to test by faking this service.
+ * TODO: better modal implemenation that doesn't use window.confirm
+ */
+@Injectable()
+export class DialogService {
+  /**
+   * Ask user to confirm an action. `message` explains the action and choices.
+   * Returns promise resolving to `true`=confirm or `false`=cancel
+   */
+  confirm(message?:string) {
+    return new Promise<boolean>((resolve, reject) =>
+      resolve(window.confirm(message || 'Is it OK?')));
+  };
+}
+"><input type="hidden" name="files[app/heroes/hero-detail.component.ts]" value="import {Component,  OnInit}  from 'angular2/core';
+import {Hero, HeroService}   from './hero.service';
+import {RouteParams, Router} from 'angular2/router';
+
+@Component({
+  template: `
+  <h2>HEROES</h2>
+  <div *ngIf=&quot;hero&quot;>
+    <h3>&quot;{{hero.name}}&quot;</h3>
+    <div>
+      <label>Id: </label>{{hero.id}}</div>
+    <div>
+      <label>Name: </label>
+      <input [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;name&quot;/>
+    </div>
+    <button (click)=&quot;gotoHeroes()&quot;>Back</button>
+  </div>
+  `,
+})
+export class HeroDetailComponent implements OnInit  {
+  public hero: Hero;
+
+  constructor(
+    private _router:Router,
+    private _routeParams:RouteParams,
+    private _service:HeroService){}
+
+  ngOnInit() {
+    let id = this._routeParams.get('id');
+    this._service.getHero(id).then(hero => this.hero = hero);
+  }
+
+  gotoHeroes() {
+    // <a [routerLink]=&quot;['Heroes']&quot;>Heroes</a>
+    this._router.navigate(['Heroes']);
+  }
+}
+"><input type="hidden" name="files[app/heroes/hero-list.component.ts]" value="
+// TODO SOMEDAY: Feature Componetized like HeroCenter
+import {Component, OnInit}   from 'angular2/core';
+import {Hero, HeroService}   from './hero.service';
+import {Router}              from 'angular2/router';
+
+@Component({
+  template: `
+    <h2>HEROES</h2>
+    <ul>
+      <li *ngFor=&quot;#hero of heroes&quot;
+        (click)=&quot;onSelect(hero)&quot;>
+        <span class=&quot;badge&quot;>{{hero.id}}</span> {{hero.name}}
+      </li>
+    </ul>
+  `
+})
+export class HeroListComponent implements OnInit {
+  public heroes: Hero[];
+  public selectedHero: Hero;
+
+  constructor(
+    private _router: Router,
+    private _service: HeroService) { }
+
+  ngOnInit() {
+    this._service.getHeroes().then(heroes => this.heroes = heroes)
+  }
+  onSelect(hero: Hero) {
+    this._router.navigate( ['HeroDetail', { id: hero.id }] );
+  }
+}
+
+/* A link parameters array
+['HeroDetail', { id: hero.id }] // {id: 15}
+*/"><input type="hidden" name="files[app/heroes/hero.service.ts]" value="import {Injectable} from 'angular2/core';
+
+export class Hero {
+  constructor(public id: number, public name: string) { }
+}
+
+@Injectable()
+export class HeroService {
+  getHeroes() { return heroesPromise; }
+
+  getHero(id: number | string) {
+    return heroesPromise
+      .then(heroes => heroes.filter(h => h.id === +id)[0]);
+  }
+}
+
+var HEROES = [
+	new Hero(11, 'Mr. Nice'),
+	new Hero(12, 'Narco'),
+	new Hero(13, 'Bombasto'),
+	new Hero(14, 'Celeritas'),
+	new Hero(15, 'Magneta'),
+	new Hero(16, 'RubberMan')
+];
+
+var heroesPromise = Promise.resolve(HEROES);
+"><input type="hidden" name="files[styles.css]" value="h1 {color: #369; font-family: Arial, Helvetica, sans-serif; font-size: 250%;}
+h2 { color: #369; font-family: Arial, Helvetica, sans-serif;  }
+h3 { color: #444; font-weight: lighter; }
+body { margin: 2em; }
+body, input[text], button { color: #888; font-family: Cambria, Georgia; }
+button {padding: 0.2em; font-size: 14px}
+
+ul {list-style-type: none; margin-left: 1em; padding: 0; width: 20em;}
+
+li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
+li:hover {color: #369; background-color: #EEE; left: .2em;}
+
+/* route-link anchor tags */
+a {padding: 5px; text-decoration: none; font-family: Arial, Helvetica, sans-serif; }
+a:visited, a:link {color: #444;}
+a:hover {color: white; background-color: #1171a3; }
+a.router-link-active {color: white; background-color: #52b9e9; }
+
+.selected { background-color: #EEE; color: #369; }
+
+.badge {
+  font-size: small;
+  color: white;
+  padding: 0.1em 0.7em;
+  background-color: #369;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -1px;
+}
+"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+  <head>
+    <script>document.write('<base href=&quot;' + document.location + '&quot; />');</script>
+    <title>Router Sample</title>
+    <link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/system.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/typescript.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/Rx.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/router.dev.js&quot;></script>
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+
+  <body>
+    <my-app>loading...</my-app>
+  </body>
+
+</html>
+"><input type="hidden" name="files[license.md]" value="Copyright 2010-2015 Google, Inc. http://angularjs.org
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License."><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="router"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - Router"></form><script>document.getElementById("mainForm").submit();</script></body></html>

@@ -1,0 +1,202 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/boot.ts]" value="import {bootstrap} from 'angular2/platform/browser';
+import {StructuralDirectivesComponent} from './structural-directives.component';
+
+bootstrap(StructuralDirectivesComponent);
+"><input type="hidden" name="files[app/heavy-loader.component.ts]" value="import {Component, Input, Output} from 'angular2/core';
+
+let nextId = 1;
+
+@Component({
+  selector: 'heavy-loader',
+  template: '<span>heavy loader #{{id}} on duty!</span>'
+})
+export class HeavyLoaderComponent {
+  id = nextId++;
+  @Input() logs: string[];
+
+  ngOnInit() {
+    // Mock todo: get 10,000 rows of data from the server
+    this._log(`heavy-loader ${this.id} initialized,
+      loading 10,000 rows of data from the server`);
+  }
+
+  ngOnDestroy() {
+    // Mock todo: clean-up
+    this._log(`heavy-loader ${this.id} destroyed, cleaning up`);
+  }
+
+  private _log(msg: string) {
+    this.logs.push(msg);
+    this._tick();
+  }
+
+  // Triggers the next round of Angular change detection
+  // after one turn of the JavaScript cycle
+  // ensuring display of msg added in onDestroy
+  private _tick() { setTimeout(() => { }, 0); }
+}
+"><input type="hidden" name="files[app/structural-directives.component.ts]" value="import {Component, Input, Output} from 'angular2/core';
+import {UnlessDirective}          from './unless.directive';
+import {HeavyLoaderComponent}     from './heavy-loader.component';
+
+@Component({
+  selector: 'structural-directives',
+  templateUrl: 'app/structural-directives.component.html',
+  styles: ['button { min-width: 100px; }'],
+  directives: [UnlessDirective, HeavyLoaderComponent]
+})
+export class StructuralDirectivesComponent {
+  heroes = ['Mr. Nice', 'Narco', 'Bombasto'];
+  hero = this.heroes[0];
+  condition = true;
+  isVisible = true;
+  logs: string[] = [];
+  status = 'ready';
+}
+"><input type="hidden" name="files[app/unless.directive.ts]" value="import {Directive, Input} from 'angular2/core';
+
+import {TemplateRef, ViewContainerRef} from 'angular2/core';
+
+@Directive({ selector: '[myUnless]' })
+export class UnlessDirective {
+
+  constructor(
+    private _templateRef: TemplateRef,
+    private _viewContainer: ViewContainerRef
+    ) { }
+
+  @Input() set myUnless(condition: boolean) {
+    if (!condition) {
+      this._viewContainer.createEmbeddedView(this._templateRef);
+    } else {
+      this._viewContainer.clear();
+    }
+  }
+}
+"><input type="hidden" name="files[app/structural-directives.component.html]" value="<h1>Structural Directives</h1>
+
+<div *ngIf=&quot;hero&quot;>{{hero}}</div>
+<div *ngFor=&quot;#hero of heroes&quot;>{{hero}}</div>
+<div [ngSwitch]=&quot;status&quot;>
+  <template [ngSwitchWhen]=&quot;'in-mission'&quot;>In Mission</template>
+  <template [ngSwitchWhen]=&quot;'ready'&quot;>Ready</template>
+  <template ngSwitchDefault>Unknown</template>
+</div>
+
+<hr>
+
+<button
+  (click)=&quot;condition = !condition&quot;
+  [style.background] = &quot;condition ? 'orangered': 'lightgreen'&quot;
+  >
+  Set 'condition' to {{condition ? 'False': 'True'}}
+</button>
+
+<p *ngIf=&quot;condition&quot;>
+  condition is true and ngIf is true.
+</p>
+<p *ngIf=&quot;!condition&quot;>
+  condition is false and ngIf is false.
+</p>
+<p *myUnless=&quot;condition&quot;>
+  condition is false and myUnless is true.
+</p>
+
+<p *myUnless=&quot;!condition&quot;>
+  condition is true and myUnless is false.
+</p>
+
+<hr>
+
+<div><!-- Visibility -->
+  <button (click)=&quot;isVisible = !isVisible&quot;>show | hide</button>
+  <heavy-loader [style.display]=&quot;isVisible ? 'inline' : 'none'&quot; [logs]=&quot;logs&quot;></heavy-loader>
+</div>
+
+<div><!-- NgIf -->
+  <button (click)=&quot;condition = !condition&quot;>if | !if</button>
+  <heavy-loader *ngIf=&quot;condition&quot; [logs]=&quot;logs&quot;></heavy-loader>
+</div>
+
+<h4>heavy-loader log:</h4>
+<div *ngFor=&quot;#message of logs&quot;>{{message}}</div>
+
+<hr>
+
+<p>
+  Hip!
+</p>
+<template>
+  <p>
+    Hip!
+  </p>
+</template>
+<p>
+  Hooray!
+</p>
+
+<hr>
+
+<!-- Examples (A) and (B) are the same -->
+<!-- (A) *ngIf paragraph -->
+<p *ngIf=&quot;condition&quot;>
+  Our heroes are true!
+</p>
+
+<!-- (B) [ngIf] with template -->
+<template [ngIf]=&quot;condition&quot;>
+  <p>
+    Our heroes are true!
+  </p>
+</template>
+
+<hr>
+
+<!-- Examples (A) and (B) are the same -->
+
+<!-- (A) *ngFor div -->
+<div *ngFor=&quot;#hero of heroes&quot;>{{ hero }}</div>
+
+<!-- (B) ngFor with template -->
+<template ngFor #hero [ngForOf]=&quot;heroes&quot;>
+  <div>{{ hero }}</div>
+</template>
+"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Angular 2 Structural Directives</title>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/system.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/typescript.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/Rx.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js&quot;></script>
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+
+  <body>
+    <structural-directives>Loading...</structural-directives>
+  </body>
+
+</html>
+"><input type="hidden" name="files[license.md]" value="Copyright 2010-2015 Google, Inc. http://angularjs.org
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License."><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="structural"><input type="hidden" name="tags[3]" value="directives"><input type="hidden" name="tags[4]" value="template"><input type="hidden" name="tags[5]" value="ngIf"><input type="hidden" name="tags[6]" value="ngSwitch"><input type="hidden" name="tags[7]" value="ngFor"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - Structural directives"></form><script>document.getElementById("mainForm").submit();</script></body></html>

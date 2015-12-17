@@ -1,0 +1,285 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/app.component.ts]" value="import {Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {HeroesComponent} from './heroes.component';
+import {HeroDetailComponent} from './hero-detail.component';
+import {DashboardComponent} from './dashboard.component';
+
+@Component({
+  selector: 'my-app',
+  template: `
+    <h1>{{title}}</h1>
+    <a [routerLink]=&quot;['Dashboard']&quot;>Dashboard</a>
+    <a [routerLink]=&quot;['Heroes']&quot;>Heroes</a>
+    <router-outlet></router-outlet>
+  `,
+  styles: [`
+    a {padding: 5px;text-decoration: none;}
+    a:visited, a:link {color: #444;}
+    a:hover {color: white; background-color: #1171a3;}
+    a.router-link-active {color: white; background-color: #52b9e9;}
+  `],
+  directives: [ROUTER_DIRECTIVES]
+})
+@RouteConfig([
+  // {path: '/', redirectTo: ['Dashboard'] },
+  {path: '/dashboard', name: 'Dashboard', component: DashboardComponent, useAsDefault: true},
+  {path: '/heroes', name: 'Heroes', component: HeroesComponent},
+  {path: '/detail/:id', name: 'HeroDetail', component: HeroDetailComponent}
+])
+export class AppComponent {
+  public title = 'Tour of Heroes';
+}
+"><input type="hidden" name="files[app/boot.ts]" value="import {bootstrap} from 'angular2/platform/browser';
+import {ROUTER_PROVIDERS} from 'angular2/router';
+import {HeroService} from './hero.service';
+import {AppComponent} from './app.component';
+
+bootstrap(AppComponent, [
+  ROUTER_PROVIDERS,
+  HeroService
+]);
+"><input type="hidden" name="files[app/dashboard.component.ts]" value="import {Component, OnInit} from 'angular2/core';
+import {Router} from 'angular2/router';
+import {Hero} from './hero';
+import {HeroService} from './hero.service';
+
+@Component({
+  selector: 'my-dashboard',
+  templateUrl: 'app/dashboard.component.html',
+  styleUrls: ['app/dashboard.component.css']
+})
+export class DashboardComponent implements OnInit {
+  public heroes: Hero[] = [];
+
+  constructor(private _heroService: HeroService, private _router: Router) { }
+
+  ngOnInit() {
+    this._heroService.getHeroes().then(heroes => this.heroes = heroes);
+  }
+
+  gotoDetail(hero: Hero) {
+    this._router.navigate(['HeroDetail', { id: hero.id }]);
+  }
+}
+"><input type="hidden" name="files[app/hero-detail.component.ts]" value="import {Component, OnInit} from 'angular2/core';
+import {RouteParams} from 'angular2/router';
+import {Hero} from './hero';
+import {HeroService} from './hero.service';
+
+@Component({
+  selector: 'my-hero-detail',
+  templateUrl: 'app/hero-detail.component.html',
+  inputs: ['hero']
+})
+export class HeroDetailComponent implements OnInit {
+  public hero: Hero;
+
+  constructor(private _heroService: HeroService,
+    private _routeParams: RouteParams) {
+  }
+
+  ngOnInit() {
+    if (!this.hero) {
+      let id = +this._routeParams.get('id');
+      this._heroService.getHero(id).then(hero => this.hero = hero);
+    }
+  }
+
+  goBack() {
+    window.history.back();
+  }
+}
+"><input type="hidden" name="files[app/hero.service.ts]" value="import {Injectable} from 'angular2/core';
+import {HEROES} from './mock-heroes';
+
+@Injectable()
+export class HeroService {
+	getHeroes() {
+		return Promise.resolve(HEROES);
+	}
+
+	getHero(id: number) {
+    return Promise.resolve(HEROES)
+      .then(heroes => heroes.filter(h => h.id === id)[0]);
+	}
+}
+"><input type="hidden" name="files[app/hero.ts]" value="export interface Hero {
+	id: number;
+	name: string;
+}
+"><input type="hidden" name="files[app/heroes.component.ts]" value="import {Component, OnInit} from 'angular2/core';
+import {Router} from 'angular2/router';
+import {HeroService} from './hero.service';
+import {HeroDetailComponent} from './hero-detail.component';
+import {Hero} from './hero';
+
+@Component({
+  selector: 'my-heroes',
+  templateUrl: 'app/heroes.component.html',
+  styleUrls: ['app/heroes.component.css'],
+  directives: [HeroDetailComponent]
+})
+export class HeroesComponent implements OnInit {
+  public heroes: Hero[];
+  public selectedHero: Hero;
+
+  constructor(private _heroService: HeroService, private _router: Router) { }
+
+  getHeroes() {
+    this.selectedHero = undefined;
+    this.heroes = [];
+
+    this._heroService.getHeroes().then(heroes => this.heroes = heroes);
+
+    return this.heroes;
+  }
+
+  gotoDetail() {
+    this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
+  }
+
+  ngOnInit() {
+    this.heroes = this.getHeroes();
+  }
+
+  onSelect(hero: Hero) { this.selectedHero = hero; }
+}
+"><input type="hidden" name="files[app/mock-heroes.ts]" value="import { Hero } from './hero';
+
+export var HEROES: Hero[] = [
+	{&quot;id&quot;: 11, &quot;name&quot;: &quot;Mr. Nice&quot;},
+	{&quot;id&quot;: 12, &quot;name&quot;: &quot;Narco&quot;},
+	{&quot;id&quot;: 13, &quot;name&quot;: &quot;Bombasto&quot;},
+	{&quot;id&quot;: 14, &quot;name&quot;: &quot;Celeritas&quot;},
+	{&quot;id&quot;: 15, &quot;name&quot;: &quot;Magneta&quot;},
+	{&quot;id&quot;: 16, &quot;name&quot;: &quot;RubberMan&quot;},
+	{&quot;id&quot;: 17, &quot;name&quot;: &quot;Dynama&quot;},
+	{&quot;id&quot;: 18, &quot;name&quot;: &quot;Dr IQ&quot;},
+	{&quot;id&quot;: 19, &quot;name&quot;: &quot;Magma&quot;},
+	{&quot;id&quot;: 20, &quot;name&quot;: &quot;Tornado&quot;}
+];
+"><input type="hidden" name="files[app/dashboard.component.css]" value="[class*='col-'] { float: left; }
+
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+h3 { text-align: center; margin-bottom: 0; }
+
+[class*='col-'] { padding-right: 20px; padding-bottom: 20px;}
+[class*='col-']:last-of-type { padding-right: 0; }
+
+.grid { margin: 0 10em; }
+.col-1-4 { width: 25%; }
+.module {
+	padding: 20px;
+	text-align: center;
+	color: #eee;
+	max-height: 120px;
+	min-width: 120px;
+	background-color: #1171a3;
+}
+
+.module:hover { background-color: #52b9e9; cursor: pointer; }
+
+.grid-pad { padding: 20px 0 20px 20px; }
+.grid-pad > [class*='col-']:last-of-type { padding-right: 20px; }
+
+@media (max-width: 600px) {
+	.module { font-size: 10px; max-height: 75px; }
+}
+
+@media (max-width: 1024px) {
+	.grid { margin: 0; }
+	.module { min-width: 60px; }
+}
+"><input type="hidden" name="files[app/heroes.component.css]" value=".heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}
+
+.heroes li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
+
+.heroes li:hover {color: #369; background-color: #EEE; left: .2em;}
+
+.heroes .badge {
+	font-size: small;
+	color: white;
+	padding: 0.1em 0.7em;
+	background-color: #369;
+	line-height: 1em;
+	position: relative;
+	left: -1px;
+	top: -1px;
+}
+.selected { background-color: #EEE; color: #369; }"><input type="hidden" name="files[styles.css]" value="h2 { color: #444; font-weight: lighter; }
+body { margin: 2em; }
+body, input[text], button { color: #888; font-family: Cambria, Georgia; }
+button {padding: 0.2em; font-size: 14px}
+"><input type="hidden" name="files[app/dashboard.component.html]" value="<h3>Top Heroes</h3>
+<div class=&quot;grid grid-pad&quot;>
+	<div *ngFor=&quot;#hero of heroes | slice:0:4&quot; class=&quot;col-1-4&quot; (click)=&quot;gotoDetail(hero)&quot;>
+		<div class=&quot;module hero&quot;>
+			<h4>{{hero.name}}</h4>
+		</div>
+	</div>
+</div>
+"><input type="hidden" name="files[app/hero-detail.component.html]" value="<div *ngIf=&quot;hero&quot;>
+	<h2>{{hero.name}} details!</h2>
+	<div>
+		<label>id: </label>{{hero.id}}</div>
+	<div>
+		<label>name: </label>
+		<input [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;name&quot;/>
+	</div>
+	<button (click)=&quot;goBack()&quot;>Back</button>
+</div>"><input type="hidden" name="files[app/heroes.component.html]" value="<div>
+  <h2>My Heroes</h2>
+  <ul class=&quot;heroes&quot;>
+    <li *ngFor=&quot;#hero of heroes&quot;
+      [class.selected]=&quot;hero === selectedHero&quot;
+      (click)=&quot;onSelect(hero)&quot;>
+      <span class=&quot;badge&quot;>{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+  <div *ngIf=&quot;selectedHero&quot;>
+    <h2>{{selectedHero.name | uppercase}} is my hero</h2>
+    <button (click)=&quot;gotoDetail()&quot;>View Details</button>
+  </div>
+</div>
+"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+
+<head>
+  <script>document.write('<base href=&quot;' + document.location + '&quot; />');</script>
+  <link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;>
+  <script src=&quot;https://code.angularjs.org/tools/system.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/typescript.js&quot;></script>
+  <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js&quot;></script>
+  <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/router.dev.js&quot;></script>
+  <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+    System.import('app/boot').catch(console.log.bind(console));
+  </script>
+</head>
+
+<body>
+  <my-app>Loading...</my-app>
+</body>
+
+</html>"><input type="hidden" name="files[license.md]" value="Copyright 2010-2015 Google, Inc. http://angularjs.org
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License."><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="tutorial"><input type="hidden" name="tags[3]" value="tour"><input type="hidden" name="tags[4]" value="heroes"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - Tour of Heroes"></form><script>document.getElementById("mainForm").submit();</script></body></html>

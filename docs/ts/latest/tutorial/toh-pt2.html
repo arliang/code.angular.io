@@ -1,0 +1,324 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Master/Detail - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css"/><link href="/resources/fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="/resources/fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/about/" md-button>About</a></li><li class="l-left"><a class="main-nav-button" href="/contribute.html" md-button>Contribute</a></li><li class="l-right feedback-button"><md-button ng-click="appCtrl.openFeedback()" class="md-icon-button top-nav-icon" aria-label="Submit feedback on this page"><span class="material-icons">feedback</span></md-button></li></ul></nav></md-toolbar><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><!-- PRIMARY NAVIGATION--><ul ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-primary"><li><a href="/docs/ts/latest/index.html" md-button><span class="side-nav-icon icon-home"></span> Docs Home</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/quickstart.html" md-button><span class="side-nav-icon icon-query-builder"></span> 5 Min Quickstart</a></li><!-- SECONDARY NAVIGATION--><li class="is-selected"><a href="/docs/ts/latest/tutorial/" md-button><span class="side-nav-icon icon-list"></span> Tutorial</a></li><!-- SECONDARY NAVIGATION--><!--SECONDARY NAVIGATION--><ul class="side-nav-secondary is-ordered"><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/tutorial/toh-pt1.html" md-button>1. The Hero Editor</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li class="is-selected"><a href="/docs/ts/latest/tutorial/toh-pt2.html" md-button>2. Master/Detail</a></li><!-- TERTIARY NAVIGATION--><!-- TERTIARY NAVIGATION--></ul><li><a href="/docs/ts/latest/guide/" md-button><span class="side-nav-icon icon-list"></span> Developer Guides</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/testing/" md-button><span class="side-nav-icon icon-list"></span> Testing Guides</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/api/" md-button><span class="side-nav-icon icon-book"></span> API Preview</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/resources.html" md-button><span class="side-nav-icon icon-play-circle-fill"></span> Angular Resources</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/help.html" md-button><span class="side-nav-icon icon-chat"></span> Help &amp; Support</a></li><!-- SECONDARY NAVIGATION--></ul></nav><header class="hero background-sky"><h1 class="hero-title text-display-1 ">Master/Detail</h1><!-- Replace _ undscores with . dots --><!-- Replace _ undscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="hero-subtitle text-subhead dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/tutorial/" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/tutorial/" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/tutorial/" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">We build a master/detail page with a list of heroes </p></div><article class="l-content-small grid-fluid docs-content"><h1 id="it-takes-many-heroes">It Takes Many Heroes</h1>
+<p>Our story needs more heroes.
+We’ll expand our Tour of Heroes app to display a list of heroes,
+allow the user to select a hero, and display the hero’s details.</p>
+<p>Let’s take stock of what we’ll need to display a list of heroes.
+First, we need a list of heroes. We want to display those heroes in the view’s template,
+so we’ll need a way to do that.</p>
+<div class="l-main-section"></div><h2 id="where-we-left-off">Where We Left Off</h2>
+<p>Before we continue with Part 2 of the Tour of Heroes,
+let’s verify we have the following structure after <a href="./toh-pt1.html">Part 1</a>.
+If not, we’ll need to go back to Part 1 and figure out what we missed.</p>
+<code-example format="">angular2-tour-of-heroes
+  ├── node_modules
+  ├── app
+  |    ├── app.component.ts
+  |    └── boot.ts
+  ├── index.html
+  ├── tsconfig.json
+  └── package.json
+</code-example><h3 id="keep-the-app-transpiling-and-running">Keep the app transpiling and running</h3>
+<p>We want to start the TypeScript compiler, have it watch for changes, and start our server. We&#39;ll do this by typing</p>
+<code-example format="." language="bash">npm run go
+</code-example><p>This will keep the application running while we continue to build the Tour of Heroes.</p>
+<div class="l-main-section"></div><h2 id="displaying-our-heroes">Displaying Our Heroes</h2>
+<h3 id="creating-heroes">Creating heroes</h3>
+<p>Let’s create an array of ten heroes at the bottom of <code>app.component.ts</code>.</p>
+<div class="example-title">app.component.ts (Hero array)</div><code-example language="ts" format="linenums">var HEROES: Hero[] = [
+  { &quot;id&quot;: 11, &quot;name&quot;: &quot;Mr. Nice&quot; },
+  { &quot;id&quot;: 12, &quot;name&quot;: &quot;Narco&quot; },
+  { &quot;id&quot;: 13, &quot;name&quot;: &quot;Bombasto&quot; },
+  { &quot;id&quot;: 14, &quot;name&quot;: &quot;Celeritas&quot; },
+  { &quot;id&quot;: 15, &quot;name&quot;: &quot;Magneta&quot; },
+  { &quot;id&quot;: 16, &quot;name&quot;: &quot;RubberMan&quot; },
+  { &quot;id&quot;: 17, &quot;name&quot;: &quot;Dynama&quot; },
+  { &quot;id&quot;: 18, &quot;name&quot;: &quot;Dr IQ&quot; },
+  { &quot;id&quot;: 19, &quot;name&quot;: &quot;Magma&quot; },
+  { &quot;id&quot;: 20, &quot;name&quot;: &quot;Tornado&quot; }
+];
+</code-example><p>The <code>HEROES</code> array is of type <code>Hero</code>.
+We are taking advantage of the <code>Hero</code> class we coded previously to create an array of our heroes.
+We aspire to get this list of heroes from a web service, but let’s take small steps
+on this road and start by displaying these mock heroes in the browser.</p>
+<h3 id="exposing-heroes">Exposing heroes</h3>
+<p>Let’s create a public property in <code>AppComponent</code> that exposes the heroes for binding.</p>
+<div class="example-title">app.component.ts (Hero array property)</div><code-example language="ts" format="">public heroes = HEROES;
+</code-example><p>We did not have to define the <code>heroes</code> type.  TypeScript can infer it from the <code>HEROES</code> array.</p>
+<div class="l-sub-section"><p>We could have defined the heroes list here in this component class.
+But we know that we’ll get the heroes from a data service.
+Because we know where we are heading, it makes sense to separate the hero data
+from the class implementation from the start.</p>
+</div><h3 id="displaying-heroes-in-a-template">Displaying heroes in a template</h3>
+<p>Our component has <code>heroes</code>. Let’s create an unordered list in our template to display them.
+We’ll insert the following chunk of HTML below the title and above the hero details.</p>
+<div class="example-title">app.component.ts (Heroes template)</div><code-example language="ts" format="linenums">&lt;h2&gt;My Heroes&lt;/h2&gt;
+&lt;ul class=&quot;heroes&quot;&gt;
+  &lt;li&gt;
+    &lt;!-- each hero goes here --&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code-example><p>Now we have a template that we can fill with our heroes.</p>
+<h3 id="listing-heroes-with-ngfor">Listing heroes with ngFor</h3>
+<p>We want to bind the array of <code>heroes</code> in our component to our template, iterate over them,
+and display them individually.
+We’ll need some help from Angular to do this. Let’s do this step by step.</p>
+<p>First modify the <code>&lt;li&gt;</code> tag by adding the built-in directive <code>*ngFor</code>.</p>
+<div class="example-title">app.component.ts (ngFor)</div><code-example language="ts" format="">&lt;li *ngFor=&quot;#hero of heroes&quot;&gt;
+</code-example><div class="alert is-critical"><p>The leading asterisk (<code>*</code>) in front of <code>ngFor</code> is a critical part of this syntax.</p>
+</div><div class="l-sub-section"><p>The (<code>*</code>) prefix to <code>ngFor</code> indicates that the <code>&lt;li&gt;</code> element and its children
+constitute a master template.</p>
+<p>The <code>ngFor</code> directive iterates over the <code>heroes</code> array returned by the <code>AppComponent.heroes</code> property
+and stamps out instances of this template.</p>
+<p>The quoted text assigned to <code>ngFor</code> means
+“<em>take each hero in the <code>heroes</code> array, store it in the local <code>hero</code> variable,
+and make it available to the corresponding template instance</em>”.</p>
+<p>The <code>#</code> prefix before &quot;hero&quot; identifies the <code>hero</code> as a local template variable.
+We can reference this variable within the template to access a hero’s properties.</p>
+<p>Learn more about <code>ngFor</code> and local template variables in the
+<a href="../guide/template-syntax.html#ng-for">Template Syntax chapter</a>.</p>
+</div><p>With this background in mind, we now insert some content between the <code>&lt;li&gt;</code> tags
+that uses the <code>hero</code> template variable to display the hero’s properties.</p>
+<div class="example-title">app.component.ts (ngFor template)</div><code-example language="ts" format=".">&lt;li *ngFor=&quot;#hero of heroes&quot;&gt;
+  &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+&lt;/li&gt;
+</code-example><p>When the browser refreshes, we see a list of heroes!</p>
+<h3 id="styling-our-heroes">Styling our heroes</h3>
+<p>Our list of heroes looks pretty bland.
+We want to make it visually obvious to a user which hero we are hovering over and which hero is selected.</p>
+<p>Let’s add some styles to our component by setting the <code>styles</code> property on the <code>@Component</code> decorator
+to the following CSS classes:</p>
+<div class="example-title">app.component.ts (Styling)</div><code-example language="ts" format="linenums">styles:[`
+  .heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}
+
+  .heroes li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
+
+  .heroes li:hover {color: #369; background-color: #EEE; left: .2em;}
+
+  .heroes .badge {
+    font-size: small;
+    color: white;
+    padding: 0.1em 0.7em;
+    background-color: #369;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -1px;
+  }
+  .selected { background-color: #EEE; color: #369; }
+`]
+</code-example><p>Notice that we again use the back-tick notation for multi-line strings.</p>
+<p>When we assign styles to a component they are scoped to that specific component.
+Our styles will only apply to our <code>AppComponent</code> and won&#39;t &quot;leak&quot; to the outer HTML.</p>
+<p>Our template for displaying the heroes should now look like this:</p>
+<div class="example-title">app.component.ts (Styled heroes)</div><code-example language="ts" format="linenums">&lt;h2&gt;My Heroes&lt;/h2&gt;
+&lt;ul class=&quot;heroes&quot;&gt;
+  &lt;li *ngFor=&quot;#hero of heroes&quot;&gt;
+    &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code-example><p>Our styled list of heroes should look like this:</p>
+<figure class="image-display"><img src="/resources/images/devguide/toh/heroes-list-2.png" alt="Output of heroes list app (no selection color)"></figure><div class="l-main-section"><h2 id="selecting-a-hero">Selecting a Hero</h2>
+<p>We have a list of heroes and we have a single hero displayed in our app.
+The list and the single hero are not connected in any way.
+We want the user to select a hero from our list, and have the selected hero appear in the details view.
+This UI pattern is widely known as &quot;master-detail&quot;.
+In our case, the master is the heroes list and the detail is the selected hero.</p>
+<p>Let’s connect the master to the detail through a <code>selectedHero</code> component property bound to a click event.</p>
+<h3 id="click-event">Click event</h3>
+<p>We modify the <code>&lt;li&gt;</code> by inserting an Angular event binding to its click event.</p>
+<div class="example-title">app.component.ts (Capturing the click event)</div><code-example language="ts" format="linenums">&lt;li *ngFor=&quot;#hero of heroes&quot; (click)=&quot;onSelect(hero)&quot;&gt;
+  &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+&lt;/li&gt;
+</code-example><p>Focus on the event binding</p>
+<code-example format="." language="bash">(click)="onSelect(hero)"</code-example><p>The parenthesis identify the <code>&lt;li&gt;</code> element’s  <code>click</code> event as the target.
+The expression to the right of the equal sign calls the  <code>AppComponent</code> method, <code>onSelect()</code>,
+passing the local template variable <code>hero</code> as an argument.
+That’s the same <code>hero</code> variable we defined previously in the <code>ngFor</code>.</p>
+<div class="l-sub-section"><p>Learn more about Event Binding in the <a href="../guide/template-syntax.html#event-binding">Templating Syntax chapter</a>.</p>
+</div><h3 id="add-the-click-handler">Add the click handler</h3>
+<p>Our event binding refers to an <code>onSelect</code> method that doesn’t exist yet.
+We’ll add that method to our component now.</p>
+<p>What should that method do? It should set the component’s selected hero to the hero that the user clicked.</p>
+<p>Our component doesn’t have a “selected hero” yet either. We’ll start there.</p>
+<h3 id="expose-the-selected-hero">Expose the selected hero</h3>
+<p>We no longer need the static <code>hero</code> property of the <code>AppComponent</code>.
+<strong>Replace</strong> it with this simple <code>selectedHero</code> property:</p>
+<div class="example-title">app.component.ts (selectedHero)</div><code-example language="ts" format="">public selectedHero: Hero;
+</code-example><p>We’ve decided that none of the heroes should be selected before the user picks a hero so
+we won’t initialize the <code>selectedHero</code> as we were doing with <code>hero</code>.</p>
+<p>Now <strong>add an <code>onSelect</code> method</strong> that sets the <code>selectedHero</code> property to the <code>hero</code> the user clicked.</p>
+<div class="example-title">app.component.ts (onSelect)</div><code-example language="ts" format="">onSelect(hero: Hero) { this.selectedHero = hero; }
+</code-example><p>We will be showing the selected hero&#39;s details in our template.
+At the moment, it is still referring to the old <code>hero</code> property.
+Let’s fix the template to bind to the new <code>selectedHero</code> property.</p>
+<div class="example-title">app.compontent.ts (Binding to the selectedHero's name)</div><code-example language="ts" format="linenums">&lt;h2&gt;{{selectedHero.name}} details!&lt;/h2&gt;
+&lt;div&gt;&lt;label&gt;id: &lt;/label&gt;{{selectedHero.id}}&lt;/div&gt;
+&lt;div&gt;
+    &lt;label&gt;name: &lt;/label&gt;
+    &lt;input [(ngModel)]=&quot;selectedHero.name&quot; placeholder=&quot;name&quot;/&gt;
+&lt;/div&gt;
+</code-example><h3 id="hide-the-empty-detail-with-ngif">Hide the empty detail with ngIf</h3>
+<p>When our app loads we see a list of heroes, but a hero is not selected.
+The <code>selectedHero</code> is <code>undefined</code>.
+That’s why we&#39;ll see the following error in the browser’s console:</p>
+<code-example language="html">EXCEPTION: TypeError: Cannot read property 'name' of undefined in [null]
+</code-example><p>Remember that we are displaying <code>selectedHero.name</code> in the template.
+This name property does not exist because <code>selectedHero</code> itself is undefined.</p>
+<p>We&#39;ll address this problem by keeping the hero detail out of the DOM until there is a selected hero.</p>
+<p>We wrap the HTML hero detail content of our template with a <code>&lt;div&gt;</code>.
+Then we add the <code>ngIf</code> built-in directive and set it to the <code>selectedHero</code> property of our component.</p>
+<div class="example-title">app.component.ts (ngIf)</div><code-example language="ts" format="linenums">&lt;div *ngIf=&quot;selectedHero&quot;&gt;
+  &lt;h2&gt;{{selectedHero.name}} details!&lt;/h2&gt;
+  &lt;div&gt;&lt;label&gt;id: &lt;/label&gt;{{selectedHero.id}}&lt;/div&gt;
+  &lt;div&gt;
+    &lt;label&gt;name: &lt;/label&gt;
+    &lt;input [(ngModel)]=&quot;selectedHero.name&quot; placeholder=&quot;name&quot;/&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code-example><div class="alert is-critical"><p>Remember that the leading asterisk (<code>*</code>) in front of <code>ngIf</code> is
+a critical part of this syntax.</p>
+</div><p>When there is no <code>selectedHero</code>, the <code>ngIf</code> directive removes the hero detail HTML from the DOM.
+There will be no hero detail elements and no bindings to worry about.</p>
+<p>When the user picks a hero, <code>selectedHero</code> becomes &quot;truthy&quot; and
+<code>ngIf</code> puts the hero detail content into the DOM and evaluates the nested bindings.</p>
+<div class="l-sub-section"><p><code>ngIf</code> and <code>ngFor</code> are called “structural directives” because they can change the
+structure of portions of the DOM.
+In other words, they give structure to the way Angular displays content in the DOM.</p>
+<p>Learn more about <code>ngIf</code>, <code>ngFor</code> and other structural directives in the
+<a href="../guide/template-syntax.html#directives">Template Syntax chapter</a>.</p>
+</div><p>The browser refreshes and we see the list of heroes but not the selected hero detail.
+The <code>ngIf</code> keeps it out of the DOM as long as the <code>selectedHero</code> is undefined.
+When we click on a hero in the list, the selected hero displays in the hero details.
+Everything is working as we expect.</p>
+<h3 id="styling-the-selection">Styling the selection</h3>
+<p>We see the selected hero in the details area below but we can’t quickly locate that hero in the list above.
+We can fix that by applying the <code>selected</code> CSS class to the appropriate <code>&lt;li&gt;</code> in the master list.
+For example, when we select Magneta from the heroes list,
+we can make it pop out visually by giving it a subtle background color as shown here.</p>
+<figure class="image-display"><img src="/resources/images/devguide/toh/heroes-list-selected.png" alt="Selected hero"></figure><p>We’ll add a property binding on <code>class</code> for the <code>selected</code> class to the template. We&#39;ll set this to an expression that compares the current <code>selectedHero</code> to the <code>hero</code>.</p>
+<p>The key is the name of the CSS class (<code>selected</code>). The value is <code>true</code> if the two heroes match and <code>false</code> otherwise.
+We’re saying “<em>apply the <code>selected</code> class if the heroes match, remove it if they don’t</em>”.</p>
+<div class="example-title">app.component.ts (Setting the CSS class)</div><code-example language="ts" format=".">[class.selected]=&quot;hero === selectedHero&quot;
+</code-example><p>Notice in the template that the <code>class.selected</code> is surrounded in square brackets (<code>[]</code>).
+This is the syntax for a Property Binding, a binding in which data flows one way
+from the data source (the expression <code>hero === selectedHero</code>) to a property of <code>class</code>.</p>
+<div class="example-title">app.component.ts (Styling each hero)</div><code-example language="ts" format=".">&lt;li *ngFor=&quot;#hero of heroes&quot;
+  [class.selected]=&quot;hero === selectedHero&quot;
+  (click)=&quot;onSelect(hero)&quot;&gt;
+  &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+&lt;/li&gt;
+</code-example><div class="l-sub-section"><p>Learn more about <a href="../guide/template-syntax.html#property-binding">Property Binding</a>
+in the Template Syntax chapter.</p>
+</div><p>The browser reloads our app.
+We select a hero and the selection is clearly identified by the background color.</p>
+<figure class="image-display"><img src="/resources/images/devguide/toh/heroes-list-1.png" alt="Output of heroes list app"></figure><p>We select a different hero and the tell-tale color switches to that hero.</p>
+<p>Here&#39;s the complete <code>app.component.ts</code> as it stands now:</p>
+<div class="example-title">app.component.ts</div><code-example language="ts" format="linenums">import {Component} from &#39;angular2/core&#39;;
+
+interface Hero {
+  id: number;
+  name: string;
+}
+
+@Component({
+  selector: &#39;my-app&#39;,
+  template:`
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+    &lt;h2&gt;My Heroes&lt;/h2&gt;
+    &lt;ul class=&quot;heroes&quot;&gt;
+      &lt;li *ngFor=&quot;#hero of heroes&quot;
+        [class.selected]=&quot;hero === selectedHero&quot;
+        (click)=&quot;onSelect(hero)&quot;&gt;
+        &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div *ngIf=&quot;selectedHero&quot;&gt;
+      &lt;h2&gt;{{selectedHero.name}} details!&lt;/h2&gt;
+      &lt;div&gt;&lt;label&gt;id: &lt;/label&gt;{{selectedHero.id}}&lt;/div&gt;
+      &lt;div&gt;
+        &lt;label&gt;name: &lt;/label&gt;
+        &lt;input [(ngModel)]=&quot;selectedHero.name&quot; placeholder=&quot;name&quot;/&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  `,
+  styles:[`
+    .heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}
+
+    .heroes li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
+
+    .heroes li:hover {color: #369; background-color: #EEE; left: .2em;}
+
+    .heroes .badge {
+      font-size: small;
+      color: white;
+      padding: 0.1em 0.7em;
+      background-color: #369;
+      line-height: 1em;
+      position: relative;
+      left: -1px;
+      top: -1px;
+    }
+    .selected { background-color: #EEE; color: #369; }
+  `]  
+})
+export class AppComponent {
+  public title = &#39;Tour of Heroes&#39;;
+  public heroes = HEROES;
+  public selectedHero: Hero;
+
+  onSelect(hero: Hero) { this.selectedHero = hero; }
+}
+
+var HEROES: Hero[] = [
+  { &quot;id&quot;: 11, &quot;name&quot;: &quot;Mr. Nice&quot; },
+  { &quot;id&quot;: 12, &quot;name&quot;: &quot;Narco&quot; },
+  { &quot;id&quot;: 13, &quot;name&quot;: &quot;Bombasto&quot; },
+  { &quot;id&quot;: 14, &quot;name&quot;: &quot;Celeritas&quot; },
+  { &quot;id&quot;: 15, &quot;name&quot;: &quot;Magneta&quot; },
+  { &quot;id&quot;: 16, &quot;name&quot;: &quot;RubberMan&quot; },
+  { &quot;id&quot;: 17, &quot;name&quot;: &quot;Dynama&quot; },
+  { &quot;id&quot;: 18, &quot;name&quot;: &quot;Dr IQ&quot; },
+  { &quot;id&quot;: 19, &quot;name&quot;: &quot;Magma&quot; },
+  { &quot;id&quot;: 20, &quot;name&quot;: &quot;Tornado&quot; }
+];
+</code-example></div><div class="l-main-section"><h2 id="the-road-we-ve-travelled">The Road We’ve Travelled</h2>
+<p>Here’s what we achieved in this chapter:</p>
+<ul>
+<li>Our Tour of Heroes now displays a list of selectable heroes</li>
+<li>We added the ability to select a hero and show the hero’s details</li>
+<li>We learned how to use the built-in directives <code>ngIf</code> and <code>ngFor</code> in a component’s template</li>
+</ul>
+<h3 id="the-road-ahead">The Road Ahead</h3>
+<p>Our Tour of Heroes has grown, but it’s far from complete.
+We want to get data from an asynchronous source using promises, use shared services, and create reusable components.
+We’ll learn more about these tasks in the coming tutorial chapters.</p>
+</div></article><div class="main-footer"><nav class="background-silver grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c2"><h3 class="text-headline">LIBRARIES</h3><ul class="text-body"><li><a href="/"> Angular 2.0</a></li><li><a href="https://angularjs.org/"> Angular 1 for JS</a></li><li><a href="https://angulardart.org/"> Angular 1 for Dart</a></li><li><a href="https://material.angularjs.org"> Angular Material</a></li><li><a href="https://www.firebase.com/docs/web/libraries/angular/"> AngularFire</a></li></ul></div><div class="c2"><h3 class="text-headline">LEARN</h3><ul class="text-body"><li><a href="/docs/ts/latest/quickstart.html"> 5 Min Quickstart</a></li><li><a href="/docs/ts/latest/guide/"> Step by Step Guide</a></li><li><a href="/docs/ts/latest/api/"> Full API</a></li><li><a href="/docs/ts/latest/resources.html"> Resources</a></li><li><a href="http://goo.gl/sj0Nk1">Design Docs &amp; Notes</a></li></ul></div><div class="c2"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://gitter.im/angular/angular"> Chat Room</a></li><li><a href="https://github.com/angular/angular/issues"> Report an Issue</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="https://blog.angularjs.org/"> Blog</a></li><li><a href="https://plus.sandbox.google.com/+AngularJS/posts"> Google+</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2015. Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" class="text-snow">Apache License, Version 2.0</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small><a aria-label="View Style Guide" href="/docs/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><!-- Angular Material Dependencies --><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script></body></html>

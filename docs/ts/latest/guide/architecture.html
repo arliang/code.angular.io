@@ -1,0 +1,398 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Architecture Overview - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css"/><link href="/resources/fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="/resources/fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/about/" md-button>About</a></li><li class="l-left"><a class="main-nav-button" href="/contribute.html" md-button>Contribute</a></li><li class="l-right feedback-button"><md-button ng-click="appCtrl.openFeedback()" class="md-icon-button top-nav-icon" aria-label="Submit feedback on this page"><span class="material-icons">feedback</span></md-button></li></ul></nav></md-toolbar><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><!-- PRIMARY NAVIGATION--><ul ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-primary"><li><a href="/docs/ts/latest/index.html" md-button><span class="side-nav-icon icon-home"></span> Docs Home</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/quickstart.html" md-button><span class="side-nav-icon icon-query-builder"></span> 5 Min Quickstart</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/tutorial/" md-button><span class="side-nav-icon icon-list"></span> Tutorial</a></li><!-- SECONDARY NAVIGATION--><li class="is-selected"><a href="/docs/ts/latest/guide/" md-button><span class="side-nav-icon icon-list"></span> Developer Guides</a></li><!-- SECONDARY NAVIGATION--><!--SECONDARY NAVIGATION--><ul class="side-nav-secondary is-ordered"><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/cheatsheet.html" md-button>1. Angular Cheat Sheet</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li class="is-selected"><a href="/docs/ts/latest/guide/architecture.html" md-button>2. Architecture Overview</a></li><!-- TERTIARY NAVIGATION--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/displaying-data.html" md-button>3. Displaying Data</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/user-input.html" md-button>4. User Input</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/forms.html" md-button>5. Forms</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/dependency-injection.html" md-button>6. Dependency Injection</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/template-syntax.html" md-button>7. Template Syntax</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/pipes.html" md-button>8. Pipes</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/router.html" md-button>9. Routing &amp; Navigation</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/attribute-directives.html" md-button>10. Attribute Directives</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/structural-directives.html" md-button>11. Structural Directives</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" md-button>12. Hierarchical Injectors</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/upgrade.html" md-button>13. Upgrading from 1.x</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/glossary.html" md-button>14. Glossary</a></li><!-- TERTIARY NAVIGATION--></ul><li><a href="/docs/ts/latest/testing/" md-button><span class="side-nav-icon icon-list"></span> Testing Guides</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/api/" md-button><span class="side-nav-icon icon-book"></span> API Preview</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/resources.html" md-button><span class="side-nav-icon icon-play-circle-fill"></span> Angular Resources</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/help.html" md-button><span class="side-nav-icon icon-chat"></span> Help &amp; Support</a></li><!-- SECONDARY NAVIGATION--></ul></nav><header class="hero background-sky"><h1 class="hero-title text-display-1 ">Architecture Overview</h1><!-- Replace _ undscores with . dots --><!-- Replace _ undscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="hero-subtitle text-subhead dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><article class="l-content-small grid-fluid docs-content"><p>Angular 2 is a framework to help us build client applications in HTML and JavaScript.</p>
+<p>The framework consists of several cooperating libraries, some of them core and some optional.</p>
+<p>We write applications by composing HTML <em>templates</em> with Angularized-markup, 
+writing <em>component</em> classes to manage those templates, adding application logic in <em>services</em>,
+and handing the top root component to Angular&#39;s <em>bootstrapper</em>. </p>
+<p>Angular takes over, presenting our application content in a browser and responding to user interactions
+according to the instructions we provided.</p>
+<!-- figure img(src="/resources/images/devguide/architecture/airplane.png" alt="Us" align="left" style="width:200px; margin-left:-40px;margin-right:10px" ) --><p>Of course there is more to it than this. 
+We&#39;re cruising at high altitude in this overview. 
+We&#39;re looking for landmarks. We should expect the object below to be fuzzy and obscured by occasional clouds.
+Details become more clear and precise when we land in the chapters themselves.</p>
+<br clear="all"><p>An Angular 2 application rests on eight main building blocks:</p>
+<ol>
+<li><a href="#module">Module</a>   </li>
+<li><a href="#component">Component</a></li>
+<li><a href="#template">Template</a></li>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#data-binding">Data Binding</a></li>
+<li><a href="#service">Service</a></li>
+<li><a href="#directive">Directive</a></li>
+<li><a href="#dependency-injection">Dependency Injection</a></li>
+</ol>
+<figure><img src="/resources/images/devguide/architecture/overview2.png" alt="overview" style="margin-left:-40px" width="700"></figure><p>Learn these eight and we&#39;re on our way.</p>
+<div class="l-sub-section"><p>The code referenced in this chapter is available as a <a href="/resources/live-examples/architecture/ts/plnkr.html">live example</a>.</p>
+</div><a id="module"></a><div class="l-main-section"></div><h2 id="the-module">The Module</h2>
+<figure><img src="/resources/images/devguide/architecture/module.png" alt="Component" align="left" style="width:240px; margin-left:-40px;margin-right:10px"></figure><p>Angular apps are modular. </p>
+<p>In general we assemble our application from many <strong>modules</strong>.</p>
+<p>A typical module is a cohesive block of code dedicated to a single purpose.
+A module <strong>exports</strong> something of value in that code, typically one thing such as a class.
+<br clear="all"><br>
+Perhaps the first module we meet is a module that exports a <em>component</em> class. 
+The component is one of the basic Angular blocks, we write a lot of them,
+and we&#39;ll talk about components in the next segment. For the moment it is enough to know that a
+component class is the kind of thing we&#39;d export from a module.</p>
+<p>Most applications have an <code>AppComponent</code>. By convention, we&#39;ll find it in a file named <code>app.component.ts</code>. 
+Look inside such a file and we&#39;ll see an <code>export</code> statement like this one.</p>
+<div class="example-title">app/app.component.ts (excerpt)</div><code-example language="ts" format=".">export class AppComponent { }
+</code-example><p>The <code>export</code> statement tells TypeScript that this is a module whose
+<code>AppComponent</code> class is public and accessible to other modules of the application.</p>
+<p>When we need a reference to the <code>AppComponent</code>, we <strong>import</strong> it like this:</p>
+<div class="example-title">app/boot.ts (excerpt)</div><code-example language="ts" format=".">import {AppComponent} from &#39;./app.component&#39;;
+</code-example><p>The <code>import</code> statement tells the system it can get an <code>AppComponent</code> from a module named <code>app.component</code>
+located in a neighboring file. 
+The <strong>module name</strong> (AKA module id) is often the same as the filename without its extension.</p>
+<h3 id="library-modules">Library Modules</h3>
+<figure><img src="/resources/images/devguide/architecture/library-module.png" alt="Component" align="left" style="width:240px; margin-left:-40px;margin-right:10px"></figure><p>Some modules are libraries of other modules.</p>
+<p>Angular itself ships as a collection of library modules called &quot;barrels&quot;. 
+Each Angular library is actually a public facade over several logically related private modules.</p>
+<p>The <code>angular2/core</code> library is the primary Angular library module from which we get most of what we need.
+<br clear="all"></p>
+<p>There are other important Angular library modules too such as <code>angular2/common</code>, <code>angular2/router</code>, and <code>angular2/http</code>.</p>
+<div class="l-sub-section"><p>Learn more about how Angular organizes and distributes modules 
+in &quot;<a href="https://github.com/angular/angular/blob/master/modules/angular2/docs/bundles/overview.md">Modules, barrels and bundles</a>&quot;.  </p>
+</div><p>We import what we need from an Angular library module in much the same way. 
+For example, we import the Angular <strong><code>Component</code> <em>function</em></strong> from the <em>angular2/core</em> module like this:</p>
+<code-example language="ts" format=".">import {Component} from &#39;angular2/core&#39;;
+</code-example><p>Compare that syntax to our previous import of <code>AppComponent</code>.</p>
+<code-example language="ts" format=".">import {AppComponent} from &#39;./app.component&#39;;
+</code-example><p>Notice the difference? 
+In the first case, when importing from an Angular library module,
+the import statement refers to the bare module name, <code>angular2/core</code>, <em>without a path prefix</em>.</p>
+<p>When we import from one of <em>our</em> own files, we prefix the module name with the file path.
+In this example we specify  a relative file path (./). That means the
+source module is in the same folder (./) as the module importing it.
+We could path up and around the application folder structure if the source module were somewhere else.</p>
+<div class="l-sub-section"><p>We import and export in the ECMAScript 2015 (ES2015) module syntax. 
+Learn more about that syntax <a href="http://www.2ality.com/2014/09/es6-modules-final.html">here</a>
+and many other places on the web.</p>
+<p>The infrastructure <em>behind</em> module loading and importing is an important subject.
+But it&#39;s a subject outside the scope of this introduction to Angular. 
+While we&#39;re focused on our application, <em>import</em> and <em>export</em>
+is about all we need to know.</p>
+</div><p>The key take aways are:</p>
+<ul>
+<li>Angular apps are composed of modules.</li>
+<li>Modules export things &mdash; classes, function, values &mdash; that other modules import.</li>
+<li>We prefer to write our application as a collection of modules, each module exporting one thing.</li>
+</ul>
+<p>The first module we write will most likely export a component.</p>
+<div class="l-main-section"></div><a id="component"></a><h2 id="the-component">The Component</h2>
+<figure><img src="/resources/images/devguide/architecture/hero-component.png" alt="Component" align="left" style="width:200px; margin-left:-40px;margin-right:10px"></figure><p>A <strong>Component</strong> controls a patch of screen real estate that we could call a <em>view</em>. 
+The shell at the application root with navigation links, that list of heroes, the hero editor ... 
+they&#39;re all views controlled by Components.</p>
+<p>We define a Component&#39;s application logic - what it does to support the view - inside a class.
+The class interacts with the view through an API of properties and methods. </p>
+<p><a id="component-code"></a>
+A <code>HeroListComponent</code>, for example, might have a <code>heroes</code> property that returns an array of heroes
+that it acquired from a service.
+It might have a <code>selectHero()</code> method that sets a <code>selectedHero</code> property when the user click on a hero from that list.
+It might be a class like this:</p>
+<div class="example-title">app/hero-list.component.ts</div><code-example language="ts" format="linenums">export class HeroListComponent {
+  constructor(service: HeroService) {
+    this.heroes = service.getHeroes();
+  }
+
+  heroes:Hero[];
+  selectedHero:Hero;
+  selectHero(hero: Hero) { this.selectedHero = hero; }
+}
+</code-example><p>Angular creates, updates, and destroys components as the user moves through the application.
+The developer can take action at each moment in this lifecycle through optional <a href="#">Lifecycle Hooks</a>.</p>
+<div class="l-sub-section"><p>We&#39;re not showing those hooks in this example 
+but we are making a mental note to find out about them later.</p>
+<p>We may wonder who is calling that constructor? Who provides the service parameter?
+For the moment, have faith that Angular will call the constructor and deliver an
+appropriate <code>HeroService</code> when we need it.</p>
+</div><div class="l-main-section"></div><a id="template"></a><h2 id="the-template">The Template</h2>
+<figure><img src="/resources/images/devguide/architecture/template.png" alt="Template" align="left" style="width:200px; margin-left:-40px;margin-right:10px"></figure><p>We define a Component&#39;s view with its companion <strong>template</strong>. A template is a form of HTML
+that tells Angular how to render the Component.</p>
+<p>A template looks like regular HTML much of the time ... and then it gets a bit strange. Here is a
+template for our <code>HeroList</code> component.</p>
+<div class="example-title">app/hero-list.component.html</div><code-example language="html" format="linenums">&lt;h2&gt;Hero List&lt;/h2&gt;
+
+&lt;p&gt;&lt;i&gt;Pick a hero from the list&lt;/i&gt;&lt;/p&gt;
+&lt;div *ngFor=&quot;#hero of heroes&quot; (click)=&quot;selectHero(hero)&quot;&gt;
+  {{hero.name}}
+&lt;/div&gt;
+
+&lt;hero-detail *ngIf=&quot;selectedHero&quot; [hero]=&quot;selectedHero&quot;&gt;&lt;/hero-detail&gt;
+</code-example><p>We recognize <code>&lt;h2&gt;</code> and  <code>&lt;div&gt;</code>. 
+But there&#39;s other markup that no one told us about in school.
+What are <code>*ngFor</code>, <code>{{hero.name}}</code>, <code>(click)</code>, <code>[hero]</code>, and <code>&lt;hero-detail&gt;</code>?</p>
+<p>These are examples of Angular&#39;s <a href="template-syntax.html">template syntax</a>. 
+We will grow accustomed to that syntax and may even learn to love it.
+We&#39;ll begin to explain it in a moment.</p>
+<p>Before we do, focus attention on the last line. 
+The <code>&lt;hero-detail&gt;</code> tag is a custom element representing the <code>HeroDetailComponent</code>.</p>
+<p>The <code>HeroDetailComponent</code> is a <em>different</em> component than the <code>HeroListComponent</code> we&#39;ve been reviewing.
+The <code>HeroDetailComponent</code> (code not shown) presents facts about a particular hero, the
+hero that the user selects from the list presented by the the <code>HeroListComponent</code>.
+The <code>HeroDetailComponent</code> is a <strong>child</strong> of the the <code>HeroListComponent</code>.</p>
+<figure><img src="/resources/images/devguide/architecture/component-tree.png" alt="Metadata" align="left" style="width:300px; margin-left:-40px;margin-right:10px"></figure><p>Notice how <code>&lt;hero-detail&gt;</code> rests comfortably among the HTML elements we already know. 
+We can mix ... and will mix ... our custom components with native HTML in the same layouts.</p>
+<p>And in this manner we can and will compose complex component trees to build out our richly featured application.</p>
+<br clear="all"><div class="l-main-section"></div><a id="metadata"></a><h2 id="angular-metadata">Angular Metadata</h2>
+<figure><img src="/resources/images/devguide/architecture/metadata.png" alt="Metadata" align="left" style="width:150px; margin-left:-40px;margin-right:10px"></figure><p style="padding-top:10px">Metadata tells Angular how to process a class.</p>
+<br clear="all"><p><a href="#component-code">Looking back</a> at the <code>HeroListComponent</code>, we see that it&#39;s just a class.
+There is no evidence of a framework, no &quot;Angular&quot; in it at all.</p>
+<p>In fact, it really is <em>just a class</em>. It&#39;s not a component until we <em>tell Angular about it</em>.</p>
+<p>We tell Angular that <code>HeroListComponent</code> is a component by attaching <strong>metadata</strong> to the class.</p>
+<p>The easy way to attach metadata in TypeScript is with a <strong>decorator</strong>. 
+Here&#39;s some metadata for <code>HeroListComponent</code>:</p>
+<div class="example-title">app/hero-list.component.ts (metadata)</div><code-example language="ts" format="linenums">@Component({
+  selector:    &#39;hero-list&#39;,
+  templateUrl: &#39;app/hero-list.component.html&#39;,
+  directives:  [HeroDetailComponent],
+  providers:   [HeroService]
+})
+export class HeroesComponent { ... }
+</code-example><p>Here we see the <code>@Component</code> decorator which (no surprise) identifies the class
+immediately below it as a Component class.</p>
+<p>A decorator is a function. Decorators often have a configuration parameter. 
+The <code>@Component</code> decorator takes a required configuration object with the
+information Angular needs to create and present the component and its view.</p>
+<p>Here we see a few of the possible <code>@Component</code> configuration options:</p>
+<ul>
+<li><code>selector</code> - a css selector that tells Angular to create and insert an instance of this component 
+where it finds a <code>&lt;hero-list&gt;</code> tag in <em>parent</em> HTML. 
+If the template of the application shell (a Component) contained</li>
+</ul>
+<div style="margin-left:30px"><code-example language="html">&lt;hero-list>&lt;/hero-list></code-example></div>  <blockquote>
+<p>Angular inserts an instance of the <code>HeroListComponent</code> view between those tags.</p>
+</blockquote>
+<ul>
+<li><p><code>templateUrl</code> - the address of this component&#39;s template which we showed <a href="#the-template">above</a>.</p>
+</li>
+<li><p><code>directives</code> - an array of the Components or Directives that <em>this</em> template requires.
+We saw in the last line of our template that we expect Angular to insert a <code>HeroDetailComponent</code>
+in the space indicated by <code>&lt;hero-detail&gt;</code> tags. 
+Angular will do so only if we mention the <code>HeroDetailComponent</code> in this <code>directives</code> array.</p>
+</li>
+<li><p><code>providers</code> - an array of <strong>dependency injection providers</strong> for services that the component requires.
+This is one way to tell Angular that our component&#39;s constructor requires a <code>HeroService</code> 
+so it can get the list of heroes to display. We&#39;ll get to dependency injection in a moment.</p>
+</li>
+</ul>
+<figure><img src="/resources/images/devguide/architecture/template-metadata-component.png" alt="Metadata" align="left" style="height:200px; margin-left:-40px;margin-right:10px"></figure><p>The <code>@Component</code> function takes the configuration object and turns it into metadata that it attaches
+to the component class definition. Angular discovers this metadata at runtime and thus knows how to do &quot;the right thing&quot;.</p>
+<p>The template, metadata, and component together describe the view.</p>
+<p>We apply other metadata decorators in a similar fashion to guide Angular behavior. 
+The <code>@Injectable</code>, <code>@Input</code>, <code>@Output</code>, <code>@RouterConfig</code> are a few of the more popular decorators
+we&#39;ll master as our Angular knowledge grows.</p>
+<br clear="all"><p>The architectural take-away is that we must add metadata to our code
+so that Angular knows what to do.</p>
+<div class="l-main-section"></div><a id="data-binding"></a><h2 id="data-binding">Data Binding</h2>
+<p>Without a framework, we would be responsible for pushing data values into the HTML controls and turning user responses
+into actions and value updates. Writing such push/pull logic by hand is tedious, error-prone and a nightmare to
+read as the experienced jQuery programmer can attest.</p>
+<figure><img src="/resources/images/devguide/architecture/databinding.png" alt="Data Binding" style="width:220px; float:left; margin-left:-40px;margin-right:20px"></figure><p>Angular supports <strong>data binding</strong>, 
+a mechanism for coordinating parts of a template with parts of a component.
+We add binding markup to the template HTML to tell Angular how to connect both sides.</p>
+<p>There are four forms of data binding syntax. Each form has a direction - to the DOM, from the DOM, or in both directions -
+as indicated by the arrows in the diagram.</p>
+<br clear="all"><p>We saw three forms of data binding in our <a href="#template">example</a> template:</p>
+<div class="example-title">app/hero-list.component (excerpt)</div><code-example language="html" format=".">&lt;div&gt;{{hero.name}}&lt;/div&gt;
+&lt;hero-detail [hero]=&quot;selectedHero&quot;&gt;&lt;/hero-detail&gt;
+&lt;div (click)=&quot;selectHero(hero)&gt;&lt;/div&gt;
+</code-example><ul>
+<li><p>The {{hero.name}} &quot;<a href="displaying-data.html#interpolation">interpolation</a>&quot; 
+displays the component&#39;s <code>hero.name</code> property value within the <code>&lt;div&gt;</code> tags.</p>
+</li>
+<li><p>The <code>[hero]</code> <a href="template-syntax.html#property-binding">property binding</a> passes the <code>selectedHero</code> from
+the parent <code>HeroListComponent</code> to the <code>hero</code> property of the child <code>HeroDetailComponent</code>.</p>
+</li>
+<li><p>The <code>(click)</code> <a href="user-input.html#click">event binding</a> calls the Component&#39;s <code>selectHero</code> method when the user clicks
+on a hero&#39;s name</p>
+</li>
+</ul>
+<p><strong>Two-way data binding</strong> is an important fourth form
+that combines property and event binding in a single notation using the <code>ngModel</code> directive. 
+We didn&#39;t have a two-way binding in the <code>HeroListComponent</code> template; 
+here&#39;s an example from the <code>HeroDetailComponent</code> template (not shown):</p>
+<code-example language="html" format=".">&lt;input [(ngModel)]=&quot;hero.name&quot;&gt;
+</code-example><p>In two-way binding, a data property value flows to the input box from the component as with property binding.
+The user&#39;s changes also flow back to the component, resetting the property to the latest value,
+as with event binding.</p>
+<p>Angular processes <em>all</em> data bindings once per JavaScript event cycle, 
+depth-first from the root of the application component tree. </p>
+<figure><img src="/resources/images/devguide/architecture/component-databinding.png" alt="Data Binding" style="float:left; width:300px; margin-left:-40px;margin-right:10px"></figure><p>We don&#39;t know all the details yet
+but it&#39;s clear from these examples that data binding plays an important role in communication 
+between a template and its component ...</p>
+<br clear="all">  <figure><img src="/resources/images/devguide/architecture/parent-child-binding.png" alt="Parent/Child binding" style="float:left; width:300px; margin-left:-40px;margin-right:10px"></figure><p>... <strong><em>and</em></strong> between parent and child components</p>
+<br clear="all"><div class="l-main-section"></div><a id="directive"></a><h2 id="the-directive">The Directive</h2>
+<figure><img src="/resources/images/devguide/architecture/directive.png" alt="Parent child" style="float:left; width:150px; margin-left:-40px;margin-right:10px"></figure><p>Our Angular templates are <em>dynamic</em>. When Angular renders them, it transforms the DOM 
+according to the instructions given by a <strong>directive</strong>.</p>
+<p>A directive is a class with directive metadata. In TypeScript we&#39;d apply the <code>@Directive</code> decorator
+to attach metadata to the class.</p>
+<br clear="all"><p>We already met one form of directive: the component. A component is a <em>directive-with-a-template</em>
+and the <code>@Component</code> decorator is actually a <code>@Directive</code> decorator extended with template-oriented features.</p>
+<div class="l-sub-section"><p>While the <strong>component is technically a directive</strong>, 
+it is so distinctive and central to Angular applications that we chose
+to separate the component from the directive in our architectural overview.</p>
+</div><p>There are two <em>other</em> kinds of directives as well that we call &quot;structural&quot; and &quot;attribute&quot; directives.</p>
+<p>They tend to appear within an element tag like attributes, 
+sometimes by name but more often as the target of an assignment or a binding.</p>
+<p><strong>Structural</strong> directives alter layout by adding, removing, and replacing elements in DOM.</p>
+<p>We see two built-in structural directives at play in our <a href="#template">example</a> template:</p>
+<code-example language="html" format=".">&lt;div *ngFor=&quot;#hero of heroes&quot;&gt;&lt;/div&gt;
+&lt;hero-detail *ngIf=&quot;selectedHero&quot;&gt;&lt;/hero-detail&gt;
+</code-example><ul>
+<li><a href="displaying-data.html#ngFor"><code>*ngFor</code></a> tells Angular to stamp out one <code>&lt;div&gt;</code> per hero in the <code>heroes</code> list.</li>
+<li><a href="displaying-data.html#ngIf"><code>*ngIf</code></a> includes the <code>HeroDetail</code> component only if a selected hero exists.</li>
+</ul>
+<p><strong>Attribute</strong> directives alter the appearance or behavior of an existing element. 
+In templates they look like regular HTML attributes, hence the name.</p>
+<p>The <code>ngModel</code> directive, which implements two-way data binding, is an example of an attribute directive.</p>
+<code-example language="html" format=".">&lt;input [(ngModel)]=&quot;hero.name&quot;&gt;
+</code-example><p>It modifies the behavior of an existing element (typically an <code>&lt;input&gt;</code>) 
+by setting its display value property and responding to change events.</p>
+<p>Angular ships with a small number of other directives that either alter the layout structure 
+(e.g. <a href="template-syntax.html#ngSwitch">ngSwitch</a>)
+or modify aspects of DOM elements and components 
+(e.g. <a href="template-syntax.html#ngStyle">ngStyle</a> and <a href="template-syntax.html#ngClass">ngClass</a>).</p>
+<p>And of course we can write our own directives.</p>
+<div class="l-main-section"></div><a id="service"></a><h2 id="the-service">The Service</h2>
+<figure><img src="/resources/images/devguide/architecture/service.png" alt="Service" style="float:left; margin-left:-40px;margin-right:10px"></figure><p>&quot;Service&quot; is a broad category encompassing any value, function or feature that our application needs.</p>
+<p>Almost anything can be a service. 
+A service is typically a class with a narrow, well-defined purpose. It should do something specific and do it well.</p>
+<br clear="all"><p>Examples include:</p>
+<ul>
+<li>logging service</li>
+<li>data service</li>
+<li>message bus</li>
+<li>tax calculator</li>
+<li>application configuration</li>
+</ul>
+<p>There is nothing specifically &quot;Angular&quot; about services. Angular itself has no definition of a &quot;service&quot;. 
+There is no service base class, no place to register a &quot;service&quot;.</p>
+<p>Yet services are fundamental to any Angular application. Our components are big consumers of services.</p>
+<p>We prefer our component classes lean. Our components don&#39;t fetch data from the server, 
+they don&#39;t validate user input, they don&#39;t log directly to the console. They delegate such tasks to services.</p>
+<p>A component&#39;s job is to enable the user experience and nothing more. It mediates between the view (rendered by the template)
+and the application logic (which often includes some notion of a &quot;model&quot;).  A good component presents
+properties and methods for data binding. It delegates everything non-trivial to services.</p>
+<p>Angular doesn&#39;t <em>enforce</em> these principles. 
+It won&#39;t complain if we write a &quot;kitchen sink&quot; component with 3000 lines.</p>
+<p>Angular does help us <em>follow</em> these principles ... by making it easy to factor our
+application logic into services and make those services available to components through <em>dependency injection</em>.</p>
+<div class="l-main-section"></div><a id="dependency-injection"></a><h2 id="dependency-injection">Dependency Injection</h2>
+<figure><img src="/resources/images/devguide/architecture/dependency-injection.png" alt="Service" style="float:left; width:200px; margin-left:-40px;margin-right:10px"></figure><p>&quot;Dependency Injection&quot; is a way to supply a new instance of a class 
+with the fully-formed dependencies it requires. Most dependencies are services.
+Angular uses dependency injection to provide new components with the services they need.</p>
+<br clear="all"><p>In TypeScript, Angular can tell which services a component needs by looking at the types of its constructor parameters.
+For example, the constructor of our <code>HeroListComponent</code> needs the <code>HeroService</code>:</p>
+<div class="example-title">app/hero-list.component (constructor)</div><code-example language="ts" format=".">constructor(service: HeroService) {
+  this.heroes = service.getHeroes();
+}
+</code-example><p>When Angular creates a component, it first asks an <strong>Injector</strong> for
+the services that the component requires. </p>
+<p>An <code>Injector</code> maintains a container of service instances that it has previously created.
+If a requested service instance is not in the container, the injector makes one and adds it to the container
+before returning the service to Angular. 
+When all requested services have been resolved and returned, 
+Angular can call the component&#39;s constructor with those services as arguments.
+This is what we mean by <em>dependency injection</em>.</p>
+<p>The process of <code>HeroService</code> injection looks a bit like this:</p>
+<figure><img src="/resources/images/devguide/architecture/injector-injects.png" alt="Service"></figure><p>If the <code>Injector</code> doesn&#39;t have a <code>HeroService</code>, how does it know how to make one?</p>
+<p>In brief, we must have previously registered a <strong>provider</strong> of the <code>HeroService</code> with the <code>Injector</code>.
+A provider is something that can create or return a service, typically  the service class itself.</p>
+<p>We can register providers at any level of the application component tree.
+We often do so at the root when we bootstrap the application so that
+the same instance of a service is available everywhere.</p>
+<div class="example-title">app/boot.ts (excerpt)</div><code-example language="ts" format=".">bootstrap(AppComponent, [
+  BackendService, HeroService, Logger
+]);
+</code-example><p>Alternatively, we might register at a component level ...</p>
+<div class="example-title">app/hero-list.component.ts (excerpt)</div><code-example language="ts" format=".">@Component({
+  providers:   [HeroService]
+})
+export class HeroesComponent { ... }
+</code-example><p>... in which case we get a new instance of the
+service with each new instance of that component.</p>
+<p>We&#39;ve vastly over-simplified dependency injection for this overview.
+We can learn the full story in the <a href="dependency-injection.html">Dependency Injection</a> chapter.</p>
+<p>The points to remember are:</p>
+<ul>
+<li>dependency injection is wired into the framework and used everywhere.<br><br></li>
+<li>the <code>Injector</code> is the main mechanism.<ul>
+<li>an injector maintains a <em>container</em> of service instances that it created.</li>
+<li>an injector can create a new service instance using a <em>provider</em>.</li>
+</ul>
+</li>
+<li><p>a <em>provider</em> is a recipe for creating a service.</p>
+</li>
+<li><p>we register <em>providers</em> with injectors.</p>
+</li>
+</ul>
+<a id="other-stuff"></a>  <div class="l-main-section"></div><h2 id="wrap-up">Wrap up</h2>
+<p>We&#39;ve learned just a bit about the eight main building blocks of an Angular application</p>
+<ol>
+<li><a href="#module">Module</a>   </li>
+<li><a href="#component">Component</a></li>
+<li><a href="#template">Template</a></li>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#data-binding">Data Binding</a></li>
+<li><a href="#service">Service</a></li>
+<li><a href="#directive">Directive</a></li>
+<li><a href="#dependency-injection">Dependency Injection</a></li>
+</ol>
+<p>That&#39;s a foundation for everything else in an Angular application
+and it&#39;s more than enough to get going.
+But it doesn&#39;t include everything we&#39;ll need or want to know.</p>
+<a id="other-stuff"></a>  <div class="l-main-section"></div><h2 id="the-other-stuff">The Other Stuff</h2>
+<p>Here is a brief, alphabetical list of other important Angular features and services. 
+Most of them are covered in this Developers Guide (or soon will be):</p>
+<blockquote>
+<p><strong>Animations</strong> - A forthcoming animation library makes it easy for developers to animate component behavior
+without deep knowledge of animation techniques or css.</p>
+<p><strong>Bootstrap</strong> - A method to configure and launch the root application component.</p>
+<p><strong>Change Detection</strong> - Learn how Angular decides that a component property value has changed and 
+when to update the screen. 
+Learn how it uses <strong>zones</strong> to intercept asynchronous activity and run its change detection strategies. </p>
+<p><strong>Component Router</strong> - With the Component Router service, users can navigate a multi-screen application 
+in a familiar web browsing style using URLs.</p>
+<p><strong>Events</strong> - The DOM raises events. So can components and services. Angular offers mechanisms for
+publishing and subscribing to events including an implementation of the <a href="https://github.com/zenparsing/es-observable">RxJS Observable</a> proposal.</p>
+<p><strong><a href="forms.html">Forms</a></strong> - Support complex data entry scenarios with HTML-based validation and dirty checking.</p>
+<p><strong>HTTP</strong> - Communicate with a server to get data, save data, and invoke server-side actions with this Angular HTTP client.</p>
+<p><strong>Lifecycle Hooks</strong> - We can tap into key moments in the lifetime of a component, from its creation to its destruction, 
+by implementing the &quot;Lifecycle Hook&quot; interfaces.</p>
+<p><strong><a href="pipes.html">Pipes</a></strong> - Services that transform values for display. 
+We can put pipes in our templates to improve the user experience. For example,
+this <code>currency</code> pipe expression,</p>
+</blockquote>
+<div style="margin-left:40px"><code-example language="javascript" linenumbers=".">price | currency:'USD':true</code-example></div><blockquote>
+<p>displays a price of &quot;42.33&quot; as <code>$42.33</code>.</p>
+<p><strong><a href="../testing/index.html">Testing</a></strong> - Angular provides a testing library for &quot;unit testing&quot; our application parts as they
+interact with the Angular framework.</p>
+</blockquote><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><div class="l-sub-section"><h3>Next Step</h3><a href="/docs/ts/latest/guide/displaying-data.html">Displaying Data</a></div><!--NEXT PAGE HAS NOW BEEN SET--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-silver grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c2"><h3 class="text-headline">LIBRARIES</h3><ul class="text-body"><li><a href="/"> Angular 2.0</a></li><li><a href="https://angularjs.org/"> Angular 1 for JS</a></li><li><a href="https://angulardart.org/"> Angular 1 for Dart</a></li><li><a href="https://material.angularjs.org"> Angular Material</a></li><li><a href="https://www.firebase.com/docs/web/libraries/angular/"> AngularFire</a></li></ul></div><div class="c2"><h3 class="text-headline">LEARN</h3><ul class="text-body"><li><a href="/docs/ts/latest/quickstart.html"> 5 Min Quickstart</a></li><li><a href="/docs/ts/latest/guide/"> Step by Step Guide</a></li><li><a href="/docs/ts/latest/api/"> Full API</a></li><li><a href="/docs/ts/latest/resources.html"> Resources</a></li><li><a href="http://goo.gl/sj0Nk1">Design Docs &amp; Notes</a></li></ul></div><div class="c2"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://gitter.im/angular/angular"> Chat Room</a></li><li><a href="https://github.com/angular/angular/issues"> Report an Issue</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="https://blog.angularjs.org/"> Blog</a></li><li><a href="https://plus.sandbox.google.com/+AngularJS/posts"> Google+</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2015. Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" class="text-snow">Apache License, Version 2.0</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small><a aria-label="View Style Guide" href="/docs/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><!-- Angular Material Dependencies --><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script></body></html>

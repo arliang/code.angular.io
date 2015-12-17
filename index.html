@@ -1,0 +1,339 @@
+<!DOCTYPE html public><html lang="en" ng-app="angularIOApp" itemscope="itemscope" itemtype="http://schema.org/Framework"><head><title>One framework. - Angular 2</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css"/><link href="/resources/fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="/resources/fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="ng-cloak l-offset-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/about/" md-button>About</a></li><li class="l-left"><a class="main-nav-button" href="/contribute.html" md-button>Contribute</a></li><li class="l-right feedback-button"><md-button ng-click="appCtrl.openFeedback()" class="md-icon-button top-nav-icon" aria-label="Submit feedback on this page"><span class="material-icons">feedback</span></md-button></li></ul></nav></md-toolbar><!-- HERO LOGO --><header class="background-sky"><div class="hero background-superhero-paper is-large"><h1 class="text-headline hero-logo">One framework.<br>Mobile and desktop.</h1><div class="hero-cta"><a href="/docs/ts/latest/quickstart.html" md-button="md-button" class="md-raised button button-large button-plain">Get Started</a></div></div></header><article class="l-content "><div layout="row" style="margin: 0 -24px"><div flex="33" style="padding:0 24px"><h3 class="text-headline">Fast</h3><p class="text-body">Angular computes updates based on changes to data, not DOM, for fast updates that scale to the largest data sets with minimal memory overhead.</p></div><div flex="33" style="padding:0 24px"><h3 class="text-headline">Mobile</h3><p class="text-body">With Angular Universal for server-side rendering and Web Workers for smooth scrolling and transitions, Angular 2 solves the core challenges in mobile web performance.</p></div><div flex="33" style="padding:0 24px"><h3 class="text-headline">Flexible</h3><p class="text-body">Supports several languages including plain JavaScript, TypeScript, and Dart. Also supports both object-style data structure with POJO data-binding  and functional reactive style with unidirectional data flow and support for observables and immutable data structures.</p></div></div><br><div><h3 class="text-headline">The Basics</h3><p class="text-body">In Angular you display data by defining components.  Data in your component classes is automatically available to display in your templates or control how they render as in the example below.</p><p class="text-body">While this example uses TypeScript, Angular works equally well with ES5, ES6 and Dart as well.</p><p style="text-align:right"><md-button href="http://plnkr.co/edit/w2FVfKlWP72pzXIsfsCU?p=preview" target="_blank" class="md-primary"><span class="icon-open-in-new"></span>  Try in Plunker</md-button></p><code-tabs><code-pane language="html" name="hello_world.html" format="linenums">&lt;label&gt;Name:&lt;/label&gt;
+&lt;!-- data-bind to the input element; store value in yourName --&gt;
+&lt;input type=&quot;text&quot; [(ngModel)]=&quot;yourName&quot; placeholder=&quot;Enter a name here&quot;&gt;
+&lt;hr&gt;
+&lt;!-- conditionally display `yourName` --&gt;
+&lt;h1 [hidden]=&quot;!yourName&quot;&gt;Hello {{yourName}}!&lt;/h1&gt;
+</code-pane><code-pane language="ts" name="hello_world.ts" format="linenums">import {Component} from &#39;angular2/core&#39;;
+
+@Component({
+  // Declare the tag name in index.html to where the component attaches
+  selector: &#39;hello-world&#39;,
+
+  // Location of the template for this component
+  templateUrl: &#39;src/hello_world.html&#39;
+})
+export class HelloWorld {
+
+  // Declaring the variable for binding with initial value
+  yourName: string = &#39;&#39;;
+}
+</code-pane><code-pane language="html" name="index.html" format="linenums">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+  &lt;head&gt;
+    &lt;title&gt;Angular 2 QuickStart&lt;/title&gt;
+
+    &lt;!-- 1. Load libraries --&gt;
+    &lt;script src=&quot;https://rawgithub.com/systemjs/systemjs/0.19.6/dist/system.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/tools/typescript.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.0/Rx.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- 2. Configure SystemJS --&gt;
+    &lt;script&gt;
+      System.config({
+        transpiler: &#39;typescript&#39;,
+        typescriptOptions: { emitDecoratorMetadata: true },
+        packages: {&#39;src&#39;: {defaultExtension: &#39;ts&#39;}}
+      });
+    &lt;/script&gt;
+
+    &lt;!-- 3. Bootstrap --&gt;
+    &lt;script&gt;
+      System.import(&#39;angular2/platform/browser&#39;).then(function(ng){
+        System.import(&#39;src/hello_world&#39;).then(function(src) {
+          ng.bootstrap(src.HelloWorld);
+        });
+      });
+    &lt;/script&gt;
+
+  &lt;/head&gt;
+
+  &lt;!-- 4. Display the application --&gt;
+  &lt;body&gt;
+    &lt;hello-world&gt;Loading...&lt;/hello-world&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code-pane></code-tabs></div><br><div><h3 class="text-headline">Structuring Apps With Components</h3><p class="text-body">Groups of coordinated components divide the responsibilities of our application.  This ToDo list app has a separate component for the form, the list, and the core app logic.  Where the previous example component referenced templates in separate files, this one shows using inline templates.</p><p class="text-body">Defining types as we do here in Todo.ts communicates our intention to other developers, helps us find bugs in our code, and lets IDEs do more work for us in refactoring, code navigation, and code completion.</p><p style="text-align:right"><md-button href="http://plnkr.co/edit/JvjRDbhxp3UpMzZb3IAy?p=preview" target="_blank" class="md-primary"><span class="icon-open-in-new"></span>  Try in Plunker</md-button></p><code-tabs><code-pane language="ts" name="todo_app.ts" format="linenums">import {Component} from &#39;angular2/core&#39;;
+import {Todo} from &#39;./todo&#39;;
+import {TodoList} from &#39;./todo_list&#39;;
+import {TodoForm} from &#39;./todo_form&#39;;
+
+@Component({
+  selector: &#39;todo&#39;,
+  template: `
+    &lt;h2&gt;Todo&lt;/h2&gt;
+    &lt;span&gt;{{remaining}} of {{todos.length}} remaining&lt;/span&gt;
+    [ &lt;a href=&quot;javascript: false&quot; (click)=&quot;archive()&quot;&gt;archive&lt;/a&gt; ]
+
+    &lt;todo-list [todos]=&quot;todos&quot;&gt;&lt;/todo-list&gt;
+    &lt;todo-form (newTask)=&quot;addTask($event)&quot;&gt;&lt;/todo-form&gt;`,
+  directives: [TodoList, TodoForm]
+})
+export class TodoApp {
+  todos: Todo[] = [
+      {text:&#39;learn angular&#39;, done:true},
+      {text:&#39;build an angular app&#39;, done:false}
+  ];
+
+  get remaining(): number {
+    return this.todos.reduce((count, todo: Todo) =&gt; count + todo.done, 0);
+  }
+
+  archive(): void {
+    var oldTodos = this.todos;
+    this.todos = [];
+    oldTodos.forEach((todo: Todo) =&gt; {
+      if (!todo.done) this.todos.push(todo);
+    });
+  }
+
+  addTask(task: Todo) {
+    this.todos.push(task);
+  }
+}
+</code-pane><code-pane language="ts" name="todo_form.ts" format="linenums">import {Component, Output, EventEmitter} from &#39;angular2/core&#39;;
+import {Todo} from &#39;./todo&#39;;
+
+@Component({
+  selector: &#39;todo-form&#39;,
+  template: `
+    &lt;form (ngSubmit)=&quot;addTodo()&quot;&gt;
+      &lt;input type=&quot;text&quot; [(ngModel)]=&quot;task&quot; size=&quot;30&quot;
+             placeholder=&quot;add new todo here&quot;&gt;
+      &lt;input class=&quot;btn-primary&quot; type=&quot;submit&quot; value=&quot;add&quot;&gt;
+    &lt;/form&gt;`
+})
+export class TodoForm {
+  @Output() newTask = new EventEmitter&lt;Todo&gt;();
+  task: string = &#39;&#39;;
+
+  addTodo() {
+    if (this.task) {
+      this.newTask.next({text:this.task, done:false});
+    }
+    this.task = &#39;&#39;;
+  }
+}
+</code-pane><code-pane language="ts" name="todo_list.ts" format="linenums">import {Component, Input} from &#39;angular2/core&#39;;
+import {Todo} from &#39;./todo&#39;;
+
+@Component({
+  selector: &#39;todo-list&#39;,
+  styles: [`
+    .done-true {
+      text-decoration: line-through;
+      color: grey;
+    }`
+  ],
+  template: `
+    &lt;ul class=&quot;unstyled&quot;&gt;
+      &lt;li *ngFor=&quot;var todo of todos&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; [(ngModel)]=&quot;todo.done&quot;&gt;
+        &lt;span class=&quot;done-{{todo.done}}&quot;&gt;{{todo.text}}&lt;/span&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;`
+})
+export class TodoList {
+  @Input() todos: Todo[];
+}
+</code-pane><code-pane language="ts" name="todo.ts" format="linenums">// Declare an interaface for type safety
+export interface Todo {
+  text: string,
+  done: boolean
+}
+</code-pane><code-pane language="html" name="index.html" format="linenums">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+  &lt;head&gt;
+    &lt;title&gt;Angular 2 QuickStart&lt;/title&gt;
+    &lt;link href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+    &lt;!-- 1. Load libraries --&gt;
+    &lt;script src=&quot;https://rawgithub.com/systemjs/systemjs/0.19.6/dist/system.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/tools/typescript.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.0/Rx.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- 2. Configure SystemJS --&gt;
+    &lt;script&gt;
+      System.config({
+        transpiler: &#39;typescript&#39;,
+        typescriptOptions: { emitDecoratorMetadata: true },
+        packages: {&#39;src&#39;: {defaultExtension: &#39;ts&#39;}}
+      });
+    &lt;/script&gt;
+
+    &lt;!-- 3. Bootstrap --&gt;
+    &lt;script&gt;
+      System.import(&#39;angular2/platform/browser&#39;).then(function(ng){
+        System.import(&#39;src/todo_app&#39;).then(function(src) {
+          ng.bootstrap(src.TodoApp);
+        });
+      });
+    &lt;/script&gt;
+
+  &lt;/head&gt;
+
+  &lt;!-- 4. Display the application --&gt;
+  &lt;body&gt;
+    &lt;todo class=&quot;container&quot; style=&quot;display: block&quot;&gt;Loading...&lt;/todo&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code-pane></code-tabs></div><br><div><h3 class="text-headline">Advanced Component Communication</h3><p class="text-body">This demo shows an efficient implementation of tabs/panes. Each pane is only instantiated while it is visible. Panes which are not visible are released and do not have associated memory, DOM and change detection cost.</p><p class="text-body">The demo also showcases dependency injection and the ability of one component to query for other components. Such queries automatically update even as detail panes are added. This allows the tabs component to work with <code>ngFor</code> without any special knowledge of it.</p><p style="text-align:right"><md-button href="http://plnkr.co/edit/9E7T5XyLvn0SNQTOrVrJ?p=preview" target="_blank" class="md-primary"><span class="icon-open-in-new"></span>  Try in Plunker</md-button></p><code-tabs><code-pane language="ts" name="di_demo.ts" format="linenums">import {Component} from &#39;angular2/core&#39;;
+import {UiTabs, UiPane} from &#39;./ui_tabs&#39;;
+
+@Component({
+  selector: &#39;di-demo&#39;,
+  template: `
+    &lt;h4&gt;Tabs Demo&lt;/h4&gt;
+    &lt;ui-tabs&gt;
+      &lt;template ui-pane title=&#39;Overview&#39; active=&quot;true&quot;&gt;
+        You have {{details.length}} details.
+      &lt;/template&gt;
+      &lt;template *ngFor=&quot;#detail of details&quot; ui-pane [title]=&quot;detail.title&quot;&gt;
+        {{detail.text}} &lt;br&gt;&lt;br&gt;
+        &lt;button class=&quot;btn&quot; (click)=&quot;removeDetail(detail)&quot;&gt;Remove&lt;/button&gt;
+      &lt;/template&gt;
+      &lt;template ui-pane title=&#39;Summary&#39;&gt;
+        Next last ID is {{id}}.
+      &lt;/template&gt;
+    &lt;/ui-tabs&gt;
+    &lt;hr&gt;
+    &lt;button class=&quot;btn&quot; (click)=&quot;addDetail()&quot;&gt;Add Detail&lt;/button&gt;
+    `,
+    directives: [UiTabs, UiPane]
+})
+export class DiDemo {
+  details: Detail[] = [];
+  id: number = 0;
+
+  addDetail() {
+    this.id++;
+    this.details.push({
+      title: `Detail ${this.id}`,
+      text: `Some detail text for ${this.id}...`
+    });
+  }
+
+  removeDetail(detail) {
+    this.details = this.details.filter((d) =&gt; d !== detail);
+  }
+}
+</code-pane><code-pane language="ts" name="ui_tabs.ts" format="linenums">import {Component, Directive, Input, QueryList,
+        ViewContainerRef, TemplateRef, ContentChildren} from &#39;angular2/core&#39;;
+
+@Directive({
+  selector: &#39;[ui-pane]&#39;
+})
+export class UiPane {
+  @Input() title: string;
+  private _active:boolean = false;
+
+  constructor(public viewContainer: ViewContainerRef,
+              public templateRef: TemplateRef) { }
+
+  @Input() set active(active: boolean) {
+    if (active == this._active) return;
+    this._active = active;
+    if (active) {
+      this.viewContainer.createEmbeddedView(this.templateRef);
+    } else {
+      this.viewContainer.remove(0);
+    }
+  }
+
+  get active(): boolean {
+    return this._active;
+  }
+}
+
+@Component({
+  selector: &#39;ui-tabs&#39;,
+  template: `
+    &lt;ul class=&quot;nav nav-tabs&quot;&gt;
+      &lt;li *ngFor=&quot;var pane of panes&quot;
+          (click)=&quot;select(pane)&quot;
+          role=&quot;presentation&quot; [class.active]=&quot;pane.active&quot;&gt;
+        &lt;a href=&quot;javascript: false&quot;&gt;{{pane.title}}&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ng-content&gt;&lt;/ng-content&gt;
+    `
+})
+export class UiTabs {
+  @ContentChildren(UiPane) panes: QueryList&lt;UiPane&gt;;
+
+  select(pane: UiPane) {
+    this.panes.toArray().forEach((p: UiPane) =&gt; p.active = p == pane);
+  }
+}
+</code-pane><code-pane language="html" name="index.html" format="linenums">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+  &lt;head&gt;
+    &lt;title&gt;Angular 2 QuickStart&lt;/title&gt;
+    &lt;link href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+    &lt;!-- 1. Load libraries --&gt;
+    &lt;script src=&quot;https://rawgithub.com/systemjs/systemjs/0.19.6/dist/system.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/tools/typescript.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.0/Rx.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- 2. Configure SystemJS --&gt;
+    &lt;script&gt;
+      System.config({
+        transpiler: &#39;typescript&#39;,
+        typescriptOptions: { emitDecoratorMetadata: true },
+        packages: {&#39;src&#39;: {defaultExtension: &#39;ts&#39;}}
+      });
+    &lt;/script&gt;
+
+    &lt;!-- 3. Bootstrap --&gt;
+    &lt;script&gt;
+      System.import(&#39;angular2/platform/browser&#39;).then(function(ng){
+        System.import(&#39;src/di_demo&#39;).then(function(src) {
+          ng.bootstrap(src.DiDemo);
+        });
+      });
+    &lt;/script&gt;
+
+  &lt;/head&gt;
+
+  &lt;!-- 4. Display the application --&gt;
+  &lt;body&gt;
+    &lt;di-demo class=&quot;container&quot; style=&quot;display: block;&quot;&gt;Loading...&lt;/di-demo&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code-pane></code-tabs></div></article><div class="main-footer"><nav class="background-silver grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c2"><h3 class="text-headline">LIBRARIES</h3><ul class="text-body"><li><a href="/"> Angular 2.0</a></li><li><a href="https://angularjs.org/"> Angular 1 for JS</a></li><li><a href="https://angulardart.org/"> Angular 1 for Dart</a></li><li><a href="https://material.angularjs.org"> Angular Material</a></li><li><a href="https://www.firebase.com/docs/web/libraries/angular/"> AngularFire</a></li></ul></div><div class="c2"><h3 class="text-headline">LEARN</h3><ul class="text-body"><li><a href="/docs/ts/latest/quickstart.html"> 5 Min Quickstart</a></li><li><a href="/docs/ts/latest/guide/"> Step by Step Guide</a></li><li><a href="/docs/ts/latest/api/"> Full API</a></li><li><a href="/docs/ts/latest/resources.html"> Resources</a></li><li><a href="http://goo.gl/sj0Nk1">Design Docs &amp; Notes</a></li></ul></div><div class="c2"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://gitter.im/angular/angular"> Chat Room</a></li><li><a href="https://github.com/angular/angular/issues"> Report an Issue</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="https://blog.angularjs.org/"> Blog</a></li><li><a href="https://plus.sandbox.google.com/+AngularJS/posts"> Google+</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2015. Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" class="text-snow">Apache License, Version 2.0</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small><a aria-label="View Style Guide" href="/docs/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><!-- Angular Material Dependencies --><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script></body></html>

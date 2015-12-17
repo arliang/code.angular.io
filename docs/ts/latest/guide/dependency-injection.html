@@ -1,0 +1,471 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Dependency Injection - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css"/><link href="/resources/fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="/resources/fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/about/" md-button>About</a></li><li class="l-left"><a class="main-nav-button" href="/contribute.html" md-button>Contribute</a></li><li class="l-right feedback-button"><md-button ng-click="appCtrl.openFeedback()" class="md-icon-button top-nav-icon" aria-label="Submit feedback on this page"><span class="material-icons">feedback</span></md-button></li></ul></nav></md-toolbar><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><!-- PRIMARY NAVIGATION--><ul ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-primary"><li><a href="/docs/ts/latest/index.html" md-button><span class="side-nav-icon icon-home"></span> Docs Home</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/quickstart.html" md-button><span class="side-nav-icon icon-query-builder"></span> 5 Min Quickstart</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/tutorial/" md-button><span class="side-nav-icon icon-list"></span> Tutorial</a></li><!-- SECONDARY NAVIGATION--><li class="is-selected"><a href="/docs/ts/latest/guide/" md-button><span class="side-nav-icon icon-list"></span> Developer Guides</a></li><!-- SECONDARY NAVIGATION--><!--SECONDARY NAVIGATION--><ul class="side-nav-secondary is-ordered"><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/cheatsheet.html" md-button>1. Angular Cheat Sheet</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/architecture.html" md-button>2. Architecture Overview</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/displaying-data.html" md-button>3. Displaying Data</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/user-input.html" md-button>4. User Input</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/forms.html" md-button>5. Forms</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li class="is-selected"><a href="/docs/ts/latest/guide/dependency-injection.html" md-button>6. Dependency Injection</a></li><!-- TERTIARY NAVIGATION--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/template-syntax.html" md-button>7. Template Syntax</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/pipes.html" md-button>8. Pipes</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/router.html" md-button>9. Routing &amp; Navigation</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/attribute-directives.html" md-button>10. Attribute Directives</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/structural-directives.html" md-button>11. Structural Directives</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" md-button>12. Hierarchical Injectors</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/upgrade.html" md-button>13. Upgrading from 1.x</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/glossary.html" md-button>14. Glossary</a></li><!-- TERTIARY NAVIGATION--></ul><li><a href="/docs/ts/latest/testing/" md-button><span class="side-nav-icon icon-list"></span> Testing Guides</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/api/" md-button><span class="side-nav-icon icon-book"></span> API Preview</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/resources.html" md-button><span class="side-nav-icon icon-play-circle-fill"></span> Angular Resources</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/help.html" md-button><span class="side-nav-icon icon-chat"></span> Help &amp; Support</a></li><!-- SECONDARY NAVIGATION--></ul></nav><header class="hero background-sky"><h1 class="hero-title text-display-1 ">Dependency Injection</h1><!-- Replace _ undscores with . dots --><!-- Replace _ undscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="hero-subtitle text-subhead dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Angular's dependency injection system creates and delivers dependent services "just-in-time".</p></div><article class="l-content-small grid-fluid docs-content"><p>Dependency Injection is an important application design pattern.
+Angular has its own Dependency Injection framework and
+we really can&#39;t build an Angular application without it.</p>
+<p>In this chapter we&#39;ll learn what Dependency Injection is, why we want it, and how to use it.
+<a name="why-di"></a></p>
+<div class="l-main-section"></div><h2 id="why-dependency-injection-">Why Dependency Injection?</h2>
+<p>Let&#39;s start with the following code.</p>
+<pre><code>class Engine {}
+
+class Tires {}
+
+class Car {
+  private engine: Engine;
+  private tires: Tires;
+
+  constructor() {
+    this.engine = new Engine();
+    this.tires = new Tires();
+  }
+  // Method using the engine and tires
+  drive() {}
+}
+</code></pre><p>Our <code>Car</code> creates everything it needs inside its constructor.
+What&#39;s the problem?</p>
+<p>The problem is that our <code>Car</code> class is brittle, inflexible, and hard to test.</p>
+<p>Our <code>Car</code> needs an engine and tires. Instead of asking for them,
+the <code>Car</code> constructor creates its own copies by &quot;new-ing&quot; them from
+the very specific classes, <code>Engine</code> and <code>Tires</code>.</p>
+<p>What if the <code>Engine</code> class evolves and its constructor requires a parameter?
+Our <code>Car</code> is broken and stays broken until we rewrite it along the lines of
+<code>this.engine = new Engine(theNewParameter)</code>.
+We didn&#39;t care about <code>Engine</code> constructor parameters when we first wrote <code>Car</code>.
+We don&#39;t really care about them now.
+But we&#39;ll <em>have</em> to start caring because
+when the definion of <code>Engine</code> changes, our <code>Car</code> class must change.
+That makes <code>Car</code> brittle.</p>
+<p>What if we want to put a different brand of tires on our <code>Car</code>. Too bad.
+We&#39;re locked into whatever brand the <code>Tires</code> class creates. That makes our <code>Car</code> inflexible.</p>
+<p>Right now each new car gets its own engine. It can&#39;t share an engine with other cars.
+While that makes sense for an automobile engine,
+we can think of other dependencies that should be shared ... like the onboard
+wireless connection to the manufacturer&#39;s service center. Our <code>Car</code> lacks the flexibility
+to share services that have been created previously for other consumers.</p>
+<p>When we write tests for our <code>Car</code> we&#39;re at the mercy of its hidden dependencies.
+Is it even possible to create a new <code>Engine</code> in a test environment?
+What does <code>Engine</code>itself depend upon? What does that dependency depend on?
+Will a new instance of <code>Engine</code> make an asynchronous call to the server?
+We certainly don&#39;t want that going on during our tests.</p>
+<p>What if our <code>Car</code> should flash a warning signal when tire pressure is low.
+How do we confirm that if actually does flash a warning
+if we can&#39;t swap in low-pressure tires during the test?</p>
+<p>We have no control over the car&#39;s hidden dependencies.
+When we can&#39;t control the dependencies, a class become difficult to test.</p>
+<p>How can we make <code>Car</code> more robust, more flexible, and more testable?</p>
+<p>That&#39;s super easy. We probably already know what to do. We change our <code>Car</code> constructor to this:
+<a name="ctor-injection"></a></p>
+<pre><code>constructor(engine: Engine, tires: Tires) {
+  this.engine = engine;
+  this.tires = tires;
+}
+</code></pre><p>See what happened? We moved the definition of the dependencies to the constructor.
+Our <code>Car</code> class no longer creates an engine or tires.
+It just consumes them.</p>
+<p>Now we create a car by passing the engine and tires to the constructor.</p>
+<pre><code>var car = new Car(new Engine(), new Tires());
+</code></pre><p>How cool is that?
+The definition of the engine and tire dependencies are decoupled from the <code>Car</code> class itself.
+We can pass in any kind of engine or tires we like, as long as they
+conform to the general API requirements of an engine or tires.</p>
+<p>If someone extends the <code>Engine</code> class, that is not <code>Car</code>&#39;s problem.</p>
+<div class="l-sub-section"><p>The consumer of <code>Car</code> has the problem. The consumer must update the car creation code to
+something like:</p>
+<pre><code>var car = new Car(new Engine(theNewParameter), new Tires());
+</code></pre><p>The critical point is this: <code>Car</code> itself did not have to change.
+We&#39;ll take care of the consumer&#39;s problem soon enough.</p>
+</div><p>The <code>Car</code> class is much easier to test because we are in complete control
+of its dependencies.
+We can pass mocks to the constructor that do exactly what we want them to do
+during each test:</p>
+<pre><code>var car = new Car(new MockEngine(), new MockLowPressureTires());
+</code></pre><p><strong>We just learned what Dependency Injection is</strong>.</p>
+<p>It&#39;s a coding pattern in which a class receives its dependencies from external
+sources rather than creating them itself.</p>
+<p>Cool! But what about that poor consumer?
+Anyone who wants a <code>Car</code> must now
+create all three parts: the <code>Car</code>, <code>Engine</code>, and <code>Tires</code>.
+The <code>Car</code> class shed its problems at the consumer&#39;s expense.
+We need something that takes care of assembling these parts for us.</p>
+<p>We could write a giant class to do that:</p>
+<pre><code>class SuperFactory {
+  createEngine = () =&gt; new Engine();
+  createTires =  () =&gt; new Tires();
+  createCar = () =&gt; new Car(this.createEngine(), this.createTires());
+}
+</code></pre><p>It&#39;s not so bad now with only three creation methods.
+But maintaining it will be hairy as the application grows.
+This <code>SuperFactory</code> is going to become a huge spider web of
+interdependent factory methods!</p>
+<p>Wouldn&#39;t it be nice if we could simply list the things we want to build without
+having to define which dependency gets injected into what?</p>
+<p>This is where the Dependency Injection Framework comes into play.
+Imagine the framework had something called an <code>Injector</code>.
+We register some classes with this <code>Injector</code> and it figures out how to create them.</p>
+<p>When we need a <code>Car</code>, we simply ask the <code>Injector</code> to get it for us and we&#39;re good to go.</p>
+<pre><code>function main() {
+  var injector = new Injector([Car, Engine, Tires, Logger]);
+  var car = injector.get(Car);
+  car.drive();
+}
+</code></pre><p>Everyone wins. The <code>Car</code> knows nothing about creating an <code>Engine</code> or <code>Tires</code>.
+The consumer knows nothing about creating a <code>Car</code>.
+We don&#39;t have a gigantic factory class to maintain.
+Both <code>Car</code> and consumer simply ask for what they need and the <code>Injector</code> delivers.</p>
+<p>This is what a <strong>Dependency InjectionFramework</strong> is all about.</p>
+<p>Now that we know what Dependency Injection is and appreciate its benefits,
+let&#39;s see how it is implemented in Angular.</p>
+<div class="l-main-section"></div><h2 id="angular-dependency-injection">Angular Dependency Injection</h2>
+<p>Angular ships with its own Dependency Injection framework. This framework can also be used
+as a standalone module by other applications and frameworks.</p>
+<p>That sounds nice. What does it do for us when building components in Angular?
+Let&#39;s see, one step at a time.</p>
+<p>We&#39;ll begin with a simplified version of the <code>HeroesComponent</code>
+that we built in the <a href="../tutorial/">The Tour of Heroes</a>.</p>
+<pre><code>import {Component} from &#39;angular2/angular2&#39;;
+import {Hero} from &#39;./hero&#39;;
+import {HEROES} from &#39;./mock-heroes&#39;;
+
+@Component({
+  selector: &#39;my-heroes&#39;
+  templateUrl: &#39;app/heroes.component.html&#39;
+})
+export class HeroesComponent {
+
+  heroes: Hero[] = HEROES;
+
+}
+</code></pre><p>It assigns a list of mocked heroes to its <code>heroes</code> property for binding within the template.
+Pretty straight forward.</p>
+<p>Those heroes are currently a fixed, in-memory collection, defined in another file and imported by the component.
+That works in the early stages of development but it&#39;s far from ideal.
+As soon as we try to test this component or want to get our heroes data from a remote server,
+we&#39;ll have to change this component&#39;s implementation of <code>heroes</code> and
+fix every other use of the <code>HEROES</code> mock data.</p>
+<p>Let&#39;s make a service that hides how we get Hero data.</p>
+<div class="l-sub-section"><p>Write this service in its own file. See <a href="#forward-ref">this note</a> to understand why.</p>
+</div><pre><code>import {Hero} from &#39;./hero&#39;;
+import {HEROES} from &#39;./mock-heroes&#39;;
+
+class HeroService {
+
+  heroes: Hero[];
+
+  constructor() {
+    this.heroes = HEROES;
+  }
+
+  getHeroes() {
+    return this.heroes;
+  }
+}
+</code></pre><p>Our <code>HeroService</code> exposes a <code>getHeroes()</code> method that returns
+the same mock data as before but none of its consumers need to know that.</p>
+<p>A service is nothing more than a class in Angular 2.
+It remains nothing more than a class until we register it with
+the Angular injector.</p>
+<h3 id="configuring-the-injector">Configuring the Injector</h3>
+<p>We don&#39;t have to create the injector.
+<a name="bootstrap"></a>
+Angular creates an application-wide injector for us during the bootstrap process.</p>
+<pre><code>bootstrap(HeroesComponent);
+</code></pre><p>Let’s configure the injector at the same time that we bootstrap by adding
+our <code>HeroService</code> to an array in the second argument.
+We&#39;ll explain that array when we talk about <a href="#providers">providers</a> later in this chapter.</p>
+<pre><code>bootstrap(AppComponent, [HeroService]);
+</code></pre><p>That’s it! The injector now knows about the <code>HeroService</code> which is available for injection across our entire application.</p>
+<h3 id="preparing-the-heroescomponent-for-injection">Preparing the <code>HeroesComponent</code> for injection</h3>
+<p>The <code>HeroesComponent</code> should get its heroes from this service.
+Per the dependency injection pattern, the component must &quot;ask for&quot; the service in its constructor <a href="#ctor-injection">as we explained
+earlier</a>&quot;.</p>
+<pre><code>constructor(heroService: HeroService) {
+  this.heroes = heroService.getHeroes();
+}
+</code></pre><p><a name="di-metadata"></a></p>
+<div class="l-sub-section"><p>Adding a parameter to the constructor isn&#39;t all that&#39;s happening here.</p>
+<p>We are writing the app in TypeScript and have followed the parameter name with a type notation, <code>:HeroService</code>.
+The class is also decorated with the <code>@Component</code> decorator (scroll up to confirm that fact).</p>
+<p>When the TypeScript compiler evaluates this class, it sees the decorator and adds class metadata
+into the generated JavaScript code. Within that metadata lurks the information that
+associates the <code>heroService</code> parameter with the <code>HeroService</code> class.</p>
+<p>That&#39;s how the Angular injector will know to inject an instance of the <code>HeroService</code> when it
+creates a new <code>HeroesComponent</code>.</p>
+</div><h3 id="creating-the-heroescomponent-with-the-injector-implicitly-">Creating the <code>HeroesComponent</code> with the injector (implicitly)</h3>
+<p>When we introduced the idea of an injector above, we showed how to create
+a new <code>Car</code> with that injector.</p>
+<pre><code>var car = injector.get(Car);
+</code></pre><p>Search the entire Tour of Heroes source. We won&#39;t find a single line like</p>
+<pre><code>var hc = injector.get(HeroesComponent);
+</code></pre><p>We <em>could</em> write code like that if we wanted to. We just don&#39;t have to.
+Angular does that for us when it renders a <code>HeroesComponent</code>
+whether we ask for it in an HTML template ...</p>
+<pre><code>&lt;my-heroes&gt;&lt;/heroes&gt;
+</code></pre><p>... or navigate to a <code>HeroesComponent</code> view with the <a href="./router.html">router</a>.</p>
+<h3 id="singleton-services">Singleton services</h3>
+<p>We might wonder what happens when we inject the <code>HeroService</code> into other components.
+Do we get the same instance every time?</p>
+<p>Yes we do. Dependencies are singletons.
+We’ll discuss that later in our chapter about
+<a href="./hierarchical-dependency-injection.html">Hierarchical Injectors</a>.</p>
+<h3 id="testing-the-component">Testing the component</h3>
+<p>We emphasized earlier that designing a class for dependency injection makes it easier to test.</p>
+<p>Mission accomplished!  We don&#39;t even need the Angular Dependency Injection system to test the <code>HeroesComponent</code>.
+We simply create a new <code>HeroesComponent</code> with a mock service and poke at it:</p>
+<pre><code>it(&quot;should have heroes when created&quot;, () =&gt; {
+  let hc = new HeroesComponent(mockService);
+  expect(hc.heroes.length).toEqual(mockService.getHeroes().length);
+})
+</code></pre><h3 id="when-the-service-needs-a-service">When the service needs a service</h3>
+<p>Our <code>HeroService</code> is very simple. It doesn&#39;t have any dependencies of its own.</p>
+<p>What if it had a dependency? What if it reported its activities through a logging service?
+We&#39;d apply the same &quot;constructor injection&quot; pattern.</p>
+<p>Here&#39;s a rewrite of <code>HeroService</code> with a new constructor that takes a <code>logger</code> parameter.</p>
+<pre><code>import {Injectable} from &#39;angular2/angular2&#39;;
+import {Hero} from &#39;./hero&#39;;
+import {HEROES} from &#39;./mock-heroes&#39;;
+import {Logger} from &#39;./logger&#39;;
+
+@Injectable()
+class HeroService {
+
+  heroes: Hero[];
+
+  constructor(private logger: Logger) {
+    this.heroes = HEROES;
+  }
+
+  getHeroes() {
+    this.logger.log(&#39;Getting heroes ...&#39;)
+    return this.heroes;
+  }
+}
+</code></pre><p>The constructor now asks for an injected instance of a <code>Logger</code> and stores it in a private property called <code>logger</code>.
+We call that property within our <code>getHeroes()</code> method when anyone asks for heroes.</p>
+<p><strong>The <code>@Injectable()</code> decoration catches our eye!</strong></p>
+<div class="alert is-critical"><p><strong>Always include the parentheses!</strong> Always call <code>@Injectable()</code>. It&#39;s easy to forget the parentheses.
+Our application will fail mysteriously if we do. It bears repeating: <strong>always include the parentheses.</strong></p>
+</div><p>We haven&#39;t seen <code>@Injectable()</code> before.
+As it happens, we could have added it to <code>HeroService</code>. We didn&#39;t bother because we didn&#39;t need it then.</p>
+<p>We need it now ... now that our service has an injected dependency.
+We need it because Angular requires constructor parameter metadata in order to inject a <code>Logger</code>.
+As <a href="#di-metadata">we mentioned earlier</a>, TypeScript <em>only generates metadata for classes that have a decorator</em>. .</p>
+<p>The <code>HeroesComponent</code> has an injected dependency too. Why don&#39;t we add <code>@Injectable()</code> to the <code>HeroesComponent</code>?
+We <em>can</em> add it if we really want to. It isn&#39;t necessary because the <code>HeroesComponent</code> is already decorated with <code>@Component</code>.
+TypeScript generates metadata for <em>any</em> class with a decorator and <em>any</em> decorator will do.</p>
+<div class="l-main-section"></div><p><a name="providers"></a></p>
+<h2 id="injector-providers">Injector Providers</h2>
+<p>Remember when we added the <code>HeroService</code> to an array in the <a href="#bootstrap">bootstrap</a> process?</p>
+<pre><code>bootstrap(AppComponent, [HeroService]);
+</code></pre><p>That list of classes is actually a list of <strong>providers</strong>.</p>
+<p>&quot;Providers&quot; create the instances of the things that we ask the injector to inject.
+There are many ways to &quot;provide&quot; a thing that has the necessary shape and behavior to serve as a <code>HeroService</code>.
+A class is a natural provider - it&#39;s meant to be created. But it&#39;s not the only way
+to produce something injectable. We could hand the injector an object to return. We could give it a factory function to call.
+Any of these approaches might be a good choice under the right circumstances.</p>
+<p>What matters is that the injector knows what to do when something asks for a <code>HeroService</code>.</p>
+<h3 id="the-provider-class">The Provider Class</h3>
+<p>When we wrote ...</p>
+<pre><code>[HeroService];
+</code></pre><p>we used a short-hand expression for provider registration.
+Angular expanded that short-hand into a call to the Angular <code>provide</code> method</p>
+<pre><code>[provide(HeroService, {useClass:HeroService})];
+</code></pre><p>and the <code>provide</code> method in turn creates a new instance of the Angular
+<a href="/docs/ts/latest/api/core/Provider-class.html">Provider class</a>:</p>
+<pre><code>[new Provider(HeroService, {useClass:HeroService})]
+</code></pre><p>This provider instance associates a <code>HeroService</code> <em>token</em>
+with code that can create an <em>instance</em> of a <code>HeroService</code>.</p>
+<p>The first parameter is the <a href="#token">token</a> that serves as the key for both locating a dependency value
+and registering the provider.</p>
+<p>The second parameter is a provider definition object
+which we think of as a &quot;recipe&quot; for creating the dependency value.
+There are many ways to create dependency values ... and many ways to write a recipe.</p>
+<h3 id="alternative-class-providers">Alternative Class Providers</h3>
+<p>Occasionally we&#39;ll ask a different class to  provide the service.</p>
+<p>We do that regularly when testing a component that we&#39;re creating with dependency injection.
+In this example, we tell the injector
+to return a <code>MockHeroService</code> when something asks for the <code>HeroService</code>.</p>
+<pre><code>beforeEachProviders(() =&gt; [
+  provide(HeroService, {useClass: MockHeroService});
+]);
+</code></pre><h3 id="value-providers">Value Providers</h3>
+<p>Sometimes it&#39;s easier to provide a ready-made object rather than ask the injector to create it from a class.</p>
+<p>We do that a lot when we write tests. We might write the following test setup
+for  tests that explore how the <code>HeroComponent</code> behaves when the <code>HeroService</code>
+returns an empty hero list.</p>
+<pre><code>beforeEachProviders(() =&gt; {
+
+  let emptyHeroService = { getHeroes: () =&gt; [] };
+
+  return [ provide(HeroService, {useValue: emptyHeroService}) ];
+});
+</code></pre><p>Notice we defined the recipe with <code>useValue</code> instead of <code>useClass</code>.</p>
+<h3 id="factory-providers">Factory Providers</h3>
+<p>Sometimes the best choice for a provider is neither a class nor a value.</p>
+<p>Suppose our HeroService has some cool new feature that we&#39;re only offering to &quot;special&quot; users.
+The HeroService shouldn&#39;t know about users and
+we won&#39;t know if the current user is special until runtime anyway.
+We decide to extend our <code>HeroService</code> constructor to accept a <code>useCoolFeature</code> flag
+that toggles the feature on or off.
+We rewrite the <code>HeroService</code> again as follows.</p>
+<pre><code>@Injectable()
+class HeroService {
+
+  heroes: Hero[];
+
+  constructor(private logger: Logger, private useCoolFeature: boolean) {
+    this.heroes = HEROES;
+  }
+
+  getHeroes() {
+    let msg = this.useCoolFeature ? &#39;the cool new way&#39; : &#39;the old way&#39;;
+    this.logger.log(&#39;Getting heroes ...&#39; + msg)
+    return this.heroes;
+  }
+}
+</code></pre><p>The feature flag is a simple boolean value. We&#39;d like to inject the flag but it seems silly to write an entire class for a
+simple flag.</p>
+<p>We can replace the <code>HeroService</code> provider with a factory function that creates a properly configured <code>HeroService</code> for the current user.
+We&#39;ll&#39; build up to that result, beginning with our definition of the factory function:</p>
+<pre><code>let heroServiceFactory = (logger: Logger, userService: UserService) =&gt; {
+  return new HeroService(logger, userService.user.isSpecial);
+}
+</code></pre><div class="l-sub-section"><p>The factory takes two parameters: the logger service and a user service.
+The logger we pass straight to the constructor as we did before.</p>
+<p>We&#39;ll know to use the cool new feature if the <code>userService.user.isSpecial</code> flag is true,
+a fact we can&#39;t know until runtime.</p>
+</div><p>We use dependency injection everywhere so of course the factory function depends on
+two injected services: <code>Logger</code> and <code>UserService</code>.
+We declare those requirements in our provider definition object:</p>
+<pre><code>let heroServiceDefinition = {
+   useFactory: heroServiceFactory,
+   deps: [Logger, UserService]
+};
+</code></pre><div class="l-sub-section"><p>The <code>useFactory</code> field tells Angular that the provider is a factory function and that its implementation is the <code>heroServiceFactory</code>.</p>
+<p>The <code>deps</code> property is an array of <a href="#token">provider tokens</a>.
+The <code>Logger</code> and <code>UserService</code> classes serve as tokens for their own class providers.</p>
+</div><p>Finally, we create the provider and adjust the bootstrapping to include that provider
+among its provider registrations.</p>
+<pre><code>let heroServiceProvider = provide(HeroService, heroServiceDefinition);
+
+bootstrap(AppComponent, [heroServiceProvider, Logger, UserService]);
+</code></pre><h3 id="string-tokens">String tokens</h3>
+<p>Sometimes we have an object dependency rather than a class dependency.</p>
+<p>Applications often define configuration objects with lots of small facts like the title of the application or the address of a web api endpoint.
+These configuration objects aren&#39;t always instances of a class. They&#39;re just objects ... like this one:</p>
+<pre><code>let config = {
+  apiEndpoint: &#39;api.heroes.com&#39;,
+  title: &#39;The Hero Employment Agency&#39;
+};
+</code></pre><p>We&#39;d like to make this <code>config</code> object available for injection.
+We know we can register an object with a &quot;Value Provider&quot;. But what do we use for the token?</p>
+<p><a id="token"></a>
+Until now, we&#39;ve always asked the class to play the token role
+whether we wrote a provider with a class, value, or factory recipe.
+This time we don&#39;t have a class to serve as a token. There is no <code>Config</code> class.</p>
+<p>Fortunately, the token can be a string, a class type, or an
+<a href="/docs/ts/latest/api/core/OpaqueToken-class.html">OpaqueToken</a>.
+Internally, the <code>Provider</code> turns the string and class parameter into an <code>OpaqueToken</code>;
+the injector locates dependency values and providers by this token.</p>
+<p>We&#39;ll register our configuration object with a string-based token!</p>
+<pre><code>bootstrap(AppComponent, [
+  // other providers //
+  provide(&#39;App.config&#39;, {useValue:config})
+]);
+</code></pre><p>Let&#39;s apply what we&#39;ve learned and update the <code>HeroesComponent</code> constructor so it can display the configured title.
+Right now the constructor signature is</p>
+<pre><code>constructor(heroService: HeroService)
+</code></pre><p>We might think we can add the <code>config</code> dependency by writing:</p>
+<pre><code>// FAIL!
+constructor(heroService: HeroService, config: config)
+</code></pre><p>That&#39;s not going to work. There is no type called <code>config</code> and we didn&#39;t register the <code>config</code> object under that name anyway.
+We&#39;ll need a little help from another Angular decorator called <code>@Inject</code>.</p>
+<pre><code>import {Inject} from &#39;angular2/angular2&#39;
+
+constructor(heroService: HeroService, @Inject(&#39;app.config&#39;) config)
+</code></pre><div class="l-main-section"></div><h1 id="next-steps">Next Steps</h1>
+<p>We learned the basics of Angular Dependency Injection in this chapter.</p>
+<p>The Angular Dependency Injection is more capable than we&#39;ve described.
+We can learn more about its advanced features, beginning with its support for
+nested injectors, in the 
+<a href="./hierarchical-dependency-injection.html">Hierarchical Dependency Injection</a> chapter.</p>
+<div class="l-main-section"></div><a name="forward-ref"></a><h3 id="appendix-why-we-recommend-one-class-per-file">Appendix: Why we recommend one class per file</h3>
+<p>Developers expect one class per file. Multiple classes per file is confusing and is best avoided.
+If we define every class in its own file, there is nothing in this note to worry about.
+Move along!</p>
+<p>If we scorn this advice
+and we add our <code>HeroService</code> class to the <code>HeroesComponent</code> file anyway,
+<strong>define the <code>HeroesComponent</code> last!</strong>
+If we put it define component before the service,
+we&#39;ll get a runtime null reference error.</p>
+<p>To understand why, paste the following incorrect, ultra-simplified rendition of these two
+classes into the <a href="http://www.typescriptlang.org/Playground">TypeScript playground</a>.</p>
+<pre><code>class HeroesComponent {
+  static $providers=[HeroService]
+}
+
+class HeroService { }
+
+alert(HeroesComponent.$providers)
+</code></pre><div class="l-sub-section"><p>The <code>HeroService</code> is incorrectly defined below the <code>HeroComponent</code>.</p>
+<p>The <code>$providers</code> static property represents the metadata about the injected <code>HeroService</code>
+that TypeScript compiler would add to the component class.</p>
+<p>The <code>alert</code> simulates the action of the Dependency Injector at runtime
+when it attempts to create a <code>HeroesComponent</code>.</p>
+</div><p>Run it. The alert appears but displays nothing.
+This is the equivalent of the null reference error thrown at runtime.</p>
+<p>We understand why when we review the generated JavaScript which looks like this:</p>
+<pre><code>var HeroesComponent = (function () {
+    function HeroesComponent() {
+    }
+    HeroesComponent.$providers = [HeroService];
+    return HeroesComponent;
+})();
+
+var HeroService = (function () {
+    function HeroService() {
+    }
+    return HeroService;
+})();
+
+alert(HeroesComponent.$providers);
+</code></pre><p>Notice that the TypeScript compiler turns classes into function expressions
+assigned to variables. The value of the captured <code>HeroService</code> variable is undefined
+when the <code>$providers</code> array is assigned. The <code>HeroService</code> variable gets its value too late
+to be captured.</p>
+<p>Reverse the order of class definition so that the  <code>HeroService</code>
+appears before the <code>HeroesComponent</code> that requires it.
+Run again. This time the alert displays the <code>HeroService</code> function definition.</p>
+<p>If we insist on defining the <code>HeroService</code> in the same file and insist on
+defining the component first, Angular offers a way to make that work.
+The <code>forwardRef()</code> method let&#39;s us reference a class
+before it has been defined.
+Learn more about this problem and the <code>forwardRef()</code>
+in this <a href="http://blog.thoughtram.io/angular/2015/09/03/forward-references-in-angular-2.html">blog post</a>.</p><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><div class="l-sub-section"><h3>Next Step</h3><a href="/docs/ts/latest/guide/template-syntax.html">Template Syntax</a></div><!--NEXT PAGE HAS NOW BEEN SET--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-silver grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c2"><h3 class="text-headline">LIBRARIES</h3><ul class="text-body"><li><a href="/"> Angular 2.0</a></li><li><a href="https://angularjs.org/"> Angular 1 for JS</a></li><li><a href="https://angulardart.org/"> Angular 1 for Dart</a></li><li><a href="https://material.angularjs.org"> Angular Material</a></li><li><a href="https://www.firebase.com/docs/web/libraries/angular/"> AngularFire</a></li></ul></div><div class="c2"><h3 class="text-headline">LEARN</h3><ul class="text-body"><li><a href="/docs/ts/latest/quickstart.html"> 5 Min Quickstart</a></li><li><a href="/docs/ts/latest/guide/"> Step by Step Guide</a></li><li><a href="/docs/ts/latest/api/"> Full API</a></li><li><a href="/docs/ts/latest/resources.html"> Resources</a></li><li><a href="http://goo.gl/sj0Nk1">Design Docs &amp; Notes</a></li></ul></div><div class="c2"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://gitter.im/angular/angular"> Chat Room</a></li><li><a href="https://github.com/angular/angular/issues"> Report an Issue</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="https://blog.angularjs.org/"> Blog</a></li><li><a href="https://plus.sandbox.google.com/+AngularJS/posts"> Google+</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2015. Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" class="text-snow">Apache License, Version 2.0</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small><a aria-label="View Style Guide" href="/docs/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><!-- Angular Material Dependencies --><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script></body></html>

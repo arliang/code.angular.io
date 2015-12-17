@@ -1,0 +1,237 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/app.component.ts]" value="import {Component}           from 'angular2/core';
+
+import {ClickMeComponent}    from './click-me.component';
+import {ClickMeComponent2}   from './click-me2.component';
+
+import {LoopbackComponent}   from './loop-back.component';
+
+import {KeyUpComponent_v1,
+        KeyUpComponent_v2,
+        KeyUpComponent_v3,
+        KeyUpComponent_v4}   from './keyup.components';
+
+import {LittleTourComponent} from './little-tour.component';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: 'app/app.component.html',
+  directives: [
+    ClickMeComponent, ClickMeComponent2,
+    LoopbackComponent,
+    KeyUpComponent_v1, KeyUpComponent_v2, KeyUpComponent_v3, KeyUpComponent_v4,
+    LittleTourComponent
+  ]
+})
+export class AppComponent { }
+"><input type="hidden" name="files[app/boot.ts]" value="import {bootstrap} from 'angular2/platform/browser';
+import {AppComponent} from './app.component';
+
+bootstrap(AppComponent);"><input type="hidden" name="files[app/click-me.component.ts]" value="/* FOR DOCS ... MUST MATCH ClickMeComponent template
+  <button (click)=&quot;onClickMe()&quot;>Click me!</button>
+*/
+
+import {Component} from 'angular2/core';
+
+@Component({
+  selector: 'click-me',
+  template: `
+    <button (click)=&quot;onClickMe()&quot;>Click me!</button>
+    {{clickMessage}}`
+})
+export class ClickMeComponent {
+  clickMessage = '';
+
+  onClickMe(){
+    this.clickMessage ='You are my hero!';
+  }
+}
+"><input type="hidden" name="files[app/click-me2.component.ts]" value="import {Component} from 'angular2/core';
+
+@Component({
+  selector: 'click-me2',
+  template: `
+    <button (click)=&quot;onClickMe2($event)&quot;>No! .. Click me!</button>
+    {{clickMessage}}`
+})
+export class ClickMeComponent2 {
+  clickMessage = '';
+  clicks = 1;
+
+  onClickMe2(event:any){
+    let evtMsg = event ? ' Event target is '+ event.target.tagName  : '';
+    this.clickMessage = (`Click #${this.clicks++}. ${evtMsg}`)
+  }
+}
+"><input type="hidden" name="files[app/keyup.components.ts]" value="import {Component} from 'angular2/core';
+
+@Component({
+  selector: 'key-up1',
+  template: `
+    <input (keyup)=&quot;onKey($event)&quot;>
+    <p>{{values}}</p>
+  `
+})
+export class KeyUpComponent_v1 {
+  values='';
+
+  /*
+  // without strong typing
+  onKey(event:any) {
+    this.values += event.target.value + ' | ';
+  }
+  */
+  // with strong typing
+  onKey(event:KeyboardEvent) {
+    this.values += (<HTMLInputElement>event.target).value + ' | ';
+  }
+}
+
+//////////////////////////////////////////
+
+@Component({
+  selector: 'key-up2',
+  template: `
+    <input #box (keyup)=&quot;onKey(box.value)&quot;>
+    <p>{{values}}</p>
+  `
+})
+export class KeyUpComponent_v2 {
+  values='';
+  onKey(value:string) {
+    this.values += value + ' | ';
+  }
+}
+
+
+//////////////////////////////////////////
+
+@Component({
+  selector: 'key-up3',
+  template: `
+    <input #box (keyup.enter)=&quot;values=box.value&quot;>
+    <p>{{values}}</p>
+  `
+})
+export class KeyUpComponent_v3 {
+  values='';
+}
+
+
+//////////////////////////////////////////
+
+@Component({
+  selector: 'key-up4',
+  template: `
+    <input #box
+      (keyup.enter)=&quot;values=box.value&quot;
+      (blur)=&quot;values=box.value&quot;>
+
+    <p>{{values}}</p>
+  `
+})
+export class KeyUpComponent_v4 {
+  values='';
+}
+"><input type="hidden" name="files[app/little-tour.component.ts]" value="import {Component} from 'angular2/core';
+
+@Component({
+  selector: 'little-tour',
+  template: `
+    <input #newHero
+      (keyup.enter)=&quot;addHero(newHero.value)&quot;
+      (blur)=&quot;addHero(newHero.value); newHero.value='' &quot;>
+
+    <button (click)=addHero(newHero.value)>Add</button>
+
+    <ul><li *ngFor=&quot;#hero of heroes&quot;>{{hero}}</li></ul>
+  `
+})
+export class LittleTourComponent {
+  heroes=['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+  addHero(newHero:string) {
+    if (newHero) {
+      this.heroes.push(newHero);
+    }
+  }
+}
+"><input type="hidden" name="files[app/loop-back.component.ts]" value="import {Component} from 'angular2/core';
+@Component({
+  selector: 'loop-back',
+  template:`
+    <input #box (keyup)=&quot;0&quot;>
+    <p>{{box.value}}</p>
+  `
+})
+export class LoopbackComponent { }
+"><input type="hidden" name="files[styles.css]" value="fieldset {border-style:none}
+img {height: 100px;}
+.box {border: 1px solid black; padding:3px}
+.child-div {margin-left: 1em; font-weight: normal}
+.hidden {display: none}
+.parent-div {margin-top: 1em; font-weight: bold}
+.special {font-weight:bold;}
+.toe {margin-left: 1em; font-style: italic;}
+little-hero {color:blue; font-size: smaller; background-color: Turquoise }"><input type="hidden" name="files[app/app.component.html]" value="<p>
+  <click-me></click-me>
+</p>
+
+<p>
+  <click-me2></click-me2>
+</p>
+
+<h4>Give me some keys!</h4>
+<div><key-up1></key-up1></div>
+
+<h4>keyup loop-back component</h4>
+<div><loop-back></loop-back></div>
+<br><br>
+
+<h4>Give me some more keys!</h4>
+<div><key-up2></key-up2></div>
+
+<h4>Type away! Press [enter] when done.</h4>
+<div><key-up3></key-up3></div>
+
+<h4>Type away! Press [enter] or click elsewhere when done.</h4>
+<div><key-up4></key-up4></div>
+
+<h4>Little Tour of Heroes</h4>
+<p><i>Add a new hero</i></p>
+<div><little-tour></little-tour></div>"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Input</title>
+    <link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/system.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/typescript.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/Rx.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js&quot;></script>
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+
+</html>"><input type="hidden" name="files[license.md]" value="Copyright 2010-2015 Google, Inc. http://angularjs.org
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License."><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="input"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - User Input"></form><script>document.getElementById("mainForm").submit();</script></body></html>

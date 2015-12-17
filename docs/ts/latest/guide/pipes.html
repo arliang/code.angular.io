@@ -1,0 +1,328 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Pipes - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css"/><link href="/resources/fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="/resources/fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/about/" md-button>About</a></li><li class="l-left"><a class="main-nav-button" href="/contribute.html" md-button>Contribute</a></li><li class="l-right feedback-button"><md-button ng-click="appCtrl.openFeedback()" class="md-icon-button top-nav-icon" aria-label="Submit feedback on this page"><span class="material-icons">feedback</span></md-button></li></ul></nav></md-toolbar><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><!-- PRIMARY NAVIGATION--><ul ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-primary"><li><a href="/docs/ts/latest/index.html" md-button><span class="side-nav-icon icon-home"></span> Docs Home</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/quickstart.html" md-button><span class="side-nav-icon icon-query-builder"></span> 5 Min Quickstart</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/tutorial/" md-button><span class="side-nav-icon icon-list"></span> Tutorial</a></li><!-- SECONDARY NAVIGATION--><li class="is-selected"><a href="/docs/ts/latest/guide/" md-button><span class="side-nav-icon icon-list"></span> Developer Guides</a></li><!-- SECONDARY NAVIGATION--><!--SECONDARY NAVIGATION--><ul class="side-nav-secondary is-ordered"><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/cheatsheet.html" md-button>1. Angular Cheat Sheet</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/architecture.html" md-button>2. Architecture Overview</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/displaying-data.html" md-button>3. Displaying Data</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/user-input.html" md-button>4. User Input</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/forms.html" md-button>5. Forms</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/dependency-injection.html" md-button>6. Dependency Injection</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/template-syntax.html" md-button>7. Template Syntax</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li class="is-selected"><a href="/docs/ts/latest/guide/pipes.html" md-button>8. Pipes</a></li><!-- TERTIARY NAVIGATION--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/router.html" md-button>9. Routing &amp; Navigation</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/attribute-directives.html" md-button>10. Attribute Directives</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/structural-directives.html" md-button>11. Structural Directives</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" md-button>12. Hierarchical Injectors</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/upgrade.html" md-button>13. Upgrading from 1.x</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/ts/latest/guide/glossary.html" md-button>14. Glossary</a></li><!-- TERTIARY NAVIGATION--></ul><li><a href="/docs/ts/latest/testing/" md-button><span class="side-nav-icon icon-list"></span> Testing Guides</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/api/" md-button><span class="side-nav-icon icon-book"></span> API Preview</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/resources.html" md-button><span class="side-nav-icon icon-play-circle-fill"></span> Angular Resources</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/help.html" md-button><span class="side-nav-icon icon-chat"></span> Help &amp; Support</a></li><!-- SECONDARY NAVIGATION--></ul></nav><header class="hero background-sky"><h1 class="hero-title text-display-1 ">Pipes</h1><!-- Replace _ undscores with . dots --><!-- Replace _ undscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="hero-subtitle text-subhead dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Pipes transform displayed values within a template</p></div><article class="l-content-small grid-fluid docs-content"><p>Every application starts out with what seems like a simple task: get data, transform them, and show them to users.</p>
+<p>Getting data could be as simple as creating a local variable or as complex as streaming data over a Websocket.</p>
+<p>Once data arrive, we could push their raw <code>toString</code> values directly to screen.
+That rarely makes for a good user experience.
+Almost everyone prefers a simple birthday date
+(<span style="font-family:courier">April 15, 1988</span>) to the original raw string format
+( <span style="font-family:courier">Fri Apr 15 1988 00:00:00 GMT-0700 (Pacific Daylight Time)</span> ).</p>
+<p>Clearly some values benefit from a bit of massage. We soon discover that we
+desire many of the same transformations repeatedly, both within and across many applications.
+We almost think of them as styles.
+In fact, we&#39;d like to apply them in our HTML templates as we do styles.</p>
+<p>Welcome, Angular pipes, the simple display-value transformations that we can declare in our HTML!</p>
+<p><a href="/resources/live-examples/pipes/ts/plnkr.html">Live Example</a>.</p>
+<div class="l-main-section"></div><h2 id="using-pipes">Using Pipes</h2>
+<p>A pipe takes in data as input and transforms it to a desired output.
+We&#39;ll illustrate by transforming a component&#39;s birthday property into
+a human-friendly date:</p>
+<div class="example-title">app/hero-birthday1.component.ts</div><code-example language="ts" format="linenums">import {Component} from &#39;angular2/core&#39;
+
+@Component({
+  selector: &#39;hero-birthday&#39;,
+  template: `&lt;p&gt;The hero&#39;s birthday is {{ birthday | date }}&lt;/p&gt;`
+})
+export class HeroBirthday {
+  birthday = new Date(1988,3,15); // April 15, 1988
+}
+</code-example><p>Focus on the component&#39;s template. </p>
+<code-example language="html" format=".">&lt;p&gt;The hero&#39;s birthday is {{ birthday | date }}&lt;/p&gt;
+</code-example><p>Inside the interpolation expression we flow the component&#39;s <code>birthday</code> value through the
+<a href="./template-syntax.html#pipe">pipe operator</a> ( | ) to the <a href="../api/common/DatePipe-class.html">Date pipe</a> 
+function on the right. All pipes work this way.</p>
+<div class="l-main-section"></div><h2 id="built-in-pipes">Built-in pipes</h2>
+<p>Angular comes with a stock set of pipes such as
+<code>DatePipe</code>, <code>UpperCasePipe</code>, <code>LowerCasePipe</code>, <code>CurrencyPipe</code>, and <code>PercentPipe</code>.
+They are all immediately available for use in any template.</p>
+<div class="l-sub-section"><p>Learn more about these and many other built-in pipes in the  the <a href="../api/">API Reference</a>;
+filter for entries that include the word &quot;pipe&quot;.</p>
+</div><div class="l-main-section"></div><h2 id="parameterizing-a-pipe">Parameterizing a Pipe</h2>
+<p>A pipe may accept any number of optional parameters to fine-tune its output.</p>
+<p>We add parameters to a pipe by following the pipe name with a colon ( : ) and then the parameter value
+(e.g., <code>currency:&#39;EUR&#39;</code>). If our pipe accepts multiple parameters, we separate the values with colons (e.g. <code>slice:1:5</code>)</p>
+<p>We&#39;ll modify our birthday template to give the date pipe a format parameter.
+After formatting the hero&#39;s April 15th birthday should display as <strong><span style="font-family:courier">04/15/88</span></strong>.</p>
+<code-example language="html" format=".">&lt;p&gt;The hero&#39;s birthday is {{ birthday | date:&quot;MM/dd/yy&quot; }} &lt;/p&gt;
+</code-example><p>The parameter value can be any valid
+<a href="./template-expression.html#template-expressions">template expression</a>
+such as a string literal or a component property. 
+In other words, we can control the format through a binding the same way we control the birthday value through a binding.</p>
+<p>Let&#39;s write a second component that <em>binds</em> the pipe&#39;s format parameter
+to the component&#39;s <code>format</code> property. Here&#39;s the template for that component:</p>
+<div class="example-title">app/hero-birthday2.component.ts (template)</div><code-example language="ts" format=".">template: `
+  &lt;p&gt;The hero&#39;s birthday is {{ birthday | date:format }}&lt;/p&gt;
+  &lt;button (click)=&quot;toggleFormat()&quot;&gt;Toggle Format&lt;/button&gt;
+`
+</code-example><p>We also added a button to the template and bound its click event to the component&#39;s <code>toggleFormat</code> method.
+That method toggles the component&#39;s <code>format</code> property between a short form
+(&#39;shortDate&#39;) and a longer form (&#39;fullDate&#39;).</p>
+<div class="example-title">app/hero-birthday2.component.ts (class)</div><code-example language="ts" format="linenums">export class HeroBirthday {
+  birthday = new Date(1988,3,15); // April 15, 1988
+
+  toggle = true; // start with true == shortDate
+
+  get format() { return this.toggle ? &#39;shortDate&#39; : &#39;fullDate&#39;}
+
+  toggleFormat() { this.toggle = !this.toggle; }
+}
+</code-example><p>As we click the button, the displayed date alternates between
+&quot;<strong><span style="font-family:courier">04/15/1988</span></strong>&quot; and
+&quot;<strong><span style="font-family:courier">Friday, April 15, 1988</span></strong>&quot;.</p>
+<figure class="image-display"><img src="/resources/images/devguide/pipes/date-format-toggle-anim.gif" alt="Date Format Toggle"></figure><div class="l-sub-section"><p>Learn more about the <code>DatePipes</code> format options in the <a href="../api/core/DatePipe-class.html">API Docs</a>.</p>
+</div><h2 id="chaining-pipes">Chaining pipes</h2>
+<p>We can chain pipes together in potentially useful combinations.
+In the following example, we chain the birthday to the <code>DatePipe</code> and on to the <code>UpperCasePipe</code>
+so we can display the birthday in uppercase. The following birthday displays as
+<strong><span style="font-family:courier">APR 15, 1988</span></strong></p>
+<code-example language="html" format=".">&lt;p&gt;
+  The chained hero&#39;s birthday is
+  {{ birthday | date | uppercase}}
+&lt;/p&gt;
+</code-example><p>If we pass a parameter to a filter, we have to add parentheses
+to help the template compiler with the evaluation order.
+The following example displays
+<strong><span style="font-family:courier">FRIDAY, APRIL 15, 1988</span></strong></p>
+<code-example language="html" format=".">&lt;p&gt;
+  The chained hero&#39;s birthday is
+  {{  birthday | date:&#39;fullDate&#39; | uppercase}}
+&lt;/p&gt;
+</code-example><div class="l-sub-section"><p>We can add parentheses to alter the evaluation order or 
+to provide extra clarity:</p>
+<code-example language="html" format=".">&lt;p&gt;
+  The chained hero&#39;s birthday is
+  {{ ( birthday | date:&#39;fullDate&#39; ) | uppercase}}
+&lt;/p&gt;
+</code-example></div><div class="l-main-section"></div><h2 id="custom-pipes">Custom Pipes</h2>
+<p>We can write our own custom pipes.</p>
+<p>Here&#39;s a custom pipe named <code>ExponentialStrengthPipe</code> that can boost a hero&#39;s powers:</p>
+<div class="example-title">app/exponential-strength.pipe.ts</div><code-example language="ts" format="linenums">import {Pipe} from &#39;angular2/core&#39;;
+/*
+ * Raise the value exponentially
+ * Takes an exponent argument that defaults to 1.
+ * Usage:
+ *   value | exponentialStrength:exponent
+ * Example:
+ *   {{ 2 |  exponentialStrength:10}}
+ *   formats to: 1024
+*/
+@Pipe({name: &#39;exponentialStrength&#39;})
+export class ExponentialStrengthPipe {
+
+  transform(value:number, args:string[]) : any {
+    return Math.pow(value, parseInt(args[0] || &#39;1&#39;, 10));
+  }
+}
+</code-example><p>This pipe definition reveals several key points</p>
+<ul>
+<li><p>A pipe is a class decorated with pipe metadata.</p>
+</li>
+<li><p>The pipe class implements a <code>transform</code> method that
+takes an input value and an optional array of parameter strings and returns the transformed value.</p>
+</li>
+<li><p>There will be one item in the parameter array for each parameter passed to the pipe</p>
+</li>
+<li><p>We tell Angular that this is a pipe by applying the
+<code>@Pipe</code> decorator which we import from the core Angular library.</p>
+</li>
+<li><p>The <code>@Pipe</code> decorator takes an object with a name property whose value is the
+ pipe name that we&#39;ll use within a template expression. It must be a valid JavaScript identifier.
+ Our pipe&#39;s name is <code>exponenentialStrength</code>.</p>
+</li>
+</ul>
+<p>Now we need a component to demonstrate our pipe.</p>
+<div class="example-title">app/power-booster.component.ts</div><code-example language="ts" format="linenums">import {Component} from &#39;angular2/core&#39;;
+import {ExponentialStrengthPipe} from &#39;./exponential-strength.pipe&#39;;
+
+@Component({
+  selector: &#39;power-booster&#39;,
+  template: `
+    &lt;h2&gt;Power Booster&lt;/h2&gt;
+    &lt;p&gt;
+      Super power boost: {{2 | exponentialStrength: 10}}
+    &lt;/p&gt;
+  `,
+  pipes: [ExponentialStrengthPipe]
+})
+export class PowerBooster { }
+</code-example><figure class="image-display"><img src="/resources/images/devguide/pipes/power-booster.png" alt="Power Booster"></figure><p>Two things to note:</p>
+<ol>
+<li><p>We use our custom pipe the same way we use the built-in pipes.</p>
+</li>
+<li><p>We must list our pipe in the @Component decorator&#39;s <code>pipes</code> array.</p>
+</li>
+</ol>
+<div class="callout is-helpful"><header>Remember the pipes array!</header><p>Angular reports an error if we neglect to list our custom pipe.
+We didn&#39;t list the <code>DatePipe</code> in our previous example because all
+Angular built-in pipes are pre-registered.
+Custom pipes must be registered manually.</p>
+</div><p>If we try the <a href="/resources/live-examples/pipes/ts/plnkr.html">live code</a> example,
+we can probe its behavior by changing the value and the optional exponent in the template.</p>
+<h2 id="power-boost-calculator-extra-credit-">Power Boost Calculator (extra-credit)</h2>
+<p>It&#39;s not much fun updating the template to test our custom pipe.
+We could upgrade the example to a &quot;Power Boost Calculator&quot; that combines
+our pipe and two-way data binding with <code>ngModel</code>.</p>
+<div class="example-title">/app/power-boost-calculator.component.ts</div><code-example language="ts" format="linenums">import {Component} from &#39;angular2/core&#39;;
+import {ExponentialStrengthPipe} from &#39;./exponential-strength.pipe&#39;;
+
+@Component({
+  selector: &#39;power-boost-calculator&#39;,
+  template: `
+    &lt;h2&gt;Power Boost Calculator&lt;/h2&gt;
+    &lt;div&gt;Normal power: &lt;input [(ngModel)]=&quot;power&quot;&gt;&lt;/div&gt;
+    &lt;div&gt;Boost factor: &lt;input [(ngModel)]=&quot;factor&quot;&gt;&lt;/div&gt;
+    &lt;p&gt;
+      Super Hero Power: {{power | exponentialStrength: factor}}
+    &lt;/p&gt;
+  `,
+  pipes: [ExponentialStrengthPipe]
+})
+export class PowerBoostCalculator {
+  power = 5;
+  factor = 1;
+}
+</code-example><figure class="image-display"><img src="/resources/images/devguide/pipes/power-boost-calculator-anim.gif" alt="Power Boost Calculator"></figure><div class="l-main-section"></div><h2 id="stateful-pipes">Stateful Pipes</h2>
+<p>There are two categories of pipes, stateless and stateful.</p>
+<p>Stateless pipes are pure functions that flow input data
+through without remembering anything or causing detectable side-effects.</p>
+<p>Most pipes are stateless. The <code>DatePipe</code> in our first example is a stateless pipe. So is our custom <code>ExponentialStrengthPipe</code>.</p>
+<p>Stateful pipes are conceptually similar to classes in object-oriented programming. They can manage the data they transform. A pipe that creates an HTTP request, stores the response and displays the output, is a stateful pipe.
+Pipes that retrieve or request data should be used cautiously, since working with network data tends to introduce error conditions that are better handled in JavaScript than in a template.
+We can mitigate this risk by creating a custom pipe for a particular backend and bake-in the essential error-handling.</p>
+<h2 id="the-stateful-asyncpipe-">The stateful <code>AsyncPipe</code></h2>
+<p>The Angular Async pipe is a remarkable example of a stateful pipe.
+The Async pipe can receive a Promise or Observable as input
+and subscribe to the input automatically, eventually returning the emitted value(s).</p>
+<p>It is stateful because the pipe maintains a subscription to the input and its returned values depend on that subscription.</p>
+<p>In the next example, we bind a simple promise to a view with the async pipe.</p>
+<div class="example-title">app/hero-async-message.component.ts</div><code-example language="ts" format="linenums">import {Component} from &#39;angular2/core&#39;;
+
+// Initial view: &quot;Message: &quot;
+// After 500ms: Message: You are my Hero!&quot;
+
+@Component({
+  selector: &#39;hero-message&#39;,
+  template: &#39;Message: {{delayedMessage | async}}&#39;,
+})
+export class HeroAsyncMessageComponent {
+  delayedMessage:Promise&lt;string&gt; = new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; resolve(&#39;You are my Hero!&#39;), 500);
+  });
+}
+</code-example><p>The Async pipe saves boilerplate in the component code.
+The component doesn&#39;t have to subscribe to the async data source,
+it doesn&#39;t extract the resolved values and expose them for binding,
+and (in the case of Obsevable stream sources like <code>EventEmitter</code>)
+the component doesn&#39;t have to unsubscribe when it is destroyed
+(a potent source of memory leaks).</p>
+<h3 id="implementing-a-stateful-pipe">Implementing a Stateful Pipe</h3>
+<p>Pipes are stateless by default.
+We must declare a pipe to be stateful
+by setting the <code>pure</code> property of the <code>@Pipe</code> decorator to <code>false</code>.
+This setting tells Angular’s change detection system to
+check the output of this pipe each cycle, whether its input has changed or not.</p>
+<p>Here&#39;s how we&#39;ll decorate our new stateful <code>FetchJsonPipe</code> that
+makes an HTTP <code>fetch</code> request and (eventually) displays the data in the server&#39;s response:</p>
+<div class="example-title">app/fetch-json.pipe.ts (metadata)</div><code-example language="ts" format="linenums">@Pipe({
+  name: &#39;fetch&#39;,
+  pure: false
+})
+</code-example><p>Immediately below we have the finished pipe. Its input value is an url to an endpoint that returns a JSON file.
+The pipe makes a one-time async request to the server and eventually receives the JSON response.</p>
+<div class="example-title">app/fetch-json.pipe.ts</div><code-example language="ts" format="linenums">import {Pipe} from &#39;angular2/core&#39;;
+
+@Pipe({
+  name: &#39;fetch&#39;,
+  pure: false
+})
+export class FetchJsonPipe {
+  private fetchedValue:any;
+  private fetchPromise:Promise&lt;any&gt;;
+
+  transform(value:string, args:string[]):any {
+    if (!this.fetchPromise) {
+      this.fetchPromise = window.fetch(value)
+        .then((result:any) =&gt; result.json())
+        .then((json:any)   =&gt; this.fetchedValue = json);
+    }
+
+    return this.fetchedValue;
+  }
+}
+</code-example><p>Next we demonstrate this pipe in a test component whose template defines two bindings</p>
+<div class="example-title">app/hero-list.component.ts (template)</div><code-example language="ts" format="linenums">template: `
+  &lt;h4&gt;Heroes from JSON File&lt;/h4&gt;
+
+  &lt;div *ngFor=&quot;#hero of (&#39;heroes.json&#39; | fetch) &quot;&gt;
+    {{hero.name}}
+  &lt;/div&gt;
+
+  &lt;p&gt;Heroes as JSON:
+  {{&#39;heroes.json&#39; | fetch | json}}
+  &lt;/p&gt;
+`,
+</code-example><p>The component renders like this:</p>
+<figure class="image-display"><img src="/resources/images/devguide/pipes/hero-list.png" alt="Hero List"></figure><p>The first binding is straight forward. An <code>ngFor</code> repeater displays the hero names fetched from a json source file.
+We&#39;re piping the literal file name, &quot;heroes.json&quot;, through to the custom <code>fetch</code> pipe.</p>
+<h3 id="jsonpipe">JsonPipe</h3>
+<p>The second binding uses more pipe chaining.
+We take the same fetched results and display the raw hero data in JSON format 
+by piping to the built-in <code>JsonPipe</code>.</p>
+<div class="callout is-helpful"><header>Debugging with the json pipe</header><p>The <a href="https://angular.io/docs/ts/latest/api/common/JsonPipe-class.html">JsonPipe</a> 
+is an easy way to diagnosis a mysteriously failing data binding.</p>
+</div><p>Here&#39;s the complete component implementation:</p>
+<div class="example-title">app/hero-list.component.ts</div><code-example language="ts" format="linenums">import {Component} from &#39;angular2/core&#39;;
+import {FetchJsonPipe} from &#39;./fetch-json.pipe&#39;;
+
+@Component({
+  selector: &#39;hero-list&#39;,
+  template: `
+    &lt;h4&gt;Heroes from JSON File&lt;/h4&gt;
+
+    &lt;div *ngFor=&quot;#hero of (&#39;heroes.json&#39; | fetch) &quot;&gt;
+      {{hero.name}}
+    &lt;/div&gt;
+
+    &lt;p&gt;Heroes as JSON:
+    {{&#39;heroes.json&#39; | fetch | json}}
+    &lt;/p&gt;
+  `,
+  pipes: [FetchJsonPipe]
+})
+export class HeroListComponent {
+  /* I&#39;ve got nothing to do ;-) */
+}
+</code-example><div class="l-main-section"></div><h2 id="next-steps">Next Steps</h2>
+<p>Pipes are a great way to encapsulate and share common display-value
+transformations. We use them like styles, dropping them
+into our templates expressions to enrich the appeal and usability
+of our views.</p>
+<p>Explore Angular&#39;s inventory of built-in pipes in the <a href="../api/">API Reference</a>.
+Try writing a custom pipe and perhaps contributing it to the community.</p><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><div class="l-sub-section"><h3>Next Step</h3><a href="/docs/ts/latest/guide/router.html">Routing &amp; Navigation</a></div><!--NEXT PAGE HAS NOW BEEN SET--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-silver grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c2"><h3 class="text-headline">LIBRARIES</h3><ul class="text-body"><li><a href="/"> Angular 2.0</a></li><li><a href="https://angularjs.org/"> Angular 1 for JS</a></li><li><a href="https://angulardart.org/"> Angular 1 for Dart</a></li><li><a href="https://material.angularjs.org"> Angular Material</a></li><li><a href="https://www.firebase.com/docs/web/libraries/angular/"> AngularFire</a></li></ul></div><div class="c2"><h3 class="text-headline">LEARN</h3><ul class="text-body"><li><a href="/docs/ts/latest/quickstart.html"> 5 Min Quickstart</a></li><li><a href="/docs/ts/latest/guide/"> Step by Step Guide</a></li><li><a href="/docs/ts/latest/api/"> Full API</a></li><li><a href="/docs/ts/latest/resources.html"> Resources</a></li><li><a href="http://goo.gl/sj0Nk1">Design Docs &amp; Notes</a></li></ul></div><div class="c2"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://gitter.im/angular/angular"> Chat Room</a></li><li><a href="https://github.com/angular/angular/issues"> Report an Issue</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="https://blog.angularjs.org/"> Blog</a></li><li><a href="https://plus.sandbox.google.com/+AngularJS/posts"> Google+</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2015. Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" class="text-snow">Apache License, Version 2.0</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small><a aria-label="View Style Guide" href="/docs/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><!-- Angular Material Dependencies --><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script></body></html>

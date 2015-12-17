@@ -1,0 +1,199 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app.js]" value="(function() {
+
+var AppComponent = ng
+  .Component({
+    selector: 'my-app',
+    template: '<h1>My First Angular 2 App</h1>'
+  })
+  .Class({
+    constructor: function () { }
+  });
+
+document.addEventListener('DOMContentLoaded', function() {
+  ng.bootstrap(AppComponent);
+});
+
+})();
+
+/* Non DSL Approach */
+(function() {
+
+function  AppComponent () {}
+
+AppComponent.annotations = [
+  new ng.Component({
+    selector: 'my-app',
+    template: '<h1 id=&quot;output&quot;>My First Angular 2 App</h1>'
+  })
+];
+})();
+"><input type="hidden" name="files[app/app.component.js]" value="(function(app) {
+  app.AppComponent = ng.core
+    .Component({
+      selector: 'my-app',
+      template: '<h1>My First Angular 2 App</h1>'
+    })
+    .Class({
+      constructor: function() {}
+    });
+})(window.app || (window.app = {}));
+"><input type="hidden" name="files[app/boot.js]" value="(function(app) {
+  document.addEventListener('DOMContentLoaded', function() {
+    ng.platform.browser.bootstrap(app.AppComponent);
+  });
+})(window.app || (window.app = {}));
+"><input type="hidden" name="files[karma-test-shim.js]" value="// Tun on full stack traces in errors to help debugging
+Error.stackTraceLimit=Infinity;
+
+
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
+
+// // Cancel Karma's synchronous start,
+// // we will call `__karma__.start()` later, once all the specs are loaded.
+__karma__.loaded = function() {};
+
+
+System.config({
+  packages: {
+    'base/app': {
+      defaultExtension: false,
+      // removed because of issues with raw .js files not being found.
+      // format: 'register',
+      map: Object.keys(window.__karma__.files).
+            filter(onlyAppFiles).
+            reduce(function createPathRecords(pathsMapping, appPath) {
+              // creates local module name mapping to global path with karma's fingerprint in path, e.g.:
+              // './hero.service': '/base/src/app/hero.service.js?f4523daf879cfb7310ef6242682ccf10b2041b3e'
+              var moduleName = appPath.replace(/^\/base\/app\//, './').replace(/\.js$/, '');
+              pathsMapping[moduleName] = appPath + '?' + window.__karma__.files[appPath]
+              return pathsMapping;
+            }, {})
+
+      }
+    }
+});
+
+// old code from angular 44
+// System.import('angular2/src/core/dom/browser_adapter').then(function(browser_adapter) {
+// new path for angular 51
+System.import('angular2/src/platform/browser/browser_adapter').then(function(browser_adapter) {
+    browser_adapter.BrowserDomAdapter.makeCurrent();
+}).then(function() {
+  return Promise.all(
+    Object.keys(window.__karma__.files) // All files served by Karma.
+    .filter(onlySpecFiles)
+    // .map(filePath2moduleName)        // Normalize paths to module names.
+    .map(function(moduleName) {
+      // loads all spec files via their global module names (e.g. 'base/src/app/hero.service.spec')
+      return System.import(moduleName);
+    }));
+})
+.then(function() {
+  __karma__.start();
+}, function(error) {
+  __karma__.error(error.stack || error);
+});
+
+
+function filePath2moduleName(filePath) {
+  return filePath.
+           replace(/^\//, '').              // remove / prefix
+           replace(/\.\w+$/, '');           // remove suffix
+}
+
+
+function onlyAppFiles(filePath) {
+  return /^\/base\/app\/.*\.js$/.test(filePath) &amp;&amp; !onlySpecFiles(filePath);
+}
+
+
+function onlySpecFiles(filePath) {
+  return /\.spec\.js$/.test(filePath);
+}
+"><input type="hidden" name="files[karma.conf.js]" value="module.exports = function(config) {
+  config.set({
+
+    basePath: '',
+
+    frameworks: ['jasmine'],
+
+    files: [
+      // paths loaded by Karma
+      {pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: true},
+      {pattern: 'node_modules/angular2/bundles/angular2.js', included: true, watched: true},
+      {pattern: 'node_modules/angular2/bundles/testing.js', included: true, watched: true},
+      {pattern: 'karma-test-shim.js', included: true, watched: true},
+      {pattern: 'app/test/*.js', included: true, watched: true},
+
+      // paths loaded via module imports
+      {pattern: 'app/**/*.js', included: false, watched: true},
+
+      // paths loaded via Angular's component compiler
+      // (these paths need to be rewritten, see proxies section)
+      {pattern: 'app/**/*.html', included: false, watched: true},
+      {pattern: 'app/**/*.css', included: false, watched: true},
+
+      // paths to support debugging with source maps in dev tools
+      {pattern: 'app/**/*.ts', included: false, watched: false},
+      {pattern: 'app/**/*.js.map', included: false, watched: false}
+    ],
+
+    // proxied base paths
+    proxies: {
+      // required for component assests fetched by Angular's compiler
+      &quot;/app/&quot;: &quot;/base/app/&quot;
+    },
+
+    reporters: ['progress'],
+    port: 9877,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    browsers: ['Chrome'],
+    singleRun: true
+  })
+}
+"><input type="hidden" name="files[spec.js]" value="describe(&quot;Jasmine sample test&quot;, function() {
+	
+	it(&quot;1+1 should be 2&quot;, function() {
+		
+		var result = 1 + 1;
+		
+		expect(result).toBe(2);
+	});
+});"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Angular 2 QuickStart</title>
+
+    <!-- 1. Load libraries -->
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/Rx.umd.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-all.umd.dev.js&quot;></script>
+
+    <!-- 2. Load our 'modules' -->
+    <script src='app/app.component.js'></script>
+    <script src='app/boot.js'></script>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+
+</html>
+"><input type="hidden" name="files[license.md]" value="Copyright 2010-2015 Google, Inc. http://angularjs.org
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License."><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="quickstart"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - QuickStart"></form><script>document.getElementById("mainForm").submit();</script></body></html>

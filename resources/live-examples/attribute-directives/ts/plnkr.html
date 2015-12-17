@@ -1,0 +1,96 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/app.component.ts]" value="import {Component} from 'angular2/core';
+import {Highlight} from './highlight.directive'
+
+@Component({
+  selector: 'my-app',
+  templateUrl: 'app/app.component.html',
+  directives: [Highlight]
+})
+
+export class AppComponent { }
+
+"><input type="hidden" name="files[app/boot.ts]" value="import {bootstrap}    from 'angular2/platform/browser'
+import {AppComponent} from './app.component';
+
+bootstrap(AppComponent);
+"><input type="hidden" name="files[app/highlight.directive.ts]" value="import {Directive, ElementRef, Renderer, Input} from 'angular2/core';
+
+@Directive({
+  selector: '[myHighlight]',
+  host: {
+    '(mouseenter)': 'onMouseEnter()',
+    '(mouseleave)': 'onMouseLeave()'
+  }
+})
+
+export class Highlight {
+  /*
+  @Input() myHighlight: string;
+  */
+  @Input('myHighlight') highlightColor: string;
+
+  private _defaultColor = 'red';
+  @Input() set defaultColor(colorName:string){
+    this._defaultColor = colorName || this._defaultColor;
+  }
+
+  constructor(private el: ElementRef, private renderer: Renderer) { }
+
+  onMouseEnter() { this._highlight(this.highlightColor || this._defaultColor); }
+  onMouseLeave() { this._highlight(null); }
+
+  private _highlight(color:string) {
+    this.renderer.setElementStyle(this.el, 'backgroundColor', color);
+  }
+}
+"><input type="hidden" name="files[app/app.component.html]" value="<h1>My First Attribute Directive</h1>
+<h4>Pick a highlight color</h4>
+<div>
+  <input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color='lightgreen'&quot;>Green
+  <input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color='yellow'&quot;>Yellow
+  <input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color='cyan'&quot;>Cyan
+</div>
+
+<p><span [myHighlight]=&quot;color&quot;>Highlight me!</span></p>
+
+<p><span [myHighlight]=&quot;color&quot; [defaultColor]=&quot;'violet'&quot;>
+Highlight me too!
+</span></p>
+"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Attribute Directives</title>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/system.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/typescript.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/Rx.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js&quot;></script>
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+  <my-app>loading...</my-app>
+</body>
+
+</html>"><input type="hidden" name="files[license.md]" value="Copyright 2010-2015 Google, Inc. http://angularjs.org
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License."><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="attribute"><input type="hidden" name="tags[3]" value="directive"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - Attribute Directive"></form><script>document.getElementById("mainForm").submit();</script></body></html>

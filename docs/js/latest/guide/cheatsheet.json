@@ -1,0 +1,20 @@
+{
+  "currentEnvironment": "JavaScript",
+  "version": {
+    "raw": "2.0.0-alpha.40",
+    "major": 2,
+    "minor": 0,
+    "patch": 0,
+    "prerelease": [
+      "local"
+    ],
+    "build": "sha.8978915",
+    "version": "2.0.0-local",
+    "codeName": "snapshot",
+    "isSnapshot": true,
+    "full": "2.0.0-local+sha.8978915",
+    "branch": "master",
+    "commitSHA": "897891561424c133782edf496aacfbb11a942208"
+  },
+  "sections": []
+}

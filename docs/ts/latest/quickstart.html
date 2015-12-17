@@ -1,0 +1,586 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>5 Min Quickstart - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css"/><link href="/resources/fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="/resources/fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/about/" md-button>About</a></li><li class="l-left"><a class="main-nav-button" href="/contribute.html" md-button>Contribute</a></li><li class="l-right feedback-button"><md-button ng-click="appCtrl.openFeedback()" class="md-icon-button top-nav-icon" aria-label="Submit feedback on this page"><span class="material-icons">feedback</span></md-button></li></ul></nav></md-toolbar><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><!-- PRIMARY NAVIGATION--><ul ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-primary"><li><a href="/docs/ts/latest/index.html" md-button><span class="side-nav-icon icon-home"></span> Docs Home</a></li><!-- SECONDARY NAVIGATION--><li class="is-selected"><a href="/docs/ts/latest/quickstart.html" md-button><span class="side-nav-icon icon-query-builder"></span> 5 Min Quickstart</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/tutorial/" md-button><span class="side-nav-icon icon-list"></span> Tutorial</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/guide/" md-button><span class="side-nav-icon icon-list"></span> Developer Guides</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/testing/" md-button><span class="side-nav-icon icon-list"></span> Testing Guides</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/api/" md-button><span class="side-nav-icon icon-book"></span> API Preview</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/resources.html" md-button><span class="side-nav-icon icon-play-circle-fill"></span> Angular Resources</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/ts/latest/help.html" md-button><span class="side-nav-icon icon-chat"></span> Help &amp; Support</a></li><!-- SECONDARY NAVIGATION--></ul></nav><header class="hero background-sky"><h1 class="hero-title text-display-1 ">5 Min Quickstart</h1><!-- Replace _ undscores with . dots --><!-- Replace _ undscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="hero-subtitle text-subhead dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/quickstart.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/quickstart.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/quickstart.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><article class="l-content-small grid-fluid docs-content"><p>Let&#39;s start from zero and build a super simple Angular 2 application in TypeScript.</p>
+<div class="callout is-helpful"><header>Don't want TypeScript?</header><p>Although we&#39;re getting started in TypeScript, you can also write Angular 2 apps
+in JavaScript and Dart by selecting either of those languages from the combo-box in the banner.</p>
+</div><div class="l-main-section"></div><h2 id="see-it-run-">See It Run!</h2>
+<p>Running the <a href="/resources/live-examples/quickstart/ts/plnkr.html">live example</a>
+is the quickest way to see an Angular 2 app come to life.</p>
+<p>Clicking that link fires up a browser, loads the sample in <a href="http://plnkr.co/" title="Plunker">plunker</a>,
+and displays a simple message:</p>
+<figure class="image-display"><img src="/resources/images/devguide/quickstart/my-first-app.png" alt="Output of quickstart app"></figure><p>Here is the file structure:</p>
+<div class="filetree"><div class="file">angular2-quickstart</div><div class="children"><div class="file">app</div><div class="children"><div class="file">app.component.ts</div><div class="file">boot.ts</div></div><div class="file">index.htm</div><div class="file">license.md</div></div></div><p>Functionally, it&#39;s an <code>index.html</code> and two TypeScript files in an <code>app/</code> folder.
+We can handle that!</p>
+<p>Of course we won&#39;t build  many apps that only run in plunker. 
+Let&#39;s follow a process that&#39;s closer to what we&#39;d do in real life.</p>
+<ol>
+<li>Set up our development environment</li>
+<li>Write the Angular root component for our app</li>
+<li>Bootstrap it to take control of the main web page</li>
+<li>Write the main page (<code>index.html</code>)</li>
+</ol>
+<div class="l-sub-section"><p>We really can build the QuickStart from scratch in five minutes 
+if we follow the instructions and ignore the commentary.</p>
+<p>Most of us will be interested in the &quot;why&quot; as well as the &quot;how&quot; and that will take longer.</p>
+</div><div class="l-main-section"></div><h2 id="development-environment">Development Environment</h2>
+<p>We&#39;ll need a place to stand (the application project folder), some libraries, 
+some TypeScript configuration and the TypeScript-aware editor of your choice.</p>
+<h3 id="create-a-new-project-folder">Create a new project folder</h3>
+<code-example format="">mkdir angular2-quickstart
+cd    angular2-quickstart</code-example><h3 id="add-the-libraries-we-need">Add the libraries we need</h3>
+<p>We recommend the <strong>npm</strong> package manager for acquiring and managing our development libraries.</p>
+<div class="l-sub-section"><p>Don&#39;t have npm?
+<a href="https://docs.npmjs.com/getting-started/installing-node" title="Installing Node.js and updating npm">Get it now</a>
+because we&#39;re going to use it now and repeatedly throughout this documentation.</p>
+</div><p>Add a <strong>package.json</strong> file to the project folder and copy/paste the following:</p>
+<div class="example-title">package.json</div><code-example language="json" format=".">{
+  "name": "angular2-quickstart",
+  "version": "1.0.0",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "go": "concurrent \"npm run tsc:w\" \"npm run lite\" "
+  },
+  "license": "ISC",
+  "dependencies": {
+    "angular2": "2.0.0-beta.0",
+    "systemjs": "0.19.6",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.10"
+  },
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "lite-server": "^1.3.1",
+    "typescript": "^1.7.3"
+  }
+}
+</code-example><div class="l-sub-section"><p>Itching to know the details? We explain in the <a href="#package-json">appendix below</a>  </p>
+</div><p>Install these packages. Open a terminal window (command window in Windows) and
+run this npm command.</p>
+<code-example format="">npm install</code-example><div class="l-sub-section"><p>Scary <span style="color:red; font-weight: bold">error messages in red</span> may appear <strong>during</strong> install. 
+Ignore them. The install will succeed. See the <a href="#npm-errors">appendix below</a> for more information.</p>
+</div><h3 id="configure-typescript">Configure TypeScript</h3>
+<p>We must guide the TypeScript compiler with very specific settings.</p>
+<p>Add a <strong>tsconfig.json</strong> file to the project folder and copy/paste the following:</p>
+<div class="example-title">tsconfig.json</div><code-example language="json" format=".">{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "system",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
+</code-example><div class="l-sub-section"><p>We explore the <code>tsconfig.json</code> in an <a href="#tsconfig">appendix below</a></p>
+</div><p><strong>We&#39;re all set.</strong> Let&#39;s write some code.</p>
+<div class="l-main-section"></div><h2 id="our-first-angular-component">Our First Angular Component</h2>
+<p>The <em>Component</em> is the most fundamental of Angular concepts. 
+A component manages a view - a piece of the web page where we display information
+to the user and respond to user feedback.</p>
+<p>Technically, a component is a class that controls a view template.
+We&#39;ll write a lot of them as we build Angular apps. This is our first attempt
+so we&#39;ll keep it ridiculously simple.</p>
+<h3 id="create-an-application-source-sub-folder">Create an application source sub-folder</h3>
+<p>We like to keep our application code in a sub-folder off the root called <code>app/</code>.
+Execute the following command in the console window.</p>
+<code-example format="">mkdir app
+cd    app</code-example><h3 id="add-the-component-file">Add the component file</h3>
+<p>Now add a file named <strong>app.component.ts</strong> and paste the following lines:</p>
+<div class="example-title">app/app.component.ts</div><code-example language="ts" format=".">import {Component} from &#39;angular2/core&#39;;
+
+@Component({
+    selector: &#39;my-app&#39;,
+    template: &#39;&lt;h1&gt;My First Angular 2 App&lt;/h1&gt;&#39;
+})
+export class AppComponent { }
+</code-example><p>Let&#39;s review this file in detail, starting at the bottom where we define a class.</p>
+<h3 id="the-component-class">The Component class</h3>
+<p>At the bottom of the file is an empty, do-nothing class named <code>AppComponent</code>.
+When we&#39;re ready to build a substantive application, 
+we can expand this class with properties and application logic. 
+Our <code>AppComponent</code> class is empty because we don&#39;t need it to do anything in this QuickStart.</p>
+<h3 id="modules">Modules</h3>
+<p>Angular apps are modular. They consist of many files each dedicated to a purpose.</p>
+<p>Most application files <em>export</em> one thing such as a component.
+Our <code>app.component</code> file exports the <code>AppComponent</code>.</p>
+<div class="example-title">app/component.ts (export)</div><code-example language="ts" format=".">export class AppComponent { }
+</code-example><p>The act of exporting turns the file into a module.
+The name of the file (without extension) is usually the name of the module. 
+Accordingly, &#39;<em>app.component</em>&#39; is the name of our first module.</p>
+<p>A more sophisticated application would have child components that descended from
+<code>AppComponent</code> in a visual tree. 
+A more sophisticated app would have more files and modules, at least as many as it had components.</p>
+<p>Quickstart isn&#39;t sophisticated; one component is all we need.
+Yet modules play a fundamental organizational role in even this small app.</p>
+<p>Modules rely on other modules. In TypeScript Angular apps, when we need something
+provided by another module, we import it. 
+When another module needs to refer to <code>AppComponent</code>, it imports the <code>AppComponent</code> <em>symbol</em> like this:</p>
+<div class="example-title">app/boot.ts (import)</div><code-example language="ts" format=".">import {AppComponent} from &#39;./app.component&#39;
+</code-example><p>Angular is also modular. It is a collection of library modules. 
+Each library is itself a module made up of several, related feature modules.</p>
+<p>When we need something from Angular, we import it from an Angular library module.
+We need something from Angular right now to help us define metadata about our component.</p>
+<h3 id="component-metadata">Component Metadata</h3>
+<p>A class becomes an Angular component when we give it metadata.
+Angular needs the metadata to understand how to construct the view
+and how the component interacts with other parts of the application.</p>
+<p>We define a component&#39;s metadata with the Angular <code>Component</code> function.
+We access that function by importing it from the primary Angular library,<code>angular2/core</code>.</p>
+<div class="example-title">app/component.ts (import)</div><code-example language="ts" format=".">import {Component} from &#39;angular2/core&#39;;
+</code-example><p>In TypeScript we apply that function to the class as a <em>decorator</em> 
+by prefixing it with the <strong>@</strong> symbol and invoking it
+just above the component class:</p>
+<div class="example-title">app/app.component.ts (metadata)</div><code-example language="ts" format="linenums">@Component({
+    selector: &#39;my-app&#39;,
+    template: &#39;&lt;h1&gt;My First Angular 2 App&lt;/h1&gt;&#39;
+})
+</code-example><p><code>@Component</code> tells Angular that this class <em>is an Angular component</em>.
+The configuration object passed to the <code>@Component</code> method has two
+fields, a <code>selector</code> and a <code>template</code>.</p>
+<p>The <code>selector</code> specifies a simple CSS selector for a host HTML element named <code>my-app</code>.
+Angular creates and displays an instance of our <code>AppComponent</code>
+wherever it encounters a <code>my-app</code> element in the host HTML.</p>
+<div class="alert is-helpful"><p>Remember the <code>my-app</code> selector! We&#39;ll need that information when we write our <code>index.html</code></p>
+</div><p>The <code>template</code> property holds the component&#39;s companion template.
+A template is a form of HTML that tells Angular how to render a view.
+Our template is a single line of HTML announcing &quot;My First Angular App&quot;.</p>
+<p>Now we need something to tell Angular to load this component.</p>
+<h3 id="give-it-the-boot">Give it the boot</h3>
+<p>Add a new file , <code>boot.ts</code>, to the <code>app/</code> folder as follows:</p>
+<div class="example-title">app/boot.ts</div><code-example language="ts" format=".">import {bootstrap}    from &#39;angular2/platform/browser&#39;
+import {AppComponent} from &#39;./app.component&#39;
+
+bootstrap(AppComponent);
+</code-example><p>We need two things to launch the application:</p>
+<ol>
+<li>Angular&#39;s browser <code>bootstrap</code> function</li>
+<li>The application root component that we just wrote.</li>
+</ol>
+<p>We import both. Then we call <code>bootstrap</code>, passing in the <strong>root component type</strong>, 
+<code>AppComponent</code>.</p>
+<div class="l-sub-section"><p>Learn why we import <code>bootstrap</code> from <code>angular2/platform/browser</code>
+and why we create a separate <em>boot.ts</em> file in the <a href="#boot">appendix below</a>.</p>
+</div><p>We&#39;ve asked Angular to launch the app in a browser with our component at the root.
+Where will Angular put it? </p>
+<div class="l-main-section"></div><h2 id="add-the-index-html-">Add the <code>index.html</code></h2>
+<p>Angular displays our application in a specific location on our <code>index.html</code>.
+It&#39;s time to create that file.</p>
+<p>We won&#39;t put our <code>index.html</code> in the <code>app/</code> folder. 
+We&#39;ll locate it <strong>up one level, in the project root folder</strong>.</p>
+<code-example format="">cd ..</code-example><p>Now create the<code>index.html</code> file and paste the following lines:</p>
+<div class="example-title">index.html</div><code-example language="html" format=".">&lt;html&gt;
+
+  &lt;head&gt;
+    &lt;title&gt;Angular 2 QuickStart&lt;/title&gt;
+
+    &lt;!-- 1. Load libraries --&gt;
+    &lt;script src=&quot;node_modules/angular2/bundles/angular2-polyfills.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/systemjs/dist/system.src.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/rxjs/bundles/Rx.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/angular2/bundles/angular2.dev.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- 2. Configure SystemJS --&gt;
+    &lt;script&gt;
+      System.config({
+        packages: {        
+          app: {
+            format: &#39;register&#39;,
+            defaultExtension: &#39;js&#39;
+          }
+        }
+      });
+      System.import(&#39;app/boot&#39;)
+            .then(null, console.error.bind(console));
+    &lt;/script&gt;
+
+  &lt;/head&gt;
+
+  &lt;!-- 3. Display the application --&gt;
+  &lt;body&gt;
+    &lt;my-app&gt;Loading...&lt;/my-app&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code-example><p>There are three noteworthy sections of HTML:</p>
+<ol>
+<li><p>We load the JavaScript libraries we need. <code>angular2-polyfills.js</code> and <code>Rx.js</code> are needed by Angular 2.<br></p>
+</li>
+<li><p>We configure something called <code>System</code> and ask it to import the
+boot file we just wrote.</p>
+</li>
+<li><p>We add the <code>&lt;my-app&gt;</code> tag in the <code>&lt;body&gt;</code>. <strong>This is where our app lives!</strong></p>
+</li>
+</ol>
+<p>Something has to find and load our application modules. We&#39;re using <strong>SystemJS</strong> to do that.
+There are other choices and we&#39;re not saying SystemJS is the best. We like it and it works.</p>
+<p>The specifics of SystemJS configuration are out of bounds. 
+We&#39;ll briefly describe this particular configuration in the <a href="#systemjs">appendix below</a>.</p>
+<p>When Angular calls the <code>bootstrap</code> function in <code>boot.ts</code>, it reads the <code>AppComponent</code>
+metadata, finds the <code>my-app</code> selector, locates an element tag named <code>my-app</code>,
+and loads our application between those tags.</p>
+<div class="l-main-section"></div><h2 id="compile-and-run-">Compile and run!</h2>
+<p>Open a terminal window and enter this command:</p>
+<code-example format="">npm run go</code-example><p>That command runs two parallel node processes</p>
+<ol>
+<li>The TypeScript compiler in watch mode</li>
+<li>A static server called <strong>lite-server</strong> that loads <code>index.html</code> in a browser
+and refreshes the browser when application files change</li>
+</ol>
+<p>In a few moments, a browser tab should open and display</p>
+<figure class="image-display"><img src="/resources/images/devguide/quickstart/my-first-app.png" alt="Output of quickstart app"></figure><p>Congratulations!  We are in business.</p>
+<div class="alert is-helpful"><p>If you see <code>Loading...</code> displayed instead, see the
+<a href="#es6support">Browser ES6 support appendix</a>.</p>
+</div><h3 id="make-some-changes">Make some changes</h3>
+<p>Try changing the message to &quot;My SECOND Angular 2 app&quot;.</p>
+<p>The TypeScript compiler and <code>lite-server</code> are watching.
+They should detect the change, recompile the TypeScript into JavaScript,
+refresh the browser, and display the revised message.</p>
+<p>It&#39;s a nifty way to develop an application!</p>
+<p>We close the terminal window when we&#39;re done to terminate both the compiler and the server.</p>
+<div class="l-main-section"></div><h2 id="final-structure">Final structure</h2>
+<p>Our final project folder structure looks like this:</p>
+<div class="filetree"><div class="file">angular2-quickstart</div><div class="children"><div class="file">node_modules</div><div class="file">app</div><div class="children"><div class="file">app.component.ts</div><div class="file">boot.ts</div></div><div class="file">index.html</div><div class="file">package.json</div><div class="file">tsconfig.json</div></div></div><p>And here are the files:</p>
+<code-tabs><code-pane language="ts" name="app/app.component.ts" format="linenums">import {Component} from &#39;angular2/core&#39;;
+
+@Component({
+    selector: &#39;my-app&#39;,
+    template: &#39;&lt;h1&gt;My First Angular 2 App&lt;/h1&gt;&#39;
+})
+export class AppComponent { }
+</code-pane><code-pane language="ts" name="app/boot.ts" format="linenums">import {bootstrap}    from &#39;angular2/platform/browser&#39;
+import {AppComponent} from &#39;./app.component&#39;
+
+bootstrap(AppComponent);
+</code-pane><code-pane language="html" name="index.html" format="linenums">&lt;html&gt;
+
+  &lt;head&gt;
+    &lt;title&gt;Angular 2 QuickStart&lt;/title&gt;
+
+    &lt;!-- 1. Load libraries --&gt;
+    &lt;script src=&quot;node_modules/angular2/bundles/angular2-polyfills.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/systemjs/dist/system.src.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/rxjs/bundles/Rx.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/angular2/bundles/angular2.dev.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- 2. Configure SystemJS --&gt;
+    &lt;script&gt;
+      System.config({
+        packages: {        
+          app: {
+            format: &#39;register&#39;,
+            defaultExtension: &#39;js&#39;
+          }
+        }
+      });
+      System.import(&#39;app/boot&#39;)
+            .then(null, console.error.bind(console));
+    &lt;/script&gt;
+
+  &lt;/head&gt;
+
+  &lt;!-- 3. Display the application --&gt;
+  &lt;body&gt;
+    &lt;my-app&gt;Loading...&lt;/my-app&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code-pane><code-pane language="json" name="package.json" format="linenums">{
+  &quot;name&quot;: &quot;angular2-quickstart&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;scripts&quot;: {
+    &quot;tsc&quot;: &quot;tsc&quot;,
+    &quot;tsc:w&quot;: &quot;tsc -w&quot;,
+    &quot;lite&quot;: &quot;lite-server&quot;,
+    &quot;go&quot;: &quot;concurrent \&quot;npm run tsc:w\&quot; \&quot;npm run lite\&quot; &quot;
+  },
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;angular2&quot;: &quot;2.0.0-beta.0&quot;,
+    &quot;systemjs&quot;: &quot;0.19.6&quot;,
+    &quot;es6-promise&quot;: &quot;^3.0.2&quot;,
+    &quot;es6-shim&quot;: &quot;^0.33.3&quot;,
+    &quot;reflect-metadata&quot;: &quot;0.1.2&quot;,
+    &quot;rxjs&quot;: &quot;5.0.0-beta.0&quot;,
+    &quot;zone.js&quot;: &quot;0.5.10&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;concurrently&quot;: &quot;^1.0.0&quot;,
+    &quot;lite-server&quot;: &quot;^1.3.1&quot;,
+    &quot;typescript&quot;: &quot;^1.7.3&quot;
+  }
+}
+</code-pane><code-pane language="json
+  " name="tsconfig.json" format="linenums">{
+  &quot;compilerOptions&quot;: {
+    &quot;target&quot;: &quot;ES5&quot;,
+    &quot;module&quot;: &quot;system&quot;,
+    &quot;moduleResolution&quot;: &quot;node&quot;,
+    &quot;sourceMap&quot;: true,
+    &quot;emitDecoratorMetadata&quot;: true,
+    &quot;experimentalDecorators&quot;: true,
+    &quot;removeComments&quot;: false,
+    &quot;noImplicitAny&quot;: false
+  },
+  &quot;exclude&quot;: [
+    &quot;node_modules&quot;
+  ]
+}
+</code-pane></code-tabs><div class="l-main-section"></div><h2 id="wrap-up">Wrap Up</h2>
+<p>Our first application doesn&#39;t do much. It&#39;s basically &quot;Hello, World&quot; for Angular 2.</p>
+<p>We kept it simple in our first pass: we wrote a little Angular component,
+we added some JavaScript libraries to <code>index.html</code>, and launched with a
+static file server. That&#39;s about all we&#39;d expect to do for a &quot;Hello, World&quot; app.</p>
+<p><strong>We have greater ambitions.</strong></p>
+<p>The good news is that the overhead of setup is (mostly) behind us. 
+We&#39;ll probably only touch the <code>package.json</code> to update libraries.
+We&#39;ll likely open <code>index.html</code> only if we need to add a library or some css stylesheets.</p>
+<p>We&#39;re about to take the next step and build a small application that 
+demonstrates the great things we can build with Angular 2.</p>
+<p>Join us on the <a href="./tutorial">Tour of Heroes Tutorial</a>!</p>
+<div class="l-main-section"></div><h2 id="appendices">Appendices</h2>
+<p>The balance of this chapter is a set of appendices that
+elaborate some of the points we covered quickly above.</p>
+<p>There is no essential material here. Continued reading is for the curious.</p>
+<div class="l-main-section"></div><p><a id="es6support"></a></p>
+<h3 id="appendix-browser-es6-support">Appendix: Browser ES6 support</h3>
+<p>Angular 2 relies on some ES2015 features, most of them found in modern
+browsers. Some browsers (including IE 11) require a shim to support the
+the needed functionality.
+Try loading the following shim <em>above</em> the other scripts in the <code>index.html</code>:</p>
+<code-example language="html" format=".">&lt;script src=&quot;node_modules/es6-shim/es6-shim.js&quot;&gt;&lt;/script&gt;</code-example>
+<div class="l-main-section"></div><p><a id="package-json"></a></p>
+<h3 id="appendix-package-json">Appendix: package.json</h3>
+<p><a href="https://docs.npmjs.com/">npm</a> is a popular package manager and Angular application developers rely on it
+to acquire and manage the libraries their apps require.</p>
+<p>We specify the packages we need in an npm <a href="https://docs.npmjs.com/files/package.json">package.json</a> file.</p>
+<p>The Angular team suggests the packages listed in the <code>dependencies</code> and <code>devDependencies</code>
+sections listed in this file:</p>
+<div class="example-title">package.json (dependencies)</div><code-example language="json" format=".">{
+  "dependencies": {
+    "angular2": "2.0.0-beta.0",
+    "systemjs": "0.19.6",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.10"
+  },
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "lite-server": "^1.3.1",
+    "typescript": "^1.7.3"
+  }
+}</code-example><div class="l-sub-section"><p>There are other possible package choices. 
+We&#39;re recommending this particular set that we know work well together. 
+Play along with us for now. 
+Feel free to make substitutions later to suit your tastes and experience.</p>
+</div><p>A <code>package.json</code> has an optional <strong>scripts</strong> section where we can define helpful
+commands to perform development and build tasks. 
+We&#39;ve included a number of such scripts in our suggested <code>package.json</code>:</p>
+<div class="example-title">package.json (scripts)</div><code-example language="json" format=".">{
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "go": "concurrent \"npm run tsc:w\" \"npm run lite\" "
+  }
+}</code-example><p>We&#39;ve seen how we can run the compiler and a server at the same time with this command:</p>
+<code-example format="">npm run go</code-example><p>We execute npm scripts in that manner: <code>npm run</code> + <em>script-name</em>. Here&#39;s what these scripts do:</p>
+<ul>
+<li><p><code>npm run tsc</code> - run the TypeScript compiler once</p>
+</li>
+<li><p><code>npm run tsc:w</code> - run the TypeScript compiler in watch mode; 
+the process keeps running, awaiting changes to TypeScript files and re-compiling when it sees them.</p>
+</li>
+<li><p><code>npm run lite</code> - run the <a href="https://www.npmjs.com/package/lite-server">lite-server</a>, 
+a light-weight, static file server, written and maintained by <a href="http://johnpapa.net/">John Papa</a> 
+with excellent support for Angular apps that use routing.</p>
+</li>
+</ul>
+<div class="l-main-section"></div><p><a id="npm-errors"></a></p>
+<h3 id="appendix-npm-errors-and-warnings">Appendix: Npm errors and warnings</h3>
+<p>All is well if there are no console messages starting with <code>npm ERR!</code> <em>at the end</em> of an <strong>npm install</strong>. 
+There might be a few <code>npm WARN</code> messages along the way &mdash; and that is perfectly fine.</p>
+<p>We often see an <code>npm WARN</code> message after a series of <code>gyp ERR!</code> messages. 
+Ignore them. A package may try to re-compile itself using <code>node-gyp</code>.
+If the re-compile fails, the package recovers (typically with a pre-built version)
+and everything works.</p>
+<p>We are in good shape as long as there are no <code>npm ERR!</code> messages at the very end of <code>npm install</code>.</p>
+<!-- Move this to the Style Guide when we have one --><div class="l-main-section"></div><p><a id="tsconfig"></a></p>
+<h3 id="appendix-typescript-configuration">Appendix: TypeScript configuration</h3>
+<p>We added a TypeScript configuration file (<code>tsconfig.json</code>) to our project to
+guide the compiler as it generates JavaScript files.
+Get details about <code>tsconfig.json</code> from the official
+<a href="https://github.com/Microsoft/TypeScript/wiki/tsconfig.json">TypeScript wiki</a>.</p>
+<p>The options and flags in the file we provided are essential.</p>
+<p>We&#39;d like a moment to discuss the <code>noImplicitAny</code> flag.
+TypeScript developers disagree about whether it should be <code>true</code> or <code>false</code>.
+There is no correct answer and we can change the flag later.
+But our choice now can make a difference in larger projects so it merits
+discussion.</p>
+<p>When the <code>noImplicitAny</code> flag is <code>false</code>,
+the compiler silently defaults the type of a variable to <code>any</code> if it cannot infer
+the type based on how the variable is used. That&#39;s what we mean by &quot;implicitly <code>any</code>&quot;.</p>
+<p>When the <code>noImplicitAny</code> flag is <code>true</code> and the TypeScript compiler cannot infer
+the type, it still generates the JavaScript files but
+it also reports an error.</p>
+<p>In this QuickStart and many of the other samples in this Developer Guide
+we set the <code>noImplicitAny</code> flag to <code>false</code>.</p>
+<p>Developers who prefer stricter type checking should set the <code>noImplicitAny</code> flag to <code>true</code>.
+We can still set a variable&#39;s type to <code>any</code> if
+that seems like the best choice. We&#39;d be doing so explicitly after
+giving the matter some thought.</p>
+<p>If we set the <code>noImplicitAny</code> flag to <code>true</code>, we may get implicit index errors as well.
+If we feel these are more annoying than helpful,
+we can suppress them with the following additional flag.</p>
+<pre><code>&quot;suppressImplicitAnyIndexErrors&quot;:true
+</code></pre><div class="l-main-section"></div><p><a id="systemjs"></a></p>
+<h3 id="appendix-systemjs-configuration">Appendix: SystemJS Configuration</h3>
+<p>The QuickStart uses <a href="https://github.com/systemjs/systemjs">SystemJS</a> to load application
+and library modules. 
+There are alternatives that work just fine including the well-regarded <a href="https://webpack.github.io/">webpack</a>.
+SystemJS happens to be a good choice but we want to be clear that it was a choice and not a preference.</p>
+<p>All module loaders require configuration and all loader configuration 
+becomes complicated rather quickly as soon as the file structure diversifies and
+we start thinking about building for production and performance.</p>
+<p>We suggest becoming well-versed in the loader of your choice.</p>
+<div class="l-sub-section"><p>Learn more about SystemJS configuration <a href="https://github.com/systemjs/systemjs/blob/master/docs/config-api.md">here</a>.</p>
+</div><p>With those cautions in mind, what are we doing here?</p>
+<div class="example-title">index.html (System configuration</div><code-example language="html" format=".">&lt;script&gt;
+  System.config({
+    packages: {        
+      app: {
+        format: &#39;register&#39;,
+        defaultExtension: &#39;js&#39;
+      }
+    }
+  });
+  System.import(&#39;app/boot&#39;)
+        .then(null, console.error.bind(console));
+&lt;/script&gt;
+</code-example><p>The <code>packages</code> node tells SystemJS what to do when it sees a request for a 
+module from the <code>app/</code> folder. </p>
+<p>Our QuickStart makes such requests when one of its
+application TypeScript files has an import statement like this:</p>
+<div class="example-title">boot.ts (excerpt)</div><code-example language="ts" format=".">import {AppComponent} from &#39;./app.component&#39;
+</code-example><p>Notice that the module name (after <code>from</code>) does not mention a filename extension. 
+The <code>packages:</code> configuration tells SystemJS to default the extension to &#39;js&#39;, a JavaScript file.</p>
+<p>That makes sense because we transpile TypeScript to JavaScript
+<em>before</em> running the application.</p>
+<div class="l-sub-section"><p>In the live example on plunker we transpile (AKA compile) to JavaScript in the browser
+on the fly. That&#39;s fine for a demo. That&#39;s not our preference for development or production.</p>
+<p>We recommend transpiling (AKA compiling) to JavaScript during a build phase 
+before running the application for several reasons including:</p>
+<ul>
+<li><p>We see compiler warnings and errors that are hidden from us in the browser.</p>
+</li>
+<li><p>Pre-compilation simpifies the module loading process and 
+it&#39;s much easier to diagnose problem when this is a separate, external step.</p>
+</li>
+<li><p>Pre-compilation means a faster user experience because the browser doesn&#39;t waste time compiling.</p>
+</li>
+<li><p>We iterate development faster because we only re-compile changed files.
+We notice the difference as soon as the app grows beyond a handful of files.</p>
+</li>
+<li><p>pre-compilation fits into a continuous integration process of build, test, deploy.</p>
+</li>
+</ul>
+</div><p>The <code>System.import</code> call tells SystemJS to import the <code>boot</code> file 
+(<code>boot.js</code> ... after transpiling <code>boot.ts</code>, remember?).
+<code>boot</code> is where we tell Angular to launch the application.
+We also catch and log launch errors to the console. </p>
+<p>All other modules are loaded upon request
+either by an import statement or by Angular itself.</p>
+<div class="l-main-section"></div><p><a id="boot"></a></p>
+<h3 id="appendix-boot-ts-">Appendix: <strong><em>boot.ts</em></strong></h3>
+<h4 id="bootstrapping-is-platform-specific">Bootstrapping is platform-specific</h4>
+<p>We import the <code>bootstrap</code> function from <code>angular2/platform/browser</code>,
+not <code>angular2/core</code>. There&#39;s a good reason.</p>
+<p>We only call &quot;core&quot; those capabilities that are the same across all platform targets.
+True, most Angular applications run only in a browser and we&#39;ll call the bootstrap function from
+this library most of the time. It&#39;s pretty &quot;core&quot; if we&#39;re always writing for a browser.</p>
+<p>But it is possible to load a component in a different enviroment. 
+We might load it on a mobile device with <a href="https://cordova.apache.org/">Apache Cordova</a>
+We might wish to render the first page of our application on the server 
+to improve launch performance or facilitate 
+<a href="http://static.googleusercontent.com/media/www.google.com/en//webmasters/docs/search-engine-optimization-starter-guide.pdf">SEO</a>.</p>
+<p>These targets require a different kind of bootstrap function that we&#39;d import from a different library.</p>
+<h4 id="why-do-we-create-a-separate-boot-ts-file-">Why do we create a separate <strong><em>boot.ts</em></strong> file?</h4>
+<p>The <em>boot.ts</em> file is tiny. This is just a QuickStart.
+We could have folded its few lines into the <code>app.component</code> file
+and spared ourselves some complexity.</p>
+<p>We didn&#39;t for what we believe to be good reasons:</p>
+<ol>
+<li>Doing it right is easy</li>
+<li>Testability</li>
+<li>Reusability</li>
+<li>Separation of concerns</li>
+<li>We learned about import and export</li>
+</ol>
+<h4 id="it-s-easy">It&#39;s easy</h4>
+<p>Sure it&#39;s an extra step and an extra file. How hard is that in the scheme of things?</p>
+<p>We&#39;ll see that a separate <code>boot.ts</code> is beneficial for <em>most</em> apps 
+even if it isn&#39;t critical for the QuickStart.
+Let&#39;s develop good habits now while the cost is low.</p>
+<h4 id="testability">Testability</h4>
+<p>We should be thinking about testability from the beginning
+even if we know we&#39;ll never test the QuickStart. </p>
+<p>It is difficult to unit test a component when there is a call to <code>bootstrap</code> in the same file.
+As soon as we load the component file to test the component, 
+the <code>bootstrap</code> function tries to load the application in the browser.
+It throws an error because we&#39;re not expecting to run the entire application, 
+just test the component. </p>
+<p>Relocating the <code>bootstrap</code> function to <code>boot.ts</code> eliminates this spurious error
+and leaves us with a clean component module file.</p>
+<h4 id="reusability">Reusability</h4>
+<p>We refactor, rename, and relocate files as our application evolves.
+We can&#39;t do any of those things while the file calls <code>bootstrap</code>.
+we can&#39;t move it. 
+We can&#39;t reuse the component in another application. 
+We can&#39;t pre-render the component on the server for better performance.</p>
+<h4 id="separation-of-concerns">Separation of concerns</h4>
+<p>A component&#39;s responsibility is to present and manage a view.</p>
+<p>Launching the application has nothing to do with view management.
+That&#39;s a separate concern. The friction we&#39;re encountering in testing and reuse
+stems from this unnecessary mix of responsibilities.</p>
+<h4 id="import-export">Import/Export</h4>
+<p>While writing a separate <code>boot.ts</code> file we learned an essential Angular skill:
+how to export from one module and import into another. 
+We&#39;ll do a lot of that as we learn more Angular.</p></article><div class="main-footer"><nav class="background-silver grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c2"><h3 class="text-headline">LIBRARIES</h3><ul class="text-body"><li><a href="/"> Angular 2.0</a></li><li><a href="https://angularjs.org/"> Angular 1 for JS</a></li><li><a href="https://angulardart.org/"> Angular 1 for Dart</a></li><li><a href="https://material.angularjs.org"> Angular Material</a></li><li><a href="https://www.firebase.com/docs/web/libraries/angular/"> AngularFire</a></li></ul></div><div class="c2"><h3 class="text-headline">LEARN</h3><ul class="text-body"><li><a href="/docs/ts/latest/quickstart.html"> 5 Min Quickstart</a></li><li><a href="/docs/ts/latest/guide/"> Step by Step Guide</a></li><li><a href="/docs/ts/latest/api/"> Full API</a></li><li><a href="/docs/ts/latest/resources.html"> Resources</a></li><li><a href="http://goo.gl/sj0Nk1">Design Docs &amp; Notes</a></li></ul></div><div class="c2"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://gitter.im/angular/angular"> Chat Room</a></li><li><a href="https://github.com/angular/angular/issues"> Report an Issue</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="https://blog.angularjs.org/"> Blog</a></li><li><a href="https://plus.sandbox.google.com/+AngularJS/posts"> Google+</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2015. Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" class="text-snow">Apache License, Version 2.0</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small><a aria-label="View Style Guide" href="/docs/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><!-- Angular Material Dependencies --><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script></body></html>

@@ -1,0 +1,198 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/boot.ts]" value="import {bootstrap}           from 'angular2/platform/browser';
+import {HeroesListComponent} from './heroes-list.component';
+import {HeroesService}       from './heroes.service';
+
+bootstrap(HeroesListComponent, [HeroesService])
+
+/* Documentation artifact below
+// Don't do this!
+bootstrap(HeroesListComponent, [HeroesService, RestoreService])
+*/"><input type="hidden" name="files[app/edit-item.ts]" value="export class EditItem<T> {
+  editing: boolean
+  constructor (public item: T) {}
+}
+"><input type="hidden" name="files[app/hero-card.component.ts]" value="import {Component, Input} from 'angular2/core';
+import {Hero} from './hero';
+
+@Component({
+  selector: 'hero-card',
+  template: `
+    <div>
+      <span>Name:</span>
+      <span>{{hero.name}}</span>
+    </div>`
+})
+export class HeroCardComponent {
+  @Input() hero: Hero;
+}
+"><input type="hidden" name="files[app/hero-editor.component.ts]" value="import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import {RestoreService} from './restore.service';
+import {Hero} from './hero';
+
+@Component({
+  selector: 'hero-editor',
+  providers: [RestoreService],
+  template: `
+    <div>
+      <span>Name:</span>
+      <input [(ngModel)]=&quot;hero.name&quot;/>
+      <div>
+        <button (click)=&quot;onSaved()&quot;>save</button>
+        <button (click)=&quot;onCanceled()&quot;>cancel</button>
+      </div>
+    </div>`
+})
+
+export class HeroEditorComponent {
+  @Output() canceled = new EventEmitter();
+  @Output() saved = new EventEmitter();
+
+  constructor(private restoreService: RestoreService<Hero>) {}
+
+  @Input()
+  set hero (hero: Hero) {
+    this.restoreService.setItem(hero);
+  }
+
+  get hero () {
+    return this.restoreService.getItem();
+  }
+
+  onSaved () {
+    this.saved.next(this.restoreService.getItem());
+  }
+
+  onCanceled () {
+    this.hero = this.restoreService.restoreItem();
+    this.canceled.next(this.hero);
+  }
+}
+"><input type="hidden" name="files[app/hero.ts]" value="export class Hero {
+  name: string;
+  power: string;
+}
+"><input type="hidden" name="files[app/heroes-list.component.ts]" value="import {Component} from 'angular2/core';
+import {EditItem} from './edit-item';
+import {HeroesService} from './heroes.service';
+import {HeroCardComponent} from './hero-card.component';
+import {HeroEditorComponent} from './hero-editor.component';
+import {Hero} from './hero';
+
+@Component({
+  selector: 'heroes-list',
+  template: `
+    <div>
+      <ul>
+        <li *ngFor=&quot;#editItem of heroes&quot;>
+          <hero-card
+            [hidden]=&quot;editItem.editing&quot;
+            [hero]=&quot;editItem.item&quot;>
+          </hero-card>
+          <button
+            [hidden]=&quot;editItem.editing&quot;
+            (click)=&quot;editItem.editing = true&quot;>
+              edit
+          </button>
+          <hero-editor
+            (saved)=&quot;onSaved(editItem, $event)&quot;
+            (canceled)=&quot;onCanceled(editItem)&quot;
+            [hidden]=&quot;!editItem.editing&quot;
+            [hero]=&quot;editItem.item&quot;>
+          </hero-editor>
+        </li>
+      </ul>
+    </div>`,
+  directives: [HeroCardComponent, HeroEditorComponent]
+})
+export class HeroesListComponent {
+  heroes: Array<EditItem<Hero>>;
+  constructor(heroesService: HeroesService) {
+    this.heroes = heroesService.getHeroes()
+                               .map(item => new EditItem(item));
+  }
+
+  onSaved (editItem: EditItem<Hero>, updatedHero: Hero) {
+    editItem.item = updatedHero;
+    editItem.editing = false;
+  }
+
+  onCanceled (editItem: EditItem<Hero>) {
+    editItem.editing = false;
+  }
+}
+
+
+"><input type="hidden" name="files[app/heroes.service.ts]" value="import {Hero} from './hero';
+
+export class HeroesService {
+  heroes: Array<Hero> = [
+    { name: &quot;RubberMan&quot;, power: 'flexibility'},
+    { name: &quot;Tornado&quot;, power: 'Weather changer'}
+  ];
+
+  getHeroes () {
+    return this.heroes;
+  }
+}
+"><input type="hidden" name="files[app/restore.service.ts]" value="export class RestoreService<T> {
+  originalItem: T;
+  currentItem: T;
+
+  setItem (item: T) {
+    this.originalItem = item;
+    this.currentItem = this.clone(item);
+  }
+
+  getItem () :T {
+    return this.currentItem;
+  }
+
+  restoreItem () :T {
+    this.currentItem = this.originalItem;
+    return this.getItem();
+  }
+
+  clone (item: T) :T {
+    // super poor clone implementation
+    return JSON.parse(JSON.stringify(item));
+  }
+}
+"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Hierarchical Injectors</title>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/system.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/tools/typescript.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/Rx.js&quot;></script>
+    <script src=&quot;https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js&quot;></script>
+    <script>
+      System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {'app': {defaultExtension: 'ts'}} 
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+
+  <body>
+    <heroes-list>loading...</heroes-list>
+  </body>
+
+</html>
+"><input type="hidden" name="files[license.md]" value="Copyright 2010-2015 Google, Inc. http://angularjs.org
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License."><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="dependency"><input type="hidden" name="tags[3]" value="injection"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - Hierachical Injectors"></form><script>document.getElementById("mainForm").submit();</script></body></html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Displaying Data - dart</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css"/><link href="/resources/fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="/resources/fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/about/" md-button>About</a></li><li class="l-left"><a class="main-nav-button" href="/contribute.html" md-button>Contribute</a></li><li class="l-right feedback-button"><md-button ng-click="appCtrl.openFeedback()" class="md-icon-button top-nav-icon" aria-label="Submit feedback on this page"><span class="material-icons">feedback</span></md-button></li></ul></nav></md-toolbar><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><!-- PRIMARY NAVIGATION--><ul ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-primary"><li><a href="/docs/dart/latest/index.html" md-button><span class="side-nav-icon icon-home"></span> Docs Home</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/dart/latest/quickstart.html" md-button><span class="side-nav-icon icon-query-builder"></span> 5 Min Quickstart</a></li><!-- SECONDARY NAVIGATION--><li class="is-selected"><a href="/docs/dart/latest/guide/" md-button><span class="side-nav-icon icon-list"></span> Developers Guide</a></li><!-- SECONDARY NAVIGATION--><!--SECONDARY NAVIGATION--><ul class="side-nav-secondary is-ordered"><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/dart/latest/guide/cheatsheet.html" md-button>1. Angular Cheat Sheet</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/dart/latest/guide/architecture.html" md-button>2. Architecture Overview</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li class="is-selected"><a href="/docs/dart/latest/guide/displaying-data.html" md-button>3. Displaying Data</a></li><!-- TERTIARY NAVIGATION--><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/dart/latest/guide/user-input.html" md-button>4. User Input</a></li><!-- TERTIARY NAVIGATION--><!-- DEFAULT LIST VALUES--><!-- API LIST VALUES--><!-- ORDERED LIST VALUES--><li><a href="/docs/dart/latest/guide/forms.html" md-button>5. Forms</a></li><!-- TERTIARY NAVIGATION--></ul><li><a href="/docs/dart/latest/api/" md-button><span class="side-nav-icon icon-book"></span> API Proposal</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/dart/latest/resources.html" md-button><span class="side-nav-icon icon-play-circle-fill"></span> Angular Resources</a></li><!-- SECONDARY NAVIGATION--><li><a href="/docs/dart/latest/help.html" md-button><span class="side-nav-icon icon-chat"></span> Help &amp; Support</a></li><!-- SECONDARY NAVIGATION--></ul></nav><header class="hero background-sky"><h1 class="hero-title text-display-1 ">Displaying Data</h1><!-- Replace _ undscores with . dots --><!-- Replace _ undscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="hero-subtitle text-subhead dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for Dart  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Displaying data is job number one for any good application. In Angular, you bind data to elements in HTML templates and Angular automatically updates the UI as data changes.</p></div><article class="l-content-small grid-fluid docs-content"><div class="l-main-section"><p>Let's walk through how to display a property and a list of properties,
+and then to conditionally show content
+based on state. The final UI looks like this:
+</p><figure class="image-display"><img src="/resources/images/examples/displaying-data-example1.png" alt="Example of Todo App"></figure></div><div class="l-main-section"><h2 id="section-create-an-entry-point">Create entry points and pubspec</h2><p>Open your favorite editor and create a directory with
+a <code>web/main.dart</code> file,
+a <code>web/index.html</code> file, and
+a <code>pubspec.yaml</code> file:
+</p><code-tabs><code-pane language="dart" name="web/main.dart" format="linenums">import 'package:angular2/bootstrap.dart';
+import 'package:displaying_data/show_properties.dart';
+
+main() {
+  bootstrap(DisplayComponent);
+}</code-pane><code-pane language="html" name="web/index.html" format="linenums">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Displaying Data&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+    &lt;script async src=&quot;main.dart&quot; type=&quot;application/dart&quot;&gt;&lt;/script&gt;
+    &lt;script async src=&quot;packages/browser/dart.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;display&gt;&lt;/display&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code-pane><code-pane language="yaml" name="pubspec.yaml" format="linenums">name: displaying_data
+description: Dart version of Angular 2 example, Displaying Data
+version: 0.0.1
+dependencies:
+  angular2: 2.0.0-alpha.47
+  browser: ^0.10.0
+transformers:
+- angular2:
+    entry_points: web/main.dart</code-pane></code-tabs><p>All of this code should look familiar from the previous page,
+except for the imports in <code>main.dart</code>.
+The import of <code>show_properties.dart</code>
+lets you implement part of the app in a different Dart file.
+You've previously seen <code>angular2.dart</code> imported,
+but that's unnecessary here because this version of <code>main.dart</code>
+doesn't implement any components or other injectable types.
+</p><p>All three of these files remain similar in the rest of the examples,
+so we'll focus on what changes.
+</p></div><a id="interpolation"></a><div class="l-main-section"><h2 id="section-showing-properties-with-interpolation">Showing properties with interpolation</h2><p>The simple method for binding text into templates is through interpolation,
+where you put the name of a property
+inside <strong ng-non-bindable="">{{ }}</strong>.
+</p><p>To see this working, first create a <code>lib</code> directory.
+Under it, put a Dart file named <code>show_properties.dart</code>
+that contains the following code:
+</p><code-example language="dart" format="linenums" escape="html">// lib/show_properties.dart
+library displaying_data.show_properties;
+
+import 'package:angular2/angular2.dart';
+
+@Component(selector: 'display')
+@View(template: '''
+<p>My name: {{ myName }}</p>
+''')
+class DisplayComponent {
+  String myName = 'Alice';
+}
+</code-example><p>You've just defined a component that encompasses a view and controller for the app. The view
+defines a template:
+</p><code-example language="html" escape="html"><p>My name: {{ myName }}</p>
+</code-example><p>Angular will automatically pull the value of <code>myName</code> and
+insert it into the browser,
+automatically updating it whenever it changes.
+</p><div class="callout is-helpful"><header>Note</header><p>While you've used <code>template:</code> to specify an inline view, for larger templates you'd
+want to move them to a separate file and load them with <code>templateUrl:</code> instead.
+</p></div><p>One thing to notice is that although you've written
+your <code>DisplayComponent</code> class, you haven't
+used <code>new</code> to instantiate it.
+Because your class is associated with <code>&lt;display&gt;</code> elements in
+the DOM, Angular automatically calls <code>new</code> on
+<code>DisplayComponent</code> and bind its properties to
+that part of the template.
+</p><p>When you're building templates, data bindings like these have access to
+the same scope of
+properties as your controller class does.
+Here your class is <code>DisplayComponent</code>, which has
+just one property, <code>myName</code>.
+</p><p>Add a second line to the template,
+so you can see Angular dynamically update content:
+</p><code-example language="html">&lt;p&gt;Current time: {{ time }}&lt;/p&gt;
+</code-example><p>Then import <code>dart:async</code> so you can use a Timer,
+and give the <code>DisplayComponent</code> a starting value for time and
+create a periodic Timer call to update the time:
+</p><code-example language="dart">import 'dart:async';
+...
+class DisplayComponent {
+  String myName = 'Alice';
+  String time;
+  Timer _timer;
+
+  DisplayComponent() {
+    _updateTime(null);
+    _timer = new Timer.periodic(new Duration(seconds: 1), _updateTime);
+  }
+
+  _updateTime(Timer _) {
+    time = new DateTime.now().toString();
+  }
+}
+</code-example><p>Reload the app, and you'll now see the seconds updating automatically.</p></div><a id="ng-for"></a><div class="l-main-section"><h2 id="Create-an-array">Display an iterable using *ng-for</h2><p>Moving up from a single value, create a property that's a list of values.</p><code-example language="dart">class DisplayComponent {
+  String myName = 'Alice';
+  List&lt;String&gt; friendNames = const [
+    'Aarav',
+    'Martín',
+    'Shannon',
+    'Ariana',
+    'Kai'
+  ];
+}
+</code-example><p>You can then use this list in your template with
+the <code>ng-for</code> directive to create copies of DOM elements
+with one for each item in the list.
+</p><code-example language="dart">@View(template: '''
+&lt;p&gt;My name: {{ myName }}&lt;/p&gt;
+&lt;p&gt;Friends:&lt;/p&gt;
+&lt;ul&gt;
+   &lt;li <span class="pnk">*ng-for="#name of friendNames"</span>&gt;
+      {{ name }}
+   &lt;/li&gt;
+&lt;/ul&gt;
+''', <span class="pnk">directives: const [NgFor]</span>)
+</code-example><p>To make <code>ng-for</code> work,
+you need to add the Angular <code>NgFor</code> directive,
+so that Angular knows to include it.
+Add <code>NgFor</code> using the optional <code>directives</code> parameter.
+</p><p>Reload and you've got your list of friends!</p><p>Again, Angular will mirror changes you make to this list over in the DOM.
+Add a new item and it appears in your list.
+Delete one and Angular deletes the &lt;li&gt;.
+Reorder items and Angular makes the corresponding reorder of the DOM list.
+</p><p>Let's look at the few lines that do the work again:</p><code-example language="html">&lt;li *ng-for=&quot;#name of friendNames&quot;&gt;
+   {{ name }}
+&lt;/li&gt;
+</code-example><p>The way to read this is:</p><ul><li><code>*ng-for</code>: Create a DOM element for each item in an
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols">iterable</a>
+ such as a list.</li><li><code>#name</code>: Refer to individual values of the iterable as <code>name</code>.</li><li><code>of friendNames</code>: The iterable to use is called <code>friendNames</code> in the current controller.</li></ul><p>Using this syntax, you can build UI lists from any iterable object.</p></div><div class="l-main-section"><h2 id="Create-a-class">Create a model and inject it</h2><p>Before we get too much further, we should mention that
+putting the model (list) directly into the controller isn't proper form.
+We should separate the concerns by having another class
+serve the role of model and inject it into the controller.
+</p><p>Make a <code>FriendsService</code> class to implement a model
+containing a list of friends.
+Put this in a new file under <code>lib/</code>
+named <code>friends_service.dart</code>. Here's what the class looks like:
+</p><code-example language="dart" format="linenums">// lib/friends_service.dart
+library displaying_data.friends_service;
+
+import 'package:angular2/angular2.dart';
+
+@Injectable()
+class FriendsService {
+  List&lt;String&gt; names = ['Aarav', 'Martín', 'Shannon', 'Ariana', 'Kai'];
+}
+</code-example><p>Now you can replace the current list of friends in DisplayComponent.
+Import <code>friends_service.dart</code>,
+and add a FriendsService parameter to the constructor.
+Then set <code>friendNames</code> to the names provided by the service.
+</p><code-example language="dart">// In lib/show_properties.dart
+...
+<span class="pnk">import 'package:displaying_data/friends_service.dart';</span>
+...
+class DisplayComponent {
+  String myName = 'Alice';
+  List&lt;String&gt; friendNames;
+
+  DisplayComponent(<span class="pnk">FriendsService friendsService</span>) {
+    <span class="pnk">friendNames = friendsService.names;</span>
+  }
+}
+</code-example><p>Next, make FriendsService available to dependency injection
+by adding a <code>viewProviders</code> parameter to DisplayComponent's
+<code>@Component</code> annotation:
+</p><code-example language="dart">@Component(selector: 'display', <span class="pnk">viewProviders: const [FriendsService]</span>)
+</code-example></div><a id="ng-if"></a><div class="l-main-section"><h2 id="Conditionally-displaying-data-with-NgIf">Conditionally display data using *ng-if</h2><p>Lastly, before we move on, let's handle showing parts of our UI conditionally with <code>*ng-if</code>.  The
+<code>NgIf</code> directive adds or removes elements from the DOM based on the expression you provide.
+</p><p>See it in action by adding a paragraph at the end of your template:</p><code-example language="html">&lt;p *ng-if="friendNames.length &gt; 3"&gt;You have many friends!&lt;/p&gt;
+</code-example><p>Also add <code>NgIf</code> to the list of directives,
+so Angular knows to include it:
+</p><code-example language="dart">directives: const[NgFor, <span class="pnk">NgIf</span>]</code-example><p>The list currently has 5 items, so if you run the app you'll see the message
+congratulating you on your many friends.
+Remove two items from the list, reload your browser,
+and see that the message no longer displays.
+</p><p>Here's the final code.</p><code-tabs><code-pane language="dart" name="lib/show_properties.dart" format="linenums">library displaying_data.show_properties;
+
+import 'package:angular2/angular2.dart';
+import 'package:displaying_data/friends_service.dart';
+
+@Component(selector: 'display', viewProviders: const [FriendsService])
+@View(template: '''
+&lt;p&gt;My name: {{ myName }}&lt;/p&gt;
+&lt;p&gt;Friends:&lt;/p&gt;
+&lt;ul&gt;
+   &lt;li *ng-for="#name of friendNames"&gt;
+      {{ name }}
+   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p *ng-if="friendNames.length &gt; 3"&gt;You have many friends!&lt;/p&gt;
+''', directives: const [NgFor, NgIf])
+class DisplayComponent {
+  String myName = 'Alice';
+  List&lt;String&gt; friendNames;
+
+  DisplayComponent(FriendsService friendsService) {
+    friendNames = friendsService.names;
+  }
+}</code-pane><code-pane language="dart" name="lib/friends_service.dart" format="linenums">library displaying_data.friends_service;
+
+import 'package:angular2/angular2.dart';
+
+@Injectable()
+class FriendsService {
+  List&lt;String&gt; names = ['Aarav', 'Martín', 'Shannon', 'Ariana', 'Kai'];
+}</code-pane><code-pane language="dart" name="web/main.dart" format="linenums">import 'package:angular2/bootstrap.dart';
+import 'package:displaying_data/show_properties.dart';
+
+main() {
+  bootstrap(DisplayComponent);
+}</code-pane><code-pane language="html" name="web/index.html" format="linenums">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Displaying Data&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+    &lt;script async src=&quot;main.dart&quot; type=&quot;application/dart&quot;&gt;&lt;/script&gt;
+    &lt;script async src=&quot;packages/browser/dart.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;display&gt;&lt;/display&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code-pane><code-pane language="yaml" name="pubspec.yaml" format="linenums">name: displaying_data
+description: Displaying Data example
+version: 0.0.1
+dependencies:
+  angular2: 2.0.0-alpha.47
+  browser: ^0.10.0
+transformers:
+- angular2:
+    entry_points: web/main.dart</code-pane></code-tabs></div><div class="l-main-section"><h2 id="section-explanations">Explanations</h2><div class="l-sub-section"><h3>Using multiple Dart files in an Angular app</h3><p>Dart offers a few ways to implement an app in multiple files.
+In this guide, each example is in a single package,
+and each Dart file implements a separate library.
+For a bigger project, you might split the code into libraries
+in two or more packages.
+</p><p>To use the API defined in <code>show_properties.dart</code>,
+<code>main.dart</code> must import that file.
+The import statement uses the package name
+(defined in <code>pubspec.yaml</code> to be <b>displaying_data</b>)
+and the path to <code>show_properties.dart</code>
+(starting at the app's top directory,
+but omitting the <code>lib/</code> directory).
+</p><code-example language="dart">// In web/main.dart:
+...
+import 'package:displaying_data/show_properties.dart';
+...
+
+// In lib/show_properties.dart:
+library displaying_data.show_properties;
+...
+</code-example><p>The name that <code>show_properties.dart</code> specifies for its library
+is similar to the path used to import the library,
+but with no ".dart" suffix and
+with dots (<code>.</code>) instead of slashes (<code>/</code>).
+<a href="https://www.dartlang.org/articles/style-guide/#do-name-libraries-and-source-files-using-lowercasewithunderscores">Naming
+conventions for libraries</a>,
+along with lots of other helpful information, are in the
+<a href="https://www.dartlang.org/articles/style-guide/">Dart Style Guide</a>.
+</p><p>Another import lets <code>show_properties.dart</code>
+use the API defined in <code>friends_service.dart</code>:
+</p><code-example language="dart">// In lib/show_properties.dart:
+library displaying_data.show_properties;
+...
+import 'package:displaying_data/friends_service.dart';
+...
+
+// In lib/friends_service.dart:
+library displaying_data.friends_service;
+...
+</code-example><p>Because both <code>show_properties.dart</code> and <code>friends_service.dart</code>
+are under <code>lib</code>,
+the import could instead use a relative path:
+</p><code-example language="dart">// In lib/show_properties.dart:
+library displaying_data.show_properties;
+...
+import 'friends_service.dart';
+...
+
+// In lib/friends_service.dart:
+library displaying_data.friends_service;
+...
+</code-example><p>The app's entry point—<code>main.dart</code>—imports
+<code>bootstrap.dart</code> so that it can call <code>bootstrap()</code>.
+Both <code>show_properties.dart</code> and <code>friends_service.dart</code>
+import <code>angular2.dart</code>
+so that they can define Angular components and models.
+</p><code-example language="dart">// In web/main.dart:
+import 'package:angular2/bootstrap.dart';
+...
+bootstrap(...)
+...
+
+// In lib/show_properties.dart:
+...
+import 'package:angular2/angular2.dart';
+...
+@Component(...)
+@View(...)
+...
+
+// In lib/friends_service.dart:
+...
+import 'package:angular2/angular2.dart';
+...
+@Injectable()
+...
+
+</code-example><p>For more information on implementing Dart libraries, see
+<a href="https://www.dartlang.org/docs/dart-up-and-running/ch02.html#libraries-and-visibility">Libraries and visibility</a>
+in the
+<a href="https://www.dartlang.org/docs/dart-up-and-running/ch02.html">Dart language tour</a>.</p></div></div><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><div class="l-sub-section"><h3>Next Step</h3><a href="/docs/dart/latest/guide/user-input.html">User Input</a></div><!--NEXT PAGE HAS NOW BEEN SET--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-silver grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c2"><h3 class="text-headline">LIBRARIES</h3><ul class="text-body"><li><a href="/"> Angular 2.0</a></li><li><a href="https://angularjs.org/"> Angular 1 for JS</a></li><li><a href="https://angulardart.org/"> Angular 1 for Dart</a></li><li><a href="https://material.angularjs.org"> Angular Material</a></li><li><a href="https://www.firebase.com/docs/web/libraries/angular/"> AngularFire</a></li></ul></div><div class="c2"><h3 class="text-headline">LEARN</h3><ul class="text-body"><li><a href="/docs/ts/latest/quickstart.html"> 5 Min Quickstart</a></li><li><a href="/docs/ts/latest/guide/"> Step by Step Guide</a></li><li><a href="/docs/ts/latest/api/"> Full API</a></li><li><a href="/docs/ts/latest/resources.html"> Resources</a></li><li><a href="http://goo.gl/sj0Nk1">Design Docs &amp; Notes</a></li></ul></div><div class="c2"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://gitter.im/angular/angular"> Chat Room</a></li><li><a href="https://github.com/angular/angular/issues"> Report an Issue</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="https://blog.angularjs.org/"> Blog</a></li><li><a href="https://plus.sandbox.google.com/+AngularJS/posts"> Google+</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2015. Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" class="text-snow">Apache License, Version 2.0</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small><a aria-label="View Style Guide" href="/docs/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><!-- Angular Material Dependencies --><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script><script src="/resources/ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script></body></html>
