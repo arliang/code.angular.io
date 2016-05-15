@@ -1,0 +1,705 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>TypeScript to JavaScript - js</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/js/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/js/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/js/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/js/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/js/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/js/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/js/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/js/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/js/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/js/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/js/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title ">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/js/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/npm-packages.html" title="Details of the recommended npm packages and the different kinds of package dependencies">Npm Packages</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li><li class="nav-list-item "><a href="/docs/js/latest/guide/upgrade.html" title="Angular 1 applications can be incrementally upgraded to Angular 2.">Upgrading from 1.x</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/js/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title is-nav-title-selected">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists"><ul><li class="nav-list-item "><a href="/docs/js/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/js/latest/cookbook/a1-a2-quick-reference.html" title="Learn how Angular 1 concepts and techniques map to Angular 2">Angular 1 to 2 Quick Ref</a></li><li class="nav-list-item "><a href="/docs/js/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/js/latest/cookbook/dependency-injection.html" title="Techniques for Dependency Injection">Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/js/latest/cookbook/dynamic-form.html" title="Render dynamic forms with NgFormModel">Dynamic Form</a></li><li class="nav-list-item "><a href="/docs/js/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li><li class="nav-list-item is-selected"><a href="/docs/js/latest/cookbook/ts-to-js.html" title="Convert Angular 2 TypeScript examples into ES5 JavaScript">TypeScript to JavaScript</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/js/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">TypeScript to JavaScript</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for JavaScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/cookbook/ts-to-js.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/cookbook/ts-to-js.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/cookbook/ts-to-js.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Convert Angular 2 TypeScript examples into ES5 JavaScript</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><p>Everything that we can do in Angular 2 in TypeScript, we can also do
+in JavaScript. Translating from one language to the other is mostly a
+matter of changing the way we organize our code and the way we access
+Angular 2 APIs.</p>
+<p>Since TypeScript is a popular language option in Angular 2, many of the
+code examples you see on the Internet as well as on this site are written
+in TypeScript. This cookbook contains recipes for translating these kinds of
+code examples to ES5, so that they can be applied to Angular 2 JavaScript
+applications.</p>
+<a id="toc"></a><h2 id="table-of-contents">Table of contents</h2>
+<p><a href="#modularity">Modularity: imports and exports</a></p>
+<p><a href="#class-metadata">Classes and Class Metadata</a></p>
+<p><a href="#property-metadata">Input and Output Metadata</a></p>
+<p><a href="#dependency-injection">Dependency Injection</a></p>
+<p><a href="#other-property-metadata">Host and Query Metadata</a></p>
+<p><strong>Run and compare the live <a href="/resources/live-examples/cb-ts-to-js/ts/plnkr.html">TypeScript</a> and 
+<a href="/resources/live-examples/cb-ts-to-js/js/plnkr.html">JavaScript</a> code shown in this cookbook.</strong></p>
+<a id="modularity"></a><div class="l-main-section"></div><h2 id="importing-and-exporting">Importing and Exporting</h2>
+<table width="100%"><col width="50%"><col width="50%"><tr><th>TypeScript</th><th>ES5 JavaScript</th></tr><tr style="vertical-align:top"><td><h3 id="importing-angular-2-code">Importing Angular 2 Code</h3>
+<p>In TypeScript code, Angular 2 classes, functions, and other members
+are imported with TypeScript <code>import</code> statements:</p>
+<code-example language="ts" format=".">import { provide }
+  from &#39;@angular/core&#39;;
+import { bootstrap }
+  from &#39;@angular/platform-browser-dynamic&#39;;
+import {
+} from &#39;@angular/router&#39;;
+import {
+  LocationStrategy,
+  HashLocationStrategy
+} from &#39;@angular/common&#39;;
+</code-example></td><td><h3 id="accessing-angular-2-code-through-the-ng-global">Accessing Angular 2 Code through the ng global</h3>
+<p>In JavaScript code, when using
+<a href="../glossary.html#!#scoped-package">the Angular 2 packages</a>,
+we can access Angular code through the global <code>ng</code> object. In the
+nested members of this object we&#39;ll find everything we would import
+from <code>angular2</code> in TypeScript:</p>
+<code-example language="js" format=".">var provide =
+  ng.core.provide;
+var bootstrap =
+  ng.platformBrowserDynamic.bootstrap;
+var LocationStrategy =
+  ng.common.LocationStrategy;
+var HashLocationStrategy =
+  ng.common.HashLocationStrategy;
+</code-example></td></tr><tr style="vertical-align:top"><td><h3 id="importing-and-exporting-application-code">Importing and Exporting Application Code</h3>
+<p>Each file in an Angular 2 TypeScript application constitutes a
+TypeScript module. When we want to make something from a module available
+to other modules, we <code>export</code> it.</p>
+<code-example language="ts" format=".">export class HeroComponent {
+  title = &#39;Hero Detail&#39;;
+  getName() {return &#39;Windstorm&#39;;}
+}
+</code-example><p>In other modules we can then <code>import</code> things that have been exported
+elsewhere.</p>
+<code-example language="ts" format=".">import { HeroComponent }
+  from &#39;./hero.component&#39;;
+</code-example></td><td><h3 id="sharing-application-code">Sharing Application Code</h3>
+<p>In an Angular 2 JavaScript application, we load each file to the page
+using a <code>&lt;script&gt;</code> tag. Each file can make things available to other
+files via the shared global <code>window</code> scope.</p>
+<p>We often introduce an application namespace
+object (such as <code>&quot;app&quot;</code>) onto <code>window</code> and attach everything we need
+to share to that namespace object. 
+We also wrap our code in an 
+<a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression (IIFE)</a>.
+These practices together prevent our code from
+polluting the global scope.</p>
+<code-example language="js" format=".">(function(app) {
+  function HeroComponent() {
+    this.title = &quot;Hero Detail&quot;;
+  }
+
+  app.HeroComponent = HeroComponent;
+
+})(window.app = window.app || {});
+</code-example><p>We can then access anything from this shared namespace in
+other files.</p>
+<code-example language="js" format=".">(function(app) {
+  var HeroComponent = app.HeroComponent;
+})(window.app = window.app || {});
+</code-example><p>Note that the order of <code>&lt;script&gt;</code> tags on the page is significant. 
+We must load a file that defines a shared member before
+a file that uses that member.</p>
+</td></tr></table><div class="alert is-helpful"><p>Alternatively, we can use a module loader such as Webpack or
+Browserify in an Angular 2 JavaScript project. In such a project, we would
+use CommonJS modules and the <code>require</code> function to load Angular 2 framework code.
+We would then use <code>module.exports</code> and <code>require</code> to export and import application
+code.</p>
+</div><a id="class-metadata"></a><div class="l-main-section"></div><h2 id="classes-and-class-metadata">Classes and Class Metadata</h2>
+<table width="100%"><col width="50%"><col width="50%"><tr><th>TypeScript</th><th>ES5 JavaScript</th></tr><tr style="vertical-align:top"><td><h3 id="classes">Classes</h3>
+<p>We put most of our Angular 2 TypeScript code into TypeScript classes.</p>
+<code-example language="ts" format=".">export class HeroComponent {
+  title = &#39;Hero Detail&#39;;
+  getName() {return &#39;Windstorm&#39;;}
+}
+</code-example></td><td><h3 id="constructors-and-prototypes">Constructors and Prototypes</h3>
+<p>ES5 JavaScript has no classes. We use the constructor
+pattern instead which works with Angular 2 as well as classes do.</p>
+<code-example language="js" format=".">function HeroComponent() {
+  this.title = &quot;Hero Detail&quot;;
+}
+
+HeroComponent.prototype.getName =
+  function() {return &#39;Windstorm&#39;;};
+</code-example></td></tr><tr style="vertical-align:top"><td><h3 id="metadata-with-decorators">Metadata with Decorators</h3>
+<p>Most Angular 2 classes have one or more TypeScript <em>decorators</em>
+attached to provide configuration and metadata. For example,
+a component must have a <a href="../api/core/Component-decorator.html"><code>@Component</code></a> decorator.</p>
+<code-example language="ts" format=".">import { Component } from &#39;@angular/core&#39;;
+
+@Component({
+  selector: &#39;hero-view&#39;,
+  template: 
+    &#39;&lt;h1&gt;Hero: {{getName()}}&lt;/h1&gt;&#39;
+})
+export class HeroComponent {
+  title = &#39;Hero Detail&#39;;
+  getName() {return &#39;Windstorm&#39;;}
+}
+</code-example></td><td><h3 id="metadata-with-the-annotations-array">Metadata with the Annotations Array</h3>
+<p>In JavaScript, we can attach an <code>annotations</code> array to a constructor
+to provide metadata. 
+Each item in the array corresponds to a TypeScript decorator.</p>
+<p>In the following example, we create a new instance of <code>Component</code> that corresponds
+to the <a href="../api/core/Component-decorator.html"><code>@Component</code></a> TypeScript decorator.</p>
+<code-example language="js" format=".">  function HeroComponent() {
+    this.title = &quot;Hero Detail&quot;;
+  }
+
+  HeroComponent.annotations = [
+    new ng.core.Component({
+      selector: &#39;hero-view&#39;,
+      template:
+        &#39;&lt;h1&gt;Hero: {{getName()}}&lt;/h1&gt;&#39;
+    })
+  ];
+  HeroComponent.prototype.getName =
+    function() {return &#39;Windstorm&#39;;};
+</code-example><h3 id="metadata-with-the-class-convenience-api">Metadata with The Class Convenience API</h3>
+<p>The pattern of creating a constructor and decorating it with metadata
+is so common that Angular provides an alternative convenience API for it.
+This API lets us define everything in a single expression.</p>
+<p>With this API we first call the <code>ng.core.Component</code> function,
+followed by a chained <code>Class</code> method call. The argument to <code>Class</code>
+is an object that defines the constructor and the instance methods
+of the component:</p>
+<code-example language="js" format=".">var HeroComponent = ng.core.Component({
+    selector: &#39;hero-view-2&#39;,
+    template:
+      &#39;&lt;h1&gt;Name: {{getName()}}&lt;/h1&gt;&#39;,
+  })
+  .Class({
+    constructor: function() {
+    },
+    getName: function() {
+      return &#39;Windstorm&#39;;
+    }
+  });
+</code-example><p>Similar APIs are also available for other decorators. You can define a
+directive:</p>
+<code-example>var MyDirective = ng.core.Directive({
+  ...
+}).Class({
+  ...
+});
+</code-example><p>Or a pipe:</p>
+<code-example>var MyPipe = ng.core.Pipe({
+  name: 'myPipe'
+}).Class({
+  ...
+});
+</code-example></td></tr><tr style="vertical-align:top"><td><h3 id="interfaces">Interfaces</h3>
+<p>When defining classes that need to implement a certain method, it
+is common to use TypeScript interfaces that enforce that the 
+method signature is correct. Component lifecycle methods like <code>ngOnInit</code>
+are one example of this pattern. <code>ngOnInit</code> is defined in the <code>OnInit</code>
+interface.</p>
+<code-example language="ts" format=".">import { Component, OnInit }
+  from &#39;@angular/core&#39;;
+export class HeroComponent
+    implements OnInit {
+  name:string;
+  ngOnInit() {
+    this.name = &#39;Windstorm&#39;;
+  }
+}
+</code-example></td><td><h3 id="implementing-methods-without-interfaces">Implementing Methods without Interfaces</h3>
+<p>TypeScript interfaces are purely for developer convenience
+and are not used by Angular 2 at runtime. This means that in JavaScript
+code we don&#39;t need to substitute anything for interfaces. We can just
+implement the methods.</p>
+<code-example language="js" format=".">function HeroComponent() {}
+HeroComponent.prototype.ngOnInit =
+  function() {
+    this.name = &#39;Windstorm&#39;;
+  };
+</code-example></td></tr></table><a id="property-metadata"></a><div class="l-main-section"></div><h2 id="input-and-output-metadata">Input and Output Metadata</h2>
+<table width="100%"><col width="50%"><col width="50%"><tr><th>TypeScript</th><th>ES5 JavaScript</th></tr><tr style="vertical-align:top"><td><h3 id="input-and-output-decorators">Input and Output Decorators</h3>
+<p>In TypeScript, property decorators are often used to provide additional metadata
+for components and directives.</p>
+<p>For <a href="../guide/template-syntax.html#inputs-outputs">inputs and outputs</a>, 
+we use <a href="../api/core/Input-var.html"><code>@Input</code></a>
+and <a href="../api/core/Output-var.html"><code>@Output</code></a> property decorators.
+They may optionally specify input and output binding names if we want them to be
+different from the class property names.</p>
+<code-example language="ts" format=".">@Component({
+  selector: &#39;my-confirm&#39;,
+  template: `
+    &lt;button (click)=&quot;onOkClick()&quot;&gt;
+      {{okMsg}}
+    &lt;/button&gt;
+    &lt;button (click)=&quot;onNotOkClick()&quot;&gt;
+      {{notOkMsg}}
+    &lt;/button&gt;
+  `
+})
+export class ConfirmComponent {
+  @Input() okMsg:string;
+  @Input(&#39;cancelMsg&#39;) notOkMsg:string;
+  @Output() ok =
+    new EventEmitter();
+  @Output(&#39;cancel&#39;) notOk =
+    new EventEmitter();
+
+  onOkClick() {
+    this.ok.next(true);
+  }
+  onNotOkClick() {
+    this.notOk.next(true);
+  }
+}
+</code-example><div class="alert is-helpful"><p>In TypeScript we can also use the <code>inputs</code> and <code>outputs</code> array metadata 
+instead of the <code>@Input</code> and <code>@Output</code> property decorators.</p>
+</div></td><td><h3 id="inputs-and-outputs-in-component-metadata">Inputs and Outputs in Component Metadata</h3>
+<p>There is no equivalent of a property decorator in ES5 JavaScript. Instead, 
+we add comparable information to the <code>Component</code> (or <code>Directive</code>) metadata.</p>
+<p>In this example, we add <code>inputs</code> and <code>outputs</code> array attributes
+containing the input and output property names. 
+If we need a binding name that is different from the
+property itself, we use the <code>propertyName: bindingName</code> syntax.</p>
+<code-example language="js" format=".">var ConfirmComponent = ng.core.Component({
+  selector: &#39;my-confirm&#39;,
+  inputs: [
+    &#39;okMsg&#39;,
+    &#39;notOkMsg: cancelMsg&#39;
+  ],
+  outputs: [
+    &#39;ok&#39;,
+    &#39;notOk: cancel&#39;
+  ],
+  template:
+    &#39;&lt;button (click)=&quot;onOkClick()&quot;&gt;&#39; +
+      &#39;{{okMsg}}&#39; +
+    &#39;&lt;/button&gt;&#39; +
+    &#39;&lt;button (click)=&quot;onNotOkClick()&quot;&gt;&#39; +
+      &#39;{{notOkMsg}}&#39; +
+    &#39;&lt;/button&gt;&#39;
+}).Class({
+  constructor: function() {
+    this.ok = new ng.core.EventEmitter();
+    this.notOk = new ng.core.EventEmitter();
+  },
+  onOkClick: function() {
+    this.ok.next(true);
+  },
+  onNotOkClick: function() {
+    this.notOk.next(true);
+  }
+});
+</code-example></td></tr></table><div class="l-main-section"></div><h2 id="dependency-injection">Dependency Injection</h2>
+<table width="100%"><col width="50%"><col width="50%"><tr><th>TypeScript</th><th>ES5 JavaScript</th></tr><tr style="vertical-align:top"><td><h3 id="injection-by-type">Injection by Type</h3>
+<p>Angular 2 can often use TypeScript type information to
+determine what needs to be injected.</p>
+<code-example language="ts" format=".">@Component({
+  selector: &#39;hero-di&#39;,
+  template: `&lt;h1&gt;Hero: {{name}}&lt;/h1&gt;`
+})
+export class HeroComponent {
+  name:string;
+  constructor(dataService:DataService) {
+    this.name = dataService.getHeroName();
+  }
+}
+</code-example></td><td><h3 id="injection-with-parameter-tokens">Injection with Parameter Tokens</h3>
+<p>Since no type information is available in ES5 JavaScript,
+we must identify &quot;injectables&quot; in some other way.</p>
+<p>We attach a <code>parameters</code> array to the constructor function. 
+Each array item is the dependency injection token that identifies the thing to be injected. 
+Often the token is the constructor function for the class-like dependency.</p>
+<code-example language="js" format=".">app.HeroDIComponent = HeroComponent;
+
+function HeroComponent(dataService) {
+  this.name = dataService.getHeroName();
+}
+HeroComponent.parameters = [
+  app.DataService
+];
+HeroComponent.annotations = [
+  new ng.core.Component({
+    selector: &#39;hero-di&#39;,
+    template: &#39;&lt;h1&gt;Hero: {{name}}&lt;/h1&gt;&#39;
+  })
+];
+</code-example><p>When using the class convenience API, we can also supply the parameter
+tokens by wrapping the constructor in an array.</p>
+<code-example language="js" format=".">var HeroComponent = ng.core.Component({
+  selector: &#39;hero-di-inline&#39;,
+  template: &#39;&lt;h1&gt;Hero: {{name}}&lt;/h1&gt;&#39;
+})
+.Class({
+  constructor:
+    [app.DataService, 
+     function(service) {
+       this.name = service.getHeroName();
+     }]
+});
+</code-example></td></tr><tr style="vertical-align:top"><td><h3 id="injection-with-the-inject-decorator">Injection with the @Inject decorator</h3>
+<p>When the thing being injected doesn&#39;t correspond directly to a type,
+we use the <code>@Inject()</code> decorator to supply the injection token.</p>
+<p>In this example, we&#39;re injecting a string identified by the &quot;heroName&quot; token.</p>
+<code-example language="ts" format=".">@Component({
+  selector: &#39;hero-di-inject&#39;,
+  template: `&lt;h1&gt;Hero: {{name}}&lt;/h1&gt;`
+})
+export class HeroComponent {
+  constructor(
+    @Inject(&#39;heroName&#39;)
+      private name:string) {
+  }
+}
+</code-example></td><td><h3 id="injection-with-plain-string-tokens">Injection with plain string tokens</h3>
+<p>In JavaScript we add the token string to the injection parameters array.</p>
+<code-example language="js" format=".">function HeroComponent(name) {
+  this.name = name;
+}
+HeroComponent.parameters = [
+  &#39;heroName&#39;
+];
+HeroComponent.annotations = [
+  new ng.core.Component({
+    selector: &#39;hero-di-inject&#39;,
+    template: &#39;&lt;h1&gt;Hero: {{name}}&lt;/h1&gt;&#39;
+  })
+];
+</code-example><p>Alternatively, we can create a token with the <code>Inject</code> method and
+add that to the constructor array in the annotations like this:</p>
+<code-example language="js" format=".">var HeroComponent = ng.core.Component({
+  selector: &#39;hero-di-inline2&#39;,
+  template: &#39;&lt;h1&gt;Hero: {{name}}&lt;/h1&gt;&#39;
+})
+.Class({
+  constructor:
+    [new ng.core.Inject(&#39;heroName&#39;), 
+     function(name) {
+       this.name = name;
+     }]
+});
+</code-example></td></tr><tr style="vertical-align:top"><td><h3 id="additional-injection-decorators">Additional Injection Decorators</h3>
+<p>We can attach additional decorators to constructor parameters
+to qualify the injection behavior. We can mark
+optional dependencies with the <a href="../api/core/Optional-var.html"><code>@Optional</code></a>,
+inject host element attributes with <a href="../api/core/Attribute-var.html"><code>@Attribute</code></a>,
+inject content child queries with <a href="../api/core/Query-var.html"><code>@Query</code></a>
+and inject view child queries with <a href="../api/core/ViewQuery-var.html"><code>@ViewQuery</code></a>).</p>
+<code-example language="ts" format=".">@Component({
+  selector: &#39;hero-title&#39;,
+  template: `
+    &lt;h1&gt;{{titlePrefix}} {{title}}&lt;/h1&gt;
+    &lt;button (click)=&quot;ok()&quot;&gt;OK&lt;/button&gt;
+    &lt;ng-content&gt;&lt;/ng-content&gt;
+  `
+})
+export class TitleComponent {
+  constructor(
+    @Inject(&#39;titlePrefix&#39;)
+    @Optional()
+      private titlePrefix:string,
+    @Attribute(&#39;title&#39;)
+      private title:string,
+    @Query(&#39;okMsg&#39;)
+      private msg:QueryList&lt;ElementRef&gt;) {
+  }
+
+  ok() {
+    let msgEl =
+      this.msg.first.nativeElement;
+    msgEl.textContent = &#39;OK!&#39;;
+  }
+}
+</code-example></td><td><h3 id="additional-injection-metadata-with-nested-arrays">Additional Injection Metadata with Nested Arrays</h3>
+<p>To achieve the same effect in JavaScript, use the constructor array notation
+in which the injection information precedes the constructor function itself.</p>
+<p>Use the injection support functions <code>Attribute</code>, <code>Host</code>, <code>Optional</code>, <code>Self</code>, <code>SkipSelf</code>,
+<code>Query</code> and <code>ViewQuery</code> to qualify dependency injection behavior.</p>
+<p>Use a nested array to combine injection functions.</p>
+<code-example language="js" format=".">var TitleComponent = ng.core.Component({
+  selector: &#39;hero-title&#39;,
+  template:
+    &#39;&lt;h1&gt;{{titlePrefix}} {{title}}&lt;/h1&gt;&#39; +
+    &#39;&lt;button (click)=&quot;ok()&quot;&gt;OK&lt;/button&gt;&#39; +
+    &#39;&lt;ng-content&gt;&lt;/ng-content&gt;&#39;
+}).Class({
+  constructor: [
+    [
+      new ng.core.Optional(),
+      new ng.core.Inject(&#39;titlePrefix&#39;)
+    ],
+    new ng.core.Attribute(&#39;title&#39;),
+    [
+      new ng.core.Query(&#39;okMsg&#39;),
+      ng.core.ElementRef
+    ],
+    function(titlePrefix, title, msg) {
+      this.titlePrefix = titlePrefix;
+      this.title  = title;
+      this.msg = msg;
+    }
+  ],
+  ok: function() {
+    var msgEl =
+      this.msg.first.nativeElement;
+    msgEl.textContent = &#39;OK!&#39;;
+  }
+});
+</code-example><p>We can apply other additional parameter decorators such as
+<a href="../api/core/Host-var.html"><code>@Host</code></a> and
+<a href="../api/core/SkipSelf-var.html"><code>@SkipSelf</code></a> in the same way -
+by adding <code>new ng.core.Host()</code> or <code>ng.core.SkipSelf()</code> in the
+parameters array.</p>
+</td></tr></table><a id="other-property-metadata"></a><div class="l-main-section"></div><h2 id="host-and-query-metadata">Host and Query Metadata</h2>
+<table width="100%"><col width="50%"><col width="50%"><tr><th>TypeScript</th><th>ES5 JavaScript  </th></tr><tr style="vertical-align:top"><td><h3 id="host-decorators">Host Decorators</h3>
+<p>We can use host property decorators to bind a host element to a component or directive.
+The <a href="../api/core/HostBinding-var.html"><code>@HostBinding</code></a> decorator
+binds host element properties to component data properties. 
+The <a href="../api/core/HostListener-var.html"><code>@HostListener</code></a> decorator bimds
+host element events to component event handlers.</p>
+<code-example language="ts" format=".">@Component({
+  selector: &#39;heroes-bindings&#39;,
+  template: `&lt;h1 [class.active]=&quot;active&quot;&gt;
+    Tour ofHeroes
+  &lt;/h1&gt;`
+})
+export class HeroesComponent {
+  @HostBinding() title = &#39;Tooltip content&#39;;
+  @HostBinding(&#39;class.heading&#39;)
+    hClass = true
+  active:boolean;
+
+  constructor() {}
+
+  @HostListener(&#39;click&#39;)
+  clicked() {
+    this.active = !this.active;
+  }
+
+  @HostListener(&#39;dblclick&#39;, [&#39;$event&#39;])
+  doubleClicked(evt:Event) {
+    this.active = true;
+  }
+}
+</code-example><div class="alert is-helpful"><p>In TypeScript we can also use <code>host</code> metadata 
+instead of the <code>@HostBinding</code> and <code>@HostListener</code> property decorators.</p>
+</div></td><td><h3 id="host-metadata">Host Metadata</h3>
+<p>We add a <code>host</code> attribute to the component metadata to achieve the
+same effect as <code>@HostBinding</code> and <code>@HostListener</code>. </p>
+<p>The  <code>host</code> value is an object whose properties are host property and listener bindings:</p>
+<ul>
+<li>Each key follows regular Angular 2 binding syntax: <code>[property]</code> for host bindings
+or <code>(event)</code> for host listeners.</li>
+<li>Each value identifies the corresponding component property or method.</li>
+</ul>
+<code-example language="js" format=".">var HeroesComponent = ng.core.Component({
+  selector: &#39;heroes-bindings&#39;,
+  template: &#39;&lt;h1 [class.active]=&quot;active&quot;&gt;&#39; +
+    &#39;Tour of Heroes&#39; +
+  &#39;&lt;/h1&gt;&#39;,
+  host: {
+    &#39;[title]&#39;: &#39;title&#39;,
+    &#39;[class.heading]&#39;: &#39;hClass&#39;,
+    &#39;(click)&#39;: &#39;clicked()&#39;,
+    &#39;(dblclick)&#39;: &#39;doubleClicked($event)&#39;
+  }
+}).Class({
+  constructor: function() {
+    this.title = &#39;Tooltip content&#39;;
+    this.hClass = true;
+  },
+  clicked: function() {
+    this.active = !this.active;
+  },
+  doubleClicked: function(evt) {
+    this.active = true;
+  }
+});
+</code-example></td></tr><tr style="vertical-align:top"><td><h3 id="query-decorators">Query Decorators</h3>
+<p>There are several property decorators for querying the descendants of
+a component or directive.</p>
+<p>The <a href="../api/core/ViewChild-var.html"><code>@ViewChild</code></a> and 
+<a href="../api/core/ViewChildren-var.html"><code>@ViewChildren</code></a> property decorators
+allow a component to query instances of other components that are used in
+its view.</p>
+<code-example language="ts" format=".">@Component({
+  selector: &#39;heroes-queries&#39;,
+  template: `
+    &lt;hero *ngFor=&quot;let hero of heroData&quot;
+          [hero]=&quot;hero&quot;&gt;
+      &lt;active-label&gt;&lt;/active-label&gt;
+    &lt;/hero&gt;
+    &lt;button (click)=&quot;activate()&quot;&gt;
+      Activate
+    &lt;/button&gt;
+  `,
+  directives: [
+    HeroComponent,
+    ActiveLabelComponent
+  ]
+})
+export class HeroesQueriesComponent {
+  heroData = [
+    {id: 1, name: &#39;Windstorm&#39;},
+    {id: 2, name: &#39;Superman&#39;}
+  ];
+
+  @ViewChildren(HeroComponent)
+  heroCmps:QueryList&lt;HeroComponent&gt;;
+
+  activate() {
+    this.heroCmps.forEach(
+      (cmp) =&gt; cmp.activate()
+    );
+  }
+}
+</code-example><p>The <a href="../api/core/ContentChild-var.html"><code>@ContentChild</code></a> and
+<a href="../api/core/ContentChildren-var.html"><code>@ContentChildren</code></a> property decorators
+allow a component to query instances of other components that have been projected
+into its view from elsewhere.</p>
+<code-example language="ts" format=".">@Component({
+  selector: &#39;hero&#39;,
+  template: `&lt;h2 [class.active]=active&gt;
+    {{hero.name}}
+    &lt;ng-content&gt;&lt;/ng-content&gt;
+  &lt;/h2&gt;`
+})
+class HeroComponent {
+  @Input() hero:any;
+  active:boolean;
+
+  @ContentChild(ActiveLabelComponent)
+  label:ActiveLabelComponent
+
+  activate() {
+    this.active = true;
+    this.label.activate();
+  }
+}
+</code-example><div class="alert is-helpful"><p>In TypeScript we can also use the <code>queries</code> metadata 
+instead of the <code>@ViewChild</code> and <code>@ContentChild</code> property decorators.      </p>
+</div></td><td><h3 id="query-metadata">Query Metadata</h3>
+<p>We access a component&#39;s view children by adding a <code>queries</code> attribute to
+the component metadata. It should be an object where:</p>
+<ul>
+<li>Each key is the name of a component property that will hold the view children</li>
+<li>Each value is an instance of either <code>ViewChild</code> or <code>ViewChildren</code>.</li>
+</ul>
+<code-example language="js" format=".">var AppComponent = ng.core.Component({
+  selector: &#39;heroes-queries&#39;,
+  template:
+    &#39;&lt;hero *ngFor=&quot;let hero of heroData&quot;&#39; +
+          &#39;[hero]=&quot;hero&quot;&gt;&#39; +
+      &#39;&lt;active-label&gt;&lt;/active-label&gt;&#39; +
+    &#39;&lt;/hero&gt;&#39; +
+    &#39;&lt;button (click)=&quot;activate()&quot;&gt;&#39; +
+      &#39;Activate&#39; +
+    &#39;&lt;/button&gt;&#39;,
+  directives: [
+    HeroComponent,
+    ActiveLabelComponent
+  ],
+  queries: {
+    heroCmps: new ng.core.ViewChildren(
+                    HeroComponent)
+  }
+}).Class({
+  constructor: function() {
+    this.heroData = [
+      {id: 1, name: &#39;Windstorm&#39;},
+      {id: 2, name: &#39;Superman&#39;}
+    ];
+  },
+  activate: function() {
+    this.heroCmps.forEach(function(cmp) {
+      cmp.activate();
+    });
+  }
+});
+</code-example><p>We add <em>content</em> child queries to the same <code>queries</code> attribute
+in the same manner, using instances of <code>ContentChild</code> or <code>ContentChildren</code>:</p>
+<code-example language="js" format=".">var HeroComponent = ng.core.Component({
+  selector: &#39;hero&#39;,
+  template: &#39;&lt;h2 [class.active]=active&gt;&#39; +
+    &#39;{{hero.name}} &#39; +
+    &#39;&lt;ng-content&gt;&lt;/ng-content&gt;&#39; +
+  &#39;&lt;/h2&gt;&#39;,
+  inputs: [&#39;hero&#39;],
+  queries: {
+    label: new ng.core.ContentChild(
+                 ActiveLabelComponent)
+  }
+}).Class({
+  constructor: function() { },
+  activate: function() {
+    this.active = true;
+    this.label.activate();
+  }
+});
+</code-example></td></tr></table></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/js/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>

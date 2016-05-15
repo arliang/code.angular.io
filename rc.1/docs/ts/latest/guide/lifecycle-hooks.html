@@ -1,0 +1,503 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Lifecycle Hooks - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/ts/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title is-nav-title-selected">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item is-selected"><a href="/docs/ts/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/npm-packages.html" title="Details of the recommended npm packages and the different kinds of package dependencies">Npm Packages</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/testing.html" title="Techniques and practices for testing an Angular 2 app">Testing</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/typescript-configuration.html" title="TypeScript configuration for Angular 2 developers">TypeScript Configuration</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/upgrade.html" title="Angular 1 applications can be incrementally upgraded to Angular 2.">Upgrading from 1.x</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/webpack.html" title="Create your Angular 2 applications with a Webpack based tooling">Introduction to Webpack</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title ">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/a1-a2-quick-reference.html" title="Learn how Angular 1 concepts and techniques map to Angular 2">Angular 1 to 2 Quick Ref</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dependency-injection.html" title="Techniques for Dependency Injection">Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dynamic-form.html" title="Render dynamic forms with NgFormModel">Dynamic Form</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/ts-to-js.html" title="Convert Angular 2 TypeScript examples into ES5 JavaScript">TypeScript to JavaScript</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">Lifecycle Hooks</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/lifecycle-hooks.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/lifecycle-hooks.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/lifecycle-hooks.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><h1 id="component-lifecycle">Component Lifecycle</h1>
+<p>A Component has a lifecycle managed by Angular itself. Angular creates it, renders it, creates and renders its children,
+checks it when its data-bound properties change, and destroys it before removing it from the DOM.</p>
+<p>Angular offers <strong>component lifecycle hooks</strong>
+that give us visibility into these key moments and the ability to act when they occur.</p>
+<p>We cover these hooks in this chapter and demonstrate how they work in code.</p>
+<ul>
+<li><a href="#hooks-overview">The lifecycle hooks</a></li>
+<li><a href="#hook-sequence">The hook-call sequence</a></li>
+<li><a href="#other-lifecycles">Other Angular lifecycle hooks</a></li>
+<li><a href="#the-sample">The lifecycle sample</a><ul>
+<li><a href="#peek-a-boo">All</a></li>
+<li><a href="#spy">Spying OnInit and OnDestroy</a> </li>
+<li><a href="#onchanges">OnChanges</a></li>
+<li><a href="#docheck">DoCheck</a></li>
+<li><a href="#afterview">AfterViewInit and AfterViewChecked</a></li>
+<li><a href="#aftercontent">AfterContentInit and AfterContentChecked</a></li>
+</ul>
+</li>
+</ul>
+<p>Try the <a href="/resources/live-examples/lifecycle-hooks/ts/plnkr.html">live example</a>.</p><a id="hooks-overview"></a><div class="l-main-section"></div><h2 id="component-lifecycle-hooks">Component lifecycle Hooks</h2>
+<p>Directive and component instances have a lifecycle
+as Angular creates, updates, and destroys them.</p>
+<p>Developers can tap into key moments in that lifecycle by implementing
+one or more of the <em>Lifecycle Hook</em> interfaces in the Angular <code>core</code> library.</p>
+<p>Each interface has a single hook method whose name is the interface name prefixed with <code>ng</code>.
+For example, the <code>OnInit</code> interface has a hook method named <code>ngOnInit</code>.
+We might implement it in a component class like this:</p>
+<div class="example-title">peek-a-boo.component.ts (excerpt)</div><code-example language="ts" format=".">export class PeekABoo implements OnInit {
+  constructor(private logger: LoggerService) { }
+
+  // implement OnInit&#39;s `ngOnInit` method
+  ngOnInit() { this.logIt(`OnInit`); }
+
+  protected logIt(msg: string) {
+    this.logger.log(`#${nextId++} ${msg}`);
+  }
+}
+</code-example><p>No directive or component will implement all of them and some of the hooks only make sense for components.
+Angular only calls a directive/component hook method <em>if it is defined</em>.</p>
+<div class="l-sub-section"><h3 id="interface-optional-">Interface optional?</h3>
+<p>The interfaces are optional for JavaScript and Typescript developers from a purely technical perspective.
+The JavaScript language doesn&#39;t have interfaces. 
+Angular can&#39;t see TypeScript interfaces at runtime because they disappear from the transpiled JavaScript.</p>
+<p>Fortunately, they aren&#39;t necessary.
+We don&#39;t have to add the lifecycle hook interfaces to our directives and components to benefit from the hooks themselves.</p>
+<p>Angular instead inspects our directive and component classes and calls the hook methods <em>if they are defined</em>.
+Angular will find and call methods like <code>ngOnInit()</code>, with or without the interfaces.</p>
+<p>Nonetheless, we strongly recommend adding interfaces to TypeScript directive classes
+in order to benefit from strong typing and editor tooling.  </p>
+</div><p>Here are the component lifecycle hook methods:</p>
+<h3 id="directives-and-components">Directives and Components</h3>
+<table width="100%"><col width="20%"><col width="80%"><tr><th>Hook</th><th>Purpose</th></tr><tr style="vertical-align:top"><td>ngOnInit</td><td><p>Initialize the directive/component after Angular initializes the data-bound input properties.</p>
+</td></tr><tr style="vertical-align:top"><td>ngOnChanges</td><td><p>Respond after Angular sets a data-bound input property. 
+The method receives a <code>changes</code> object of current and previous values.</p>
+</td></tr><tr style="vertical-align:top"><td>ngDoCheck</td><td><p>Detect and act upon changes that Angular can or won&#39;t
+detect on its own. Called every change detection run.</p>
+</td></tr><tr style="vertical-align:top"><td>ngOnDestroy</td><td><p>Cleanup just before Angular destroys the directive/component. 
+Unsubscribe observables and detach event handlers to avoid memory leaks.</p>
+</td></tr></table><h3 id="components-only">Components only</h3>
+<table width="100%"><col width="20%"><col width="80%"><tr><th>Hook</th><th>Purpose</th></tr><tr style="vertical-align:top"><td>ngAfterContentInit</td><td><p>After Angular projects external content into its view.</p>
+</td></tr><tr style="vertical-align:top"><td>ngAfterContentChecked</td><td><p>After Angular checks the bindings of the external content that it projected into its view.</p>
+</td></tr><tr style="vertical-align:top"><td>ngAfterViewInit</td><td><p>After Angular creates the component&#39;s view(s).</p>
+</td></tr><tr style="vertical-align:top"><td>ngAfterViewChecked</td><td><p>After Angular checks the bindings of the component&#39;s view(s).</p>
+</td></tr></table><p>Angular does not call the hook methods in this order.</p>
+<a id="hook-sequence"></a><div class="l-main-section"></div><h2 id="lifecycle-sequence">Lifecycle sequence</h2>
+<p><em>After</em> Angular creates a component/directive by <code>new</code>-ing its constructor, 
+it calls the lifecycle hook methods in the following sequence at specific moments:  </p>
+<table width="100%"><col width="20%"><col width="80%"><tr><th>Hook</th><th>Timing</th></tr><tr style="vertical-align:top"><td>ngOnChanges</td><td><p>before <code>ngOnInit</code> and when a data-bound input property value changes.</p>
+</td></tr><tr style="vertical-align:top"><td>ngOnInit</td><td><p>after the first <code>ngOnChanges</code>.</p>
+</td></tr><tr style="vertical-align:top"><td>ngDoCheck</td><td><p>during every Angular change detection cycle.</p>
+</td></tr><tr style="vertical-align:top"><td>ngAfterContentInit</td><td><p>after projecting content into the component.</p>
+</td></tr><tr style="vertical-align:top"><td>ngAfterContentChecked</td><td><p>after every check of projected component content.</p>
+</td></tr><tr style="vertical-align:top"><td>ngAfterViewInit</td><td><p>after initializing the component&#39;s views and child views.</p>
+</td></tr><tr style="vertical-align:top"><td>ngAfterViewChecked</td><td><p>after every check of the component&#39;s views and child views.</p>
+</td></tr><tr style="vertical-align:top"><td>ngOnDestroy</td><td><p>just before Angular destroys the directive/component.</p>
+</td></tr></table><a id="other-lifecycles"></a><div class="l-main-section"></div><h2 id="other-lifecycle-hooks">Other lifecycle hooks</h2>
+<p>Other Angular sub-systems may have their own lifecycle hooks apart from the component hooks we&#39;ve listed. 
+The router, for instance, also has it&#39;s own <a href="router.html#router-lifecycle-hooks">router lifecycle hooks</a>
+that allow us to tap into specific moments in route navigation.</p>
+<p>A parallel can be drawn between <code>ngOnInit</code> and <code>routerOnActivate</code>. 
+Both are prefixed so as to avoid collision, and both run right when a component is &#39;booting&#39; up.</p>
+<p>3rd party libraries might implement their hooks as well in order to give us, the developers, more
+control over how these libraries are used.</p>
+<a id="the-sample"></a><div class="l-main-section"></div><h2>Lifecycle exercises</h2><p>The <a href="/resources/live-examples/lifecycle-hooks/ts/plnkr.html">live example</a>
+demonstrates the lifecycle hooks in action through a series of exercises
+presented as components under the control of the root `AppComponent`.</p><p>They follow a common pattern:  a <em>parent</em> component serves as a test rig for 
+a <em>child</em> component that illustrates one or more of the lifecycle hook methods.</p>
+<p>Here&#39;s a brief description of each exercise: </p>
+<table width="100%"><col width="20%"><col width="80%"><tr><th>Component</th><th>Description</th></tr><tr style="vertical-align:top"><td><a href="#peek-a-boo">Peek-a-boo</a></td><td><p>Demonstrates every lifecycle hook.
+Each hook method writes to the on-screen log.</p>
+</td></tr><tr style="vertical-align:top"><td><a href="#spy">Spy</a></td><td><p>Directives have lifecycle hooks too.
+We create a <code>SpyDirective</code> that logs when the element it spies upon is 
+created or destroyed using the <code>ngOnInit</code> and <code>ngOnDestroy</code> hooks.</p>
+<p>We apply the <code>SpyDirective</code> to a <code>&lt;div&gt;</code> in an <code>ngFor</code> <em>hero</em> repeater
+managed by the parent <code>SpyComponent</code>.</p>
+</td></tr><tr style="vertical-align:top"><td><a href="#onchanges">OnChanges</a></td><td><p>See how Angular calls the <code>ngOnChanges</code> hook with a <code>changes</code> object
+every time one of the component input properties changes.
+Shows how to interpret the <code>changes</code> object.</p>
+</td></tr><tr style="vertical-align:top"><td><a href="#docheck">DoCheck</a> </td><td><p>Implements an <code>ngDoCheck</code> method with custom change detection.
+See how often Angular calls this hook and watch it post changes to a log.</p>
+</td></tr><tr style="vertical-align:top"><td><a href="#afterview">AfterView</a></td><td><p>Shows what Angular means by a <em>view</em>.
+Demonstrates the <code>ngAfterViewInit</code> and <code>ngAfterViewChecked</code> hooks.</p>
+</td></tr><tr style="vertical-align:top"><td><a href="#aftercontent">AfterContent</a></td><td><p>Shows how to project external content into a component and
+how to distinguish projected content from a component&#39;s view children.
+Demonstrates the <code>ngAfterContentInit</code> and <code>ngAfterContentChecked</code> hooks.</p>
+</td></tr><tr style="vertical-align:top"><td>Counter</td><td><p>Demonstrates a combination of a component and a directive 
+each with its own hooks.</p>
+<p>In this example, a <code>CounterComponent</code> logs a change (via <code>ngOnChanges</code>)
+every time the parent component increments its input counter property.
+Meanwhile, we apply the <code>SpyDirective</code> from the previous example
+to the <code>CounterComponent</code> log and watch log entries be created and destroyed.</p>
+</td></tr></table><p>We discuss the exercises in further detail over this chapter as we learn more about the lifecycle hooks.</p>
+<a id="peek-a-boo"></a><div class="l-main-section"></div><h2 id="peek-a-boo-all-hooks">Peek-a-boo: all hooks</h2>
+<p>The <code>PeekABooComponent</code> demonstrates all of the hooks in one component.</p>
+<p>In real life, we&#39;d rarely if ever implement all of the interfaces like this.
+We do so in peek-a-boo in order to watch Angular call the hooks in the expected order.</p>
+<p>In this snapshot, we clicked the <em>Create...</em> button and then the <em>Destroy...</em> button.</p>
+<figure class="image-display"><img src="/resources/images/devguide/lifecycle-hooks/peek-a-boo.png" alt="Peek-a-boo"></figure><p>The sequence of log messages follows the prescribed hook calling order: 
+<code>OnChanges</code>, <code>OnInit</code>, <code>DoCheck</code>&nbsp;(3x), <code>AfterContentInit</code>, <code>AfterContentChecked</code>&nbsp;(3x), 
+<code>AfterViewInit</code>, <code>AfterViewChecked</code>&nbsp;(3x), and <code>OnDestroy</code>.</p>
+<div class="l-sub-section"><p>The constructor isn&#39;t an Angular hook <em>per se</em>.
+We log in it to confirm that input properties (the <code>name</code> property in this case) have no assigned values at construction.</p>
+</div><p>Had we clicked the <em>Update Hero</em> button, we&#39;d have seen another <code>OnChanges</code> and two more triplets of 
+<code>DoCheck</code>, <code>AfterContentChecked</code> and <code>AfterViewChecked</code>.
+Clearly these three hooks fire a <em>lot</em> and we must keep the logic we put in these hooks 
+as lean as possible!</p>
+<p>Our next examples focus on hook details.</p>
+<div id="spy" class="a"></div><div class="l-main-section"></div><h2 id="spying-oninit-and-ondestroy-">Spying <em>OnInit</em> and <em>OnDestroy</em></h2>
+<p>We&#39;re going undercover for these two hooks. We want to know when an element is initialized or destroyed,
+but we don&#39;t want <em>it</em> to know we&#39;re watching. </p>
+<p>This is the perfect infiltration job for a directive. 
+Our heroes will never know it&#39;s there.</p>
+<div class="l-sub-section"><p>Kidding aside, we&#39;re emphasizing two key points: </p>
+<ol>
+<li><p>Angular calls hook methods for <em>directives</em> as well as components.</p>
+</li>
+<li><p>A spy directive can gives us insight into a DOM object that we cannot change directly.
+Obviously we can&#39;t change the implementation of a native <code>div</code>. 
+We can&#39;t modify a third party component either.
+But we can watch both with a directive.</p>
+</li>
+</ol>
+</div><p>Our sneaky spy directive is simple,  consisting almost entirely of <code>ngOnInit</code> and <code>ngOnDestroy</code> hooks 
+that log messages to the parent via an injected <code>LoggerService</code>.</p>
+<code-example language="ts" format=".">// Spy on any element to which it is applied.
+// Usage: &lt;div mySpy&gt;...&lt;/div&gt;
+@Directive({selector: &#39;[mySpy]&#39;})
+export class Spy implements OnInit, OnDestroy {
+
+  constructor(private logger: LoggerService) { }
+
+  ngOnInit()    { this.logIt(`onInit`); }
+
+  ngOnDestroy() { this.logIt(`onDestroy`); }
+
+  private logIt(msg: string) {
+    this.logger.log(`Spy #${nextId++} ${msg}`);
+  }
+}
+</code-example><p>We can apply the spy to any native or component element and it&#39;ll be initialized and destroyed
+at the same time as that element. 
+Here we attach it to the repeated hero <code>&lt;div&gt;</code></p>
+<code-example language="html" format=".">&lt;div *ngFor=&quot;let hero of heroes&quot; mySpy class=&quot;heroes&quot;&gt;
+  {{hero}}
+&lt;/div&gt;
+</code-example><p>Each spy&#39;s birth and death marks the birth and death of the attached hero <code>&lt;div&gt;</code> 
+with an entry in the <em>Hook Log</em> as we see here:</p>
+<figure class="image-display"><img src="/resources/images/devguide/lifecycle-hooks/spy-directive.gif" alt="Spy Directive"></figure><p>Adding a hero results in a new hero <code>&lt;div&gt;</code>. The spy&#39;s <code>ngOnInit</code> logs that event.
+We see a new entry for each hero.</p>
+<p>The <em>Reset</em> button clears the <code>heroes</code> list. 
+Angular removes all hero divs from the DOM and destroys their spy directives at the same time.
+The spy&#39;s <code>ngOnDestroy</code> method reports its last moments.</p>
+<p>The <code>ngOnInit</code> and <code>ngOnDestroy</code> methods have more vital roles to play in real applications.
+Let&#39;s see why we need them.</p>
+<h3 id="oninit">OnInit</h3>
+<p>We turn to <code>ngOnInit</code> for two main reasons:</p>
+<ol>
+<li>To perform complex initializations shortly after construction</li>
+<li>To set up the component after Angular sets the input properties</li>
+</ol>
+<p>An <code>ngOnInit</code> often fetches data for the component as shown in the 
+<a href="../tutorial/toh-pt4.html#oninit">Tutorial</a> and <a href="server-communication.html#oninit">HTTP</a> chapters.</p>
+<p>We don&#39;t fetch data in a component constructor. Why?
+Because experienced developers agree that components should be cheap and safe to construct. 
+We shouldn&#39;t worry that a new component will try to contact a remote server when
+created under test or before we decide to display it.
+Constructors should do no more than set the initial local variables to simple values.</p>
+<p>When a component must start working <em>soon</em> after creation,
+we can count on Angular to call the <code>ngOnInit</code> method to jumpstart it.
+That&#39;s where the heavy initialization logic belongs.</p>
+<p>Remember also that a directive&#39;s data-bound input properties are not set until <em>after construction</em>.
+That&#39;s a problem if we need to initialize the directive based on those properties.
+They&#39;ll have been set when our <code>ngOninit</code> runs.</p>
+<div class="l-sub-section"><p>Our first opportunity to access those properties is the <code>ngOnChanges</code> method which
+Angular calls before <code>ngOnit</code>. But Angular calls <code>ngOnChanges</code> many times after that.
+It only calls <code>ngOnit</code> once.</p>
+</div><h3 id="ondestroy">OnDestroy</h3>
+<p>Put cleanup logic in <code>ngOnDestroy</code>, the logic that <em>must</em> run before Angular destroys the directive.</p>
+<p>This is the time to notify another part of the application that this component is going away.</p>
+<p>This is the place to free resources that won&#39;t be garbage collected automatically.
+Unsubscribe from observables and DOM events. Stop interval timers.
+Unregister all callbacks that this directive registered with global or application services.
+We risk memory leaks if we neglect to do so.</p>
+<div class="l-main-section"></div><h2 id="onchanges">OnChanges</h2>
+<p>We monitor the <code>OnChanges</code> hook in this example. 
+Angular calls its <code>ngOnChanges</code> method whenever it detects changes to <strong><em>input properties</em></strong> of the component (or directive).</p>
+<p>Here is our implementation of the hook.</p>
+<div class="example-title">OnChangesComponent (ngOnChanges)</div><code-example language="ts" format=".">ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+  for (let propName in changes) {
+    let chng = changes[propName];
+    let cur  = JSON.stringify(chng.currentValue);
+    let prev = JSON.stringify(chng.previousValue);
+    this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+  }
+}
+</code-example><p>The <code>ngOnChanges</code> method takes an object that maps each changed property name to a 
+<a href="../api/core/SimpleChange-class.html">SimpleChange</a> object with the current and previous property values.
+We iterate over the changed properties and log them.</p>
+<p>The input properties for our example <code>OnChangesComponent</code> are <code>hero</code> and <code>power</code>.</p>
+<code-example language="ts" format=".">@Input() hero: Hero;
+@Input() power: string;
+</code-example><p>The parent binds to them like this:</p>
+<code-example language="html" format="">&lt;on-changes [hero]=&quot;hero&quot; [power]=&quot;power&quot;&gt;&lt;/on-changes&gt;
+</code-example><p>Here&#39;s the sample in action as we make changes.</p>
+<figure class="image-display"><img src="/resources/images/devguide/lifecycle-hooks/on-changes-anim.gif" alt="OnChanges"></figure><p>We see log entries as the string value of the <em>power</em> property changes. But the <code>ngOnChanges</code> did not catch changes to <code>hero.name</code>
+That&#39;s surprising at first. </p>
+<p>Angular only calls the hook when the value of the input property changes. 
+The value of the <code>hero</code> property is the <em>reference to the hero object</em>.
+Angular doesn&#39;t care that the hero&#39;s own <code>name</code> property changed. 
+The hero object <em>reference</em> didn&#39;t change so, from Angular&#39;s perspective, there is no change to report!</p>
+<div class="l-main-section"></div><h2 id="docheck">DoCheck</h2>
+<p>We can use the <code>DoCheck</code> hook to detect and act upon changes that Angular doesn&#39;t catch on its own.</p>
+<div class="l-sub-section"><p>With this method we can detect a change that Angular overlooked. 
+What we do with that information to refresh the display is a separate matter.</p>
+</div><p>The <em>DoCheck</em> sample extends the <em>OnChanges</em> sample with this implementation of <code>DoCheck</code>:</p>
+<div class="example-title">DoCheckComponent (ngDoCheck)</div><code-example language="ts" format=".">ngDoCheck() {
+
+  if (this.hero.name !== this.oldHeroName) {
+    this.changeDetected = true;
+    this.changeLog.push(`DoCheck: Hero name changed to &quot;${this.hero.name}&quot; from &quot;${this.oldHeroName}&quot;`);
+    this.oldHeroName = this.hero.name;
+  }
+
+  if (this.power !== this.oldPower) {
+    this.changeDetected = true;
+    this.changeLog.push(`DoCheck: Power changed to &quot;${this.power}&quot; from &quot;${this.oldPower}&quot;`);
+    this.oldPower = this.power;
+  }
+
+  if (this.changeDetected) {
+      this.noChangeCount = 0;
+  } else {
+      // log that hook was called when there was no relevant change.
+      let count = this.noChangeCount += 1;
+      let noChangeMsg = `DoCheck called ${count}x when no change to hero or power`;
+      if (count === 1) {
+        // add new &quot;no change&quot; message
+        this.changeLog.push(noChangeMsg);
+      } else {
+        // update last &quot;no change&quot; message
+        this.changeLog[this.changeLog.length - 1] = noChangeMsg;
+      }
+  }
+
+  this.changeDetected = false;
+}
+</code-example><p>We manually check everything that we care about, capturing and comparing against previous values.
+We write a special message to the log when there are no substantive changes 
+to the hero or the power so we can keep an eye on the method&#39;s performance characteristics.</p>
+<p>The results are illuminating:</p>
+<figure class="image-display"><img src="/resources/images/devguide/lifecycle-hooks/do-check-anim.gif" alt="DoCheck"></figure><p>We now are able to detect when the hero&#39;s <code>name</code> has changed. But we must be careful.</p>
+<p>The <code>ngDoCheck</code> hook is called with enormous frequency &mdash; 
+after <em>every</em> change detection cycle no matter where the change occurred.
+It&#39;s called over twenty times in this example before the user can do anything. </p>
+<p>Most of these initial checks are triggered by Angular&#39;s first rendering of <em>unrelated data elsewhere on the page</em>.
+Mere mousing into another input box triggers a call.
+Relatively few calls reveal actual changes to pertinent data.
+Clearly our implementation must be very lightweight or the user experience may suffer.</p>
+<div class="l-sub-section"><p>We also see that the <code>ngOnChanges</code> method is called in contradiction of the 
+<a href="../api/core/DoCheck-interface.html">incorrect API documentation</a>.</p>
+</div><div class="l-main-section"></div><h2 id="afterview">AfterView</h2>
+<p>The <em>AfterView</em> sample explores the <code>AfterViewInit</code> and <code>AfterViewChecked</code> hooks that Angular calls
+<em>after</em> it creates a component&#39;s child views.</p>
+<p>Here&#39;s a child view that displays a hero&#39;s name in an input box:</p>
+<div class="example-title">ChildComponent</div><code-example language="ts" format=".">@Component({
+  selector: &#39;my-child&#39;,
+  template: &#39;&lt;input [(ngModel)]=&quot;hero&quot;&gt;&#39;
+})
+export class ChildViewComponent {
+  hero = &#39;Magneta&#39;;
+}
+</code-example><p>The <code>AfterViewComponent</code> displays this child view <em>within its template</em>:</p>
+<div class="example-title">AfterViewComponent (template)</div><code-example language="ts" format=".">template: `
+  &lt;div&gt;-- child view begins --&lt;/div&gt;
+    &lt;my-child&gt;&lt;/my-child&gt;
+  &lt;div&gt;-- child view ends --&lt;/div&gt;`
+</code-example><p>The following hooks take action based on changing values <em>within the child view</em> 
+which we can only reach by querying for the child view via the property decorated with 
+<a href="../api/core/ViewChild-var.html">@ViewChild</a>. </p>
+<div class="example-title">AfterViewComponent (class excerpts)</div><code-example language="ts" format=".">export class AfterViewComponent implements  AfterViewChecked, AfterViewInit {
+  private prevHero = &#39;&#39;;
+
+  // Query for a VIEW child of type `ChildViewComponent`
+  @ViewChild(ChildViewComponent) viewChild: ChildViewComponent;
+
+  ngAfterViewInit() {
+    // viewChild is set after the view has been initialized
+    this.logIt(&#39;AfterViewInit&#39;);
+    this.doSomething();
+  }
+
+  ngAfterViewChecked() {
+    // viewChild is updated after the view has been checked
+    if (this.prevHero === this.viewChild.hero) {
+      this.logIt(&#39;AfterViewChecked (no change)&#39;);
+    } else {
+      this.prevHero = this.viewChild.hero;
+      this.logIt(&#39;AfterViewChecked&#39;);
+      this.doSomething();
+    }
+  }
+  // ...
+}
+</code-example><div id="wait-a-tick" class="a"></div><h3 id="abide-by-the-unidirectional-data-flow-rule">Abide by the unidirectional data flow rule</h3>
+<p>The <code>doSomething</code> method updates the screen when the hero name exceeds 10 characters.</p>
+<div class="example-title">AfterViewComponent (doSomething)</div><code-example language="ts" format=".">// This surrogate for real business logic sets the `comment`
+private doSomething() {
+  let c = this.viewChild.hero.length &gt; 10 ? &quot;That&#39;s a long name&quot; : &#39;&#39;;
+  if (c !== this.comment) {
+    // Wait a tick because the component&#39;s view has already been checked
+    this.logger.tick_then(() =&gt; this.comment = c);
+  }
+}
+</code-example><p>Why does the <code>doSomething</code> method wait a tick before updating <code>comment</code>?</p>
+<p>Because we must adhere to Angular&#39;s unidirectional data flow rule which says that
+we may not update the view <em>after</em> it has been composed.
+Both hooks fire after the component&#39;s view has been composed.</p>
+<p>Angular throws an error if we update component&#39;s data-bound <code>comment</code> property immediately (try it!).</p>
+<p>The <code>LoggerService.tick</code> methods, which are implemented by a call to <code>setTimeout</code>, postpone the update one turn of the of the browser&#39;s JavaScript cycle ... and that&#39;s long enough.</p>
+<p>Here&#39;s <em>AfterView</em> in action</p>
+<figure class="image-display"><img src="/resources/images/devguide/lifecycle-hooks/after-view-anim.gif" alt="AfterView"></figure><p>Notice that Angular frequently calls <code>AfterViewChecked</code>, often when there are no changes of interest.
+Write lean hook methods to avoid performance problems.</p>
+<div class="l-main-section"></div><h2 id="aftercontent">AfterContent</h2>
+<p>The <em>AfterContent</em> sample explores the <code>AfterContentInit</code> and <code>AfterContentChecked</code> hooks that Angular calls
+<em>after</em> Angular projects external content into the component.</p>
+<h3 id="content-projection">Content projection</h3>
+<p><em>Content projection</em> is a way to import HTML content from outside the component and insert that content
+into the component&#39;s template in a designated spot.</p>
+<div class="l-sub-section"><p>Angular 1 developers know this technique as <em>transclusion</em>.</p>
+</div><p>We&#39;ll illustrate with a variation on the <a href="#afterview">previous</a> example 
+whose behavior and output is almost the same.</p>
+<p>This time, instead of including the child view within the template, we&#39;ll import it from
+the <code>AfterContentComponent</code>&#39;s parent. Here&#39;s the parent&#39;s template.</p>
+<div class="example-title">AfterContentParentComponent (template excerpt)</div><code-example language="ts" format=".">`&lt;after-content&gt;
+   &lt;my-child&gt;&lt;/my-child&gt;
+ &lt;/after-content&gt;`
+</code-example><p>Notice that the <code>&lt;my-child&gt;</code> tag is tucked between the <code>&lt;after-content&gt;</code> tags.
+We never put content between a component&#39;s element tags <em>unless we intend to project that content
+into the component</em>.</p>
+<p>Now look at the component&#39;s template:</p>
+<div class="example-title">AfterContentComponent (template)</div><code-example language="ts" format=".">template: `
+  &lt;div&gt;-- projected content begins --&lt;/div&gt;
+    &lt;ng-content&gt;&lt;/ng-content&gt;
+  &lt;div&gt;-- projected content ends --&lt;/div&gt;`
+</code-example><p>The <code>&lt;ng-content&gt;</code> tag is a <em>placeholder</em> for the external content. 
+They tell Angular where to insert that content.
+In this case, the projected content is the <code>&lt;my-child&gt;</code> from the parent.</p>
+<figure class="image-display"><img src="/resources/images/devguide/lifecycle-hooks/projected-child-view.png" width="230" alt="Projected Content"></figure><div class="l-sub-section"><p>The tell-tale signs of <em>content projection</em> are (a) HTML between component element tags
+and (b) the presence of <code>&lt;ng-content&gt;</code> tags in the component&#39;s template.</p>
+</div><h3 id="aftercontent-hooks">AfterContent hooks</h3>
+<p><em>AfterContent</em> hooks are similar to the <em>AfterView</em> hooks. The key difference is the kind of child component
+that we&#39;re looking for. </p>
+<ul>
+<li><p>The <em>AfterView</em> hooks concern <code>ViewChildren</code>, the child components whose element tags
+appear <em>within</em> the component&#39;s template.</p>
+</li>
+<li><p>The <em>AfterContent</em> hooks concern <code>ContentChildren</code>, the child components that Angular
+projected into the component.</p>
+</li>
+</ul>
+<p>The following <em>AfterContent</em> hooks take action based on changing values in a  <em>content child</em>
+which we can only reach by querying for it via the property decorated with 
+<a href="../api/core/ContentChild-var.html">@ContentChild</a>. </p>
+<div class="example-title">AfterContentComponent (class excerpts)</div><code-example language="ts" format=".">export class AfterContentComponent implements AfterContentChecked, AfterContentInit {
+  private prevHero = &#39;&#39;;
+  comment = &#39;&#39;;
+
+  // Query for a CONTENT child of type `ChildComponent`
+  @ContentChild(ChildComponent) contentChild: ChildComponent;
+
+  ngAfterContentInit() {
+    // contentChild is set after the content has been initialized
+    this.logIt(&#39;AfterContentInit&#39;);
+    this.doSomething();
+  }
+
+  ngAfterContentChecked() {
+    // contentChild is updated after the content has been checked
+    if (this.prevHero === this.contentChild.hero) {
+      this.logIt(&#39;AfterContentChecked (no change)&#39;);
+    } else {
+      this.prevHero = this.contentChild.hero;
+      this.logIt(&#39;AfterContentChecked&#39;);
+      this.doSomething();
+    }
+  }
+  // ...
+}
+</code-example><h3 id="no-unidirectional-flow-worries">No unidirectional flow worries</h3>
+<p>This component&#39;s <code>doSomething</code> method update&#39;s the component&#39;s data-bound <code>comment</code> property immediately.
+There&#39;s no <a href="#wait-a-tick">need to wait</a>. </p>
+<p>Recall that Angular calls both <em>AfterContent</em> hooks before calling either of the <em>AfterView</em> hooks.
+Angular completes composition of the projected content <em>before</em> finishing the composition of this component&#39;s view.
+We still have a window of opportunity to modify that view.</p><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/ts/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>

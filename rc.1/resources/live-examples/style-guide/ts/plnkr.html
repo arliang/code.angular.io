@@ -1,0 +1,2542 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[01-01/app/app.component.ts]" value="
+// app.component.ts
+import { Component } from '@angular/core';
+
+import { HeroesComponent } from './heroes/heroes.component';
+import { HeroService } from './heroes/shared/hero.service';
+
+@Component({
+  selector: 'toh-app',
+  template: `
+      <toh-heroes></toh-heroes>
+    `,
+  styleUrls: ['app/app.component.css'],
+  directives: [HeroesComponent],
+  providers: [HeroService]
+})
+export class AppComponent { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[01-01/app/heroes/hero.component.avoid.ts]" value="/* avoid */
+
+import { bootstrap }         from '@angular/platform-browser-dynamic';
+import { Component, OnInit } from '@angular/core';
+
+class Hero {
+  id: number;
+  name: string;
+}
+
+@Component({
+  selector: 'my-app',
+  template: `
+      <h1>{{title}}</h1>
+      <pre>{{heroes | json}}</pre>
+    `,
+  styleUrls: ['app/app.component.css']
+})
+class AppComponent implements OnInit {
+  title = 'Tour of Heroes';
+
+  heroes: Hero[] = [];
+
+  ngOnInit() {
+    getHeroes().then(heroes => this.heroes = heroes);
+  }
+}
+
+bootstrap(AppComponent, []);
+
+const HEROES: Hero[] = [
+  {id: 1, name: 'Bombasto'},
+  {id: 2, name: 'Tornado'},
+  {id: 3, name: 'Magneta'},
+];
+
+function getHeroes(): Promise<Hero[]> {
+  return Promise.resolve(HEROES); // TODO: get hero data from the server;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[01-01/app/heroes/heroes.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { Hero }        from './shared/hero.model';
+import { HeroService } from './shared/hero.service';
+
+@Component({
+  selector: 'toh-heroes',
+  template: `
+      <pre>{{heroes | json}}</pre>
+    `
+})
+export class HeroesComponent implements OnInit {
+  heroes: Hero[] = [];
+
+  constructor(private heroService: HeroService) {}
+
+  ngOnInit() {
+    this.heroService.getHeroes()
+      .then(heroes => this.heroes = heroes);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[01-01/app/heroes/shared/hero.model.ts]" value="export class Hero {
+  id: number;
+  name: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[01-01/app/heroes/shared/hero.service.ts]" value="import { Injectable } from '@angular/core';
+
+import { HEROES } from './mock-heroes';
+
+@Injectable()
+export class HeroService {
+  getHeroes() {
+    return Promise.resolve(HEROES);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[01-01/app/heroes/shared/mock-heroes.ts]" value="import { Hero } from './hero.model';
+
+export const HEROES: Hero[] = [
+  {id: 1, name: 'Bombasto'},
+  {id: 2, name: 'Tornado'},
+  {id: 3, name: 'Magneta'},
+];
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[01-01/app/main.ts]" value="import { bootstrap }    from '@angular/platform-browser-dynamic';
+
+import { AppComponent } from './app.component';
+
+bootstrap(AppComponent, []);
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[02-07/app/heroes/hero.component.avoid.ts]" value="import { Component } from '@angular/core';
+/* avoid */
+
+// HeroComponent is in the Tour of Heroes feature
+@Component({
+  selector: 'hero'
+})
+export class HeroComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[02-07/app/heroes/hero.component.ts]" value="import { Component } from '@angular/core';
+
+@Component({
+  selector: 'toh-hero'
+})
+export class HeroComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[02-07/app/users/users.component.avoid.ts]" value="import { Component } from '@angular/core';
+/* avoid */
+
+// UsersComponent is in an Admin feature
+@Component({
+  selector: 'users'
+})
+export class UsersComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[02-07/app/users/users.component.ts]" value="import { Component } from '@angular/core';
+
+@Component({
+  selector: 'admin-users'
+})
+export class UsersComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[02-08/app/shared/validate.directive.avoid.ts]" value="import { Directive } from '@angular/core';
+/* avoid */
+
+@Directive({
+  selector: '[validate]'
+})
+export class ValidateDirective {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[02-08/app/shared/validate.directive.ts]" value="import { Directive } from '@angular/core';
+
+@Directive({
+  selector: '[tohValidate]'
+})
+export class ValidateDirective {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-01/app/shared/exception.service.avoid.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+/* avoid */
+
+export class exceptionService {
+  constructor() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-01/app/shared/exception.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ExceptionService {
+  constructor() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-02/app/shared/data.service.avoid.ts]" value="/* avoid */
+
+export const heroesUrl = 'api/heroes';
+export const villainsUrl = 'api/villains';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-02/app/shared/data.service.ts]" value="export const HEROES_URL = 'api/heroes';
+export const VILLAIN_URL = 'api/villains';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-03/app/shared/hero-collector.service.avoid.ts]" value="/* avoid */
+
+import { Injectable } from '@angular/core';
+
+import { IHero } from './hero.model.avoid';
+
+@Injectable()
+export class HeroCollectorService {
+  hero: IHero;
+
+  constructor() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-03/app/shared/hero-collector.service.ts]" value="import { Injectable } from '@angular/core';
+
+import { Hero } from './hero.model';
+
+@Injectable()
+export class HeroCollectorService {
+  hero: Hero;
+
+  constructor() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-03/app/shared/hero.model.avoid.ts]" value="/* avoid */
+
+export interface IHero {
+  name: string;
+  power: string;
+}
+
+export class Hero implements IHero {
+  name: string;
+  power: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-03/app/shared/hero.model.ts]" value="export class Hero {
+  name: string;
+  power: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-04/app/shared/toast/toast.service.avoid.ts]" value="/* avoid */
+
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ToastService {
+  message: string;
+
+  private _toastCount: number;
+
+  hide() {
+    this._toastCount--;
+    this._log();
+  }
+
+  show() {
+    this._toastCount++;
+    this._log();
+  }
+
+  private _log() {
+    console.log(this.message);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-04/app/shared/toast/toast.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ToastService {
+  message: string;
+
+  private toastCount: number;
+
+  hide() {
+    this.toastCount--;
+    this.log();
+  }
+
+  show() {
+    this.toastCount++;
+    this.log();
+  }
+
+  private log() {
+    console.log(this.message);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/+heroes/shared/hero.model.ts]" value="export class Hero {
+  name: string;
+  power: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/+heroes/shared/hero.service.avoid.ts]" value="/* avoid */
+
+import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
+
+import {Hero} from './hero.model';
+import {ExceptionService, SpinnerService, ToastService} from '../../shared';
+
+@Injectable()
+export class HeroService {
+
+  constructor(
+    private exceptionService: ExceptionService,
+    private spinnerService: SpinnerService,
+    private toastService: ToastService,
+    private http: Http
+  ) { }
+
+  getHero(id: number) {
+    return this.http.get(`api/heroes/${id}`)
+      .map((res: Response) => res.json().data);
+  }
+
+  getHeroes() {
+    return this.http.get(`api/heroes`)
+      .map((res: Response) => res.json().data);
+  }
+
+}
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/+heroes/shared/hero.service.ts]" value="import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+
+import { Hero } from './hero.model';
+import { ExceptionService, SpinnerService, ToastService } from '../../shared';
+
+@Injectable()
+export class HeroService {
+  cachedHeroes: Hero[];
+
+  constructor(
+    private exceptionService: ExceptionService,
+    private spinnerService: SpinnerService,
+    private toastService: ToastService,
+    private http: Http
+  ) { }
+
+  getHero(id: number) {
+    return this.http.get(`api/heroes/${id}`)
+      .map((res: Response) => res.json().data);
+  }
+
+  getHeroes() {
+    return this.http.get(`api/heroes`)
+      .map((res: Response) => res.json().data);
+  }
+
+}
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/shared/exception.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ExceptionService { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/shared/index.ts]" value="export * from './exception.service';
+export * from './spinner';
+export * from './toast';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/shared/spinner/index.ts]" value="export * from './spinner.component';
+export * from './spinner.service';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/shared/spinner/spinner.component.ts]" value="import { Component, OnDestroy, OnInit } from '@angular/core';
+
+import { SpinnerService } from './spinner.service';
+
+@Component({
+  selector: 'toh-spinner',
+  template: '<div>spinner</div>'
+})
+
+export class SpinnerComponent implements OnDestroy, OnInit {
+  constructor(private spinnerService: SpinnerService) { }
+
+  ngOnInit() { }
+
+  ngOnDestroy() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/shared/spinner/spinner.service.ts]" value="import { Injectable } from '@angular/core';
+
+export interface ISpinnerState { }
+
+@Injectable()
+export class SpinnerService {
+  spinnerState: any;
+
+  show() { }
+
+  hide() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/shared/toast/index.ts]" value="export * from './toast.component';
+export * from './toast.service';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/shared/toast/toast.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { ToastService } from './toast.service';
+
+@Component({
+  moduleId: module.id,
+  selector: 'toh-toast',
+  templateUrl: '<div>toast</div>'
+})
+export class ToastComponent implements OnInit {
+  constructor(toastService: ToastService) { }
+
+  ngOnInit() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-05/app/shared/toast/toast.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ToastService {
+  activate: (message?: string, title?: string) => void;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/+heroes/shared/hero.model.ts]" value="export class Hero {
+  name: string;
+  power: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/+heroes/shared/hero.service.avoid.ts]" value="/* avoid */
+
+import { ExceptionService, SpinnerService, ToastService } from '../../shared';
+import { Http, Response } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Hero } from './hero.model';
+
+@Injectable()
+export class HeroService {
+
+  constructor(
+    private exceptionService: ExceptionService,
+    private spinnerService: SpinnerService,
+    private toastService: ToastService,
+    private http: Http
+  ) { }
+
+  getHero(id: number) {
+    return this.http.get(`api/heroes/${id}`)
+      .map((res: Response) => res.json().data);
+  }
+
+  getHeroes() {
+    return this.http.get(`api/heroes`)
+      .map((res: Response) => res.json().data);
+  }
+
+}
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/+heroes/shared/hero.service.ts]" value="import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+
+import { Hero } from './hero.model';
+import { ExceptionService, SpinnerService, ToastService } from '../../shared';
+
+@Injectable()
+export class HeroService {
+  cachedHeroes: Hero[];
+
+  constructor(
+    private exceptionService: ExceptionService,
+    private spinnerService: SpinnerService,
+    private toastService: ToastService,
+    private http: Http
+  ) { }
+
+  getHero(id: number) {
+    return this.http.get(`api/heroes/${id}`)
+      .map((res: Response) => res.json().data);
+  }
+
+  getHeroes() {
+    return this.http.get(`api/heroes`)
+      .map((res: Response) => res.json().data);
+  }
+
+}
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/shared/exception.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ExceptionService { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/shared/index.ts]" value="export * from './exception.service';
+export * from './spinner';
+export * from './toast';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/shared/spinner/index.ts]" value="export * from './spinner.component';
+export * from './spinner.service';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/shared/spinner/spinner.component.ts]" value="import { Component, OnDestroy, OnInit } from '@angular/core';
+
+import { SpinnerService } from './spinner.service';
+
+@Component({
+  selector: 'toh-spinner',
+  template: '<div>spinner</div>'
+})
+
+export class SpinnerComponent implements OnDestroy, OnInit {
+  constructor(private spinnerService: SpinnerService) { }
+
+  ngOnInit() { }
+
+  ngOnDestroy() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/shared/spinner/spinner.service.ts]" value="import { Injectable } from '@angular/core';
+
+export interface ISpinnerState { }
+
+@Injectable()
+export class SpinnerService {
+  spinnerState: any;
+
+  show() { }
+
+  hide() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/shared/toast/index.ts]" value="export * from './toast.component';
+export * from './toast.service';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/shared/toast/toast.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { ToastService } from './toast.service';
+
+@Component({
+  moduleId: module.id,
+  selector: 'toh-toast',
+  templateUrl: '<div>toast</div>'
+})
+export class ToastComponent implements OnInit {
+  constructor(toastService: ToastService) { }
+
+  ngOnInit() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[03-06/app/shared/toast/toast.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ToastService {
+  activate: (message?: string, title?: string) => void;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/+heroes/heroes.component.avoid.ts]" value="/* avoid */
+
+import { Component, OnInit } from '@angular/core';
+
+import { CONFIG } from '../shared/config';
+import { EntityService } from '../shared/entity.service';
+import { ExceptionService } from '../shared/exception.service';
+import { FilterTextComponent } from '../shared/filter-text/filter-text.component';
+import { InitCapsPipe } from '../shared/init-caps.pipe';
+import { SpinnerService } from '../shared/spinner/spinner.service';
+import { ToastService } from '../shared/toast/toast.service';
+
+@Component({
+  selector: 'toh-heroes',
+  templateUrl: 'app/+heroes/heroes.component.html'
+})
+export class HeroesComponent implements OnInit {
+  constructor() { }
+
+  ngOnInit() { }
+}
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/+heroes/heroes.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import {
+  CONFIG,
+  EntityService,
+  ExceptionService,
+  FilterTextComponent,
+  InitCapsPipe,
+  SpinnerService,
+  ToastService
+} from '../shared';
+
+@Component({
+  providers: [EntityService, ExceptionService, SpinnerService, ToastService],
+  directives: [FilterTextComponent],
+  pipes: [InitCapsPipe],
+  selector: 'toh-heroes',
+  templateUrl: 'app/+heroes/heroes.component.html'
+})
+export class HeroesComponent implements OnInit {
+  urls = CONFIG.baseUrls;
+  constructor() { }
+
+  ngOnInit() { }
+}
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/+heroes/index.ts]" value="export * from './heroes.component';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/app.component.ts]" value="import { Component } from '@angular/core';
+
+import { HeroesComponent } from './+heroes/index';
+
+@Component({
+  selector: 'toh-app',
+  template: '<div>app</div>',
+  directives: [HeroesComponent]
+})
+export class AppComponent { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/config.ts]" value="export let CONFIG = {
+  baseUrls: {
+    heroes: 'api/heroes.json',
+    villains: 'api/villains.json'
+  }
+};
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/entity.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class EntityService { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/exception.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ExceptionService { }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/filter-text/filter-text.component.ts]" value="import { Component, EventEmitter, Output } from '@angular/core';
+
+@Component({
+  moduleId: module.id,
+  selector: 'toh-filter-text',
+  template: '<div>filter</div>'
+})
+export class FilterTextComponent {
+  @Output() changed: EventEmitter<string>;
+  filter: string;
+
+  constructor() { }
+
+  clear() {
+  }
+
+  filterChanged(event: any) {
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/filter-text/filter-text.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class FilterService {
+  constructor() { }
+
+  filter(data: string, props: Array<string>, originalList: Array<any>) {
+    let filteredList: any[];
+    return filteredList;
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/filter-text/index.ts]" value="export * from './filter-text.component';
+export * from './filter-text.service';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/index.ts]" value="export * from './config';
+export * from './entity.service';
+export * from './exception.service';
+export * from './filter-text';
+export * from './init-caps.pipe';
+export * from './modal';
+export * from './nav';
+export * from './spinner';
+export * from './toast';
+
+import {EntityService} from './entity.service';
+import {ExceptionService} from './exception.service';
+import {FilterService} from './filter-text';
+import {InitCapsPipe} from './init-caps.pipe';
+import {ModalService} from './modal';
+import {SpinnerService} from './spinner';
+import {ToastService} from './toast';
+
+export const BLOCK_PROVIDERS = [
+  EntityService,
+  ExceptionService,
+  FilterService,
+  InitCapsPipe,
+  ModalService,
+  SpinnerService,
+  ToastService
+];
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/init-caps.pipe.ts]" value="import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({ name: 'initCaps' })
+export class InitCapsPipe implements PipeTransform {
+  transform = (value: string) => value;
+}
+
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/modal/index.ts]" value="export * from './modal.component';
+export * from './modal.service';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/modal/modal.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { ModalService } from './modal.service';
+
+@Component({
+  moduleId: module.id,
+  selector: 'toh-modal-confirm',
+  template: '<div>modal</div>'
+})
+export class ModalComponent implements OnInit {
+  constructor(modalService: ModalService) { }
+
+  ngOnInit() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/modal/modal.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ModalService {
+  activate: (message?: string, title?: string) => Promise<boolean>;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/nav/index.ts]" value="export * from './nav.component';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/nav/nav.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { ModalService } from '../';
+
+@Component({
+  moduleId: module.id,
+  selector: 'toh-nav',
+  template: '<div>nav</div>'
+})
+export class NavComponent implements OnInit {
+
+  ngOnInit() { }
+
+  constructor(private modalService: ModalService) { }
+
+  resetDb() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/spinner/index.ts]" value="export * from './spinner.component';
+export * from './spinner.service';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/spinner/spinner.component.ts]" value="import {Component, OnDestroy, OnInit} from '@angular/core';
+
+import { SpinnerService } from './spinner.service';
+
+@Component({
+  selector: 'toh-spinner',
+  template: '<div>spinner</div>'
+})
+
+export class SpinnerComponent implements OnDestroy, OnInit {
+  constructor(private spinnerService: SpinnerService) { }
+
+  ngOnInit() { }
+
+  ngOnDestroy() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/spinner/spinner.service.ts]" value="import { Injectable } from '@angular/core';
+
+export interface ISpinnerState { }
+
+@Injectable()
+export class SpinnerService {
+  spinnerState: any;
+
+  show() { }
+
+  hide() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/toast/index.ts]" value="export * from './toast.component';
+export * from './toast.service';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/toast/toast.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { ToastService } from './toast.service';
+
+@Component({
+  moduleId: module.id,
+  selector: 'toh-toast',
+  templateUrl: '<div>toast</div>'
+})
+export class ToastComponent implements OnInit {
+  constructor(toastService: ToastService) { }
+
+  ngOnInit() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-10/app/shared/toast/toast.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class ToastService {
+  activate: (message?: string, title?: string) => void;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-13/app/+heroes/index.ts]" value="// Needed for the .avoid code to compile
+export const HeroesComponent = 42;
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-13/app/app.component.avoid.ts]" value="import { Component } from '@angular/core';
+
+import { HeroesComponent } from './+heroes';
+
+@Component({
+  selector: 'toh-app'
+})
+export class AppComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-14/app/heroes/heroes.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { Hero } from './shared/hero.model';
+import { Logger } from '../shared/logger.service';
+
+@Component({
+  selector: 'toh-heroes',
+  templateUrl: 'heroes.component.html',
+  styleUrls:  ['heroes.component.css'],
+  providers: [Logger]
+})
+export class HeroesComponent implements OnInit {
+  heroes: Hero[];
+  selectedHero: Hero;
+
+  ngOnInit() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-14/app/heroes/shared/hero.model.ts]" value="export class Hero {
+  id: number;
+  name: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-14/app/shared/logger.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class Logger {
+
+  constructor() { }
+
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-15/app/+heroes/index.ts]" value="// Needed for the .avoid code to compile
+export const HeroesComponent = 42;
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-15/app/app.component.avoid.ts]" value="import { Component } from '@angular/core';
+
+import { HeroesComponent } from './+heroes';
+
+@Component({
+  selector: 'toh-app'
+})
+export class AppComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-16/app/+heroes/index.ts]" value="// Needed for the .avoid code to compile
+export const HeroesComponent = 42;
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-16/app/app.component.avoid.ts]" value="import { Component } from '@angular/core';
+
+import { HeroesComponent } from './+heroes';
+
+@Component({
+  selector: 'toh-app'
+})
+export class AppComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-02/app/heroes/shared/hero-button/hero-button.component.avoid.ts]" value="import { Component } from '@angular/core';
+/* avoid */
+
+@Component({
+  selector: 'tohHeroButton'
+})
+export class HeroButtonComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-02/app/heroes/shared/hero-button/hero-button.component.ts]" value="import { Component } from '@angular/core';
+
+@Component({
+  selector: 'toh-hero-button'
+})
+export class HeroButtonComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-03/app/heroes/shared/hero-button/hero-button.component.avoid.ts]" value="import { Component } from '@angular/core';
+/* avoid */
+
+@Component({
+  selector: '[tohHeroButton]'
+})
+export class HeroButtonComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-03/app/heroes/shared/hero-button/hero-button.component.ts]" value="import { Component } from '@angular/core';
+
+@Component({
+  selector: 'toh-hero-button'
+})
+export class HeroButtonComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-04/app/heroes/heroes.component.avoid.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { Hero } from './shared/hero.model';
+/* avoid */
+
+@Component({
+  selector: 'toh-heroes',
+  template: `
+    <div>
+      <h2>My Heroes</h2>
+      <ul class=&quot;heroes&quot;>
+        <li *ngFor=&quot;let hero of heroes&quot;>
+          <span class=&quot;badge&quot;>{{hero.id}}</span> {{hero.name}}
+        </li>
+      </ul>
+      <div *ngIf=&quot;selectedHero&quot;>
+        <h2>{{selectedHero.name | uppercase}} is my hero</h2>
+      </div>
+    </div>
+  `,
+  styleUrls:  [`
+    .heroes {
+      margin: 0 0 2em 0; list-style-type: none; padding: 0; width: 15em;
+    }
+    .heroes li {
+      cursor: pointer;
+      position: relative;
+      left: 0;
+      background-color: #EEE;
+      margin: .5em;
+      padding: .3em 0;
+      height: 1.6em;
+      border-radius: 4px;
+    }
+    .heroes .badge {
+      display: inline-block;
+      font-size: small;
+      color: white;
+      padding: 0.8em 0.7em 0 0.7em;
+      background-color: #607D8B;
+      line-height: 1em;
+      position: relative;
+      left: -1px;
+      top: -4px;
+      height: 1.8em;
+      margin-right: .8em;
+      border-radius: 4px 0 0 4px;
+    }
+  `]
+})
+export class HeroesComponent implements OnInit {
+  heroes: Hero[];
+  selectedHero: Hero;
+
+  ngOnInit() {}
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-04/app/heroes/heroes.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { Hero } from './shared/hero.model';
+
+@Component({
+  selector: 'toh-heroes',
+  templateUrl: 'heroes.component.html',
+  styleUrls:  ['heroes.component.css']
+})
+export class HeroesComponent implements OnInit {
+  heroes: Hero[];
+  selectedHero: Hero;
+
+  ngOnInit() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-04/app/heroes/shared/hero.model.ts]" value="export class Hero {
+  id: number;
+  name: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-12/app/heroes/shared/hero-button/hero-button.component.avoid.ts]" value="import { Component, EventEmitter } from '@angular/core';
+/* avoid */
+
+@Component({
+  selector: 'toh-hero-button',
+  template: `<button></button>`,
+  inputs: [
+    'label'
+  ],
+  outputs: [
+    'change'
+  ]
+})
+export class HeroButtonComponent {
+  change = new EventEmitter<any>();
+  label: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-12/app/heroes/shared/hero-button/hero-button.component.ts]" value="import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'toh-hero-button',
+  template: `<button>OK</button>`
+})
+export class HeroButtonComponent {
+  @Output() change = new EventEmitter<any>();
+  @Input() label: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-13/app/heroes/shared/hero-button/hero-button.component.avoid.ts]" value="import { Component, EventEmitter, Input, Output } from '@angular/core';
+/* avoid */
+
+@Component({
+  selector: 'toh-hero-button',
+  template: `<button>{{label}}</button>`
+})
+export class HeroButtonComponent {
+  @Output('changeEvent') change = new EventEmitter<any>();
+  @Input('labelAttribute') label: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-13/app/heroes/shared/hero-button/hero-button.component.ts]" value="import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'toh-hero-button',
+  template: `<button>{{label}}</button>`
+})
+export class HeroButtonComponent {
+  @Output() change = new EventEmitter<any>();
+  @Input() label: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-14/app/shared/toast/toast.component.avoid.ts]" value="import { OnInit } from '@angular/core';
+/* avoid */
+
+export class ToastComponent implements OnInit {
+
+  private defaults = {
+    title: '',
+    message: 'May the Force be with You'
+  };
+  message: string;
+  title: string;
+  private toastElement: any;
+
+  ngOnInit() {
+    this.toastElement = document.getElementById('toh-toast');
+  }
+
+  // private methods
+  private hide() {
+    this.toastElement.style.opacity = 0;
+    window.setTimeout(() => this.toastElement.style.zIndex = 0, 400);
+  }
+
+  activate(message = this.defaults.message, title = this.defaults.title) {
+    this.title = title;
+    this.message = message;
+    this.show();
+  }
+
+  private show() {
+    console.log(this.message);
+    this.toastElement.style.opacity = 1;
+    this.toastElement.style.zIndex = 9999;
+
+    window.setTimeout(() => this.hide(), 2500);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-14/app/shared/toast/toast.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'my-toast',
+  template: `...`
+})
+export class ToastComponent implements OnInit {
+  // public properties
+  message: string;
+  title: string;
+
+  // private fields
+  private defaults = {
+    title: '',
+    message: 'May the Force be with You'
+  };
+  private toastElement: any;
+
+  // public methods
+  activate(message = this.defaults.message, title = this.defaults.title) {
+    this.title = title;
+    this.message = message;
+    this.show();
+  }
+
+  ngOnInit() {
+    this.toastElement = document.getElementById('toh-toast');
+  }
+
+  // private methods
+  private hide() {
+    this.toastElement.style.opacity = 0;
+    window.setTimeout(() => this.toastElement.style.zIndex = 0, 400);
+  }
+
+  private show() {
+    console.log(this.message);
+    this.toastElement.style.opacity = 1;
+    this.toastElement.style.zIndex = 9999;
+    window.setTimeout(() => this.hide(), 2500);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-15/app/heroes/hero-list/hero-list.component.avoid.ts]" value="/* avoid */
+
+import { OnInit } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+
+import { Hero } from '../shared/hero.model';
+
+const heroesUrl = 'http://angular.io';
+
+export class HeroListComponent implements OnInit {
+  heroes: Hero[];
+  constructor(private http: Http) {}
+  getHeroes() {
+    this.heroes = [];
+    this.http.get(heroesUrl)
+      .map((response: Response) => <Hero[]>response.json().data)
+      .catch(this.catchBadResponse)
+      .finally(() => this.hideSpinner())
+      .subscribe((heroes: Hero[]) => this.heroes = heroes);
+  }
+  ngOnInit() {
+    this.getHeroes();
+  }
+
+  private catchBadResponse(err: any, source: Observable<any>) {
+    // log and handle the exception
+    return new Observable();
+  }
+
+  private hideSpinner() {
+    // hide the spinner
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-15/app/heroes/hero-list/hero-list.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { Hero, HeroService } from '../shared/index';
+
+@Component({
+  selector: 'toh-hero-list',
+  template: `...`
+})
+export class HeroListComponent implements OnInit {
+  heroes: Hero[];
+  constructor(private heroService: HeroService) {}
+  getHeros() {
+    this.heroes = [];
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
+  }
+  ngOnInit() {
+    this.getHeros();
+  }
+}
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-15/app/heroes/shared/hero.model.ts]" value="export class Hero {
+  id: number;
+  name: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-15/app/heroes/shared/hero.service.ts]" value="import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+
+import { Hero } from './hero.model.ts';
+
+@Injectable()
+export class HeroService {
+  getHeroes() {
+    let heroes: Hero[] = [];
+    return Observable.of(heroes);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-15/app/heroes/shared/index.ts]" value="export * from './hero.model.ts';
+export * from './hero.service.ts';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-16/app/heroes/hero.component.avoid.ts]" value="import { Component, EventEmitter, Output } from '@angular/core';
+/* avoid */
+
+@Component({
+  selector: 'toh-hero',
+  template: `...`
+})
+export class HeroComponent {
+  @Output() onSavedTheDay = new EventEmitter<boolean>();
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-16/app/heroes/hero.component.ts]" value="import { Component, EventEmitter, Output } from '@angular/core';
+
+@Component({
+  selector: 'toh-hero',
+  template: `...`
+})
+export class HeroComponent {
+  @Output() savedTheDay = new EventEmitter<boolean>();
+}
+
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-17/app/heroes/hero-list/hero-list.component.avoid.ts]" value="import { Component } from '@angular/core';
+
+import { Hero } from '../shared/hero.model';
+/* avoid */
+
+@Component({
+  selector: 'toh-hero-list',
+  template: `
+    <section>
+      Our list of heroes:
+      <hero-profile *ngFor=&quot;let hero of heroes&quot; [hero]=&quot;hero&quot;>
+      </hero-profile>
+      Total powers: {{totalPowers}}<br>
+      Average power: {{totalPowers / heroes.length}}
+    </section>
+  `
+})
+export class HeroListComponent {
+  heroes: Hero[];
+  totalPowers: number;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-17/app/heroes/hero-list/hero-list.component.ts]" value="import { Component } from '@angular/core';
+
+import { Hero } from '../shared/hero.model.ts';
+
+@Component({
+  selector: 'toh-hero-list',
+  template: `
+    <section>
+      Our list of heroes:
+      <hero-profile *ngFor=&quot;let hero of heroes&quot; [hero]=&quot;hero&quot;>
+      </hero-profile>
+      Total powers: {{totalPowers}}<br>
+      Average power: {{avgPower}}
+    </section>
+  `
+})
+export class HeroListComponent {
+  heroes: Hero[];
+  totalPowers: number;
+
+  get avgPower() {
+    return this.totalPowers / this.heroes.length;
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-17/app/heroes/shared/hero.model.ts]" value="export class Hero {
+  id: number;
+  name: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[06-01/app/shared/highlight.directive.ts]" value="import { Directive, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[tohHighlight]'
+})
+export class HighlightDirective {
+  @HostListener('mouseover') onMouseEnter() {
+    // do highlight work
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[06-03/app/shared/validate.directive.avoid.ts]" value="import { Directive, HostBinding, HostListener } from '@angular/core';
+
+/* avoid */
+
+@Directive({
+  selector: '[tohValidator]',
+  host: {
+    '(mouseenter)': 'onMouseEnter()',
+    'attr.role': 'button'
+  }
+})
+export class ValidatorDirective {
+  role = 'button';
+  onMouseEnter() {
+    // do work
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[06-03/app/shared/validate.directive.ts]" value="import { Directive, HostBinding, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[tohValidator]'
+})
+export class ValidatorDirective {
+  @HostBinding('attr.role') role = 'button';
+  @HostListener('mouseenter') onMouseEnter() {
+    // do work
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-01/app/heroes/shared/hero.model.ts]" value="export class Hero {
+  id: number;
+  name: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-01/app/heroes/shared/hero.service.ts]" value="import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+
+import { Hero } from './hero.model';
+
+@Injectable()
+export class HeroService {
+  constructor(private http: Http) { }
+
+  getHeroes() {
+    return this.http.get('api/heroes')
+      .map((response: Response) => <Hero[]>response.json().data);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-03/app/app.component.ts]" value="import { Component } from '@angular/core';
+
+import { HeroListComponent } from './heroes/hero-list/hero-list.component';
+import { HeroService } from './heroes/shared/hero.service';
+
+@Component({
+  selector: 'toh-app',
+  template: `
+      <toh-heroes></toh-heroes>
+    `,
+  directives: [HeroListComponent],
+  providers: [HeroService]
+})
+export class AppComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-03/app/heroes/hero-list/hero-list.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { HeroService } from '../shared/hero.service';
+import { Hero } from '../shared/hero.model';
+
+@Component({
+  selector: 'toh-heroes',
+  template: `
+      <pre>{{heroes | json}}</pre>
+    `
+})
+export class HeroListComponent implements OnInit {
+  heroes: Hero[] = [];
+
+  constructor(private heroService: HeroService) { }
+
+  ngOnInit() {
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-03/app/heroes/shared/hero.model.ts]" value="export class Hero {
+  id: number;
+  name: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-03/app/heroes/shared/hero.service.ts]" value="import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+
+import { Hero } from './hero.model.ts';
+
+@Injectable()
+export class HeroService {
+  getHeroes() {
+    let heroes: Hero[] = [];
+    return Observable.of(heroes);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-03/app/heroes/shared/index.ts]" value="export * from './hero.model.ts';
+export * from './hero.service.ts';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-04/app/heroes/shared/hero-arena.service.avoid.ts]" value="import { Inject } from '@angular/core';
+import { Http } from '@angular/http';
+
+import { HeroService } from './hero.service';
+/* avoid */
+
+export class HeroArena {
+  constructor(
+      @Inject(HeroService) private heroService: HeroService,
+      @Inject(Http) private http: Http) {}
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-04/app/heroes/shared/hero-arena.service.ts]" value="import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+import { HeroService } from './index';
+
+@Injectable()
+export class HeroArena {
+  constructor(
+    private heroService: HeroService,
+    private http: Http) {}
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-04/app/heroes/shared/hero.model.ts]" value="export class Hero {
+  id: number;
+  name: string;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-04/app/heroes/shared/hero.service.ts]" value="import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+
+import { Hero } from './hero.model.ts';
+
+@Injectable()
+export class HeroService {
+  getHeroes() {
+    let heroes: Hero[] = [];
+    return Observable.of(heroes);
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[07-04/app/heroes/shared/index.ts]" value="export * from './hero.model';
+export * from './hero.service';
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[09-01/app/heroes/shared/hero-button/hero-button.component.avoid.ts]" value="import { Component } from '@angular/core';
+/* avoid */
+
+@Component({
+  selector: 'toh-hero-button',
+  template: `<button>OK<button>`
+})
+export class HeroButtonComponent {
+  onInit() { // mispelled
+    console.log('The component is initialized');
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[09-01/app/heroes/shared/hero-button/hero-button.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'toh-hero-button',
+  template: `<button>OK<button>`
+})
+export class HeroButtonComponent implements OnInit {
+  ngOnInit() {
+    console.log('The component is initialized');
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[10-01/app/app.component.ts]" value="import { Component } from '@angular/core';
+import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
+
+import { NavComponent } from './shared/nav/nav.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { HeroService } from './heroes/shared/hero.service';
+
+@Component({
+  selector: 'toh-app',
+  templateUrl: 'app/app.component.html',
+  styleUrls: ['app/app.component.css'],
+  directives: [ROUTER_DIRECTIVES, NavComponent],
+  providers: [
+    ROUTER_PROVIDERS,
+    HeroService
+  ]
+})
+@Routes([
+  { path: '/dashboard', component: DashboardComponent }, // , useAsDefault: true}, // coming soon
+  { path: '/heroes/...', component: HeroesComponent },
+])
+export class AppComponent {}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[10-01/app/dashboard/dashboard.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'toh-dashboard',
+  templateUrl: 'app/dashboard/dashboard.component.html'
+})
+export class DashboardComponent implements OnInit {
+  constructor() { }
+
+  ngOnInit() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[10-01/app/heroes/heroes.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'toh-heroes',
+  templateUrl: 'app/heroes/heroes.component.html'
+})
+export class HeroesComponent implements OnInit {
+  constructor() { }
+
+  ngOnInit() { }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[10-01/app/heroes/shared/hero.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class HeroService {
+
+  constructor() { }
+
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[10-01/app/shared/nav/nav.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'toh-nav',
+  templateUrl: 'app/shared/nav/nav.component.html'
+})
+export class NavComponent implements OnInit {
+  constructor() { }
+
+  ngOnInit() { }
+
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-14/app/heroes/heroes.component.css]" value=".heroes {
+  margin: 0 0 2em 0; list-style-type: none; padding: 0; width: 15em;
+}
+.heroes li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.heroes .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[05-04/app/heroes/heroes.component.css]" value=".heroes {
+  margin: 0 0 2em 0; list-style-type: none; padding: 0; width: 15em;
+}
+.heroes li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.heroes .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[styles.css]" value="/* Master Styles */
+h1 {
+  color: #369; 
+  font-family: Arial, Helvetica, sans-serif;   
+  font-size: 250%;
+}
+h2, h3 { 
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;   
+  font-weight: lighter;
+}
+body { 
+  margin: 2em; 
+}
+body, input[text], button { 
+  color: #888; 
+  font-family: Cambria, Georgia; 
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa; 
+  cursor: auto;
+}
+
+/* Navigation link styles */
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.router-link-active {
+  color: #039be5;
+}
+
+/* items class */
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.items li.selected:hover {
+  background-color: #BBD8DC;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+/* everywhere else */
+* { 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[04-14/app/heroes/heroes.component.html]" value="<div>
+  <h2>My Heroes</h2>
+  <ul class=&quot;heroes&quot;>
+    <li *ngFor=&quot;#hero of heroes&quot;>
+      <span class=&quot;badge&quot;>{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+  <div *ngIf=&quot;selectedHero&quot;>
+    <h2>{{selectedHero.name | uppercase}} is my hero</h2>
+  </div>
+</div>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[05-02/app/app.component.html]" value="<toh-hero-button></toh-hero-button>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[05-03/app/app.component.html]" value="<toh-hero-button></toh-hero-button>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[05-03/app/heroes/shared/hero-button/hero-button.component.avoid.html]" value="<!-- avoid -->
+
+<div tohHeroButton></div>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[05-04/app/heroes/heroes.component.html]" value="<div>
+  <h2>My Heroes</h2>
+  <ul class=&quot;heroes&quot;>
+    <li *ngFor=&quot;let hero of heroes&quot;>
+      <span class=&quot;badge&quot;>{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+  <div *ngIf=&quot;selectedHero&quot;>
+    <h2>{{selectedHero.name | uppercase}} is my hero</h2>
+  </div>
+</div>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[05-13/app/app.component.avoid.html]" value="<!-- avoid -->
+
+<toh-hero-button labelAttribute=&quot;OK&quot; (changeEvent)=&quot;doSomething()&quot;>
+</toh-hero-button>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[05-13/app/app.component.html]" value="<toh-hero-button label=&quot;OK&quot; (change)=&quot;doSomething()&quot;>
+</toh-hero-button>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[05-16/app/app.component.avoid.html]" value="<!-- avoid -->
+
+<toh-hero (onSavedTheDay)=&quot;onSavedTheDay($event)&quot;></toh-hero>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[05-16/app/app.component.html]" value="<toh-hero (savedTheDay)=&quot;onSavedTheDay($event)&quot;></toh-hero>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[06-01/app/app.component.html]" value="<div [tohHighlight]>Bombasta</div>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+  <head>
+    <script>document.write('<base href=&quot;' + document.location + '&quot; />');</script>
+
+    <title>Style Guide Sample</title>
+    <meta charset=&quot;UTF-8&quot;>
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+    <link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;>
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src=&quot;https://npmcdn.com/es6-shim@0.35.0/es6-shim.min.js&quot;></script>
+
+    <script src=&quot;https://npmcdn.com/zone.js@0.6.12?main=browser&quot;></script>
+    <script src=&quot;https://npmcdn.com/reflect-metadata@0.1.3&quot;></script>
+    <script src=&quot;https://npmcdn.com/systemjs@0.19.27/dist/system.src.js&quot;></script>
+
+    <script src=&quot;systemjs.config.js&quot;></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
+  <body>
+    <my-app>loading...</my-app>
+  </body>
+
+</html>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="style guide, styleguide"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - Style Guide"><input type="hidden" name="files[systemjs.config.js]" value="/**
+ * PLUNKER VERSION (based on systemjs.config.js in angular.io)
+ * System configuration for Angular 2 samples
+ * Adjust as necessary for your application needs.
+ */
+(function(global) {
+
+  var ngVer = '@2.0.0-rc.1'; // lock in the angular package version; do not let it float to current!
+
+  //map tells the System loader where to look for things
+  var  map = {
+    'app':                        'app',
+
+    '@angular':                   'https://npmcdn.com/@angular', // sufficient if we didn't pin the version
+    'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api', // get latest
+    'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
+    'ts':                         'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
+    'typescript':                 'https://npmcdn.com/typescript@1.8.10/lib/typescript.js',
+ };
+
+  //packages tells the System loader how to load when no filename and/or no extension
+  var packages = {
+    'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
+    'rxjs':                       { defaultExtension: 'js' },
+    'angular2-in-memory-web-api': { defaultExtension: 'js' },
+  };
+
+  var ngPackageNames = [
+    'common',
+    'compiler',
+    'core',
+    'http',
+    'platform-browser',
+    'platform-browser-dynamic',
+    'router',
+    'router-deprecated',
+    'upgrade',
+  ];
+
+  // Add map entries for each angular package
+  // only because we're pinning the version with `ngVer`.
+  ngPackageNames.forEach(function(pkgName) {
+    map['@angular/'+pkgName] = 'https://npmcdn.com/@angular/' + pkgName + ngVer;
+  });
+
+  // Add package entries for angular packages
+  ngPackageNames.forEach(function(pkgName) {
+
+    // Bundled (~40 requests):
+    packages['@angular/'+pkgName] = { main: pkgName + '.umd.js', defaultExtension: 'js' };
+
+    // Individual files (~300 requests):
+    //packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
+  });
+
+  var config = {
+    // DEMO ONLY! REAL CODE SHOULD NOT TRANSPILE IN THE BROWSER
+    transpiler: 'typescript',
+    typescriptOptions: {
+      emitDecoratorMetadata: true
+    },
+
+    map: map,
+    packages: packages
+  }
+
+  System.config(config);
+
+})(this);
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"></form><script>document.getElementById("mainForm").submit();</script></body></html>

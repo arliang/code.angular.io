@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Component Styles - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/ts/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title is-nav-title-selected">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item is-selected"><a href="/docs/ts/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/npm-packages.html" title="Details of the recommended npm packages and the different kinds of package dependencies">Npm Packages</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/testing.html" title="Techniques and practices for testing an Angular 2 app">Testing</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/typescript-configuration.html" title="TypeScript configuration for Angular 2 developers">TypeScript Configuration</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/upgrade.html" title="Angular 1 applications can be incrementally upgraded to Angular 2.">Upgrading from 1.x</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/webpack.html" title="Create your Angular 2 applications with a Webpack based tooling">Introduction to Webpack</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title ">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/a1-a2-quick-reference.html" title="Learn how Angular 1 concepts and techniques map to Angular 2">Angular 1 to 2 Quick Ref</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dependency-injection.html" title="Techniques for Dependency Injection">Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dynamic-form.html" title="Render dynamic forms with NgFormModel">Dynamic Form</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/ts-to-js.html" title="Convert Angular 2 TypeScript examples into ES5 JavaScript">TypeScript to JavaScript</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">Component Styles</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/component-styles.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/component-styles.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/component-styles.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Learn how to apply CSS styles to components.</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><p>Angular 2 applications are styled with regular CSS. That means we can apply
+everything we know about CSS stylesheets, selectors, rules, and media queries
+to our Angular applications directly.</p>
+<p>On top of this, Angular has the ability to bundle <em>component styles</em>
+with our components enabling a more modular design than regular stylesheets.</p>
+<p>In this chapter we learn how to load and apply these <em>component styles</em>.</p>
+<h1 id="table-of-contents">Table Of Contents</h1>
+<ul>
+<li><a href="#using-component-styles">Using Component Styles</a></li>
+<li><a href="#special-selectors">Special selectors</a></li>
+<li><a href="#loading-styles">Loading Styles into Components</a></li>
+<li><a href="#view-encapsulation">Controlling View Encapsulation: Emulated, Native, and None</a></li>
+<li><a href="#inspect-generated-css">Appendix 1: Inspecting the generated runtime component styles</a></li>
+<li><a href="#relative-urls">Appendix 2: Loading Styles with Relative URLs</a></li>
+</ul>
+<p><a href="/resources/live-examples/component-styles/ts/plnkr.html">Run the live example</a>&nbsp;of the code shown in this chapter.</p><div class="l-main-section"></div><h2 id="using-component-styles">Using Component Styles</h2>
+<p>For every Angular 2 component we write, we may define not only an HTML template,
+but also the CSS styles that go with that template, 
+specifying any selectors, rules, and media queries that we need.</p>
+<p>One way to do this is to set the <code>styles</code> property in the component metadata.
+The <code>styles</code> property takes an array of strings that contain CSS code.
+Usually we give it one string as in this example:</p>
+<code-example language="ts" format=".">@Component({
+  selector: &#39;hero-app&#39;,
+  template: `
+    &lt;h1&gt;Tour of Heroes&lt;/h1&gt;
+    &lt;hero-app-main [hero]=hero&gt;&lt;/hero-app-main&gt;`,
+  styles: [&#39;h1 { font-weight: normal; }&#39;],
+  directives: [HeroAppMainComponent]
+})
+export class HeroAppComponent {
+/* . . . */
+}
+</code-example><p>Component styles differ from traditional, global styles in a couple of ways.</p>
+<p>Firstly, the selectors we put into a component&#39;s styles <em>only apply within the template
+of that component</em>. The <code>h1</code> selector in the example above only applies to the <code>&lt;h1&gt;</code> tag
+in the template of <code>HeroAppComponent</code>. Any <code>&lt;h1&gt;</code> elements elsewhere in
+the application are unaffected.</p>
+<p>This is a big improvement in modularity compared to how CSS traditionally works:</p>
+<ol>
+<li><p>We can use the CSS class names and selectors that make the most sense in the context of each component. </p>
+</li>
+<li><p>Class names and selectors are local to the component and won&#39;t collide with 
+classes and selectors used elsewhere in the application.</p>
+</li>
+<li><p>Our component&#39;s styles <em>cannot</em> be changed by changes to styles elsewhere in the application.</p>
+</li>
+<li><p>We can co-locate the CSS code of each component with the TypeScript and HTML code of the component,
+which leads to a neat and tidy project structure.</p>
+</li>
+<li><p>We can change or remove component CSS code in the future without trawling through the
+whole application to see where else it may have been used. We just look at the component we&#39;re in.</p>
+</li>
+</ol>
+<a id="special-selectors"></a><div class="l-main-section"></div><h2 id="special-selectors">Special selectors</h2>
+<p>Component styles have a few special <em>selectors</em> from the world of 
+<a href="https://www.w3.org/TR/css-scoping-1">shadow DOM style scoping</a>:</p>
+<h3 id="-host">:host</h3>
+<p>Use the <code>:host</code> pseudo-class selector to target styles in the element that <em>hosts</em> the component (as opposed to
+targeting elements <em>inside</em> the component&#39;s template):</p>
+<code-example language="css" format=".">:host {
+  display: block;
+  border: 1px solid black;
+}
+</code-example><p>This is the <em>only</em> way we can target the host element. We cannot reach
+it from inside the component with other selectors, because it is not part of the
+component&#39;s own template. It is in a parent component&#39;s template.</p>
+<p>Use the <em>function form</em> to apply host styles conditionally by 
+including another selector inside parentheses after <code>:host</code>.</p>
+<p>In the next example we target the host element again, but only when it also has the <code>active</code> CSS class.</p>
+<code-example language="css" format=".">:host(.active) {
+  border-width: 3px;
+}
+</code-example><h3 id="-host-context">:host-context</h3>
+<p>Sometimes it is useful to apply styles based on some condition <em>outside</em> a component&#39;s view.
+For example, there may be a CSS theme class applied to the document <code>&lt;body&gt;</code> element, and
+we want to change how our component looks based on that.</p>
+<p>Use the <code>:host-context()</code> pseudo-class selector. It works just like the function
+form of <code>:host()</code>. It looks for a CSS class in <em>any ancestor</em> of the component host element, all the way
+up to the document root. It&#39;s useful when combined with another selector.</p>
+<p>In the following example, we apply a <code>background-color</code> style to all <code>&lt;h2&gt;</code> elements <em>inside</em> the component, only
+if some ancestor element has the CSS class <code>theme-light</code>.</p>
+<code-example language="css" format=".">:host-context(.theme-light) h2 {
+  background-color: #eef;
+}
+</code-example><h3 id="-deep-">/deep/</h3>
+<p>Component styles normally apply only to the HTML in the component&#39;s own template. </p>
+<p>We can use the <code>/deep/</code> selector to force a style down through the child component tree into all the child component views.
+The <code>/deep/</code> selector works to any depth of nested components, and it applies <em>both to the view
+children and the content children</em> of the component. </p>
+<p>In this example, we target all <code>&lt;h3&gt;</code> elements, from the host element down 
+through this component to all of its child elements in the DOM: </p>
+<code-example language="css" format=".">:host /deep/ h3 {
+  font-style: italic;
+}
+</code-example><p>The <code>/deep/</code> selector also has the alias <code>&gt;&gt;&gt;</code>. We can use either of the two interchangeably.</p>
+<div class="alert is-important"><p>The <code>/deep/</code> and <code>&gt;&gt;&gt;</code> selectors should only be used with <strong>emulated</strong> view encapsulation.
+This is the default and it is what we use most of the time. See the
+<a href="#view-encapsulation">Controlling View Encapsulation</a>
+section for more details.</p>
+</div><a id="loading-styles"></a><div class="l-main-section"></div><h2 id="loading-styles-into-components">Loading Styles into Components</h2>
+<p>We have several ways to add styles to a component: </p>
+<ul>
+<li>inline in the template HTML</li>
+<li>by setting <code>styles</code> or <code>styleUrls</code> metadata</li>
+<li>with CSS imports</li>
+</ul>
+<p>The scoping rules outlined above apply to each of these loading patterns.</p>
+<h3 id="styles-in-metadata">Styles in Metadata</h3>
+<p>We can add a <code>styles</code> array property to the <code>@Component</code> decorator.
+Each string in the array (usually just one string) defines the CSS.</p>
+<code-example language="ts" format="linenums">@Component({
+  selector: &#39;hero-app&#39;,
+  template: `
+    &lt;h1&gt;Tour of Heroes&lt;/h1&gt;
+    &lt;hero-app-main [hero]=hero&gt;&lt;/hero-app-main&gt;`,
+  styles: [&#39;h1 { font-weight: normal; }&#39;],
+  directives: [HeroAppMainComponent]
+})
+export class HeroAppComponent {
+/* . . . */
+}
+</code-example><h3 id="template-inline-styles">Template Inline Styles</h3>
+<p>We can embed styles directly into the HTML template by putting them
+inside <code>&lt;style&gt;</code> tags.</p>
+<code-example language="ts" format="linenums">@Component({
+  selector: &#39;hero-controls&#39;,
+  template: `
+    &lt;style&gt;
+      button {
+        background-color: white;
+        border: 1px solid #777;
+      }
+    &lt;/style&gt;
+    &lt;h3&gt;Controls&lt;/h3&gt;
+    &lt;button (click)=&quot;activate()&quot;&gt;Activate&lt;/button&gt;
+  `
+})
+</code-example><h3 id="style-urls-in-metadata">Style URLs in Metadata</h3>
+<p>We can load styles from external CSS files by adding a <code>styleUrls</code> attribute
+into a component&#39;s <code>@Component</code> or <code>@View</code> decorator:</p>
+<code-example language="ts" format="linenums">@Component({
+  selector: &#39;hero-details&#39;,
+  template: `
+    &lt;h2&gt;{{hero.name}}&lt;/h2&gt;
+    &lt;hero-team [hero]=hero&gt;&lt;/hero-team&gt;
+    &lt;ng-content&gt;&lt;/ng-content&gt;
+  `,
+  styleUrls: [&#39;app/hero-details.component.css&#39;],
+  directives: [HeroTeamComponent]
+})
+export class HeroDetailsComponent {
+/* . . . */
+}
+</code-example><div class="alert is-important"><p>The URL is <strong><em>relative to the application root</em></strong> which is usually the
+location of the <code>index.html</code> web page that hosts the application. 
+The style file URL is <em>not</em> relative to the component file.
+That&#39;s why the example URL begins <code>app/</code>.
+See <a href="#relative-urls">Appendix 2</a> to specify a URL relative to the 
+component file.</p>
+</div><div class="l-sub-section"><p>Users of module bundlers like Webpack may also use the <code>styles</code> attribute
+to load styles from external files at build time. They could write:</p>
+<p><code>styles: [require(&#39;my.component.css&#39;)]</code></p>
+<p>We set the <code>styles</code> property, <strong>not</strong> <code>styleUrls</code> property! The module 
+bundler is loading the CSS strings, not Angular. 
+Angular only sees the CSS strings <em>after</em> the bundler loads them. 
+To Angular it is as if we wrote the <code>styles</code> array by hand. 
+Refer to the module bundler&#39;s documentation for information on 
+loading CSS in this manner.</p>
+</div><h3 id="template-link-tags">Template Link Tags</h3>
+<p>We can also embed <code>&lt;link&gt;</code> tags into the component&#39;s HTML template. </p>
+<p>As with <code>styleUrls</code>, the link tag&#39;s <code>href</code> URL is relative to the 
+application root, not relative to the component file.</p>
+<code-example language="ts" format="linenums">@Component({
+  selector: &#39;hero-team&#39;,
+  template: `
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;app/hero-team.component.css&quot;&gt;
+    &lt;h3&gt;Team&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li *ngFor=&quot;let member of hero.team&quot;&gt;
+        {{member}}
+      &lt;/li&gt;
+    &lt;/ul&gt;`
+})
+</code-example><h3 id="css-imports">CSS @imports</h3>
+<p>We can also import CSS files into our CSS files by using the standard CSS
+<a href="https://developer.mozilla.org/en/docs/Web/CSS/@import"><code>@import</code> rule</a>.</p>
+<p>In <em>this</em> case the URL is relative to the CSS file into which we are importing.</p>
+<div class="example-title">app/hero-details.component.css (excerpt)</div><code-example language="css" format="">@import &#39;hero-details-box.css&#39;;
+</code-example><a id="view-encapsulation"></a><div class="l-main-section"></div><h2 id="controlling-view-encapsulation-native-emulated-and-none">Controlling View Encapsulation: Native, Emulated, and None</h2>
+<p>As discussed above, component CSS styles are <em>encapsulated</em> into the component&#39;s own view and do
+not affect the rest of the application.</p>
+<p>We can control how this encapsulation happens on a <em>per
+component</em> basis by setting the <em>view encapsulation mode</em> in the component metadata. There
+are three modes to choose from:</p>
+<ul>
+<li><p><code>Native</code> view encapsulation uses the browser&#39;s native <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Shadow_DOM">Shadow DOM</a>
+implementation to attach a Shadow DOM to the component&#39;s host element, and then puts the component
+view inside that Shadow DOM. The component&#39;s styles are included within the Shadow DOM.</p>
+</li>
+<li><p><code>Emulated</code> view encapsulation (<strong>the default</strong>) emulates the behavior of Shadow DOM by preprocessing
+(and renaming) the CSS code to effectively scope the CSS to the component&#39;s view.
+See <a href="#inspect-generated-css">Appendix 1</a> for details.</p>
+</li>
+<li><p><code>None</code> means that Angular does no view encapsulation. 
+Angular adds the CSS to the global styles. 
+The scoping rules, isolations, and protections discussed earlier do not apply. 
+This is essentially the same as pasting the component&#39;s styles into the HTML.</p>
+</li>
+</ul>
+<p>Set the components encapsulation mode using the <code>encapsulation</code> property in the component metadata:</p>
+<code-example language="ts" format=".">// warning: few browsers support shadow DOM encapsulation at this time
+encapsulation: ViewEncapsulation.Native
+</code-example><p><code>Native</code> view encapsulation only works on <a href="http://caniuse.com/#feat=shadowdom">browsers that have native support
+for Shadow DOM</a>. The support is still limited,
+which is why <code>Emulated</code> view encapsulation is the default mode and recommended
+in most cases.</p>
+<a id="inspect-generated-css"></a><div class="l-main-section"></div><h2 id="appendix-1-inspecting-the-css-generated-in-emulated-view-encapsulation">Appendix 1: Inspecting The CSS Generated in Emulated View Encapsulation</h2>
+<p>When using the default emulated view encapsulation, Angular preprocesses
+all component styles so that they approximate the standard Shadow CSS scoping rules.</p>
+<p>When we inspect the DOM of a running Angular application with emulated view
+encapsulation enabled, we see that each DOM element has some extra attributes
+attached to it:</p>
+<code-example format="">&lt;hero-details _nghost-pmm-5>
+  &lt;h2 _ngcontent-pmm-5>Mister Fantastic&lt;/h2>
+  &lt;hero-team _ngcontent-pmm-5 _nghost-pmm-6>
+    &lt;h3 _ngcontent-pmm-6>Team&lt;/h3>
+  &lt;/hero-team>
+&lt;/hero-detail>
+</code-example><p>We see two kinds of generated attributes:</p>
+<ul>
+<li><p>An element that would be a Shadow DOM host in native encapsulation has a
+generated <code>_nghost</code> attribute. This is typically the case for component host elements.</p>
+</li>
+<li><p>An element within a component&#39;s view has a <code>_ngcontent</code> attribute 
+that identifies to which host&#39;s emulated Shadow DOM this element belongs.</p>
+</li>
+</ul>
+<p>The exact values of these attributes are not important. They are automatically
+generated and we never refer to them in application code. But they are targeted
+by the generated component styles, which we&#39;ll find in the <code>&lt;head&gt;</code> section of the DOM:</p>
+<code-example format="">[_nghost-pmm-5] {
+  display: block;
+  border: 1px solid black;
+}
+
+h3[_ngcontent-pmm-6] {
+  background-color: white;
+  border: 1px solid #777;
+}
+</code-example><p>These are the styles we wrote, post-processed so that each selector is augmented
+with <code>_nghost</code> or <code>_ngcontent</code> attribute selectors. 
+These extra selectors enable the scoping rules described in this guide.</p>
+<p>We&#39;ll likely live with <em>emulated</em> mode until shadow DOM gains traction.</p>
+<a id="relative-urls"></a><div class="l-main-section"></div><h2 id="appendix-2-loading-styles-with-relative-urls">Appendix 2: Loading Styles with Relative URLs</h2>
+<p>It&#39;s common practice to split a component&#39;s code, HTML, and CSS into three separate files in the same directory:</p>
+<code-example format="">quest-summary.component.ts
+quest-summary.component.html
+quest-summary.component.css
+</code-example><p>We include the template and CSS files by setting the <code>templateUrl</code> and <code>styleUrls</code> metadata properties respectively.
+Because these files are co-located with the component,
+it would be nice to refer to them by name without also having to specify a path back to the root of the application.</p>
+<p>We&#39;d <em>prefer</em> to write this:</p>
+<code-example language="ts" format=".">templateUrl: &#39;quest-summary.component.html&#39;,
+styleUrls:  [&#39;quest-summary.component.css&#39;]
+</code-example><p>We can&#39;t do that by default. Angular can&#39;t find the files and throws an error:</p>
+<p><code>EXCEPTION: Failed to load quest-summary.component.html</code></p>
+<p>Why can&#39;t Angular calculate the HTML and CSS URLs from the component file&#39;s location? </p>
+<p>Unfortunately, that location is not readily known. 
+Angular apps can be loaded in many ways: from individual files, from SystemJS packages, or
+from CommonJS packages, to name a few. 
+With this diversity of load strategies, it&#39;s not easy to tell at runtime where these files actually reside.</p>
+<p>The only location Angular can be sure of is the URL of the <code>index.html</code> home page.
+So by default it resolves template and style paths relative to the URL of <code>index.html</code>.
+That&#39;s why we previously wrote our CSS file URLs with an <code>app/</code> base path prefix.</p>
+<p>Although this works with any code loading scheme, it is very inconvenient.
+We move file folders around all the time during the evolution of our applications. 
+It&#39;s no fun patching the style and template URLs when we do.</p>
+<h3 id="-moduleid-"><em>moduleId</em></h3>
+<p>We can change the way Angular calculates the full URL be setting the component metadata&#39;s <code>moduleId</code> property.</p>
+<p>If we knew the component file&#39;s base path, we&#39;d set <code>moduleId</code> to that and 
+let Angular construct the full URL from this base path plus the CSS and template file names.</p>
+<p>Our challenge is to calculate the base path with minimal effort. 
+If it&#39;s too hard, we shouldn&#39;t bother; we should just write the full path to the root and move on.
+Fortunately, <em>certain</em> module loaders make it relatively easy to find the base path.</p>
+<p>SystemJS (starting in v.0.19.19) sets a <em>semi-global</em> variable to the URL of the component file.
+That makes it trivial to set the component metadata <code>moduleId</code> property to the component&#39;s URL 
+and let Angular determine the module-relative paths for style and template URLs from there.</p>
+<p>The name of the <em>semi-global</em> variable depends upon whether we told TypeScript to transpile to
+&#39;system&#39; or &#39;commonjs&#39; format (see the <code>module</code> option in the
+<a href="http://www.typescriptlang.org/docs/handbook/compiler-options.html">TypeScript compiler documentation</a>).
+The variables are <code>__moduleName</code> and <code>module.id</code> respectively.</p>
+<p>Here&#39;s an example in which we set the metadata <code>moduleId</code> to <code>module.id</code>.</p>
+<div class="example-title">app/quest-summary.component.ts</div><code-example language="ts" format="linenums">@Component({
+  moduleId: module.id,
+  selector: &#39;quest-summary&#39;,
+  templateUrl: &#39;quest-summary.component.html&#39;,
+  styleUrls:  [&#39;quest-summary.component.css&#39;]
+})
+export class QuestSummaryComponent { }
+</code-example><div class="l-sub-section"><p>With a module bundler like Webpack we are more likely to set the <code>styles</code> and <code>template</code> properties with the bundler&#39;s
+<code>require</code> mechanism rather than bother with <code>styleUrls</code> and <code>templateUrl</code>.</p>
+</div><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/ts/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>

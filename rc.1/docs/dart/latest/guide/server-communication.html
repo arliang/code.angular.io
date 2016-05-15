@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Http Client - dart</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/dart/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/dart/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in Dart." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/dart/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in Dart.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/dart/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/dart/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/dart/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/dart/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/dart/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/dart/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/dart/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/dart/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title is-nav-title-selected">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists"><ul><li class="nav-list-item "><a href="/docs/dart/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item is-selected"><a href="/docs/dart/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item "><a href="/docs/dart/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/dart/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title ">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/dart/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/dart/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/dart/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/dart/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">Http Client</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for Dart  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/server-communication.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/server-communication.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/server-communication.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Talk to a remote server with the Angular Http Client.</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><p><a href="https://tools.ietf.org/html/rfc2616">HTTP</a> is the primary protocol for browser/server communication.</p>
+<div class="l-sub-section"><p>The <a href="https://tools.ietf.org/html/rfc6455"><code>WebSocket</code></a> protocol is another important communication technology;
+we won&#39;t cover it in this chapter.</p>
+</div><p>Modern browsers support two HTTP-based APIs: 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest (XHR)</a> and 
+<a href="https://en.wikipedia.org/wiki/JSONP">JSONP</a>. A few browsers also support
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a>. </p>
+<p>The Angular HTTP client library simplifies application programming of the <strong>XHR</strong> and <strong>JSONP</strong> APIs
+as we&#39;ll learn in this chapter covering:</p>
+<ul><li><a href="#http-client">Http client sample overview</a></li><li><a href="#fetch-data">Fetch data with http.get</a></li><li><a href="#extract-data">Extract JSON data</a></li><li><a href="#error-handling">Error handling</a></li><li><a href="#update">Send data to the server</a></li><li><a href="#cross-origin-requests">Cross-origin requests: Wikipedia example</a></li><li><a href="#in-mem-web-api">Appendix: the in-memory web api service</a></li></ul><p>We illustrate these topics with code that you can 
+<a href="https://angular-examples.github.io/server-communication">run live in a browser</a> (<a href="https://github.com/angular-examples/server-communication">view source</a>).
+</p><div class="l-main-section"></div><a id="http-client"></a><h2 id="the-http-client-demo">The <em>Http</em> Client Demo</h2>
+<p>We use the Angular <code>Http</code> client to communicate via <code>XMLHttpRequest (XHR)</code>.</p>
+<p>We&#39;ll demonstrate with a mini-version of the <a href="../tutorial">tutorial</a>&#39;s &quot;Tour of Heroes&quot; (ToH) application.
+This version gets some heroes from the server, displays them in a list, lets us add new heroes, and saves them to the server.</p>
+<p>It works like this.</p>
+<figure class="image-display"><img src="/resources/images/devguide/server-communication/http-toh.gif" alt="ToH mini app" width="250"></figure><p>It&#39;s implemented with two components &mdash; a parent <code>TohComponent</code> shell and the <code>HeroListComponent</code> child.
+We&#39;ve seen these kinds of component in many other documentation samples. 
+Let&#39;s see how they change to support communication with a server.</p>
+<div class="l-sub-section"><p>We&#39;re overdoing the &quot;separation of concerns&quot; by creating two components for a tiny demo. 
+We&#39;re making a point about application structure that is easier to justify when the app grows.</p>
+</div><p>Here is the <code>TohComponent</code> shell:</p>
+<div class="example-title">lib/toh/toh_component.dart</div><code-example language="dart" format="linenums">import &#39;package:angular2/core.dart&#39;;
+import &#39;package:http/browser_client.dart&#39;;
+
+import &#39;hero_list_component.dart&#39;;
+import &#39;hero_service.dart&#39;;
+
+@Component(
+    selector: &#39;my-toh&#39;,
+    template: &#39;&#39;&#39;
+      &lt;h1&gt;Tour of Heroes&lt;/h1&gt;
+      &lt;hero-list&gt;&lt;/hero-list&gt;
+    &#39;&#39;&#39;,
+    directives: const [HeroListComponent],
+    providers: const [
+      HeroService,
+    ])
+class TohComponent {}
+</code-example><p>This sample only has one child, the <code>HeroListComponent</code>.  Here&#39;s its template:</p>
+<div class="example-title">lib/toh/hero_list_component.html (template)</div><code-example language="html" format="linenums">&lt;h3&gt;Heroes:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li *ngFor=&quot;let hero of heroes&quot;&gt;
+    {{hero.name}}
+  &lt;/li&gt;
+&lt;/ul&gt;
+New hero name:
+&lt;input #newHeroName /&gt;
+&lt;button (click)=&quot;addHero(newHeroName.value); newHeroName.value=&#39;&#39;&quot;&gt;
+  Add Hero
+&lt;/button&gt;
+&lt;div class=&quot;error&quot; *ngIf=&quot;errorMessage != null&quot;&gt;{{errorMessage}}&lt;/div&gt;
+</code-example><p>The component template displays a list of heroes with the <code>ngFor</code> repeater directive.</p>
+<figure class="image-display"><img src="/resources/images/devguide/server-communication/hero-list.png" alt="Hero List"></figure><p>Beneath the heroes is an input box and an <em>Add Hero</em> button where we can enter the names of new heroes
+and add them to the database. 
+We use a <a href="template-syntax.html#ref-vars">template reference variable</a>, <code>newHeroName</code>, to access the 
+value of the input box in the <code>(click)</code> event binding.
+When the user clicks the button, we pass that value to the component&#39;s <code>addHero</code> method and then
+clear it to make ready for a new hero name.</p>
+<p>Below the button is an area for an error message.</p>
+<a id="oninit"></a><a id="HeroListComponent"></a><h3 id="the-herolistcomponent-class">The <em>HeroListComponent</em> class</h3>
+<p>Here&#39;s the component class:</p>
+<div class="example-title">lib/toh/hero_list_component.dart (class)</div><code-example language="dart" format="linenums">class HeroListComponent implements OnInit {
+  final HeroService _heroService;
+  String errorMessage;
+  List&lt;Hero&gt; heroes = [];
+
+  HeroListComponent(this._heroService);
+
+  Future&lt;Null&gt; ngOnInit() =&gt; getHeroes();
+
+  Future&lt;Null&gt; getHeroes() async {
+    try {
+      heroes = await _heroService.getHeroes();
+    } catch (e) {
+      errorMessage = e.toString();
+    }
+  }
+
+  Future&lt;Null&gt; addHero(String name) async {
+    name = name.trim();
+    if (name.isEmpty) return;
+    try {
+      heroes.add(await _heroService.addHero(name));
+    } catch (e) {
+      errorMessage = e.toString();
+    }
+  }
+}
+</code-example><p>We <a href="dependency-injection.html">inject</a> the <code>HeroService</code> into the constructor.
+That&#39;s the instance of the <code>HeroService</code> that we provided in the parent shell <code>TohComponent</code>.</p>
+<p>Notice that the component <strong>does not talk to the server directly!</strong> 
+The component doesn&#39;t know or care how we get the data. 
+Those details it delegates to the <code>heroService</code> class (which we&#39;ll get to in a moment).</p>
+<p>This is a golden rule: <strong>always delegate data access to a supporting service class</strong>.</p>
+<p>Although <em>at runtime</em> the component requests heroes immediately after creation, 
+we do <strong>not</strong> call the service&#39;s <code>get</code> method in the component&#39;s constructor.
+We call it inside the <code>ngOnInit</code> <a href="lifecycle-hooks.html">lifecycle hook</a> instead
+and count on Angular to call <code>ngOnInit</code> when it instantiates this component. </p>
+<div class="l-sub-section"><p>This is a &quot;best practice&quot;. 
+Components are easier to test and debug when their constructors are simple and all real work 
+(especially calling a remote server) is handled in a separate method.</p>
+</div><p>The hero service <code>getHeroes()</code> and <code>addHero()</code> asynchronous methods return the
+<a href="https://api.dartlang.org/stable/1.16.0/dart-async/Future-class.html"><code>Future</code></a>
+values of the current hero list and the newly added hero,
+respectively. The hero list component methods of the same name specifying
+the actions to be taken when the asynchronous method calls succeed or fail.</p>
+<p>For more information about <code>Future</code>s, consult any one
+of the <a href="https://www.dartlang.org/articles/">articles</a> on asynchronous
+programming in Dart, or the tutorial on 
+<a href="https://www.dartlang.org/docs/tutorials/futures/"><em>Asynchronous Programming: Futures</em></a>.</p>
+<p>With our basic intuitions about the component squared away, we can turn to development of the backend data source
+and the client-side <code>HeroService</code> that talks to it.</p>
+<h3 id="fetch-data">Fetch data</h3>
+<p>In many of our previous samples we faked the interaction with the server by
+returning mock heroes in a service like this one:</p>
+<code-example language="dart" format=".">import &#39;dart:async&#39;;
+
+import &#39;package:angular2/core.dart&#39;;
+
+import &#39;hero.dart&#39;;
+import &#39;mock_heroes.dart&#39;;
+
+@Injectable()
+class HeroService {
+  Future&lt;List&lt;Hero&gt;&gt; getHeroes() async =&gt; mockHeroes;
+}
+</code-example><p>In this chapter, we get the heroes from the server using a (browser-based) HTTP client service.
+Here&#39;s the new <code>HeroService</code>: </p>
+<div class="example-title">lib/toh/hero_service.dart</div><code-example language="dart" format="linenums">import &#39;dart:async&#39;;
+import &#39;dart:convert&#39;;
+import &#39;hero.dart&#39;;
+import &#39;package:angular2/core.dart&#39;;
+import &#39;package:http/browser_client.dart&#39;;
+import &#39;package:http/http.dart&#39; show Response;
+
+@Injectable()
+class HeroService {
+  final String _heroesUrl = &#39;app/heroes&#39;;  // URL to web API
+  final BrowserClient _http;
+
+  HeroService(this._http);
+
+  Future&lt;List&lt;Hero&gt;&gt; getHeroes() async {
+    try {
+      final response = await _http.get(_heroesUrl);
+      final heroes = _extractData(response)
+          .map((value) =&gt; new Hero.fromJson(value))
+          .toList();
+      return heroes;
+    } catch (e) {
+      throw _handleError(e);
+    }
+  }
+
+  Future&lt;Hero&gt; addHero(String name) async {
+    try {
+      final response = await _http.post(_heroesUrl,
+          headers: {&#39;Content-Type&#39;: &#39;application/json&#39;},
+          body: JSON.encode({&#39;name&#39;: name}));
+      return new Hero.fromJson(_extractData(response));
+    } catch (e) {
+      throw _handleError(e);
+    }
+  }
+</code-example><p>The imported <code>BrowserClient</code> client service gets
+<a href="dependency-injection.html">injected</a> into the <code>HeroService</code> constructor.
+Note that <code>BrowserClient</code> is not part of the Angular core. 
+It&#39;s an optional service provided by the Dart 
+<a href="https://pub.dartlang.org/packages/http"><code>http</code> package</a>.</p>
+<p>Look closely at how we call <code>_http.get</code></p>
+<div class="example-title">lib/toh/hero_service.dart (getHeroes)</div><code-example language="dart" format=".">final String _heroesUrl = &#39;app/heroes&#39;;  // URL to web API
+Future&lt;List&lt;Hero&gt;&gt; getHeroes() async {
+  try {
+    final response = await _http.get(_heroesUrl);
+    final heroes = _extractData(response)
+        .map((value) =&gt; new Hero.fromJson(value))
+        .toList();
+    return heroes;
+  } catch (e) {
+    throw _handleError(e);
+  }
+}
+</code-example><p>We pass the resource URL to <code>get</code> and it calls the server which should return heroes.</p>
+<div class="l-sub-section"><p>It <em>will</em> return heroes once we&#39;ve set up the <a href="in-mem-web-api">in-memory web api</a>
+described in the appendix below.
+Alternatively, we can (temporarily) target a JSON file by changing the endpoint URL:</p>
+<code-example language="dart" format=".">private _heroesUrl = &#39;heroes.json&#39;; // URL to JSON file
+</code-example></div><a id="extract-data"></a><h3 id="process-the-response-object">Process the response object</h3>
+<p>Remember that our <code>getHeroes()</code> method mapped the <code>_http.get</code> response object to heroes with an <code>_extractData</code> helper method:</p>
+<div class="example-title">lib/toh/hero_service.dart (excerpt)</div><code-example language="dart" format=".">dynamic _extractData(Response res) {
+  if (res.statusCode &lt; 200 || res.statusCode &gt;= 300) {
+    throw new Exception(&#39;Response status: ${res.statusCode}&#39;);
+  }
+  var body = JSON.decode(res.body);
+  // TODO: once fixed, https://github.com/adaojunior/http-in-memory-web-api/issues/1
+  // Drop the `?? body` term
+  return body[&#39;data&#39;] ?? body;
+}
+</code-example><p>The <code>response</code> object does not hold our data in a form we can use directly. 
+To make it useful in our application we must</p>
+<ul>
+<li>check the response status,</li>
+<li>parse the response data into a JSON object</li>
+</ul>
+<h4 id="non-success-status-codes">Non-success status codes</h4>
+<p>A status code outside the 200-299 range denotes an error from the <em>application point of view</em>
+but it is not an error from the <em>HTTP point of view</em>. 
+For example, a <code>404 - Not Found</code> is a response like any other. 
+The request went out; a response came back; here it is, thank you very much.
+We&#39;d have an exception only if <code>_http</code> failed to operate (e.g., it errored internally).</p>
+<p>Because a status code outside the 200-299 range <em>is an error</em> from the
+application point of view, we test for this condition and throw an
+exception when detected.</p>
+<h4 id="parse-to-json">Parse to JSON</h4>
+<p>The response data are in JSON string form.
+We must parse that string into JavaScript objects which we do by calling
+the <code>JSON.decode()</code> method from the <code>dart:convert</code> library.</p>
+<div class="l-sub-section"><p>We shouldn&#39;t expect the decoded JSON to be the heroes list directly.
+The server we&#39;re calling always wraps JSON results in an object with a <code>data</code>
+property. We have to unwrap it to get the heroes.
+This is conventional web api behavior, driven by 
+<a href="https://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines#Always_return_JSON_with_an_Object_on_the_outside">security concerns</a>.</p>
+</div><div class="alert is-important"><p>Make no assumptions about the server API. 
+Not all servers return an object with a <code>data</code> property.</p>
+</div><h3 id="do-not-return-the-response-object">Do not return the response object</h3>
+<p>Our <code>getHeroes()</code> could have returned the HTTP response. Bad idea! 
+The point of a data service is to hide the server interaction details from consumers.
+The component that calls the <code>HeroService</code> wants heroes. 
+It has no interest in what we do to get them.
+It doesn&#39;t care where they come from.
+And it certainly doesn&#39;t want to deal with a response object.</p>
+<a id="error-handling"></a><h3 id="always-handle-errors">Always handle errors</h3>
+<p>Whenever we deal with I/O we must be prepared for something to go wrong as it surely will. 
+We should catch errors in the <code>HeroService</code> and do something with them. 
+We may also pass an error message back to the component for presentation to the user
+but only if we can say something the user can understand and act upon.</p>
+<p>In this simple app we provide rudimentary error handling in both the service and the component.</p>
+<div class="example-title">lib/toh/hero_service.dart (excerpt)</div><code-example language="dart" format=".">Future&lt;List&lt;Hero&gt;&gt; getHeroes() async {
+  try {
+    final response = await _http.get(_heroesUrl);
+    final heroes = _extractData(response)
+        .map((value) =&gt; new Hero.fromJson(value))
+        .toList();
+    return heroes;
+  } catch (e) {
+    throw _handleError(e);
+  }
+}
+
+Exception _handleError(dynamic e) {
+  // In a real world app, we might use a remote logging infrastructure
+  print(e); // log to console instead
+  return new Exception(&#39;Server error; cause: $e&#39;);
+}
+</code-example><a id="subscribe"></a><a id="hero-list-component"></a><h4><b>HeroListComponent</b> error handling</h4><p>Back in the <code>HeroListComponent</code>, we wrapped our call to
+<code>_heroService.getHeroes()</code> in a <code>try</code> clause. When an exception is
+caught, the <code>errorMessage</code> variable &mdash; which we&#39;ve bound conditionally in the
+template &mdash; gets assigned to.</p>
+<div class="example-title">lib/toh/hero_list_component.dart (getHeroes)</div><code-example language="dart" format=".">Future&lt;Null&gt; getHeroes() async {
+  try {
+    heroes = await _heroService.getHeroes();
+  } catch (e) {
+    errorMessage = e.toString();
+  }
+}
+</code-example><div class="l-sub-section"><p>Want to see it fail? Reset the api endpoint in the <code>HeroService</code> to a bad value. Remember to restore it!</p>
+</div><a id="update"></a>
+<a id="post"></a><div class="l-main-section"></div><h2 id="send-data-to-the-server">Send data to the server</h2>
+<p>So far we&#39;ve seen how to retrieve data from a remote location using an HTTP service. 
+Let&#39;s add the ability to create new heroes and save them in the backend.</p>
+<p>We&#39;ll create an easy method for the <code>HeroListComponent</code> to call, an <code>addHero()</code> method that takes
+just the name of a new hero:</p>
+<code-example language="dart" format=".">Future&lt;Hero&gt; addHero(String name) async {
+</code-example><p>To implement it, we need to know some details about the server&#39;s api for creating heroes.</p>
+<p><a href="#server">Our data server</a> follows typical REST guidelines.
+It expects a <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5"><code>POST</code></a> request
+at the same endpoint where we <code>GET</code> heroes.
+It expects the new hero data to arrive in the body of the request, 
+structured like a <code>Hero</code> entity but without the <code>id</code> property.
+The body of the request should look like this:</p>
+<code-example format="." language="javascript">{ "name": "Windstorm" }</code-example><p>The server will generate the <code>id</code> and return the entire <code>JSON</code> representation
+of the new hero including its generated id. The hero arrives tucked inside a response object
+with its own <code>data</code> property.</p>
+<p>Now that we know how the API works, we implement <code>addHero()</code>like this:</p>
+<div class="example-title">lib/toh/hero_service.dart (addHero)</div><code-example language="dart" format=".">  Future&lt;Hero&gt; addHero(String name) async {
+    try {
+      final response = await _http.post(_heroesUrl,
+          headers: {&#39;Content-Type&#39;: &#39;application/json&#39;},
+          body: JSON.encode({&#39;name&#39;: name}));
+      return new Hero.fromJson(_extractData(response));
+    } catch (e) {
+      throw _handleError(e);
+    }
+  }
+</code-example><h3 id="headers">Headers</h3>
+<p>The <code>Content-Type</code> header allows us to inform the server that the body will represent JSON.</p>
+<h3 id="body">Body</h3>
+<p>Despite the content type being specified as JSON, the POST body must actually be a <em>string</em>.
+Hence, we explicitly encode the JSON hero content before passing it in as the body argument.</p>
+<h3 id="json-results">JSON results</h3>
+<p>As with <code>getHeroes()</code>, we <a href="#extract-data">extract the data</a> from the response using the
+<code>_extractData()</code> helper.</p>
+<p>Back in the <code>HeroListComponent</code>, we see that <em>its</em> <code>addHero()</code>
+awaits for the <em>service&#39;s</em> asynchronous <code>addHero()</code> to return, and when it does,
+the new hero is added to the <code>heroes</code> list for presentation to the user.</p>
+<div class="example-title">lib/toh/hero_list_component.dart (addHero)</div><code-example language="dart" format=".">Future&lt;Null&gt; addHero(String name) async {
+  name = name.trim();
+  if (name.isEmpty) return;
+  try {
+    heroes.add(await _heroService.addHero(name));
+  } catch (e) {
+    errorMessage = e.toString();
+  }
+}
+</code-example><a id="cross-origin-requests"></a><h2 id="cross-origin-requests-wikipedia-example">Cross-origin requests: Wikipedia example</h2>
+<p>We just learned how to make <code>XMLHttpRequests</code> using Angular&#39;s built-in <code>Http</code> service. 
+This is the most common approach for server communication. 
+It doesn&#39;t work in all scenarios.</p>
+<p>For security reasons, web browsers block <code>XHR</code> calls to a remote server whose origin is different from the origin of the web page.
+The <em>origin</em> is the combination of URI scheme, hostname and port number. 
+This is called the <a href="https://en.wikipedia.org/wiki/Same-origin_policy">Same-origin Policy</a>.</p>
+<div class="l-sub-section"><p>Modern browsers do allow <code>XHR</code> requests to servers from a different origin if the server supports the 
+<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> protocol.
+If the server requires user credentials, we&#39;ll enable them in the <a href="#headers">request headers</a>.</p>
+</div><p>Some servers do not support CORS but do support an older, read-only alternative called <a href="https://en.wikipedia.org/wiki/JSONP">JSONP</a>.
+Wikipedia is one such server.</p>
+<div class="l-sub-section"><p>This <a href="http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about/2067584#2067584">StackOverflow answer</a> covers many details of JSONP.</p>
+</div><h3 id="search-wikipedia">Search wikipedia</h3>
+<p>Let&#39;s build a simple search that shows suggestions from wikipedia as we type in a text box.</p>
+<figure class="image-display"><img src="/resources/images/devguide/server-communication/wiki-1.gif" alt="Wikipedia search app (v.1)" width="250"></figure><p>Wikipedia offers both <code>CORS</code> and <code>JSONP</code> search APIs.</p>
+<div class="alert is-important"><p>The remaining content of this section is coming soon.
+In the meantime, consult the 
+<a href="https://github.com/angular-examples/server-communication">example sources</a>
+to see how to access Wikipedia via its <code>JSONP</code> API.</p>
+</div><a id="in-mem-web-api"></a><div class="l-main-section"></div><h2 id="appendix-tour-of-heroes-in-memory-server">Appendix: Tour of Heroes in-memory server</h2>
+<p>If we only cared to retrieve data, we could tell Angular to get the heroes from a <code>heroes.json</code> file like this one:</p>
+<div class="example-title">app/heroes.json</div><code-example language="json" format=".">{
+  "data": [
+    { "id": "1", "name": "Windstorm" },
+    { "id": "2", "name": "Bombasto" },
+    { "id": "3", "name": "Magneta" },
+    { "id": "4", "name": "Tornado" }
+  ]
+}
+</code-example><div class="l-sub-section"><p>We wrap the heroes array in an object with a <code>data</code> property for the same reason that a data server does:
+to mitigate the <a href="http://stackoverflow.com/questions/3503102/what-are-top-level-json-arrays-and-why-are-they-a-security-risk">security risk</a>
+posed by top-level JSON arrays. </p>
+</div><p>We&#39;d set the endpoint to the JSON file like this:</p>
+<code-example language="dart" format=".">private _heroesUrl = &#39;heroes.json&#39;; // URL to JSON file
+</code-example><p>The <em>get heroes</em> scenario would work.
+But we want to <em>save</em> data too. We can&#39;t save changes to a JSON file. We need a web API server.
+We didn&#39;t want the hassle of setting up and maintaining a real server for this chapter.
+So we turned to an <em>in-memory web API simulator</em> instead.</p>
+<div class="l-sub-section"><p>The in-memory web api is not part of the Angular core. 
+It&#39;s an optional service in its own <code>angular2-in-memory-web-api</code> library
+that we installed with npm (see <code>package.json</code>) and 
+registered for module loading by SystemJS (see <code>systemjs.config.js</code>)</p>
+</div><p>The in-memory web API gets its data from  a <code>createDb()</code>
+method that returns a map whose keys are collection names and whose values 
+are lists of objects in those collections.</p>
+<p>Here&#39;s the class we created for this sample by copy-and-pasting the JSON data:</p>
+<div class="example-title">lib/hero_data.dart</div><code-example language="dart" format=".">import &#39;package:http/browser_client.dart&#39;;
+import &#39;package:http_in_memory_web_api/http_in_memory_web_api.dart&#39;;
+
+CreateDb createDb = () =&gt; {
+      &#39;heroes&#39;: [
+        {&quot;id&quot;: &quot;1&quot;, &quot;name&quot;: &quot;Windstorm&quot;},
+        {&quot;id&quot;: &quot;2&quot;, &quot;name&quot;: &quot;Bombasto&quot;},
+        {&quot;id&quot;: &quot;3&quot;, &quot;name&quot;: &quot;Magneta&quot;},
+        {&quot;id&quot;: &quot;4&quot;, &quot;name&quot;: &quot;Tornado&quot;}
+      ]
+    };
+
+BrowserClient HttpClientBackendServiceFactory() =&gt;
+  new HttpClientInMemoryBackendService(createDb);
+</code-example><p>Ensure that the <code>HeroService</code> endpoint refers to the web API:</p>
+<code-example language="dart" format=".">final String _heroesUrl = &#39;app/heroes&#39;;  // URL to web API
+</code-example><p>Finally, we need to redirect client HTTP requests to the in-memory web API.</p>
+<p>To achieve this, we have Angular inject an in-memory web API server
+instance as a provider for the <code>BrowserClient</code>. This is possible because
+the in-memory web API server class extends <code>BrowserClient</code>. Here are the
+pertinent details, excerpt from <code>TohComponent</code>:</p>
+<div class="example-title">lib/toh_component.dart (excerpt)</div><code-example language="dart" format=".">/* ... */
+import &#39;package:server_communication/hero_data.dart&#39;;
+
+@Component(
+    /* ... */
+    providers: const [
+      HeroService,
+      // in-memory web api providers
+      const Provider(BrowserClient,
+          useFactory: HttpClientBackendServiceFactory)
+    ])
+class TohComponent {}
+</code-example><p>See the full source code in the <a href="https://angular-examples.github.io/server-communication">live example</a> (<a href="https://github.com/angular-examples/server-communication">view source</a>).</p><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/dart/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>

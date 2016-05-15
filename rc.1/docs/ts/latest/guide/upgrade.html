@@ -1,0 +1,2787 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Upgrading from 1.x - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/ts/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title is-nav-title-selected">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/npm-packages.html" title="Details of the recommended npm packages and the different kinds of package dependencies">Npm Packages</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/testing.html" title="Techniques and practices for testing an Angular 2 app">Testing</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/typescript-configuration.html" title="TypeScript configuration for Angular 2 developers">TypeScript Configuration</a></li><li class="nav-list-item is-selected"><a href="/docs/ts/latest/guide/upgrade.html" title="Angular 1 applications can be incrementally upgraded to Angular 2.">Upgrading from 1.x</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/webpack.html" title="Create your Angular 2 applications with a Webpack based tooling">Introduction to Webpack</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title ">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/a1-a2-quick-reference.html" title="Learn how Angular 1 concepts and techniques map to Angular 2">Angular 1 to 2 Quick Ref</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dependency-injection.html" title="Techniques for Dependency Injection">Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dynamic-form.html" title="Render dynamic forms with NgFormModel">Dynamic Form</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/ts-to-js.html" title="Convert Angular 2 TypeScript examples into ES5 JavaScript">TypeScript to JavaScript</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">Upgrading from 1.x</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/upgrade.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/upgrade.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/upgrade.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Angular 1 applications can be incrementally upgraded to Angular 2.</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><p>Having an existing Angular 1 application doesn&#39;t mean that we can&#39;t
+begin enjoying everything Angular 2 has to offer. That&#39;s because Angular 2
+comes with built-in tools for migrating Angular 1 projects over to the
+Angular 2 platform.</p>
+<p>Some applications will be easier to upgrade than others, and there are
+ways in which we can make it easier for ourselves. It is possible to
+prepare and align Angular 1 applications with Angular 2 even before beginning
+the upgrade process. These preparation steps are all about making the code
+more decoupled, more maintainable, and up to speed with modern development
+tools. That means the preparation work will not only make the eventual upgrade
+easier, but will also generally improve our Angular 1 applications.</p>
+<p>One of the keys to a successful upgrade is to do it incrementally,
+by running the two frameworks side by side in the same application, and
+porting Angular 1 components to Angular 2 one by one. This makes it possible
+to upgrade even large and complex applications without disrupting other
+business, because the work can be done collaboratively and spread over
+a period of time. The <code>upgrade</code> module in Angular 2 has been designed to
+make incremental upgrading seamless.</p>
+<ol>
+<li><a href="#preparation">Preparation</a><ol>
+<li><a href="#following-the-angular-style-guide">Following The Angular Style Guide</a></li>
+<li><a href="#using-a-module-loader">Using a Module Loader</a></li>
+<li><a href="#migrating-to-typescript">Migrating to TypeScript</a></li>
+<li><a href="#using-component-directives">Using Component Directives</a></li>
+</ol>
+</li>
+<li><a href="#upgrading-with-the-upgrade-adapter">Upgrading with The Upgrade Adapter</a><ol>
+<li><a href="#how-the-upgrade-adapter-works">How The Upgrade Adapter Works</a></li>
+<li><a href="#bootstrapping-hybrid-angular-1-2-applications">Bootstrapping Hybrid Angular 1+2 Applications</a></li>
+<li><a href="#using-angular-2-components-from-angular-1-code">Using Angular 2 Components from Angular 1 Code</a></li>
+<li><a href="#using-angular-1-component-directives-from-angular-2-code">Using Angular 1 Component Directives from Angular 2 Code</a></li>
+<li><a href="#projecting-angular-1-content-into-angular-2-components">Projecting Angular 1 Content into Angular 2 Components</a></li>
+<li><a href="#transcluding-angular-2-content-into-angular-1-component-directives">Transcluding Angular 2 Content into Angular 1 Component Directives</a></li>
+<li><a href="#making-angular-1-dependencies-injectable-to-angular-2">Making Angular 1 Dependencies Injectable to Angular 2</a></li>
+<li><a href="#making-angular-2-dependencies-injectable-to-angular-1">Making Angular 2 Dependencies Injectable to Angular 1</a></li>
+</ol>
+</li>
+<li><p><a href="#phonecat-preparation-tutorial">PhoneCat Preparation Tutorial</a></p>
+<ol>
+<li><a href="#switching-to-typescript-and-module-loading">Switching to TypeScript And Module Loading</a></li>
+<li><a href="#preparing-unit-and-e2e-tests">Preparing Unit and E2E Tests</a></li>
+<li><a href="#enjoying-the-benefits-of-typescript">Enjoying The Benefits of TypeScript</a></li>
+</ol>
+</li>
+<li><p><a href="#phonecat-upgrade-tutorial">PhoneCat Upgrade Tutorial</a></p>
+<ol>
+<li><a href="#bootstrapping-a-hybrid-1-2-phonecat">Bootstrapping A Hybrid 1+2 PhoneCat</a></li>
+<li><a href="#upgrading-the-phone-factory">Upgrading the Phone factory</a></li>
+<li><a href="#upgrading-controllers-to-components">Upgrading Controllers to Components</a></li>
+<li><a href="#switching-to-the-angular-2-router-and-bootstrap">Switching To The Angular 2 Router And Bootstrap</a></li>
+<li><a href="#saying-goodbye-to-angular-1">Saying Goodbye to Angular 1</a></li>
+</ol>
+</li>
+</ol>
+<div class="l-main-section"></div><h1 id="preparation">Preparation</h1>
+<p>There are many ways to structure Angular 1 applications. When we begin
+to upgrade these applications to Angular 2, some will turn out to be
+much more easy to work with than others. There are a few key techniques
+and patterns that we can apply to future proof our apps even before we
+begin the migration.</p>
+<h2 id="following-the-angular-style-guide">Following The Angular Style Guide</h2>
+<p>The <a href="https://github.com/johnpapa/angular-styleguide">Angular Style Guide</a>
+collects patterns and practices that have been proven to result in
+cleaner and more maintainable Angular 1 applications. It contains a wealth
+of information about how to write and organize Angular code - and equally
+importantly - how <strong>not</strong> to write and organize Angular code.</p>
+<p>Angular 2 is a reimagined version of the best parts of Angular 1. In that
+sense, its goals are the same as the Angular Style Guide&#39;s: To preserve
+the good parts of Angular 1, and to avoid the bad parts. There&#39;s a lot
+more to Angular 2 than just that of course, but this does mean that
+<em>following the style guide helps make your Angular 1 app more closely
+aligned with Angular 2</em>.</p>
+<p>There are a few rules in particular that will make it much easier to do
+<em>an incremental upgrade</em> using the Angular 2 <code>upgrade</code> module:</p>
+<ul>
+<li>The <a href="https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#single-responsibility">Rule of 1</a>
+states that there should be one component per file. This not only makes
+components easy to navigate and find, but will also allow us to migrate
+them between languages and frameworks one at a time. In this example application,
+each controller, factory, and filter is in its own source file.</li>
+<li>The <a href="https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#folders-by-feature-structure">Folders-by-Feature Structure</a>
+and <a href="https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#modularity">Modularity</a>
+rules define similar principles on a higher level of abstraction: Different parts of the
+application should reside in different directories and Angular modules.</li>
+</ul>
+<p>When an application is laid out feature per feature in this way, it can also be
+migrated one feature at a time. For applications that don&#39;t already look like
+this, applying the rules in the Angular style guide is a highly recommended
+preparation step. And this is not just for the sake of the upgrade - it is just
+solid advice in general!</p>
+<h2 id="using-a-module-loader">Using a Module Loader</h2>
+<p>When we break application code down into one component per file, we often end
+up with a project structure with a large number of relatively small files. This is
+a much neater way to organize things than a small number of large files, but it
+doesn&#39;t work that well if you have to load all those files to the HTML page with
+<code>&lt;script&gt;</code> tags. Especially when you also have to maintain those tags in the correct
+order. That&#39;s why it&#39;s a good idea to start using a <em>module loader</em>.</p>
+<p>Using a module loader such as <a href="https://github.com/systemjs/systemjs">SystemJS</a>,
+<a href="http://webpack.github.io/">Webpack</a>, or <a href="http://browserify.org/">Browserify</a>
+allows us to use the built-in module systems of the TypeScript or ES2015 languages in our apps.
+We can use the <code>import</code> and <code>export</code> features that explicitly specify what code can
+and will be shared between different parts of the application. For ES5 applications
+we can use CommonJS style <code>require</code> and <code>module.exports</code> features. In both cases,
+the module loader will then take care of loading all the code the application needs
+in the correct order.</p>
+<p>When we then take our applications into production, module loaders also make it easier
+to package them all up into production bundles with batteries included.</p>
+<h2 id="migrating-to-typescript">Migrating to TypeScript</h2>
+<p>If part of our Angular 2 upgrade plan is to also take TypeScript into use, it makes
+sense to bring in the TypeScript compiler even before the upgrade itself begins.
+This means there&#39;s one less thing to learn and think about during the actual upgrade.
+It also means we can start using TypeScript features in our Angular 1 code.</p>
+<p>Since TypeScript is a superset of ECMAScript 2015, which in turn is a superset
+of ECMAScript 5, &quot;switching&quot; to TypeScript doesn&#39;t necessarily require anything
+more than installing the TypeScript compiler and switching renaming files from
+<code>*.js</code> to <code>*.ts</code>. But just doing that is not hugely useful or exciting, of course.
+Additional steps like the following can give us much more bang for the buck:</p>
+<ul>
+<li>For applications that use a module loader, TypeScript imports and exports
+(which are really ECMAScript 2015 imports and exports) can be used to organize
+code into modules.</li>
+<li>Type annotations can be gradually added to existing functions and variables
+to pin down their types and get benefits like build-time error checking,
+great autocompletion support and inline documentation.</li>
+<li>JavaScript features new to ES2015, like <code>let</code>s and <code>const</code>s, default function
+parameters, and destructuring assignments can also be gradually added to make
+the code more expressive.</li>
+<li>Services and controllers can be turned into <em>classes</em>. That way they&#39;ll be a step
+closer to becoming Angular 2 service and component classes, which will make our
+life easier once we do the upgrade.</li>
+</ul>
+<h2 id="using-component-directives">Using Component Directives</h2>
+<p>In Angular 2, components are the main primitive from which user interfaces
+are built. We define the different parts of our UIs as components, and then
+compose the UI by using components in our templates.</p>
+<p>You can also do this in Angular 1, using <em>component directives</em>. These are
+directives that define their own templates, controllers, and input/output bindings -
+the same things that Angular 2 components define. Applications built with
+component directives are much easier to migrate to Angular 2 than applications
+built with lower-level features like <code>ng-controller</code>,  <code>ng-include</code>, and scope
+inheritance.</p>
+<p>To be Angular 2 compatible, an Angular 1 component directive should configure
+these attributes:</p>
+<ul>
+<li><code>restrict: &#39;E&#39;</code>. Components are usually used as elements.</li>
+<li><code>scope: {}</code> - an isolate scope. In Angular 2, components are always isolated
+from their surroundings, and we should do this in Angular 1 too.</li>
+<li><code>bindToController: {}</code>. Component inputs and outputs should be bound
+to the controller instead of using the <code>$scope</code>. </li>
+<li><code>controller</code> and <code>controllerAs</code>. Components have their own controllers.</li>
+<li><code>template</code> or <code>templateUrl</code>. Components have their own templates.</li>
+</ul>
+<p>Component directives may also use the following attributes:</p>
+<ul>
+<li><code>transclude: true</code>, if the component needs to transclude content from elsewhere.</li>
+<li><code>require</code>, if the component needs to communicate with some parent component&#39;s
+controller.</li>
+</ul>
+<p>Component directives <strong>may not</strong> use the following attributes:</p>
+<ul>
+<li><code>compile</code>. This will not be supported in Angular 2.</li>
+<li><code>replace: true</code>. Angular 2 never replaces a component element with the
+component template. This attribute is also deprecated in Angular 1.</li>
+<li><code>priority</code> and <code>terminal</code>. While Angular 1 components may use these,
+they are not used in Angular 2 and it is better not to write code
+that relies on them.</li>
+</ul>
+<p>An Angular 1 component directive that is fully aligned with the Angular 2
+architecture may look something like this:</p>
+<code-example language="ts" format="linenums">export function heroDetailDirective() {
+  return {
+    scope: {},
+    bindToController: {
+      hero: &#39;=&#39;,
+      deleted: &#39;&amp;&#39;
+    },
+    template: `
+      &lt;h2&gt;{{ctrl.hero.name}} details!&lt;/h2&gt;
+      &lt;div&gt;&lt;label&gt;id: &lt;/label&gt;{{ctrl.hero.id}}&lt;/div&gt;
+      &lt;button ng-click=&quot;ctrl.onDelete()&quot;&gt;Delete&lt;/button&gt;
+    `,
+    controller: function() {
+      this.onDelete = () =&gt; {
+        this.deleted({hero: this.hero});
+      };
+    },
+    controllerAs: &#39;ctrl&#39;
+  }
+}
+</code-example><p>Angular 1.5 introduces the <a href="https://docs.angularjs.org/api/ng/type/angular.Module">component API</a>
+that makes it easier to define directives like these. It is a good idea to use
+this API for component directives for several reasons:</p>
+<ul>
+<li>It requires less boilerplate code.</li>
+<li>It enforces the use of component best practices like <code>controllerAs</code>.</li>
+<li>It has good default values for directive attributes like <code>scope</code>,
+<code>restrict</code>, and <code>transclude</code>.</li>
+</ul>
+<p>The component directive example from above looks like this when expressed
+using the component API:</p>
+<code-example language="ts" format="linenums">export const heroDetail = {
+  bindings: {
+    hero: &#39;=&#39;,
+    deleted: &#39;&amp;&#39;
+  },
+  template: `
+    &lt;h2&gt;{{$ctrl.hero.name}} details!&lt;/h2&gt;
+    &lt;div&gt;&lt;label&gt;id: &lt;/label&gt;{{$ctrl.hero.id}}&lt;/div&gt;
+    &lt;button ng-click=&quot;$ctrl.onDelete()&quot;&gt;Delete&lt;/button&gt;
+  `,
+  controller: function() {
+    this.onDelete = () =&gt; {
+      this.deleted(this.hero);
+    };
+  }
+};
+</code-example><div class="l-main-section"></div><h1 id="upgrading-with-the-upgrade-adapter">Upgrading with The Upgrade Adapter</h1>
+<p>The <code>upgrade</code> module in Angular 2 is a very useful tool for upgrading
+anything but the smallest of applications. With it we can mix and match
+Angular 1 and 2 components in the same application and have them interoperate
+seamlessly. That means we don&#39;t have to do the upgrade work all at once,
+since there&#39;s a natural coexistence between the two frameworks during the
+transition period.</p>
+<h2 id="how-the-upgrade-adapter-works">How The Upgrade Adapter Works</h2>
+<p>The primary tool provided by the upgrade module is called the <code>UpgradeAdapter</code>.
+This is a service that can bootstrap and manage hybrid applications that support
+both Angular 2 and Angular 1 code.</p>
+<p>When we use <code>UpgradeAdapter</code>, what we&#39;re really doing is <em>running both versions
+of Angular at the same time</em>. All Angular 2 code is running in the Angular 2
+framework, and Angular 1 code in the Angular 1 framework. Both of these are the
+actual, fully featured versions of the frameworks. There is no emulation going on,
+so we can expect to have all the features and natural behavior of both frameworks.</p>
+<p>What happens on top of this is that components and services managed by one
+framework can interoperate with those from the other framework. This happens
+in three main areas: Dependency injection, the DOM, and change detection.</p>
+<h3 id="dependency-injection">Dependency Injection</h3>
+<p>Dependency injection is front and center in both Angular 1 and
+Angular 2, but there are some key differences between the two
+frameworks in how it actually works.</p>
+<table><tr><th>Angular 1</th><th>Angular 2</th></tr><tr><td><p>Dependency injection tokens are always strings</p>
+</td><td><p>Tokens <a href="../guide/dependency-injection.html">can have different types</a>.
+They are often classes. They may also be strings.</p>
+</td></tr><tr><td><p>There is exactly one injector. Even in multi-module applications,
+everything is poured into one big namespace.</p>
+</td><td><p>There is a <a href="../guide/hierarchical-dependency-injection.html">tree hierarchy of injectors</a>,
+with a root injector and an additional injector for each component.</p>
+</td></tr></table><p>Even accounting for these differences we can still have dependency injection
+interoperability. The <code>UpgradeAdapter</code> resolves the differences and makes
+everything work seamlessly:</p>
+<ul>
+<li>We can make Angular 1 services available for injection to Angular 2 code
+by <em>upgrading</em> them. The same singleton instance of each service is shared
+between the frameworks. In Angular 2 these services will always be in the
+<em>root injector</em> and available to all components. They will always have
+<em>string tokens</em> - the same tokens that they have in Angular 1.</li>
+<li>We can also make Angular 2 services available for injection to Angular 1 code
+by <em>downgrading</em> them. Only services from the Angular 2 root injector can
+be downgraded. Again, the same singleton instances are shared between the frameworks.
+When we register a downgrade, we explicitly specify a <em>string token</em> that we want to
+use in Angular 1.</li>
+</ul>
+<figure class="image-display"><img src="/resources/images/devguide/upgrade/injectors.png" alt="The two injectors in a hybrid application" width="700"></figure><h3 id="components-and-the-dom">Components and the DOM</h3>
+<p>What we&#39;ll find in the DOM of a hybrid application are components and
+directives from both Angular 1 and Angular 2. These components
+communicate with each other by using the input and output bindings
+of their respective frameworks, which the <code>UpgradeAdapter</code> bridges
+together. They may also communicate through shared injected dependencies,
+as described above.</p>
+<p>There are two key things to understand about what happens in the DOM
+of a hybrid application:</p>
+<ol>
+<li>Every element in the DOM is owned by exactly one of the two
+frameworks. The other framework ignores it. If an element is
+owned by Angular 1, Angular 2 treats it as if it didn&#39;t exist,
+and vice versa.</li>
+<li>The root of the application <em>is always an Angular 1 template</em>.</li>
+</ol>
+<p>So a hybrid application begins life as an Angular 1 application,
+and it is Angular 1 that processes its root template. Angular 2 then steps
+into the picture when an Angular 2 component is used somewhere in
+the application templates. That component&#39;s view will then be managed
+by Angular 2, and it may use any number of Angular 2 components and
+directives.</p>
+<p>Beyond that, we may interleave the two frameworks as much as we need to.
+We always cross the boundary between the two frameworks by one of two
+ways:</p>
+<ol>
+<li>By using a component from the other framework: An Angular 1 template
+using an Angular 2 component, or an Angular 2 template using an
+Angular 1 component.</li>
+<li>By transcluding or projecting content from the other framework. The
+<code>UpgradeAdapter</code> bridges the related concepts of  Angular 1 transclusion
+and Angular 2 content projection together.</li>
+</ol>
+<figure class="image-display"><img src="/resources/images/devguide/upgrade/dom.png" alt="DOM element ownership in a hybrid application" width="500"></figure><p>Whenever we use a component that belongs to the other framework, a
+switch between framework boundaries occurs. However, that switch only
+happens to the <em>children</em> of the component element. Consider a situation
+where we use an Angular 2 component from Angular 1 like this:</p>
+<pre><code>&lt;ng2-component&gt;&lt;/ng2-component&gt;
+</code></pre><p>The DOM element <code>&lt;ng2-component&gt;</code> will remain to be an Angular 1 managed
+element, because it&#39;s defined in an Angular 1 template. That also
+means you can apply additional Angular 1 directives to it, but <em>not</em>
+Angular 2 directives. It is only in the template of the <code>Ng2Component</code>
+component where Angular 2 steps in. This same rule also applies when you
+use Angular 1 component directives from Angular 2.</p>
+<h3 id="change-detection">Change Detection</h3>
+<p>Change detection in Angular 1 is all about <code>scope.$apply()</code>. After every
+event that occurs, <code>scope.$apply()</code> gets called. This is done either
+automatically by the framework, or in some cases manually by our own
+code. It is the point in time when change detection occurs and data
+bindings get updated.</p>
+<p>In Angular 2 things are different. While change detection still
+occurs after every event, no one needs to call <code>scope.$apply()</code> for
+that to happen. This is because all Angular 2 code runs inside something
+called the <a href="../api/core/NgZone-class.html">Angular zone</a>. Angular always
+knows when the code finishes, so it also knows when it should kick off
+change detection. The code itself doesn&#39;t have to call <code>scope.$apply()</code>
+or anything like it.</p>
+<p>In the case of hybrid applications, the <code>UpgradeAdapter</code> bridges the
+Angular 1 and Angular 2 approaches. Here&#39;s what happens:</p>
+<ul>
+<li>Everything that happens in the application runs inside the Angular 2 zone.
+This is true whether the event originated in Angular 1 or Angular 2 code.
+The zone triggers Angular 2 change detection after every event.</li>
+<li>The <code>UpgradeAdapter</code> will invoke the Angular 1 <code>$rootScope.$apply()</code> after
+every turn of the Angular zone. This also triggers Angular 1 change
+detection after every event.</li>
+</ul>
+<figure class="image-display"><img src="/resources/images/devguide/upgrade/change_detection.png" alt="Change detection in a hybrid application" width="600"></figure><p>What this means in practice is that we do not need to call <code>$apply()</code> in
+our code, regardless of whether it is in Angular 1 on Angular 2. The
+<code>UpgradeAdapter</code> does it for us. We <em>can</em> still call <code>$apply()</code> so there
+is no need to remove such calls from existing code. Those calls just don&#39;t
+have any effect in a hybrid application.</p>
+<p>When we downgrade an Angular 2 component and then use it from Angular 1,
+the component&#39;s inputs will be watched using Angular 1 change detection.
+When those inputs change, the corresponding properties in the component
+are set. We can also hook into the changes by implementing the
+<a href="../api/core/OnChanges-interface.html">OnChanges</a> interface in the component,
+just like we could if it hadn&#39;t been downgraded.</p>
+<p>Correspondingly, when we upgrade an Angular 1 component and use it from Angular 2,
+all the bindings defined for the component directive&#39;s <code>scope</code> (or <code>bindToController</code>)
+will be hooked into Angular 2 change detection. They will be treated
+as regular Angular 2 inputs and set onto the scope (or controller) when
+they change.</p>
+<h2 id="bootstrapping-hybrid-angular-1-2-applications">Bootstrapping Hybrid Angular 1+2 Applications</h2>
+<p>The first step to upgrading an application using the <code>UpgradeAdapter</code> is
+always to bootstrap it as a hybrid that supports both Angular 1 and
+Angular 2.</p>
+<p>Pure Angular 1 applications can be bootstrapped in two ways: By using an <code>ng-app</code>
+directive somewhere on the HTML page, or by calling
+<a href="https://docs.angularjs.org/api/ng/function/angular.bootstrap">angular.bootstrap</a>
+from JavaScript. In Angular 2, only the second method is possible - there is
+no <code>ng-app</code> in Angular 2. This is also the case for hybrid applications.
+Therefore, it is a good preliminary step to switch Angular 1 applications to use the
+JavaScript bootstrap method even before switching them to hybrid mode.</p>
+<p>Say we have an <code>ng-app</code> driven bootstrap such as this one:</p>
+<code-example language="html" format="linenums">&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app/1-ng-app/app.module.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+
+  &lt;body <span class="otl">ng-app=&quot;heroApp&quot; ng-strict-di</span>&gt;
+    &lt;div id=&quot;message&quot; ng-controller=&quot;MainCtrl as mainCtrl&quot;&gt;{{ mainCtrl.message }}&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code-example><p>We can remove the <code>ng-app</code> and <code>ng-strict-di</code> directives from the HTML
+and instead switch to calling <code>angular.bootstrap</code> from JavaScript, which
+will result in the same thing:</p>
+<code-example language="ts" format="">angular.bootstrap(document.body, [&#39;heroApp&#39;], {strictDi: true});
+</code-example><p>To then switch the application into hybrid mode, we must first
+install Angular 2 to the project. Follow the instructions in
+<a href="../quickstart.html">the QuickStart</a> for some pointers on this.
+When we have Angular 2 installed, we can import and instantiate
+the <code>UpgradeAdapter</code>, and then call its <code>bootstrap</code> method. It
+is designed to take the exact same arguments as
+<a href="https://docs.angularjs.org/api/ng/function/angular.bootstrap">angular.bootstrap</a>
+so that it is easy to make the switch:</p>
+<code-example language="ts" format="linenums">import { UpgradeAdapter } from &#39;@angular/upgrade&#39;;
+
+/* . . . */
+
+const upgradeAdapter = new UpgradeAdapter();
+
+upgradeAdapter.bootstrap(document.body, [&#39;heroApp&#39;], {strictDi: true});
+</code-example><p>At this point we&#39;ll be running a hybrid Angular 1+2 application! All the
+existing Angular 1 code will work as it always did, but we are now ready
+to run Angular 2 code as well.</p>
+<div class="alert is-helpful"><p>One notable difference between <code>angular.bootstrap</code> and
+<code>upgradeAdapter.bootstrap</code> is that the latter works <em>asynchronously</em>.
+This means that we cannot assume that the application has been instantiated
+immediately after the bootstrap call returns.</p>
+</div><p>As we begin to migrate components to Angular 2, we&#39;ll be using the
+<code>UpgradeAdapter</code> for more than just bootstrapping. It&#39;ll be important
+to use the <strong>same</strong> instance of the adapter across the whole application,
+because it stores internal information about what&#39;s going on in the application.
+It&#39;ll be useful to have a module for a shared <code>UpgradeAdapter</code> instance in
+the project:</p>
+<div class="example-title">upgrade_adapter.ts</div><code-example language="ts" format="linenums">import { UpgradeAdapter } from &#39;@angular/upgrade&#39;;
+export const upgradeAdapter = new UpgradeAdapter();
+</code-example><p>This shared instance can then be pulled in to all the modules that need it:</p>
+<code-example language="ts" format="linenums">import { upgradeAdapter } from &#39;./upgrade_adapter&#39;;
+
+/* . . . */
+
+upgradeAdapter.bootstrap(document.body, [&#39;heroApp&#39;], {strictDi: true});
+</code-example><h2 id="using-angular-2-components-from-angular-1-code">Using Angular 2 Components from Angular 1 Code</h2>
+<figure><img src="/resources/images/devguide/upgrade/a1-to-a2.png" alt="Using an Angular 2 component from Angular 1 code" align="left" style="width:250px; margin-left:-40px;margin-right:10px"></figure><p>Once we&#39;re running a hybrid app, we can start the gradual process of upgrading
+code. One of the more common patterns for doing that is to use an Angular 2 component
+in an Angular 1 context. This could be a completely new component or one that was
+previously Angular 1 but has been rewritten for Angular 2.</p>
+<p>Say we have a simple Angular 2 component that shows information about a hero:</p>
+<div class="example-title">hero-detail.component.ts</div><code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+
+@Component({
+  selector: &#39;hero-detail&#39;,
+  template: `
+    &lt;h2&gt;Windstorm details!&lt;/h2&gt;
+    &lt;div&gt;&lt;label&gt;id: &lt;/label&gt;1&lt;/div&gt;
+  `
+})
+export class HeroDetailComponent {
+
+}
+</code-example><p>If we want to use this component from Angular 1, we need to <em>downgrade</em> it
+using the upgrade adapter. What we get when we do that is an Angular 1
+<em>directive</em>, which we can then register into our Angular 1 module:</p>
+<code-example language="ts" format="linenums">import { HeroDetailComponent } from &#39;./hero-detail.component&#39;;
+
+/* . . . */
+
+angular.module(&#39;heroApp&#39;, [])
+  .directive(&#39;heroDetail&#39;, upgradeAdapter.downgradeNg2Component(HeroDetailComponent));
+</code-example><p>What we have here is an Angular 1 directive called <code>heroDetail</code>, which we can
+use like any other directive in our Angular 1 templates. </p>
+<code-example language="html" format="">&lt;hero-detail&gt;&lt;/hero-detail&gt;
+</code-example><div class="alert is-helpful"><p>Note that since Angular 1 directives are matched based on their name,
+<em>the selector metadata of the Angular 2 component is not used in Angular 1</em>.
+It is matched as an element directive (<code>restrict: &#39;E&#39;</code>) called <code>heroDetail</code>.</p>
+</div><p>Most components are not quite this simple, of course. Many of them
+have <em>inputs and outputs</em> that connect them to the outside world. An
+Angular 2 hero detail component with inputs and outputs might look
+like this:</p>
+<div class="example-title">hero-detail.component.ts</div><code-example language="ts" format="linenums">import { Component, EventEmitter, Input, Output } from &#39;@angular/core&#39;;
+import {Hero} from &#39;../hero&#39;;
+
+@Component({
+  selector: &#39;hero-detail&#39;,
+  template: `
+    &lt;h2&gt;{{hero.name}} details!&lt;/h2&gt;
+    &lt;div&gt;&lt;label&gt;id: &lt;/label&gt;{{hero.id}}&lt;/div&gt;
+    &lt;button (click)=&quot;onDelete()&quot;&gt;Delete&lt;/button&gt;
+  `
+})
+export class HeroDetailComponent {
+  @Input() hero:Hero
+  @Output() deleted = new EventEmitter&lt;Hero&gt;();
+  onDelete() {
+    this.deleted.emit(this.hero);
+  }
+}
+</code-example><p>These inputs and outputs can be supplied from the Angular 1 template, and the
+<code>UpgradeAdapter</code> takes care of bridging them over:</p>
+<code-example language="html" format="linenums">&lt;div ng-controller=&quot;MainController as mainCtrl&quot;&gt;
+  &lt;hero-detail [hero]=&quot;mainCtrl.hero&quot;
+              (deleted)=&quot;mainCtrl.onDelete($event)&quot;&gt;
+  &lt;/hero-detail&gt;
+&lt;/div&gt;
+</code-example><p>Note that even though we are in an Angular 1 template, <strong>we&#39;re using Angular 2
+attribute syntax to bind the inputs and outputs</strong>. This is a requirement for downgraded
+components. The expressions themselves are still regular Angular 1 expressions.</p>
+<p>The <code>$event</code> variable can be used in outputs to gain access to the
+object that was emitted. In this case it will be the <code>Hero</code> object, because
+that is what was passed to <code>this.deleted.emit()</code>.</p>
+<p>Since this is an Angular 1 template, we can still use other Angular 1
+directives on the element, even though it has Angular 2 binding attributes on it.
+For  example, we can easily make multiple copies of the component using <code>ng-repeat</code>:</p>
+<code-example language="html" format="linenums">&lt;div ng-controller=&quot;MainController as mainCtrl&quot;&gt;
+  &lt;hero-detail [hero]=&quot;hero&quot;
+              (deleted)=&quot;mainCtrl.onDelete($event)&quot;
+              ng-repeat=&quot;hero in mainCtrl.heroes&quot;&gt;
+  &lt;/hero-detail&gt;
+&lt;/div&gt;
+</code-example><h2 id="using-angular-1-component-directives-from-angular-2-code">Using Angular 1 Component Directives from Angular 2 Code</h2>
+<figure><img src="/resources/images/devguide/upgrade/a2-to-a1.png" alt="Using an Angular 1 component from Angular 2 code" align="left" style="width:250px; margin-left:-40px;margin-right:10px"></figure><p>So, we can write an Angular 2 component and then use it from Angular 1
+code. This is very useful when we start our migration from lower-level
+components and work our way up. But in some cases it is more convenient
+to do things in the opposite order: To start with higher-level components
+and work our way down. This too can be done using the <code>UpgradeAdapter</code>.
+We can <em>upgrade</em> Angular 1 component directives and then use them from
+Angular 2.</p>
+<p>Not all kinds of Angular 1 directives can be upgraded. The directive
+really has to be a <em>component directive</em>, with the characteristics
+<a href="#using-component-directives">described in the preparation guide above</a>.
+Our safest bet for ensuring compatibility is using the
+<a href="https://docs.angularjs.org/api/ng/type/angular.Module">component API</a> 
+introduced in Angular 1.5.</p>
+<p>A simple example of an upgradable component is one that just has a template
+and a controller: </p>
+<div class="example-title">hero-detail.component.ts</div><code-example language="ts" format="linenums">export const heroDetail = {
+  template: `
+    &lt;h2&gt;Windstorm details!&lt;/h2&gt;
+    &lt;div&gt;&lt;label&gt;id: &lt;/label&gt;1&lt;/div&gt;
+  `,
+  controller: function() {
+  }
+};
+</code-example><p>We can <em>upgrade</em> this component to Angular 2 using the <code>UpgradeAdapter</code>&#39;s
+<code>upgradeNg1Component</code> method. It takes the name of an Angular 1 component
+directive and returns an Angular 2 <strong>component class</strong>. When we then
+want to use it from an Angular 2 component, we list it the in the <code>directives</code>
+metadata of the component and then just use it in the Angular 2 template:</p>
+<div class="example-title">container.component.ts</div><code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { upgradeAdapter } from &#39;./upgrade_adapter&#39;;
+
+const HeroDetail = upgradeAdapter.upgradeNg1Component(&#39;heroDetail&#39;);
+
+@Component({
+  selector: &#39;my-container&#39;,
+  template: `
+    &lt;h1&gt;Tour of Heroes&lt;/h1&gt;
+    &lt;hero-detail&gt;&lt;/hero-detail&gt;
+  `,
+  directives: [HeroDetail]
+})
+export class ContainerComponent {
+
+}
+</code-example><div class="alert is-helpful"><p>Upgraded components always have an element selector, which is based
+on the original name of the original Angular 1 component directive.</p>
+</div><p>An upgraded component may also have inputs and outputs, as defined by
+the scope/controller bindings of the original Angular 1 component
+directive. When we use the component from an Angular 2 template,
+we provide the inputs and outputs using <strong>Angular 2 template syntax</strong>,
+with the following rules:</p>
+<table><tr><th></th><th>Binding definition</th><th>Template syntax</th></tr><tr><th>Attribute binding</th><td><p><code>myAttribute: &#39;@myAttribute&#39;</code></p>
+</td><td><p><code>&lt;my-component myAttribute=&quot;value&quot;&gt;</code></p>
+</td></tr><tr><th>Expression binding</th><td><p><code>myOutput: &#39;&amp;myOutput&#39;</code></p>
+</td><td><p><code>&lt;my-component (myOutput)=&quot;action()&quot;&gt;</code></p>
+</td></tr><tr><th>Two-way binding</th><td><p><code>myValue: &#39;=myValue&#39;</code></p>
+</td><td><p>As input: <code>&lt;my-component [myValue]=&quot;anExpression&quot;&gt;</code> or
+as two-way binding: <code>&lt;my-component [(myValue)]=&quot;anExpression&quot;</code></p>
+</td></tr></table><p>As an example, say we have a hero detail Angular 1 component directive
+with one input and one output:</p>
+<div class="example-title">hero-detail.component.ts</div><code-example language="ts" format="linenums">export const heroDetail = {
+  bindings: {
+    hero: &#39;=&#39;,
+    deleted: &#39;&amp;&#39;
+  },
+  template: `
+    &lt;h2&gt;{{$ctrl.hero.name}} details!&lt;/h2&gt;
+    &lt;div&gt;&lt;label&gt;id: &lt;/label&gt;{{$ctrl.hero.id}}&lt;/div&gt;
+    &lt;button ng-click=&quot;$ctrl.onDelete()&quot;&gt;Delete&lt;/button&gt;
+  `,
+  controller: function() {
+    this.onDelete = () =&gt; {
+      this.deleted(this.hero);
+    };
+  }
+};
+</code-example><p>We can upgrade this component to Angular 2, and then provide the input
+and output using Angular 2 template syntax:</p>
+<div class="example-title">container.component.ts</div><code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { upgradeAdapter } from &#39;./upgrade_adapter&#39;;
+import { Hero } from &#39;../Hero&#39;;
+
+const HeroDetail = upgradeAdapter.upgradeNg1Component(&#39;heroDetail&#39;);
+
+@Component({
+  selector: &#39;my-container&#39;,
+  template: `
+    &lt;h1&gt;Tour of Heroes&lt;/h1&gt;
+    &lt;hero-detail [hero]=&quot;hero&quot;
+                 (deleted)=&quot;heroDeleted($event)&quot;&gt;
+    &lt;/hero-detail&gt;
+  `,
+  directives: [HeroDetail]
+})
+export class ContainerComponent {
+  hero = new Hero(1, &#39;Windstorm&#39;);
+  heroDeleted(hero:Hero) {
+    hero.name = &#39;Ex-&#39; + hero.name;
+  }
+}
+</code-example><h2 id="projecting-angular-1-content-into-angular-2-components">Projecting Angular 1 Content into Angular 2 Components</h2>
+<figure><img src="/resources/images/devguide/upgrade/a1-to-a2-with-projection.png" alt="Projecting Angular 1 content into Angular 2" align="left" style="width:250px; margin-left:-40px;margin-right:10px"></figure><p>When we are using a downgraded Angular 2 component from an Angular 1
+template, the need may arise to <em>transclude</em> some content into it. This
+is also possible. While there is no such thing as transclusion in Angular 2,
+there is a very similar concept called <em>content projection</em>. The <code>UpgradeAdapter</code>
+is able to make these two features interoperate.</p>
+<p>Angular 2 components that support content projection make use of an <code>&lt;ng-content&gt;</code>
+tag within them. Here&#39;s an example of such a component:</p>
+<div class="example-title">hero-detail.component.ts</div><code-example language="ts" format="linenums">import { Component, Input } from &#39;@angular/core&#39;;
+import { Hero } from &#39;../hero&#39;;
+
+@Component({
+  selector: &#39;hero-detail&#39;,
+  template: `
+    &lt;h2&gt;{{hero.name}}&lt;/h2&gt;
+    &lt;div&gt;
+      &lt;ng-content&gt;&lt;/ng-content&gt;
+    &lt;/div&gt;
+  `
+})
+export class HeroDetailComponent {
+  @Input() hero: Hero;
+}
+</code-example><p>When using the component from Angular 1, we can supply contents for it. Just
+like they would be transcluded in Angular 1, they get projected to the location
+of the <code>&lt;ng-content&gt;</code> tag in Angular 2:</p>
+<code-example language="html" format="linenums">&lt;div ng-controller=&quot;MainController as mainCtrl&quot;&gt;
+  &lt;hero-detail [hero]=&quot;mainCtrl.hero&quot;&gt;
+    &lt;!-- Everything here will get projected --&gt;
+    &lt;p&gt;{{mainCtrl.hero.description}}&lt;/p&gt;
+  &lt;/hero-detail&gt;
+&lt;/div&gt;
+</code-example><div class="alert is-helpful"><p>When Angular 1 content gets projected inside an Angular 2 component, it still
+remains in &quot;Angular 1 land&quot; and is managed by the Angular 1 framework.</p>
+</div><h2 id="transcluding-angular-2-content-into-angular-1-component-directives">Transcluding Angular 2 Content into Angular 1 Component Directives</h2>
+<figure><img src="/resources/images/devguide/upgrade/a2-to-a1-with-transclusion.png" alt="Projecting Angular 2 content into Angular 1" align="left" style="width:250px; margin-left:-40px;margin-right:10px"></figure><p>Just like we can project Angular 1 content into Angular 2 components,
+we can <em>transclude</em> Angular 2 content into Angular 1 components, whenever
+we are using upgraded versions from them.</p>
+<p>When an Angular 1 component directive supports transclusion, it may use
+the <code>ng-transclude</code> directive in its template to mark the transclusion
+point:</p>
+<div class="example-title">hero-detail.component.ts</div><code-example language="ts" format="linenums">export const heroDetailComponent = {
+  bindings: {
+    hero: &#39;=&#39;
+  },
+  template: `
+    &lt;h2&gt;{{$ctrl.hero.name}}&lt;/h2&gt;
+    &lt;div&gt;
+      &lt;ng-transclude&gt;&lt;/ng-transclude&gt;
+    &lt;/div&gt;
+  `
+};
+</code-example><div class="alert is-helpful"><p>The directive also needs to have the <code>transclude: true</code> option enabled.
+It is on by default for component directives defined with the
+1.5 component API.</p>
+</div><p>If we upgrade this component and use it from Angular 2, we can populate
+the component tag with contents that will then get transcluded:</p>
+<div class="example-title">container.component.ts</div><code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { upgradeAdapter } from &#39;./upgrade_adapter&#39;;
+import { Hero } from &#39;../Hero&#39;;
+
+const HeroDetail = upgradeAdapter.upgradeNg1Component(&#39;heroDetail&#39;);
+
+@Component({
+  selector: &#39;my-container&#39;,
+  template: `
+    &lt;hero-detail [hero]=&quot;hero&quot;&gt;
+      &lt;!-- Everything here will get transcluded --&gt;
+      &lt;p&gt;{{hero.description}}&lt;/p&gt;
+    &lt;/hero-detail&gt;
+  `,
+  directives: [HeroDetail]
+})
+export class ContainerComponent {
+  hero = new Hero(1, &#39;Windstorm&#39;, &#39;Specific powers of controlling winds&#39;);
+}
+</code-example><h2 id="making-angular-1-dependencies-injectable-to-angular-2">Making Angular 1 Dependencies Injectable to Angular 2</h2>
+<p>When running a hybrid app, we may bump into situations where we need to have
+some Angular 1 dependencies to be injected to Angular 2 code. This may be
+because we have some business logic still in Angular 1 services, or because
+we need some of Angular 1&#39;s built-in services like <code>$location</code> or <code>$timeout</code>.</p>
+<p>In these situations, it is possible to <em>upgrade</em> an Angular 1 provider to
+Angular 2. This makes it possible to then inject it somewhere in Angular 2
+code. For example, we might have a service called <code>HeroesService</code> in Angular 1:</p>
+<div class="example-title">heroes.service.ts</div><code-example language="ts" format="linenums">import { Hero } from &#39;../hero&#39;;
+
+export class HeroesService {
+  get() {
+    return [
+      new Hero(1, &#39;Windstorm&#39;),
+      new Hero(2, &#39;Spiderman&#39;)
+    ];
+  }
+}
+</code-example><p>We can upgrade the service using the <code>UpgradeAdapter</code>&#39;s <code>upgradeNg1Provider</code> method
+by giving it the name of the service. This adds the service into Angular 2&#39;s root injector.</p>
+<div class="example-title">app.module.ts</div><code-example language="ts" format="linenums">angular.module(&#39;heroApp&#39;, [])
+  .service(&#39;heroes&#39;, HeroesService)
+  .directive(&#39;heroDetail&#39;, upgradeAdapter.downgradeNg2Component(HeroDetailComponent));
+
+upgradeAdapter.upgradeNg1Provider(&#39;heroes&#39;);
+</code-example><p>We can then inject it in Angular 2 using a string token that matches
+its original name in Angular 1:</p>
+<div class="example-title">hero-detail.component.ts</div><code-example language="ts" format="linenums">import { Component, Inject } from &#39;@angular/core&#39;;
+import { HeroesService } from &#39;./heroes.service&#39;;
+import { Hero } from &#39;../hero&#39;;
+
+@Component({
+  selector: &#39;hero-detail&#39;,
+  template: `
+    &lt;h2&gt;{{hero.id}}: {{hero.name}}&lt;/h2&gt;
+  `
+})
+export class HeroDetailComponent {
+  hero:Hero;
+  constructor(@Inject(&#39;heroes&#39;) heroes:HeroesService) {
+    this.hero = heroes.get()[0];
+  }
+}
+</code-example><div class="alert is-helpful"><p>In this example we upgraded a service class, which has the added benefit that
+we can use a TypeScript type annotation when we inject it. While it doesn&#39;t
+affect how the dependency is handled, it enables the benefits of static type
+checking. This is not required though, and any Angular 1 service, factory, or
+provider can be upgraded.</p>
+</div><h2 id="making-angular-2-dependencies-injectable-to-angular-1">Making Angular 2 Dependencies Injectable to Angular 1</h2>
+<p>In addition to upgrading Angular 1 dependencies, we can also <em>downgrade</em> 
+Angular 2 dependencies, so that we can use them from Angular 1. This can be
+useful when we start migrating services to Angular 2 or creating new services
+in Angular 2 while we still have components written in Angular 1.</p>
+<p>For example, we might have an Angular 2 service called <code>Heroes</code>:</p>
+<div class="example-title">heroes.ts</div><code-example language="ts" format="linenums">import { Injectable } from &#39;@angular/core&#39;;
+import { Hero } from &#39;../hero&#39;;
+
+@Injectable()
+export class Heroes {
+  get() {
+    return [
+      new Hero(1, &#39;Windstorm&#39;),
+      new Hero(2, &#39;Spiderman&#39;)
+    ];
+  }
+}
+</code-example><p>We can again use the <code>UpgradeAdapter</code> for this, but first we need to register <code>Heroes</code>
+to the Angular 2 injector itself. In a pure Angular 2 application we would do this
+when we bootstrap the app, as described in the <a href="dependency-injection.html#!#providers">dependency injection guide</a>.
+But since hybrid applications are bootstrapped using the <code>UpgradeAdapter</code>, we also
+need to register our Angular 2 providers using <code>UpgradeAdapter</code>. It has a method
+called <code>addProvider</code> for this purpose.</p>
+<p>Once we&#39;ve registered the Angular 2 provider, we can turn <code>Heroes</code> into an <em>Angular 1
+factory function</em> using <code>upgradeAdapter.downgradeNg2Provider()</code>. We can
+then plug the factory into an Angular 1 module, at which point we also choose what the
+name of the dependency will be in Angular 1:</p>
+<div class="example-title">app.module.ts</div><code-example language="ts" format="linenums">upgradeAdapter.addProvider(Heroes);
+
+angular.module(&#39;heroApp&#39;, [])
+  .factory(&#39;heroes&#39;, upgradeAdapter.downgradeNg2Provider(Heroes))
+  .component(&#39;heroDetail&#39;, heroDetailComponent)
+</code-example><p>After this, the service is injectable anywhere in our Angular 1 code:</p>
+<div class="example-title">hero-detail.component.ts</div><code-example language="ts" format="linenums">export const heroDetailComponent = {
+  template: `
+    &lt;h2&gt;{{$ctrl.hero.id}}: {{$ctrl.hero.name}}&lt;/h2&gt;
+  `,
+  controller: [&#39;heroes&#39;, function(heroes:Heroes) {
+    this.hero = heroes.get()[0];
+  }]
+};
+</code-example><div class="l-main-section"></div><h1 id="phonecat-preparation-tutorial">PhoneCat Preparation Tutorial</h1>
+<p>In this section and the one following it we will look at a complete example of
+preparing and upgrading an application using the <code>upgrade</code> module. The app
+we&#39;re going to work on is <a href="https://github.com/angular/angular-phonecat">Angular PhoneCat</a>
+from <a href="https://docs.angularjs.org/tutorial">the original Angular 1 tutorial</a>,
+which is where many of us began our Angular adventures. Now we&#39;ll see how to
+bring that application to the brave new world of Angular 2.</p>
+<p>During the process we&#39;ll learn how to apply the steps outlined in the 
+<a href="#preparation">preparation guide</a> in practice: We&#39;ll align the application
+with Angular 2 and also take both the SystemJS module loader and TypeScript
+into use.</p>
+<p>To follow along with the tutorial, clone the
+<a href="https://github.com/angular/angular-phonecat">angular-phonecat</a> repository
+and apply the steps as we go</p>
+<div class="alert is-important"><p>If you do clone this repository, note that it doesn&#39;t look like this guide
+assumes yet. There&#39;s <a href="https://github.com/angular/angular-phonecat/pull/289">a pull request</a>
+that will change this. Meanwhile, you&#39;ll find a good starting point from
+<a href="https://github.com/teropa/angular-phonecat/commit/d6fb83e1c2db9d1812c7c478fdb8d92301ef0061">this commit</a>.</p>
+</div><p>In terms of project structure, this is where our work begins</p>
+<div class="filetree"><div class="file">angular-phonecat</div><div class="children"><div class="file">bower.json</div><div class="file">package.json</div><div class="file">app</div><div class="children"><div class="file">js</div><div class="children"><div class="file">core</div><div class="children"><div class="file">checkmark.filter.js</div><div class="file">core.module.js</div><div class="file">phone.factory.js</div></div><div class="file">phone_detail</div><div class="children"><div class="file">phone_detail.html</div><div class="file">phone_detail.module.js</div><div class="file">phone_detail.controller.js</div></div><div class="file">phone_list</div><div class="children"><div class="file">phone_list.html</div><div class="file">phone_list.module.js</div><div class="file">phone_list.controller.js</div></div><div class="file">app.module.js</div></div><div class="file">css</div><div class="children"><div class="file">animations.css</div><div class="file">app.css</div></div><div class="file">img</div><div class="children"><div class="file"> ...</div></div><div class="file">phones</div><div class="children"><div class="file"> ...</div></div><div class="file">index.html</div></div><div class="file">test</div><div class="children"><div class="file">e2e</div><div class="children"><div class="file">scenarios.js</div></div><div class="file">unit</div><div class="children"><div class="file">checkmark.filter.spec.js</div><div class="file">phone_detail.controller.spec.js</div><div class="file">phone.factory.spec.js</div><div class="file">phone_list.controller.spec.js</div></div><div class="file">karma.conf.js</div><div class="file">protractor-conf.js</div></div></div></div><p>This is actually a pretty good starting point. In particular, this organization
+follows the <a href="https://github.com/johnpapa/angular-styleguide">Angular Style Guide</a>,
+which is an important <a href="#following-the-angular-style-guide">preparation step</a> before
+a successful upgrade. </p>
+<ul>
+<li>Each controller, factory, and filter is in its own source file, as per the
+<a href="https://github.com/johnpapa/angular-styleguide#single-responsibility">Rule of 1</a>.</li>
+<li>The <code>core</code>, <code>phoneDetail</code>, and <code>phoneList</code> modules are each in their
+own subdirectory. Those subdirectories contain the JavaScript code as well as
+the HTML templates that go with each particular feature. This is in line with the
+<a href="https://github.com/johnpapa/angular-styleguide#style-y152">Folders-by-Feature Structure</a>
+and <a href="https://github.com/johnpapa/angular-styleguide#modularity">Modularity</a>
+rules.</li>
+</ul>
+<h2 id="switching-to-typescript-and-module-loading">Switching to TypeScript And Module Loading</h2>
+<p>Since we&#39;re going to be writing our Angular 2 code in TypeScript, it makes sense to
+bring in the TypeScript compiler even before we begin upgrading.</p>
+<p>In order to use TypeScript&#39;s ES2015 module system to <code>import</code> and <code>export</code> code, we&#39;re
+going to need a JavaScript module loader. Our application doesn&#39;t currently
+use one, and is just using plain old <code>&lt;script&gt;</code> tags and the global <code>window</code> scope
+instead. We&#39;ll replace this approach with the
+<a href="https://github.com/systemjs/systemjs">SystemJS loader</a>.</p>
+<div class="alert is-helpful"><p>Angular 2 itself doesn&#39;t require either TypeScript or SystemJS.
+There will soon be other editions of this guide that show how to
+do the upgrade using ES5.</p>
+</div><p>We will also start to gradually phase out the Bower package manager in favor
+of NPM. We&#39;ll install all new dependencies using NPM, and will eventually be
+able to remove Bower from the project.</p>
+<p>Let&#39;s begin by installing the SystemJS and TypeScript packages to the project.
+While we&#39;re at it, let&#39;s also install the
+<a href="https://github.com/typings/typings">Typings type definition manager</a>.
+It will allow us to install type definitions for libraries that don&#39;t come with
+prepackaged types.</p>
+<code-example format="">npm i systemjs --save
+npm i typescript typings --save-dev
+</code-example><p>Let&#39;s also add run scripts for the <code>tsc</code> TypeScript compiler and the <code>typings</code>
+tool to <code>package.json</code>:</p>
+<div class="example-title">package.json</div><code-example language="json" format="linenums">{
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a 0.0.0.0 -p 8000",
+    "pretest": "npm install",
+    "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
+    "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor test/protractor-conf.js",
+    <span class="otl">"typings": "typings",</span>
+    <span class="otl">"tsc": "tsc -p . -w"</span>
+  }
+}</code-example><p>We can now use Typings to install the type definitions for Angular 1 and the Jasmine
+unit test framework. This will add a <code>typings</code> directory to the project and install
+a number of <code>.d.ts</code> files under it. It will also create a <code>typings.json</code> file to the
+project, which contains metadata about the type definitions we&#39;ve installed:</p>
+<code-example format="">npm run typings install jquery -- --save --ambient
+npm run typings install angular -- --save --ambient
+npm run typings install angular-route -- --save --ambient
+npm run typings install angular-resource -- --save --ambient
+npm run typings install angular-mocks -- --save --ambient
+npm run typings install jasmine -- --save --ambient
+</code-example><p>In <code>index.html</code>, let&#39;s now enable SystemJS. Add a couple of <code>&lt;script&gt;</code> tags that
+load the SystemJS library and then one that loads a configuration file for
+it. Then add one more <code>&lt;script&gt;</code> tag that uses SystemJS to load our application.
+These will <em>replace</em> the various <code>&lt;script&gt;</code> tags we had earlier for loading the
+application components:</p>
+<div class="example-title">app/index.html</div><code-example language="html" format="linenums">&lt;script src=&quot;../node_modules/systemjs/dist/system.src.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bower_components/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bower_components/angular/angular.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bower_components/angular-animate/angular-animate.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bower_components/angular-route/angular-route.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bower_components/angular-resource/angular-resource.js&quot;&gt;&lt;/script&gt;
+&lt;!--&lt;script src=&quot;js/app.module.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;!--&lt;script src=&quot;js/core/core.module.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;!--&lt;script src=&quot;js/core/checkmark.filter.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;!--&lt;script src=&quot;js/core/phone.factory.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;!--&lt;script src=&quot;js/phone_detail/phone_detail.module.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;!--&lt;script src=&quot;js/phone_detail/phone.animation.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;!--&lt;script src=&quot;js/phone_detail/phone_detail.controller.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;!--&lt;script src=&quot;js/phone_list/phone_list.module.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;!--&lt;script src=&quot;js/phone_list/phone_list.controller.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;script src=&quot;systemjs.config.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  System.import(&#39;js/app.module&#39;);
+&lt;/script&gt;
+</code-example><div class="example-title">app/systemjs.config.js</div><code-example language="js" format="linenums">(function(global) {
+
+// Use global packagePath if defined
+var pkgPath =  global.packagePath || &#39;../node_modules/&#39;; // path to packages
+System.config({
+  packages: {
+    &#39;js&#39;: { defaultExtension: &#39;js&#39; },
+  }
+});
+
+})(this);
+</code-example><p>This tells SystemJS that we have a module called <code>app.module</code> that
+resides in the <code>js</code> subdirectory (relative to the <code>index.html</code> page). We then load that
+module using <code>System.import</code>. This will load and execute the <code>app/app.module.js</code> file.</p>
+<p>We should also configure the TypeScript compiler so that it can understand our
+project. We&#39;ll add a <code>tsconfig.json</code> file to the project directory, just like we did
+in the <a href="../quickstart.html">Quickstart</a>. It instructs the TypeScript compiler how
+to interpret our source files.</p>
+<div class="example-title">tsconfig.json</div><code-example language="json" format="linenums">{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "system",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false
+  },
+  "exclude": [
+    "node_modules",
+    "typings/main.d.ts",
+    "typings/main"
+  ]
+}
+</code-example><p>We are telling the TypeScript compiler to turn our TypeScript files to ES5 code
+bundled into SystemJS modules. In other words, our compiler target is something
+SystemJS can load and all major browsers are able to run.</p>
+<p>We can now launch the TypeScript compiler from the command line. It will watch
+our <code>.ts</code> source files and compile them to JavaScript on the fly. Those compiled
+<code>.js</code> files are then loaded into the browser by SystemJS. This is a process we&#39;ll
+want to have continuously running in the background as we go along.</p>
+<code-example format="">npm run tsc
+</code-example><p>The next thing we&#39;ll do is convert our JavaScript files to TypeScript and define
+their imports and exports. Each file should now explicitly export the things
+it wants to expose, and import the things it needs from other files. This is a
+departure from the previous approach which just relied on things being available
+on the global <code>window</code> scope.</p>
+<p>Since TypeScript is a superset of ECMAScript 2015, which in turn is a superset
+of ECMAScript 5, we can simply switch the file extensions from <code>.js</code> to <code>.ts</code>
+and define the imports and exports. We don&#39;t need to make other changes to
+our existing code. Instead we&#39;ll introduce type annotations and other new
+features gradually over time.</p>
+<p>Let&#39;s begin by renaming <code>app.module.js</code> to <code>app.module.ts</code>. The TypeScript
+compiler should be able to compile it successfully right away. This means we can
+move right along and go through the rest of our source files and convert them.
+We&#39;ll rename each one to a <code>.ts</code> file, and add the imports and exports it needs.</p>
+<p>Beginning from the checkmark filter, here are the converted contents:</p>
+<div class="example-title">app/js/core/checkmark.filter.ts</div><code-example language="ts" format="linenums">export default function checkmarkFilter() {
+  return function(input) {
+    return input ? &#39;\u2713&#39; : &#39;\u2718&#39;;
+  };
+}
+</code-example><p>This file now has the filter factory function as the default export. Apart from 
+the export, there&#39;s one other major change we&#39;ve applied to the file, which
+is that it does <em>not</em> contain the registration of the filter into an Angular
+module. We will do that later in the <code>core</code> module&#39;s main file. </p>
+<p>Moving to the <code>Phone</code> factory file, it now has the factory function as the default
+export:</p>
+<div class="example-title">app/js/core/phone.factory.ts</div><code-example language="ts" format="linenums">Phone.$inject = [&#39;$resource&#39;];
+
+function Phone($resource) {
+  return $resource(&#39;phones/:phoneId.json&#39;, {}, {
+    query: {method:&#39;GET&#39;, params:{phoneId:&#39;phones&#39;}, isArray:true}
+  });
+}
+
+export default Phone;
+</code-example><p>The <code>core</code> module&#39;s main module file will now import both the checkmark filter
+and the Phone factory. This is where we actually register them into the Angular module.
+We then export the module itself as this file&#39;s default export:</p>
+<div class="example-title">app/js/core/core.module.ts</div><code-example language="ts" format="linenums">import Phone from &#39;./phone.factory&#39;;
+import checkmarkFilter from &#39;./checkmark.filter&#39;;
+
+export default angular.module(&#39;phonecat.core&#39;, [
+    &#39;ngResource&#39;
+  ])
+  .factory(&#39;Phone&#39;, Phone)
+  .filter(&#39;checkmark&#39;, checkmarkFilter);
+</code-example><p>Notice that with this organization pattern, the files that hold the application
+components themselves - filters and factories - aren&#39;t concerned with the makeup
+of Angular modules. That&#39;s just something we previously <em>had</em> to do because there
+were no other good solutions. Now we use a separate file just for the purpose
+of forming the Angular module.</p>
+<p>Now switching to the phone detail module, we&#39;ll make similar changes here. In the
+controller file we export the controller function as the default export:</p>
+<div class="example-title">app/js/phone_detail/phone_detail.controller.ts</div><code-example language="ts" format="linenums">PhoneDetailCtrl.$inject = [&#39;$routeParams&#39;, &#39;Phone&#39;];
+
+function PhoneDetailCtrl($routeParams, Phone) {
+  var vm = this;
+  vm.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
+    vm.mainImageUrl = phone.images[0];
+  });
+  vm.setImage = function(imageUrl) {
+    vm.mainImageUrl = imageUrl;
+  };
+}
+
+export default PhoneDetailCtrl;
+</code-example><p>In the main module file we import the controller and register it into the Angular
+module, which itself is then exported:</p>
+<div class="example-title">app/js/phone_detail/phone_detail.module.ts</div><code-example language="ts" format="linenums">import PhoneDetailCtrl from &#39;./phone_detail.controller&#39;;
+
+export default angular.module(&#39;phonecat.detail&#39;, [
+    &#39;phonecat.core&#39;,
+    &#39;ngRoute&#39;
+  ])
+  .controller(&#39;PhoneDetailCtrl&#39;, PhoneDetailCtrl);
+</code-example><p>Then we&#39;ll repeat the same steps once more for the phone list module.
+The controller file exports the controller function:</p>
+<div class="example-title">app/js/phone_list/phone_list.controller.ts</div><code-example language="ts" format="linenums">PhoneListCtrl.$inject = [&#39;Phone&#39;];
+
+function PhoneListCtrl(Phone) {
+  var vm = this;
+  vm.phones = Phone.query();
+  vm.orderProp = &#39;age&#39;;
+}
+
+export default PhoneListCtrl;
+</code-example><p>And the main module file imports the controller and registers it:</p>
+<div class="example-title">app/js/phone_list/phone_list.module.ts</div><code-example language="ts" format="linenums">import PhoneListCtrl from &#39;./phone_list.controller&#39;;
+
+export default angular.module(&#39;phonecat.list&#39;, [&#39;phonecat.core&#39;])
+  .controller(&#39;PhoneListCtrl&#39;, PhoneListCtrl);
+</code-example><p>Finally, we can now pull everything together in <code>app.module.ts</code>. We&#39;ll
+import each of the three submodule files and register them as dependencies
+of the main application module:</p>
+<div class="example-title">app/js/app.module.ts</div><code-example language="ts" format="linenums">import core from &#39;./core/core.module&#39;;
+import phoneList from &#39;./phone_list/phone_list.module&#39;;
+import phoneDetail from &#39;./phone_detail/phone_detail.module&#39;;
+
+angular.module(&#39;phonecatApp&#39;, [
+  &#39;ngAnimate&#39;,
+  &#39;ngRoute&#39;,
+  core.name,
+  phoneList.name,
+  phoneDetail.name
+]).config(configure);
+
+configure.$inject = [&#39;$routeProvider&#39;];
+
+function configure($routeProvider) {
+  $routeProvider.
+    when(&#39;/phones&#39;, {
+      templateUrl: &#39;js/phone_list/phone_list.html&#39;,
+      controller: &#39;PhoneListCtrl&#39;,
+      controllerAs: &#39;vm&#39;
+    }).
+    when(&#39;/phones/:phoneId&#39;, {
+      templateUrl: &#39;js/phone_detail/phone_detail.html&#39;,
+      controller: &#39;PhoneDetailCtrl&#39;,
+      controllerAs: &#39;vm&#39;
+    }).
+    otherwise({
+      redirectTo: &#39;/phones&#39;
+    });
+}
+</code-example><p>Note that we don&#39;t have to repeat the submodule name strings here. Since the
+modules export themselves, we can just refer to the <code>name</code> attribute of each 
+of them.</p>
+<p>Before this converted version of the application will run, we need to change the
+way we&#39;re bootstrapping it. It is currently bootstrapped using the <code>ng-app</code> directive
+attached to the <code>&lt;html&gt;</code> element of the host page. This will no longer work because
+<code>ng-app</code> is processed when the page loads, and our application code will not
+be available at that point yet. It is loaded asynchronously by SystemJS instead.</p>
+<p>We should switch to a JavaScript-driven bootstrap instead. As it happens, this is
+also how Angular 2 apps are bootstrapped, so the switch brings us one step closer
+to Angular as well. So, remove the <code>ng-app</code> attribute from <code>index.html</code>, and add
+this at the end of <code>app.module.ts</code>:</p>
+<div class="example-title">app/js/app.module.ts</div><code-example language="ts" format="">angular.bootstrap(document.documentElement, [&#39;phonecatApp&#39;]);
+</code-example><p>We now have a fully functional version of the application, all converted
+into TypeScript code and a modern module system! If you start the project HTTP
+server with <code>npm start</code>, you should see the fully functional application in
+your browser. On the other hand, if you were to try running the <em>test suite</em>,
+things wouldn&#39;t look quite that good yet. We also have to make our tests
+support our new module organization.</p>
+<h2 id="preparing-tests">Preparing Tests</h2>
+<p>Our project has both E2E Protractor tests and some Karma unit tests in it.
+Of these two, E2E tests can be dealt with much quicker: By definition,
+E2E tests access our application from the <em>outside</em> by interacting with 
+the various UI elements the app puts on the screen. E2E tests aren&#39;t really that
+concerned with the internal structure of the application components. That
+also means that although we&#39;ve modified our project quite a bit, the E2E
+test suite should keep passing just as it was before. We haven&#39;t changed
+how the app behaves from the user&#39;s point of view.</p>
+<p>For unit tests, on the other hand, we&#39;ll do a bit of conversion work.
+What we&#39;ll do is convert our existing unit tests to TypeScript and have them
+use <code>import</code>s to load in the code they need.</p>
+<p>We&#39;ll also need to tweak our Karma configuration so that it&#39;ll let SystemJS load
+the application files. For this we&#39;ll use a shim file that will tweak the way
+files get loaded:</p>
+<div class="example-title">test/karma_test_shim.js</div><code-example language="js" format="linenums">// Cancel Karma&#39;s synchronous start,
+// we will call `__karma__.start()` later, once all the specs are loaded.
+__karma__.loaded = function() {};
+
+System.config({
+  packages: {
+    &#39;base/app/js&#39;: {
+      defaultExtension: false,
+      format: &#39;register&#39;,
+      map: Object.keys(window.__karma__.files).
+            filter(onlyAppFiles).
+            reduce(function createPathRecords(pathsMapping, appPath) {
+              // creates local module name mapping to global path with karma&#39;s fingerprint in path, e.g.:
+              // &#39;./hero.service&#39;: &#39;/base/src/app/hero.service.js?f4523daf879cfb7310ef6242682ccf10b2041b3e&#39;
+              var moduleName = appPath.replace(/^\/base\/app\/js\//, &#39;./&#39;).replace(/\.js$/, &#39;&#39;);
+              pathsMapping[moduleName] = appPath + &#39;?&#39; + window.__karma__.files[appPath]
+              return pathsMapping;
+            }, {})
+
+      }
+    }
+});
+
+Promise.all(
+  Object.keys(window.__karma__.files) // All files served by Karma.
+  .filter(onlySpecFiles)
+  .map(function(moduleName) {
+    // loads all spec files via their global module names
+    return System.import(moduleName);
+}))
+.then(function() {
+  __karma__.start();
+}, function(error) {
+  __karma__.error(error.stack || error);
+});
+
+function onlyAppFiles(filePath) {
+  return /^\/base\/app\/js\/.*\.js$/.test(filePath)
+}
+
+function onlySpecFiles(path) {
+  return /\.spec\.js$/.test(path);
+}
+</code-example><div class="alert is-important">The shim is likely to be replaced by improved tooling, but is currently needed.</div><p>We&#39;ll then update the Karma configuration file, so that it loads SystemJS and the
+shim file. We&#39;ll also change how the app and unit tests files themselves are loaded.
+We will <em>watch</em> them so that the test suite is triggered when changes occur, but we
+won&#39;t have Karma <em>include</em> them because that is now done by SystemJS and the shim.</p>
+<div class="example-title">test/karma.conf.js</div><code-example language="js" format="linenums">files : [
+  &#39;app/bower_components/angular/angular.js&#39;,
+  &#39;app/bower_components/angular-route/angular-route.js&#39;,
+  &#39;app/bower_components/angular-resource/angular-resource.js&#39;,
+  &#39;app/bower_components/angular-animate/angular-animate.js&#39;,
+  &#39;app/bower_components/angular-mocks/angular-mocks.js&#39;,
+  &#39;node_modules/systemjs/dist/system.src.js&#39;,
+  &#39;test/karma_test_shim.js&#39;,
+  {pattern: &#39;app/js/**/*.js&#39;, included: false, watched: true},
+  {pattern: &#39;test/unit/**/*.js&#39;, included: false, watched: true}
+],
+</code-example><p>Now we have the infrastructure in place and can convert the test files themselves.
+This mainly just consists for changing the file extensions of those files, and adding
+the necessary imports to them.</p>
+<p>In the checkmark filter spec, we&#39;ll import the core module file, so that it is
+available when we load the corresponding Angular module:</p>
+<div class="example-title">test/unit/checkmark.filter.spec.ts</div><code-example language="ts" format="">import &#39;../../app/js/core/core.module&#39;;
+</code-example><p>We&#39;ll do the exact same thing for the phone factory spec:</p>
+<div class="example-title">test/unit/phone.factory.spec.ts</div><code-example language="ts" format="">import &#39;../../app/js/core/core.module&#39;;
+</code-example><p>In the phone detail controller spec, on the other hand, we should import
+the phone detail module:</p>
+<div class="example-title">test/unit/phone_detail.controller.spec.ts</div><code-example language="ts" format="">import &#39;../../app/js/phone_detail/phone_detail.module&#39;;
+</code-example><p>Finally, the phone list controller spec should import the phone list
+module:</p>
+<div class="example-title">test/unit/phone_list.controller.spec.ts</div><code-example language="ts" format="">import &#39;../../app/js/phone_list/phone_list.module&#39;;
+</code-example><p>There&#39;s one more issue we have in our controller tests, which is that TypeScript
+isn&#39;t happy about compiling them at the moment. This is because we&#39;re using
+the custom Jasmine matcher <code>toEqualData</code> in both of them. Because this is something
+we define ourselves, it isn&#39;t included in the Jasmine type definitions that we
+installed using Typings.</p>
+<p>We can add our own little type definition file for that extension, which extends
+the <code>jasmine.Matchers</code> interface and adds our custom matcher to it. This will
+satisfy the compiler and let us use our custom matcher while retaining the nice
+type safety features of TypeScript:</p>
+<div class="example-title">test/jasmine_matchers.d.ts</div><code-example language="ts" format="linenums">declare module jasmine {
+  interface Matchers {
+    toEqualData(expected: any):boolean;
+  }
+}
+</code-example><p>And now we have a fully functional test suite for our TypeScript-enabled
+application as well.</p>
+<h2 id="enjoying-the-benefits-of-typescript">Enjoying The Benefits of TypeScript</h2>
+<p>Now that we have TypeScript, we can start benefiting from some of its
+other features in addition to the imports and exports that we&#39;re already using.
+There&#39;s a lot of value the language can provide in Angular 1 applications.</p>
+<p>For one thing, TypeScript is a superset of ES2015. Any app that has previously
+been written in ES5 - like the PhoneCat example has - can with TypeScript
+start incorporating all of the JavaScript features that are new to ES2015.
+These include things like <code>let</code>s and <code>const</code>s, default function parameters,
+and destructuring assignments.</p>
+<p>Another thing we can do is start adding <em>type safety</em> to our code, by
+adding type annotations. For instance, we can annotate the checkmark
+filter so that it expects booleans as arguments and returns strings.
+This makes it clearer what the filter is supposed to do, and makes it
+possible for the TypeScript compiler to notify us when we&#39;re trying to
+use it with incompatible types.</p>
+<div class="example-title">app/js/core/checkmark.filter.ts</div><code-example language="ts" format="linenums">export default function checkmarkFilter() {
+  return function(input<span class="otl">:boolean</span>)<span class="otl">:string</span> {
+    return input ? &#39;\u2713&#39; : &#39;\u2718&#39;;
+  };
+}
+</code-example><div class="l-sub-section"><p>The <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/angularjs">Angular 1.x type definitions</a>
+we installed with Typings are not officially maintained by the Angular team,
+but are quite comprehensive. Though we&#39;re not going to do it in this
+tutorial, it is possible to make an Angular 1.x application fully
+type-annotated with the help of these definitions.</p>
+<p>If this is something we wanted to do, it would be a good idea to enable 
+the <code>noImplicitAny</code> configuration option in <code>tsconfig.json</code>. This would
+cause the TypeScript compiler to display a warning when there&#39;s any code that
+does not yet have type annotations. We could use it as a guide to inform
+us about how close we are to having a fully annotated project.</p>
+</div><p>Another TypeScript feature we can make use of is <em>classes</em>. In particular, we
+can turn our controllers into classes. That way they&#39;ll be a step
+closer to becoming Angular 2 component classes, which will make our life
+easier once we do the upgrade.</p>
+<p>Angular 1 expects controllers to be constructor functions. That&#39;s what
+ES2015/TypeScript classes really are, so that means we can just register a
+class as a controller and Angular 1 will happily use it. We also won&#39;t 
+need to make any changes to our test suite as the external behavior of the
+controllers will not change.</p>
+<p>Here&#39;s what our new class for the phone list controller looks like.</p>
+<div class="example-title">app/js/phone_list/phone_list.controller.ts</div><code-example language="ts" format="linenums">class PhoneListCtrl {
+  phones:any[];
+  orderProp:string;
+  query:string;
+  constructor(Phone) {
+    this.phones = Phone.query();
+    this.orderProp = &#39;age&#39;;
+  }
+}
+
+PhoneListCtrl.$inject = [&#39;Phone&#39;];
+
+export default PhoneListCtrl;
+</code-example><p>What was previously done in the controller function is now done in the class
+constructor function. The class additionally declares three members: The 
+array of phones, the name of the current sort key, and the search query. These
+are all things we have already been attaching to the controller,
+but that weren&#39;t explicitly declared anywhere. The last one of these isn&#39;t actually
+used in the TypeScript code since it&#39;s only referred to in the template, but for
+the sake of clarity we want to define all the members our controller will have.</p>
+<p>In the Phone detail controller we&#39;ll have two members: One for the phone
+that the user is looking at and another for the URL of the currently displayed image.
+We can additionally introduce a TypeScript interface that explicitly defines
+what we expect the <code>$routeParams</code> object to contain when it is
+passed to the controller. This interface is not exported and is just used internally
+inside this module:</p>
+<div class="example-title">app/js/phone_detail/phone_detail.controller.ts</div><code-example language="ts" format="linenums">interface PhoneRouteParams {
+  phoneId: string
+}
+
+class PhoneDetailCtrl {
+  phone:any;
+  mainImageUrl:string;
+  constructor($routeParams:PhoneRouteParams, Phone) {
+    this.phone = Phone.get({phoneId: $routeParams.phoneId}, (phone) =&gt;
+      this.mainImageUrl = phone.images[0]
+    );
+  }
+
+  setImage(url:string) {
+    this.mainImageUrl = url;
+  }
+}
+
+PhoneDetailCtrl.$inject = [&#39;$routeParams&#39;, &#39;Phone&#39;];
+
+export default PhoneDetailCtrl;
+</code-example><p>This makes our controller code look a lot more like Angular 2 already. We&#39;re
+all set to actually introduce Angular 2 into the project.</p>
+<p>If we had any Angular 1 services in the project, those would also be
+a good candidate for converting to classes, since like controllers,
+they&#39;re also constructor functions. But we only have the <code>Phone</code> factory
+in this project, and that&#39;s a bit special since it&#39;s an <code>ngResource</code>
+factory. So we won&#39;t be doing anything to it in the preparation stage.
+We&#39;ll instead turn it directly into an Angular 2 service in the
+next section.</p>
+<div class="l-main-section"></div><h1 id="phonecat-upgrade-tutorial">PhoneCat Upgrade Tutorial</h1>
+<p>Having completed our preparation work, let&#39;s get going with the Angular 2
+upgrade of PhoneCat. We&#39;ll do this incrementally with the help of the
+<a href="#upgrading-with-the-upgrade-adapter">upgrade module</a> that comes with Angular 2.
+By the time we&#39;re done, we&#39;ll be able to remove Angular 1 from the project
+completely, but the key is to do this piece by piece without breaking the application.</p>
+<div class="alert is-important">The project also contains some animations, which we are not yet upgrading in this version of the guide. This will change in a later release.</div><p>Let&#39;s install Angular 2 into the project. Add the Angular 2 dependencies
+to <code>package.json</code> and <code>typings.json</code> as described in the <a href="../quickstart.html">Quickstart</a>.
+Then run:</p>
+<code-example format="">npm install
+npm run typings install
+</code-example><p>We should then load some Angular 2 dependencies into the application by adding
+some <code>&lt;script&gt;</code> tags to <code>index.html</code>. They should go before the <code>&lt;script&gt;</code> tag
+that loads <code>systemjs.config.js</code>:</p>
+<code-example language="html" format="linenums">&lt;script src=&quot;../node_modules/es6-shim/es6-shim.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../node_modules/zone.js/dist/zone.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../node_modules/reflect-metadata/Reflect.js&quot;&gt;&lt;/script&gt;
+</code-example><p>We can then load Angular 2 itself by adding its packages into the <code>systemjs.config.js</code>
+file:</p>
+<div class="example-title">app/systemjs.config.js</div><code-example language="js" format="linenums">(function(global) {
+
+// Use global packagePath if defined
+var pkgPath =  global.packagePath || &#39;../node_modules/&#39;; // path to packages
+System.config({
+  map: {
+    &#39;rxjs&#39;:                       pkgPath + &#39;rxjs&#39;,
+    &#39;@angular&#39;:                   pkgPath + &#39;@angular&#39;
+  },
+  packages: {
+    &#39;js&#39;:                                { defaultExtension: &#39;js&#39; },
+
+    &#39;@angular/common&#39;:                   { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/compiler&#39;:                 { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/core&#39;:                     { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/http&#39;:                     { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/platform-browser&#39;:         { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/platform-browser-dynamic&#39;: { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/router&#39;:                   { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/upgrade&#39;:                  { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;rxjs&#39;:                              { defaultExtension: &#39;js&#39; }
+
+  }
+});
+
+
+})(this);
+</code-example><p>While we&#39;re at it, let&#39;s also make these files available to unit tests by
+updating the Karma config:</p>
+<div class="example-title">test/karma.conf.js</div><code-example language="js" format="linenums">files : [
+/* . . . */
+  &#39;node_modules/es6-shim/es6-shim.js&#39;,
+  &#39;node_modules/zone.js/dist/zone.js&#39;,
+  &#39;node_modules/reflect-metadata/Reflect.js&#39;,
+  {pattern: &#39;node_modules/rxjs/**/*.js&#39;, included: false, watched: false},
+  {pattern: &#39;node_modules/@angular/**/*.js&#39;, included: false, watched: false},
+  /* . . . */
+],
+</code-example><h2 id="bootstrapping-a-hybrid-1-2-phonecat">Bootstrapping A Hybrid 1+2 PhoneCat</h2>
+<p>What we&#39;ll do next is bootstrap the application as a <em>hybrid application</em>
+that supports both Angular 1 and Angular 2 components. Once we&#39;ve done that
+we can start converting the individual pieces to Angular 2.</p>
+<p>At this point we need to do add the Angular 2 type definitions
+into <code>app.ts</code>, so that the TypeScript compiler knows what we&#39;re talking about
+when we use Angular 2 APIs. Unlike with Angular 1, we don&#39;t need to install
+these type definitions with Typings because Angular 2 comes with them included.
+What we do need to do is set the TypeScript compiler&#39;s <code>moduleResolution</code> option
+to <code>node</code>, so that it knows to look for these definitions from the <code>angular2</code> NPM
+package.</p>
+<div class="example-title">tsconfig.json</div><code-example language="json" format="linenums">{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "system",
+    <span class="otl">"moduleResolution": "node",</span>
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false
+  },
+  "exclude": [
+    "node_modules",
+    "typings/main.d.ts",
+    "typings/main"
+  ]
+}
+</code-example><p>To boostrap a hybrid application, we first need to initialize an <code>UpgradeAdapter</code>,
+which <a href="#upgrading-with-the-upgrade-adapter">provides the glue</a> that joins the two
+versions of the framework together. Let&#39;s import the <code>UpgradeAdapter</code> class into
+<code>app.module.ts</code>:</p>
+<div class="example-title">app/js/app.module.ts</div><code-example language="ts" format="">import { UpgradeAdapter } from &#39;@angular/upgrade&#39;;
+</code-example><p>We can then make an adapter by instantiating the class:</p>
+<code-example language="ts" format="">const upgradeAdapter = new UpgradeAdapter();
+</code-example><p>Now we can use that adapter to bootstrap our application as a hybrid.
+Instead of calling <code>angular.bootstrap</code>, we must call
+<code>upgradeAdapter.bootstrap</code>, but the function arguments remain the same:
+They are still the element that will become the root of the application,
+and the names of the root Angular 1.x modules that we want to include:</p>
+<code-example language="ts" format="">upgradeAdapter.bootstrap(document.documentElement, [&#39;phonecatApp&#39;]);
+</code-example><p>We are now running both Angular 1 and 2 at the same time. That&#39;s pretty
+exciting! We&#39;re not running any actual Angular 2 components yet though,
+so let&#39;s do that next.</p>
+<h2 id="upgrading-the-phone-factory">Upgrading the Phone factory</h2>
+<p>The first piece we&#39;ll port over to Angular 2 is the <code>Phone</code> factory, which
+resides in <code>app/js/core/phones.factory.ts</code> and makes it possible for controllers
+to load phone information from the server. Right now it&#39;s implemented with
+ngResource and we&#39;re using it for two things:</p>
+<ul>
+<li>For loading the list of all phones into the phone list controller</li>
+<li>For loading the details of a single phone into the phone detail controller.</li>
+</ul>
+<p>We can replace this implementation with an Angular 2 service class, while 
+keeping our controllers in Angular 1 land. In the new version we&#39;ll just use
+the <code>Http</code> service from Angular 2 instead of ngResource.</p>
+<p>Before the <code>Http</code> service is available for injection, we need to register
+it into our application&#39;s dependency injector. We should import the <code>HTTP_PROVIDERS</code>
+constant in <code>app.module.ts</code>:</p>
+<code-example language="ts" format="">import { HTTP_PROVIDERS } from &#39;@angular/http&#39;;
+</code-example><p>In a regular Angular 2 application we would now pass <code>HTTP_PROVIDERS</code> into
+the application bootstrap function. But we can&#39;t do that in a hybrid
+application such as the one we&#39;re working on. That&#39;s because the <code>bootstrap</code>
+method of  <code>UpgradeAdapter</code> expects Angular 1 modules as dependencies,
+not Angular 2 providers.</p>
+<p>What we must do instead is register <code>HTTP_PROVIDERS</code> into the <code>UpgradeAdapter</code>
+separately. It has a method called <code>addProvider</code> for that purpose:</p>
+<code-example language="ts" format="">upgradeAdapter.addProvider(HTTP_PROVIDERS);
+</code-example><p>Now we&#39;re ready to upgrade the Phones factory itself. We&#39;ll put the Angular 2
+implementation in a new file called <code>phones.service.ts</code> in the core module. It will be a TypeScript
+class decorated as <code>@Injectable</code>:</p>
+<div class="example-title">app/js/core/phones.service.ts</div><code-example language="ts" format="linenums">@Injectable()
+export class Phones {
+/* . . . */
+}
+</code-example><p>The <code>@Injectable</code> decorator will attach some dependency injection metadata
+to the class, letting Angular 2 know about its dependencies. As described
+by our <a href="../guide/dependency-injection.html">Dependency Injection Guide</a>,
+this is a marker decorator we need to use for classes that have no other
+Angular 2 decorators but still need to have their dependencies injected. </p>
+<p>In its constructor the class expects to get the <code>Http</code> service. It will
+be injected to it and it is stored as a private field. The service is then
+used in the two instance methods, one of which loads the list of all phones,
+and the other the details of a particular phone:</p>
+<code-example language="ts" format="linenums">@Injectable()
+export class Phones {
+
+  constructor(private http: Http) { }
+
+  query():Observable&lt;Phone[]&gt; {
+    return this.http.get(`phones/phones.json`)
+      .map((res:Response) =&gt; res.json());
+  }
+
+  get(id: string):Observable&lt;Phone&gt; {
+    return this.http.get(`phones/${id}.json`)
+      .map((res:Response) =&gt; res.json());
+  }
+
+}
+</code-example><p>The methods now return Observables of type <code>Phone</code> and <code>Phone[]</code>. This is
+a type we don&#39;t have yet, so let&#39;s add a simple interface for it:</p>
+<div class="example-title">app/js/core/phones.service.ts</div><code-example language="ts" format="linenums">export interface Phone {
+  name: string;
+  snippet: string;
+  images: string[];
+}
+</code-example><p>Here&#39;s the full, final code for the service:</p>
+<div class="example-title">app/js/core/phones.service.ts</div><code-example language="ts" format="linenums">import { Injectable } from &#39;@angular/core&#39;;
+import { Http, Response } from &#39;@angular/http&#39;;
+import { Observable } from &#39;rxjs/Rx&#39;;
+
+import &#39;rxjs/add/operator/map&#39;;
+
+export interface Phone {
+  name: string;
+  snippet: string;
+  images: string[];
+}
+
+@Injectable()
+export class Phones {
+
+  constructor(private http: Http) { }
+
+  query():Observable&lt;Phone[]&gt; {
+    return this.http.get(`phones/phones.json`)
+      .map((res:Response) =&gt; res.json());
+  }
+
+  get(id: string):Observable&lt;Phone&gt; {
+    return this.http.get(`phones/${id}.json`)
+      .map((res:Response) =&gt; res.json());
+  }
+
+}
+</code-example><p>Notice that we&#39;re importing the <code>map</code> operator of the RxJS <code>Observable</code> separately.
+We need to do this for all RxJS operators that we want to use, since Angular 2
+does not load all of them by default.</p>
+<p>The new <code>Phones</code> service now has the same features that the original, ngResource based
+service did. You can remove the old <code>phones.factory.ts</code> file. Now we just
+need to register the new service into the application, so that our Angular 1
+controllers will be able to use it.</p>
+<p><code>UpgradeAdapter</code> has a <code>downgradeNg2Provider</code> method for the purpose of making
+Angular 2 services available to Angular 1 code. The problem is that we don&#39;t have
+our <code>UpgradeAdapter</code> available in <code>core.module.ts</code> where the <code>Phones</code> service should
+be registered. We only have it in <code>app.module.ts</code>. There should only be one
+<code>UpgradeAdapter</code> in an application, so we need to find a way to share our
+instance between the two code modules.</p>
+<p>What we&#39;ll do is create a new module that instantiates <code>UpgradeAdapter</code>
+and exports the instance. We can then just pull it in wherever we need it,
+so that we&#39;re using the same object everywhere. Let&#39;s put this new file
+under <code>core</code>:</p>
+<div class="example-title">app/js/core/upgrade_adapter.ts</div><code-example language="ts" format="linenums">import { UpgradeAdapter } from &#39;@angular/upgrade&#39;;
+
+const upgradeAdapter = new UpgradeAdapter();
+
+export default upgradeAdapter;
+</code-example><p>In <code>app.module.ts</code> we should now just import this adapter instead of making a separate one:</p>
+<code-example language="ts" format="">import upgradeAdapter from &#39;./core/upgrade_adapter&#39;;
+</code-example><p>Also remove the line from <code>app.module.ts</code> that is instantiating <code>UpgradeAdapter</code>. It&#39;s no
+longer needed since we import the instance from elsewhere.</p>
+<p>We&#39;ll then do the same in <code>core.module.ts</code> as well. Then we can register the <code>Phones</code> service into it.
+While doing that, we can remove the module&#39;s dependency to <code>ngResource</code>, which
+we&#39;re no longer using.</p>
+<div class="example-title">app/js/core/core.module.ts</div><code-example language="ts" format="linenums">import { Phones } from &#39;./phones.service&#39;;
+import checkmarkFilter from &#39;./checkmark.filter&#39;;
+import upgradeAdapter from &#39;./upgrade_adapter&#39;;
+
+upgradeAdapter.addProvider(Phones);
+
+export default angular.module(&#39;phonecat.core&#39;, [])
+  .factory(&#39;phones&#39;, upgradeAdapter.downgradeNg2Provider(Phones))
+  .filter(&#39;checkmark&#39;, checkmarkFilter);
+</code-example><p>Note that we actually needed to do two registrations here:</p>
+<ol>
+<li>Register <code>Phones</code> as an <strong>Angular 2 provider</strong> with the <code>addProvider</code>
+method. That&#39;s the same method that we used earlier for <code>HTTP_PROVIDERS</code>.</li>
+<li>Register an <strong>Angular 1 factory</strong> called <code>phones</code>, which will be a <em>downgraded</em>
+version of the <code>Phones</code> service.</li>
+</ol>
+<p>At this point we can switch our two controllers to use the new service
+instead of the old one. We <code>$inject</code> it as the downgraded <code>phones</code> factory,
+but it&#39;s really an instance of the <code>Phones</code> class and we can annotate its type
+accordingly:</p>
+<div class="example-title">app/js/phone_detail/phone_detail.controller.ts</div><code-example language="ts" format="linenums">import { Phones, Phone } from &#39;../core/phones.service&#39;;
+
+interface PhoneRouteParams {
+  phoneId: string
+}
+
+class PhoneDetailCtrl {
+  phone:Phone;
+  mainImageUrl:string;
+  constructor($routeParams:PhoneRouteParams, phones:Phones) {
+    phones.get($routeParams.phoneId)
+      .subscribe(phone =&gt; {
+        this.phone = phone;
+        this.mainImageUrl = phone.images[0];
+      });
+  }
+  setImage(url:string) {
+    this.mainImageUrl = url;
+  }
+}
+
+PhoneDetailCtrl.$inject = [&#39;$routeParams&#39;, &#39;phones&#39;];
+
+export default PhoneDetailCtrl;
+</code-example><div class="example-title">app/js/phone_list/phone_list.controller.ts</div><code-example language="ts" format="linenums">import { Phones, Phone } from &#39;../core/phones.service&#39;;
+
+class PhoneListCtrl {
+  phones:Phone[];
+  orderProp:string;
+  query:string;
+  constructor(phones:Phones) {
+    phones.query()
+      .subscribe(phones =&gt; this.phones = phones);
+    this.orderProp = &#39;age&#39;;
+  }
+}
+
+PhoneListCtrl.$inject = [&#39;phones&#39;];
+
+export default PhoneListCtrl;
+</code-example><p>What we have here are two Angular 1 controllers using an Angular 2 service!
+The controllers don&#39;t need to be aware of this, though the fact that the
+service returns Observables and not Promises is a bit of a giveaway.
+In any case, what we&#39;ve achieved is a migration of a service to Angular 2
+without having to yet migrate the controllers that use it.</p>
+<div class="alert is-helpful"><p>You could use the <code>toPromise</code> method of <code>Observable</code> to turn those Observables
+into Promises in the service to further reduce the amount of changes
+needed in controller code.</p>
+</div><p>To bring our test suite up to speed with the changes, we should update the Karma
+test shim. It&#39;ll make some of Angular 2 providers available before starting
+to load any of the spec files:</p>
+<div class="example-title">test/karma_test_shim.js</div><code-example language="js" format="linenums">// Cancel Karma&#39;s synchronous start,
+// we will call `__karma__.start()` later, once all the specs are loaded.
+__karma__.loaded = function() {};
+
+System.config({
+  map: {
+    &#39;rxjs&#39;: &#39;base/node_modules/rxjs&#39;,
+    &#39;@angular&#39;: &#39;base/node_modules/@angular&#39;
+  },
+  packages: {
+    &#39;base/app/js&#39;: {
+      defaultExtension: false,
+      format: &#39;register&#39;,
+      map: Object.keys(window.__karma__.files).
+            filter(onlyAppFiles).
+            reduce(function createPathRecords(pathsMapping, appPath) {
+              // creates local module name mapping to global path with karma&#39;s fingerprint in path, e.g.:
+              // &#39;./hero.service&#39;: &#39;/base/src/app/hero.service.js?f4523daf879cfb7310ef6242682ccf10b2041b3e&#39;
+              var moduleName = appPath.replace(/^\/base\/app\/js\//, &#39;./&#39;).replace(/\.js$/, &#39;&#39;);
+              pathsMapping[moduleName] = appPath + &#39;?&#39; + window.__karma__.files[appPath]
+              return pathsMapping;
+            }, {})
+    },
+    &#39;@angular/common&#39;:                   { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/compiler&#39;:                 { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/core&#39;:                     { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/http&#39;:                     { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/platform-browser&#39;:         { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/platform-browser-dynamic&#39;: { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/router&#39;:                   { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;@angular/upgrade&#39;:                  { main: &#39;index.js&#39;, defaultExtension: &#39;js&#39; },
+    &#39;rxjs&#39;:                              { defaultExtension: &#39;js&#39; }
+  }
+});
+
+System.import(&#39;@angular/core/testing&#39;).then(function(testing) {
+  return System.import(&#39;@angular/platform-browser-dynamic/testing&#39;).then(function(browserTesting) {
+    testing.setBaseTestProviders(browserTesting.TEST_BROWSER_PLATFORM_PROVIDERS,
+                                 browserTesting.TEST_BROWSER_APPLICATION_PROVIDERS);
+  });
+}).then(function() {
+  return Promise.all(
+    Object.keys(window.__karma__.files) // All files served by Karma.
+    .filter(onlySpecFiles)
+    .map(function(moduleName) {
+      // loads all spec files via their global module names
+      return System.import(moduleName);
+  }));
+}).then(function() {
+  __karma__.start();
+}, function(error) {
+  __karma__.error(error.stack || error);
+});
+
+function onlyAppFiles(filePath) {
+  return /^\/base\/app\/js\/.*\.js$/.test(filePath)
+}
+
+function onlySpecFiles(path) {
+  return /\.spec\.js$/.test(path);
+}
+</code-example><div class="alert is-important">The shim is likely to be replaced by improved tooling, but is needed right now.</div><p>Now, let&#39;s look at the tests for the service itself. What we used to have in 
+<code>phones_factory_spec.js</code> was a fairly simple test that simply checks if
+the factory exists and is available for injection. We can now do that same
+test in Angular 2. Rename <code>phones.factory.spec.ts</code> to <code>phones.service.spec.ts</code> and
+set the contents as follows:</p>
+<div class="example-title">test/unit/phones.service.spec.ts</div><code-example language="ts" format="linenums">import { describe, beforeEachProviders, it, inject } from &#39;@angular/core/testing&#39;;
+import { HTTP_PROVIDERS } from &#39;@angular/http&#39;;
+import { Phones } from &#39;../../app/js/core/phones.service&#39;;
+
+describe(&#39;Phones&#39;, () =&gt; {
+
+  // load providers
+  beforeEachProviders(() =&gt; [Phones, HTTP_PROVIDERS]);
+
+  // Test service availability
+  it(&#39;check the existence of Phones&#39;, inject([Phones], (phones) =&gt; {
+    expect(phones).toBeDefined();
+  }));
+
+});
+</code-example><p>Here we first load the <code>Phones</code> provider and then test that an instance of
+<code>Phones</code> can in fact be injected. We also need to load <code>HTTP_PROVIDERS</code> since
+it is a dependency of <code>Phones</code>.</p>
+<p>For the controller tests, we can first of all at this point get rid of the
+custom <code>toEqualData</code> custom matcher. It was added because <code>ngResource</code> attaches
+attributes to the data that we don&#39;t want to compare in tests. We&#39;re no longer
+using <code>ngResource</code>, so we can simply use the built-in <code>toEqual</code> for comparisons.
+This means we can remove the <code>test/jasmine_matchers.d.ts</code> file at this point.</p>
+<p>Now, in the phone detail controller we have been testing that the phone details
+with the id given in the route params are fetched over HTTP and put on the
+scope. We can continue doing that, but we&#39;ll need to change the structure of the
+test a bit. Instead of using the Angular 1 mock HTTP backend, we&#39;ll just mock out
+the <code>get</code> method of the <code>Phones</code> service, which is what the controller is now
+using to load what it needs. As the mocked value, we&#39;re returning an Observable
+that will emit a single value - the mock phone data:</p>
+<div class="example-title">test/unit/phone_detail.controller.spec.ts</div><code-example language="ts" format="linenums">import { Observable } from &#39;rxjs/Rx&#39;;
+import &#39;../../app/js/phone_detail/phone_detail.module&#39;;
+import { Phones } from &#39;../../app/js/core/phones.service&#39;;
+
+describe(&#39;PhoneDetailCtrl&#39;, () =&gt; {
+  var scope, phones, $controller,
+      xyzPhoneData = function() {
+        return {
+          name: &#39;phone xyz&#39;,
+          snippet: &#39;&#39;,
+          images: [&#39;image/url1.png&#39;, &#39;image/url2.png&#39;]
+        }
+      };
+
+  beforeEach(angular.mock.module(&#39;phonecat.detail&#39;));
+
+  // Supply a hand-instantianted instance of the Phones service
+  beforeEach(angular.mock.module(function($provide) {
+    $provide.factory(&#39;phones&#39;, function() {
+      return new Phones(null);
+    });
+  }));
+
+  beforeEach(inject(function(_phones_, _$controller_, $rootScope, $routeParams) {
+    phones = _phones_;
+    $controller = _$controller_;
+    $routeParams.phoneId = &#39;xyz&#39;;
+    scope = $rootScope.$new();
+  }));
+
+
+  it(&#39;should fetch phone detail&#39;, function() {
+    spyOn(phones, &#39;get&#39;).and.returnValue(Observable.of(xyzPhoneData()));
+
+    let ctrl = $controller(&#39;PhoneDetailCtrl&#39;, {$scope: scope});
+
+    expect(phones.get).toHaveBeenCalledWith(&#39;xyz&#39;);
+    expect(ctrl.phone).toEqual(xyzPhoneData());
+  });
+});
+</code-example><div class="alert is-important"><p>We&#39;re doing a manual <code>Phones</code> instantiation because hybrid apps can&#39;t be
+bootstrapped for unit tests at the moment, which means that Angular 2
+dependencies can&#39;t be made available. This is likely to change.</p>
+</div><p>In the phone list controller we&#39;ll do something very similar: We mock out the <code>query</code>
+method of the <code>Phones</code> service, and check that the controller makes the resulting
+value available:</p>
+<div class="example-title">test/unit/phone_list.controller.spec.ts</div><code-example language="ts" format="linenums">import { Observable } from &#39;rxjs/Rx&#39;;
+import &#39;../../app/js/phone_list/phone_list.module&#39;;
+import { Phones } from &#39;../../app/js/core/phones.service&#39;;
+
+describe(&#39;PhoneListCtrl&#39;, () =&gt; {
+  var scope, ctrl, $httpBackend;
+
+  beforeEach(angular.mock.module(&#39;phonecat.list&#39;));
+
+  // Supply a hand-instantianted instance of the Phones service
+  beforeEach(angular.mock.module(function($provide) {
+    $provide.factory(&#39;phones&#39;, function() {
+      return new Phones(null);
+    });
+  }));
+
+  beforeEach(inject(function(phones, $rootScope, $controller) {
+    spyOn(phones, &#39;query&#39;).and.returnValue(Observable.of(
+      [{name: &#39;Nexus S&#39;}, {name: &#39;Motorola DROID&#39;}]
+    ));
+    scope = $rootScope.$new();
+    ctrl = $controller(&#39;PhoneListCtrl&#39;, {$scope: scope});
+  }));
+
+
+  it(&#39;should create &quot;phones&quot; model with 2 phones fetched from xhr&#39;, function() {
+    expect(ctrl.phones).toEqual(
+        [{name: &#39;Nexus S&#39;}, {name: &#39;Motorola DROID&#39;}]);
+  });
+
+
+  it(&#39;should set the default value of orderProp model&#39;, function() {
+    expect(ctrl.orderProp).toBe(&#39;age&#39;);
+  });
+});
+</code-example><h2 id="upgrading-controllers-to-components">Upgrading Controllers to Components</h2>
+<p>Next, let&#39;s upgrade our Angular 1 controllers to Angular 2 components. We&#39;ll
+do it one at a time, while still keeping the application in hybrid mode.
+As we make these conversions, we&#39;ll also be defining our first Angular 2 <em>pipes</em>.</p>
+<p>Let&#39;s look at the phone list controller first. Right now it is a TypeScript class,
+which is paired with an HTML template by the route configuration in <code>app.ts</code>.
+We&#39;ll be turning it into an Angular 2 component.</p>
+<p>Rename <code>phone_list.controller.ts</code> to <code>phone_list.component.ts</code>. Then rename the controller class
+inside to just <code>PhoneList</code> and decorate it as a <code>@Component</code>:</p>
+<div class="example-title">app/js/phone_list/phone_list.component.ts</div><code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { Phone, Phones } from &#39;../core/phones.service&#39;;
+
+@Component({
+  selector: &#39;pc-phone-list&#39;,
+  templateUrl: &#39;js/phone_list/phone_list.html&#39;
+})
+class PhoneList {
+</code-example><p>The <code>selector</code> attribute is a CSS selector that defines where on the page the component
+should go. It will match elements by the name of <code>pc-phone-list</code>. It is a good idea
+to always use application-specific prefixes in selectors so that they never clash with
+built-in ones, and here we&#39;re using <code>pc-</code>, which is short for &quot;PhoneCat&quot;.</p>
+<p>The <code>templateUrl</code> defines the location of the component template. It points to our existing
+template file</p>
+<p>Both of these attributes are things that were defined <em>externally</em> for the controller,
+but for the component are things that it defines <em>itself</em>. This will affect how we use
+the component in the router.</p>
+<p>We now also need to convert the template of this component into Angular 2 syntax.
+In the search controls we need to use Angular 2 syntax for the two <code>ngModel</code>s</p>
+<div class="example-title">app/js/phone_list/phone_list.html</div><code-example language="html" format="linenums">Search: &lt;input [(ngModel)]=&quot;query&quot;&gt;
+Sort by:
+&lt;select [(ngModel)]=&quot;orderProp&quot;&gt;
+  &lt;option value=&quot;name&quot;&gt;Alphabetical&lt;/option&gt;
+  &lt;option value=&quot;age&quot;&gt;Newest&lt;/option&gt;
+&lt;/select&gt;
+</code-example><p>In the list we need to replace the <code>ng-repeat</code> with an <code>*ngFor</code> and its
+<code>#var of iterable</code> syntax, which is <a href="../guide/template-syntax.html#directives">described in our
+Template Syntax guide</a>.</p>
+<p>For the images, we can replace <code>ng-src</code> with the standard <code>src</code>, but will use a
+property binding. Note that we&#39;re also adding a <code>name</code> CSS class for the phone name.
+This is something we&#39;ll need for our Protractor tests:</p>
+<div class="example-title">app/js/phone_list/phone_list.html</div><code-example language="html" format="linenums">&lt;ul class=&quot;phones&quot;&gt;
+  &lt;li *ngFor=&quot;let phone of phones | filter:query | orderBy:orderProp&quot;
+      class=&quot;thumbnail phone-listing&quot;&gt;
+    &lt;a href=&quot;#/phones/{{phone.id}}&quot; class=&quot;thumb&quot;&gt;&lt;img [src]=&quot;phone.imageUrl&quot;&gt;&lt;/a&gt;
+    &lt;a href=&quot;#/phones/{{phone.id}}&quot; class=&quot;name&quot;&gt;{{phone.name}}&lt;/a&gt;
+    &lt;p&gt;{{phone.snippet}}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code-example><p>In the module file we&#39;re going to plug this component into our application. Instead
+of registering a controller, we register a <code>pcPhoneList</code> directive.
+The directive is a downgraded version of our component, and the <code>UpgradeAdapter</code>
+handles the bridging between the two:</p>
+<div class="example-title">app/js/phone_list/phone_list.module.ts</div><code-example language="ts" format="linenums">import PhoneList from &#39;./phone_list.component&#39;;
+import upgradeAdapter from &#39;../core/upgrade_adapter&#39;;
+
+export default angular.module(&#39;phonecat.list&#39;, [
+    &#39;phonecat.core&#39;
+  ])
+  .directive(&#39;pcPhoneList&#39;,
+    &lt;angular.IDirectiveFactory&gt;upgradeAdapter.downgradeNg2Component(PhoneList));
+</code-example><p>The <code>&lt;angular.IDirectiveFactory&gt;</code> type annotation here is to let the TypeScript compiler
+know that the return value of the downgrade method call will be something that can be
+used as a directive factory.</p>
+<p>To complete the switch, we should change our route configuration in <code>app.module.ts</code>.
+Instead of using the controller and template, it can just instantiate our component.
+We can do that by using a simple template that uses the directive
+we just registered:</p>
+<code-example language="ts" format="linenums">$routeProvider.
+  when(&#39;/phones&#39;, {
+    template: &#39;&lt;pc-phone-list&gt;&lt;/pc-phone-list&gt;&#39;
+  }).
+</code-example><p>When the application runs, the Angular 1.x directive compiler will match
+the element in the template to the <code>pcPhoneList</code> directive, which is actually
+an Angular 2 component!</p>
+<p>The remaining issue with the phone list is the use of filters in its
+template: It is referring to the <code>filter</code> filter and the <code>orderBy</code> filter,
+and relying on them to filter and sort the phone list, respectively.
+These pipes do not exist in Angular 2, so we&#39;re going to need to do
+the filtering and sorting ourselves. Let&#39;s define a couple of pipes that
+get the job done.</p>
+<div class="alert is-helpful"><p>If you want to learn more about how pipes in Angular 2
+work, we have <a href="../guide/pipes.html">a whole guide on the subject</a>
+available!</p>
+</div><p>For filtering, we&#39;ll have a pipe called <code>PhoneFilterPipe</code>. It works like 
+the <code>filter</code> filter in Angular 1 in that it filters a collection of objects,
+matching properties within the objects. But, as opposed to <code>filter</code>,
+this pipe is specialized to filter <code>Phone</code> objects and we can use
+type annotations to make this explicit:</p>
+<div class="example-title">app/js/phone_list/phone_filter.pipe.ts</div><code-example language="ts" format="linenums">import { Pipe } from &#39;@angular/core&#39;;
+import { Phone } from &#39;../core/phones.service&#39;;
+
+@Pipe({name: &#39;phoneFilter&#39;})
+export default class PhoneFilterPipe {
+
+  transform(input:Phone[], query:string = &#39;&#39;): Phone[] {
+    if (input) {
+      query = query.toLowerCase();
+      return input.filter((phone) =&gt; {
+        const name = phone.name.toLowerCase();
+        const snippet = phone.snippet.toLowerCase();
+        return name.indexOf(query) &gt;= 0 || snippet.indexOf(query) &gt;= 0;
+      });
+    } else {
+      return input;
+    }
+  }
+
+}
+</code-example><p>Since we&#39;re adding new code, it&#39;s a good idea to add some unit tests for
+it too. Here are a few tests for <code>PhoneFilterPipe</code>:</p>
+<div class="example-title">test/unit/phone_filter.pipe.spec.ts</div><code-example language="ts" format="linenums">import {describe, beforeEachProviders, it, inject} from &#39;@angular/core/testing&#39;;
+
+import PhoneFilterPipe from &#39;../../app/js/phone_list/phone_filter.pipe&#39;;
+import {Phone} from &#39;../../app/js/core/phones.service&#39;;
+
+describe(&#39;PhoneFilterPipe&#39;, function() {
+
+  let phones:Phone[] = [
+    {name: &#39;Nexus S&#39;, snippet: &#39;The Nexus S Phone&#39;, images: []},
+    {name: &#39;Motorola DROID&#39;, snippet: &#39;an Android-for-business smartphone&#39;, images: []}
+  ];
+
+  beforeEachProviders(() =&gt; [PhoneFilterPipe]);
+
+  it(&#39;should return input when no query&#39;, inject([PhoneFilterPipe], (phoneFilterPipe) =&gt; {
+    expect(phoneFilterPipe.transform(phones)).toEqual(phones);
+  }));
+
+  it(&#39;should match based on name&#39;, inject([PhoneFilterPipe], (phoneFilterPipe) =&gt; {
+    expect(phoneFilterPipe.transform(phones, &#39;nexus&#39;)).toEqual([phones[0]]);
+  }));
+
+  it(&#39;should match based on snippet&#39;, inject([PhoneFilterPipe], (phoneFilterPipe) =&gt; {
+    expect(phoneFilterPipe.transform(phones, &#39;android&#39;)).toEqual([phones[1]]);
+  }));
+
+});
+</code-example><p>For sorting, we&#39;ll use a more generic pipe, just called <code>OrderBy</code>. It
+takes an array of objects, and a property to order the array by. It returns
+an array of the same type of thing it was given. In the implementation we
+copy the input array, sort the copy, and return it.</p>
+<div class="example-title">app/js/phone_list/order_by.pipe.ts</div><code-example language="ts" format="linenums">import { Pipe } from &#39;@angular/core&#39;;
+
+@Pipe({name: &#39;orderBy&#39;})
+export default class OrderByPipe {
+
+  transform&lt;T&gt;(input:T[], property:string): T[] {
+    if (input) {
+      return input.slice().sort((a, b) =&gt; {
+        if (a[property] &lt; b[property]) {
+          return -1;
+        } else if (b[property] &lt; a[property]) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+    } else {
+      return input;
+    }
+  }
+
+}
+</code-example><p>Here&#39;s a unit test for <code>OrderByPipe</code> as well:</p>
+<div class="example-title">test/unit/order_by.pipe.spec.ts</div><code-example language="ts" format="linenums">import {describe, beforeEachProviders, it, inject} from &#39;@angular/core/testing&#39;;
+
+import OrderByPipe from &#39;../../app/js/phone_list/order_by.pipe&#39;;
+
+describe(&#39;OrderByPipe&#39;, function() {
+
+  let input:any[] = [
+    {name: &#39;Nexus S&#39;, snippet: &#39;The Nexus S Phone&#39;, images: []},
+    {name: &#39;Motorola DROID&#39;, snippet: &#39;An Android-for-business smartphone&#39;, images: []}
+  ];
+
+  beforeEachProviders(() =&gt; [OrderByPipe]);
+
+  it(&#39;should order by the given property&#39;, inject([OrderByPipe], (orderByPipe) =&gt; {
+    expect(orderByPipe.transform(input, &#39;name&#39;)).toEqual([input[1], input[0]]);
+  }));
+
+});
+</code-example><p>We can now integrate these new pipes with our component. Before the pipes
+are available there, we need to declare them in the <code>@Component</code> decorator.</p>
+<div class="example-title">app/js/phone_list/phone_list.component.ts</div><code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { Phones, Phone } from &#39;../core/phones.service&#39;;
+import PhoneFilterPipe from &#39;./phone_filter.pipe&#39;;
+import OrderByPipe from &#39;./order_by.pipe&#39;;
+
+@Component({
+  selector: &#39;pc-phone-list&#39;,
+  templateUrl: &#39;js/phone_list/phone_list.html&#39;,
+  pipes: [PhoneFilterPipe, OrderByPipe],
+})
+class PhoneList {
+</code-example><p>In the template we need to use the <code>phoneFilter</code> pipe instead of <code>filter</code>.
+No changes are needed for the <code>orderBy</code></p>
+<div class="example-title">app/js/phone_list/phone_list.html</div><code-example language="html" format="linenums">&lt;ul class=&quot;phones&quot;&gt;
+  &lt;li *ngFor=&quot;let phone of phones | phoneFilter:query | orderBy:orderProp&quot;
+      class=&quot;thumbnail phone-listing&quot;&gt;
+    &lt;a href=&quot;#/phones/{{phone.id}}&quot; class=&quot;thumb&quot;&gt;&lt;img [src]=&quot;phone.imageUrl&quot;&gt;&lt;/a&gt;
+    &lt;a href=&quot;#/phones/{{phone.id}}&quot; class=&quot;name&quot;&gt;{{phone.name}}&lt;/a&gt;
+    &lt;p&gt;{{phone.snippet}}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code-example><p>Now that the phone list is an Angular 2 component, there&#39;s one more neat trick
+we can apply to make its code a little bit simpler. Earlier, as we upgraded
+the <code>Phones</code> service, we needed to add a <code>subscribe</code> callback to the list
+response, which populated the <code>phones</code> array on the component.
+With Angular 2, we can instead just put the Observable itself on the
+component, and can skip the subscription callback:</p>
+<div class="example-title">app/js/phone_list/phone_list.component.ts</div><code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { Phones, Phone } from &#39;../core/phones.service&#39;;
+import PhoneFilterPipe from &#39;./phone_filter.pipe&#39;;
+import OrderByPipe from &#39;./order_by.pipe&#39;;
+
+@Component({
+  selector: &#39;pc-phone-list&#39;,
+  templateUrl: &#39;js/phone_list/phone_list.html&#39;,
+  pipes: [PhoneFilterPipe, OrderByPipe],
+})
+class PhoneList {
+
+  phones:Observable&lt;Phone[]&gt;;
+  orderProp:string;
+  query:string;
+  constructor(phones:Phones) {
+    this.phones = phones.query();
+    this.orderProp = &#39;age&#39;;
+  }
+}
+
+export default PhoneList;
+</code-example><p>This is made possible by the <code>async</code> pipe, which we can apply in the template.
+It knows how to turn an Observable to the (latest) value it has emitted:</p>
+<div class="example-title">app/js/phone_list/phone_list.html</div><code-example language="html" format="linenums">&lt;ul class=&quot;phones&quot;&gt;
+  &lt;li *ngFor=&quot;let phone of phones | async | phoneFilter:query | orderBy:orderProp&quot;
+      class=&quot;thumbnail phone-listing&quot;&gt;
+    &lt;a href=&quot;#/phones/{{phone.id}}&quot; class=&quot;thumb&quot;&gt;&lt;img [src]=&quot;phone.imageUrl&quot;&gt;&lt;/a&gt;
+    &lt;a href=&quot;#/phones/{{phone.id}}&quot; class=&quot;name&quot;&gt;{{phone.name}}&lt;/a&gt;
+    &lt;p&gt;{{phone.snippet}}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code-example><p>That takes care of the phone list. Here&#39;s the updated unit test file for
+that component to complete the migration:</p>
+<div class="example-title">test/unit/phone_list.component.spec.ts</div><code-example language="ts" format="linenums">import {provide} from &#39;@angular/core&#39;;
+import {HTTP_PROVIDERS} from &#39;@angular/http&#39;;
+import {Observable} from &#39;rxjs/Rx&#39;;
+import {
+  describe,
+  beforeEachProviders,
+  inject,
+  it,
+  expect
+} from &#39;@angular/core/testing&#39;;
+import {TestComponentBuilder} from &#39;@angular/compiler/testing&#39;;
+
+import PhoneList from &#39;../../app/js/phone_list/phone_list.component&#39;;
+import {Phones, Phone} from &#39;../../app/js/core/phones.service&#39;;
+
+class MockPhones extends Phones {
+  query():Observable&lt;Phone[]&gt; {
+    return Observable.of(
+      [{name: &#39;Nexus S&#39;, snippet: &#39;&#39;}, {name: &#39;Motorola DROID&#39;, snippet: &#39;&#39;}]
+    )
+  }
+}
+
+describe(&#39;PhoneList&#39;, () =&gt; {
+
+  beforeEachProviders(() =&gt; [
+    provide(Phones, {useClass: MockPhones}),
+    HTTP_PROVIDERS
+  ]);
+
+
+  it(&#39;should create &quot;phones&quot; model with 2 phones fetched from xhr&#39;,
+      inject([TestComponentBuilder], (tcb) =&gt; {
+    return tcb.createAsync(PhoneList).then((fixture) =&gt; {
+      fixture.detectChanges();
+
+      let compiled = fixture.debugElement.nativeElement;
+
+      expect(compiled.querySelectorAll(&#39;.phone-listing&#39;).length).toBe(2);
+      expect(compiled.querySelector(&#39;.phone-listing:nth-child(1)&#39;).textContent).toContain(&#39;Nexus S&#39;);
+      expect(compiled.querySelector(&#39;.phone-listing:nth-child(2)&#39;).textContent).toContain(&#39;Motorola DROID&#39;);
+    });
+  }));
+
+
+  it(&#39;should set the default value of orderProp model&#39;,
+      inject([TestComponentBuilder], (tcb) =&gt; {
+    return tcb.createAsync(PhoneList).then((fixture) =&gt; {
+      fixture.detectChanges();
+      let compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector(&#39;select option:last-child&#39;).selected).toBe(true);
+    });
+  }));
+
+});
+</code-example><p>Before this test will run, we&#39;ll need to augment our Karma configuration
+so that component HTML templates are loaded properly. We didn&#39;t need them
+before when we were testing the controller in isolation, but our new test
+exercises the component as a whole, which includes the template.</p>
+<div class="example-title">test/karma.conf.js</div><code-example language="js" format="linenums">files : [
+/* . . . */
+  {pattern: &#39;app/js/**/*.html&#39;, included: false, watched: true}
+],
+
+proxies: {
+  // required for component assests fetched by Angular&#39;s compiler
+  &quot;/js&quot;: &quot;/base/app/js&quot;
+},
+</code-example><p>Now we can start looking at our other controller, which is the one for
+the phone details. Rename <code>phone_detail.controller.ts</code> to <code>phone_detail.component.ts</code>,
+and set the contents as follows:</p>
+<div class="example-title">app/js/phone_detail/phone_detail.component.ts</div><code-example language="ts" format="linenums">import { Component, Inject } from &#39;@angular/core&#39;;
+import { Phone, Phones } from &#39;../core/phones.service&#39;;
+
+interface PhoneRouteParams {
+  phoneId: string
+}
+
+@Component({
+  selector: &#39;pc-phone-detail&#39;,
+  templateUrl: &#39;js/phone_detail/phone_detail.html&#39;
+})
+class PhoneDetail {
+  phone:Phone = undefined;
+  mainImageUrl:string;
+  constructor(@Inject(&#39;$routeParams&#39;) $routeParams:PhoneRouteParams,
+              phones:Phones) {
+    phones.get($routeParams.phoneId)
+      .subscribe(phone =&gt; {
+        this.phone = phone;
+        this.mainImageUrl = phone.images[0];
+      });
+  }
+
+  setImage(url:string) {
+    this.mainImageUrl = url;
+  }
+}
+export default PhoneDetail;
+</code-example><p>This is pretty similar to what we did with the phone list. The one new change
+here is the use of <code>@Inject</code> for the <code>$routeParams</code> dependency. It tells the
+Angular 2 injector what this dependency should map to. We have a dependency called
+<code>$routeParams</code> in the Angular 1 injector, where it is provided by the Angular 1 router.
+That is what we were already using when <code>PhoneDetails</code> was still an Angular 1 controller.
+The things is though, Angular 1 dependencies are not made automatically available to
+Angular 2 components, so if we were to run this now, it would not work.</p>
+<p>We explicitly need to tell the <code>UpgradeAdapter</code> to upgrade <code>$routeParams</code> so that
+it is available for injection in Angular 2. We can do it in <code>app.module.ts</code>:</p>
+<div class="example-title">app/js/app.module.ts</div><code-example language="ts" format="">upgradeAdapter.upgradeNg1Provider(&#39;$routeParams&#39;);
+</code-example><p>We now also need to convert the template of this component into Angular 2 syntax.
+Here is the new template in its entirety:</p>
+<div class="example-title">app/js/phone_detail/phone_detail.html</div><code-example language="html" format="linenums">&lt;div class=&quot;phone-images&quot;&gt;
+  &lt;img [src]=&quot;img&quot;
+       class=&quot;phone&quot;
+       *ngFor=&quot;let img of phone?.images&quot;
+       [ngClass]=&quot;{active: mainImageUrl==img}&quot;&gt;
+&lt;/div&gt;
+&lt;h1&gt;{{phone?.name}}&lt;/h1&gt;
+&lt;p&gt;{{phone?.description}}&lt;/p&gt;
+&lt;ul class=&quot;phone-thumbs&quot;&gt;
+  &lt;li *ngFor=&quot;let img of phone?.images&quot;&gt;
+    &lt;img [src]=&quot;img&quot; (click)=&quot;setImage(img)&quot;&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class=&quot;specs&quot;&gt;
+  &lt;li&gt;
+    &lt;span&gt;Availability and Networks&lt;/span&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;Availability&lt;/dt&gt;
+      &lt;dd *ngFor=&quot;let availability of phone?.availability&quot;&gt;{{availability}}&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span&gt;Battery&lt;/span&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;Type&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.battery?.type}}&lt;/dd&gt;
+      &lt;dt&gt;Talk Time&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.battery?.talkTime}}&lt;/dd&gt;
+      &lt;dt&gt;Standby time (max)&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.battery?.standbyTime}}&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span&gt;Storage and Memory&lt;/span&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;RAM&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.storage?.ram}}&lt;/dd&gt;
+      &lt;dt&gt;Internal Storage&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.storage?.flash}}&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span&gt;Connectivity&lt;/span&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;Network Support&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.connectivity?.cell}}&lt;/dd&gt;
+      &lt;dt&gt;WiFi&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.connectivity?.wifi}}&lt;/dd&gt;
+      &lt;dt&gt;Bluetooth&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.connectivity?.bluetooth}}&lt;/dd&gt;
+      &lt;dt&gt;Infrared&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.connectivity?.infrared | checkmark}}&lt;/dd&gt;
+      &lt;dt&gt;GPS&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.connectivity?.gps | checkmark}}&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span&gt;Android&lt;/span&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;OS Version&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.android?.os}}&lt;/dd&gt;
+      &lt;dt&gt;UI&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.android?.ui}}&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span&gt;Size and Weight&lt;/span&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;Dimensions&lt;/dt&gt;
+      &lt;dd *ngFor=&quot;let dim of phone?.sizeAndWeight?.dimensions&quot;&gt;{{dim}}&lt;/dd&gt;
+      &lt;dt&gt;Weight&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.sizeAndWeight?.weight}}&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span&gt;Display&lt;/span&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;Screen size&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.display?.screenSize}}&lt;/dd&gt;
+      &lt;dt&gt;Screen resolution&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.display?.screenResolution}}&lt;/dd&gt;
+      &lt;dt&gt;Touch screen&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.display?.touchScreen | checkmark}}&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span&gt;Hardware&lt;/span&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;CPU&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.hardware?.cpu}}&lt;/dd&gt;
+      &lt;dt&gt;USB&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.hardware?.usb}}&lt;/dd&gt;
+      &lt;dt&gt;Audio / headphone jack&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.hardware?.audioJack}}&lt;/dd&gt;
+      &lt;dt&gt;FM Radio&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.hardware?.fmRadio | checkmark}}&lt;/dd&gt;
+      &lt;dt&gt;Accelerometer&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.hardware?.accelerometer | checkmark}}&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span&gt;Camera&lt;/span&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;Primary&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.camera?.primary}}&lt;/dd&gt;
+      &lt;dt&gt;Features&lt;/dt&gt;
+      &lt;dd&gt;{{phone?.camera?.features?.join(&#39;, &#39;)}}&lt;/dd&gt;
+    &lt;/dl&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span&gt;Additional Features&lt;/span&gt;
+    &lt;dd&gt;{{phone?.additionalFeatures}}&lt;/dd&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code-example><p>There are several notable changes here:</p>
+<ul>
+<li>We&#39;ve removed the <code>vm.</code> prefix from all expressions.</li>
+<li>Just like we did in the phone list, we&#39;ve replaced <code>ng-src</code> with property
+bindings for the standard <code>src</code>.</li>
+<li>We&#39;re using the property binding syntax around <code>ng-class</code>. Though Angular 2
+does have <a href="../guide/template-syntax.html#directives">a very similar <code>ngClass</code></a>
+as Angular 1 does, its value is not magically evaluated as an expression.
+In Angular 2 we always specify  in the template when an attribute&#39;s value is
+a property expression, as opposed to a literal string.</li>
+<li>We&#39;ve replaced <code>ng-repeat</code>s with <code>*ngFor</code>s.</li>
+<li>We&#39;ve replaced <code>ng-click</code> with an event binding for the standard <code>click</code>.</li>
+<li>In all references to <code>phone</code>, we&#39;re using the safe navigation operator <code>?.</code> for
+safe property navigation. We need it because when the component first loads,
+we don&#39;t have <code>phone</code> yet and the expressions will refer to a non-existing
+value. Unlike in Angular 1, Angular 2 expressions do not fail silently when
+we try to refer to properties on undefined objects. We need to be explicit
+about cases where this is expected.</li>
+</ul>
+<p>In the module file we&#39;ll now register a <code>pcPhoneDetail</code> directive instead of a
+controller. The directive is a downgraded version of the <code>PhoneDetail</code> component.</p>
+<div class="example-title">app/js/phone_detail/phone_detail.module.ts</div><code-example language="ts" format="linenums">import PhoneDetail from &#39;./phone_detail.component&#39;;
+import upgradeAdapter from &#39;../core/upgrade_adapter&#39;;
+
+export default angular.module(&#39;phonecat.detail&#39;, [
+    &#39;ngRoute&#39;,
+    &#39;phonecat.core&#39;
+  ])
+  .directive(&#39;pcPhoneDetail&#39;,
+    &lt;angular.IDirectiveFactory&gt;upgradeAdapter.downgradeNg2Component(PhoneDetail))
+</code-example><p>In the router configuration in <code>app.module.ts</code>, we&#39;ll switch the details route to
+instantiate a component as well:</p>
+<code-example language="ts" format="linenums">when(&#39;/phones/:phoneId&#39;, {
+  template: &#39;&lt;pc-phone-detail&gt;&lt;/pc-phone-detail&gt;&#39;
+}).
+</code-example><p>There&#39;s one additional step we need to take, which is to upgrade the
+<code>checkmark</code> filter that the template is using. We need an Angular 2
+pipe instead of an Angular 1 filter.</p>
+<p>While there is no upgrade method in the upgrade adapter for filters, we
+can just turn the filter function into a class that fulfills
+the contract for Angular 2 Pipes. The implementation is the same as before.
+It just comes in a different kind of package. While changing it, also
+rename the file to <code>checkmark.pipe.ts</code>:</p>
+<div class="example-title">app/js/core/checkmark.pipe.ts</div><code-example language="ts" format="linenums">import { Pipe } from &#39;@angular/core&#39;;
+
+@Pipe({name: &#39;checkmark&#39;})
+export class CheckmarkPipe {
+  transform(input:string): string {
+    return input ? &#39;\u2713&#39; : &#39;\u2718&#39;;
+  }
+}
+</code-example><p>As we apply this change, we should also remove the registration of the filter
+from the core module file. The module&#39;s content becomes:</p>
+<div class="example-title">app/js/core/core.module.ts</div><code-example language="ts" format="linenums">import { Phones } from &#39;./phones.service&#39;;
+import upgradeAdapter from &#39;./upgrade_adapter&#39;;
+
+upgradeAdapter.addProvider(Phones);
+
+export default angular.module(&#39;phonecat.core&#39;, [])
+  .factory(&#39;phones&#39;, upgradeAdapter.downgradeNg2Provider(Phones));
+</code-example><p>The unit test file for the filter also now becomes the unit test filter
+for the pipe. While we&#39;re still testing the same thing, we need to change
+how we set things up:</p>
+<div class="example-title">test/unit/checkmark.pipe.spec.ts</div><code-example language="ts" format="linenums">import {describe, beforeEachProviders, it, inject, expect} from &#39;@angular/core/testing&#39;;
+import {CheckmarkPipe} from &#39;../../app/js/core/checkmark.pipe&#39;;
+
+describe(&#39;CheckmarkPipe&#39;, function() {
+
+  beforeEachProviders(() =&gt; [CheckmarkPipe]);
+
+  it(&#39;should convert boolean values to unicode checkmark or cross&#39;,
+      inject([CheckmarkPipe], (checkmarkPipe) =&gt; {
+    expect(checkmarkPipe.transform(true)).toBe(&#39;\u2713&#39;);
+    expect(checkmarkPipe.transform(false)).toBe(&#39;\u2718&#39;);
+  }));
+
+});
+</code-example><p>In the component we should now import and declare our newly created pipe:</p>
+<div class="example-title">app/js/phone_detail/phone_detail.component.ts</div><code-example language="ts" format="linenums">import { Component, Inject } from &#39;@angular/core&#39;;
+import { Phones, Phone } from &#39;../core/phones.service&#39;;
+import { CheckmarkPipe } from &#39;../core/checkmark.pipe&#39;;
+
+interface PhoneRouteParams {
+  phoneId: string
+}
+
+@Component({
+  selector: &#39;pc-phone-detail&#39;,
+  templateUrl: &#39;js/phone_detail/phone_detail.html&#39;,
+  pipes: [CheckmarkPipe]
+})
+class PhoneDetail {
+</code-example><p>With the phone detail component now migrated as well, we can go and migrate
+its unit tests too.</p>
+<div class="example-title">test/unit/phone_detail.component.spec.ts</div><code-example language="ts" format="linenums">import {provide} from &#39;@angular/core&#39;;
+import {HTTP_PROVIDERS} from &#39;@angular/http&#39;;
+import {Observable} from &#39;rxjs/Rx&#39;;
+import {
+  describe,
+  beforeEachProviders,
+  inject,
+  it,
+  expect
+} from &#39;@angular/core/testing&#39;;
+import {TestComponentBuilder} from &#39;@angular/compiler/testing&#39;;
+
+import PhoneDetail from &#39;../../app/js/phone_detail/phone_detail.component&#39;;
+import {Phones, Phone} from &#39;../../app/js/core/phones.service&#39;;
+
+function xyzPhoneData():Phone {
+  return {
+    name: &#39;phone xyz&#39;,
+    snippet: &#39;&#39;,
+    images: [&#39;image/url1.png&#39;, &#39;image/url2.png&#39;]
+  }
+}
+
+class MockPhones extends Phones {
+  get(id):Observable&lt;Phone&gt; {
+    return Observable.of(xyzPhoneData());
+  }
+}
+
+describe(&#39;PhoneDetail&#39;, () =&gt; {
+
+  beforeEachProviders(() =&gt; [
+    provide(Phones, {useClass: MockPhones}),
+    provide(&#39;$routeParams&#39;, {useValue: {phoneId: &#39;xyz&#39;}}),
+    HTTP_PROVIDERS
+  ]);
+
+  it(&#39;should fetch phone detail&#39;, inject([TestComponentBuilder], (tcb) =&gt; {
+    return tcb.createAsync(PhoneDetail).then((fixture) =&gt; {
+      fixture.detectChanges();
+      let compiled = fixture.debugElement.nativeElement;
+
+      expect(compiled.querySelector(&#39;h1&#39;)).toHaveText(xyzPhoneData().name);
+    });
+  }));
+
+});
+</code-example><p>As we discussed earlier, Protractor tests should largely remain functional
+as we are making changes, since we&#39;re not really changing the user-visible
+behavior of the application. Now that we&#39;ve migrated some components and
+their templates, however, there are a few changes we need to make. Apply
+the following replacements to <code>scenarios.js</code>:</p>
+<table><tr><th>Previous code</th><th>New code</th><th>Notes</th></tr><tr><td><p><code>by.repeater(&#39;phone in vm.phones&#39;).column(&#39;phone.name&#39;)</code></p>
+</td><td><p><code>by.css(&#39;.phones .name&#39;)</code></p>
+</td><td><p>The repeater matcher relies on Angular 1 <code>ng-repeat</code></p>
+</td></tr><tr><td><p><code>by.repeater(&#39;phone in vm.phones&#39;)</code></p>
+</td><td><p><code>by.css(&#39;.phones li&#39;)</code></p>
+</td><td><p>The repeater matcher relies on Angular 1 <code>ng-repeat</code></p>
+</td></tr><tr><td> <p><code>by.model(&#39;vm.query&#39;)</code></p>
+</td><td><p><code>by.css(&#39;input&#39;)</code></p>
+</td><td><p>The model matcher relies on Angular 1 <code>ng-model</code></p>
+</td></tr><tr><td><p><code>by.model(&#39;vm.orderProp&#39;)</code></p>
+</td><td><p><code>by.css(&#39;select&#39;)</code></p>
+</td><td><p>The model matcher relies on Angular 1 <code>ng-model</code></p>
+</td></tr><tr> <td><p><code>by.binding(&#39;vm.phone.name&#39;)</code></p>
+</td><td><p><code>by.css(&#39;h1&#39;)</code></p>
+</td><td><p>The binding matcher relies on Angular 1 data binding</p>
+</td></tr><tr><td><p><code>li:nth-child(1)</code> and <code>li:nth-child(3)</code> </p>
+</td><td><p><code>li:nth-of-type(1)</code> and <code>li:nth-of-type(3)</code></p>
+</td><td><p>Angular 2 may inject empty <code>&lt;script&gt;</code> tags to the page for its internal purposes so we should not rely on the number of siblings being predictable.</p>
+</td></tr></table><h2 id="switching-to-the-angular-2-router-and-bootstrap">Switching To The Angular 2 Router And Bootstrap</h2>
+<p>At this point we&#39;ve replaced all our Angular 1 application components with
+their Angular 2 counterparts. The application is still bootstrapped as a hybrid,
+but there isn&#39;t really any need for that anymore, and we can begin to 
+pull out the last remnants of Angular 1.</p>
+<p>There are just two more things to do: We need to switch the router to
+the Angular 2 one, and then bootstrap the app as a pure Angular 2 app.</p>
+<p>Let&#39;s do the routing part first. Angular 2 comes with a <a href="router.html">shiny new router</a>
+that we can use for this.</p>
+<p>Angular 2 applications all have a <em>root component</em>, which, among other
+things, is where we should plug in the router. We don&#39;t yet have such a root
+component, because our app is still managed as an Angular 1 app.
+Let&#39;s change this now and add an <code>AppComponent</code> class into a new file
+<code>app.component.ts</code>:</p>
+<div class="example-title">app/js/app.component.ts</div><code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { RouteConfig, ROUTER_DIRECTIVES } from &#39;@angular/router&#39;;
+
+import PhoneList from &#39;./phone_list/phone_list.component&#39;;
+import PhoneDetail from &#39;./phone_detail/phone_detail.component&#39;;
+
+@RouteConfig([
+  {path:&#39;/phones&#39;, name: &#39;Phones&#39;, component: PhoneList},
+  {path:&#39;/phones/:phoneId&#39;, name: &#39;Phone&#39;, component: PhoneDetail},
+  {path:&#39;/&#39;, redirectTo: [&#39;Phones&#39;]}
+])
+@Component({
+  selector: &#39;pc-app&#39;,
+  template: &#39;&lt;router-outlet&gt;&lt;/router-outlet&gt;&#39;,
+  directives: [ROUTER_DIRECTIVES]
+})
+export default class AppComponent {
+}
+</code-example><p>This is a component that plugs in to an <code>&lt;pc-app&gt;</code> element on the page,
+and has a simple template that only includes the router outlet component
+of the Angular router. This means that the component just renders the contents
+of the current route and nothing else. The <code>@RouteConfig</code> decorator defines
+the Angular 2 counterparts of our two routes. They refer directly to the
+two components.</p>
+<p>We should put this <code>&lt;pc-app&gt;</code> element in the HTML so that the root component
+has something to attach to. It replaces the old Angular 1 <code>ng-view</code> directive:</p>
+<div class="example-title">app/index.html</div><code-example language="html" format="linenums">&lt;body&gt;
+  &lt;pc-app&gt;&lt;/pc-app&gt;
+&lt;/body&gt;
+</code-example><p>In the <code>PhoneDetail</code> component we now need to change how the phone id parameter
+is received. There will be no more <code>$routeParams</code> injection available, because
+that comes from the Angular 1 router. Instead, what we have is a <code>RouteParams</code>
+object provided by the Angular 2 router. We use it to obtain the <code>phoneId</code> from
+the params:</p>
+<div class="example-title">app/js/phone_detail/phone_detail.component.ts</div><code-example language="ts" format="linenums">import { Component, Inject } from &#39;@angular/core&#39;;
+import { RouteParams } from &#39;@angular/router&#39;;
+
+import { Phones, Phone } from &#39;../core/phones.service&#39;;
+import { CheckmarkPipe } from &#39;../core/checkmark.pipe&#39;;
+
+@Component({
+  selector: &#39;pc-phone-detail&#39;,
+  templateUrl: &#39;js/phone_detail/phone_detail.html&#39;,
+  pipes: [CheckmarkPipe]
+})
+class PhoneDetail {
+  phone:Phone = undefined;
+  mainImageUrl:string;
+  constructor(params:RouteParams,
+              phones:Phones) {
+    phones.get(params.get(&#39;phoneId&#39;))
+      .subscribe(phone =&gt; {
+        this.phone = phone;
+        this.mainImageUrl = phone.images[0];
+      });
+  }
+
+  setImage(url:string) {
+    this.mainImageUrl = url;
+  }
+}
+export default PhoneDetail;
+</code-example><p>We should also make the corresponding change in the unit test. We provide
+an instance of the <code>RouteParams</code> class instead of the <code>$routeParams</code> object:</p>
+<div class="example-title">test/unit/phone_detail.component.spec.ts</div><code-example language="ts" format="linenums">import { RouteParams } from &#39;@angular/router&#39;;
+/* . . . */
+describe(&#39;PhoneDetail&#39;, () =&gt; {
+
+  beforeEachProviders(() =&gt; [
+    provide(Phones, {useClass: MockPhones}),
+    provide(RouteParams, {useValue: new RouteParams({phoneId: &#39;xyz&#39;})}),
+    HTTP_PROVIDERS
+  ]);
+</code-example><p>With that, we&#39;re ready to switch the bootstrap method of the application from that
+of the <code>UpgradeAdapter</code> to the main Angular 2 <code>bootstrap</code>. Let&#39;s import it together
+with the router and the new app component in <code>app.module.ts</code></p>
+<code-example language="ts" format="linenums">import { provide } from &#39;@angular/core&#39;;
+import { LocationStrategy, HashLocationStrategy } from &#39;@angular/common&#39;;
+import { bootstrap } from &#39;@angular/platform-browser-dynamic&#39;;
+import { ROUTER_PROVIDERS } from &#39;@angular/router&#39;;
+
+import { Phones } from &#39;./core/phones.service&#39;;
+import AppComponent from &#39;./app.component&#39;;
+</code-example><p>We&#39;ll now use the regular Angular 2 <code>bootstrap</code> function to bootstrap the app 
+instead of using <code>UpgradeAdapter</code>. The first argument to <code>bootstrap</code> is the
+application&#39;s root component <code>AppComponent</code>, and the second
+is an array of the Angular 2 providers that we want to make available for
+injection. In that array we include all the things we have been registering
+with  <code>upgradeAdapter.addProvider</code> until now, as well as the providers and
+directives of the router:</p>
+<code-example language="ts" format="linenums">bootstrap(AppComponent, [
+  HTTP_PROVIDERS,
+  ROUTER_PROVIDERS,
+  provide(LocationStrategy, {useClass: HashLocationStrategy}),
+  Phones
+]);
+</code-example><p>We are now running a pure Angular 2 application!</p>
+<p>But there&#39;s actually one more cool thing we can do with the new router.
+We no longer have to hardcode the links to phone details from the phone 
+list, because the Angular 2 router is able to generate them for us with
+its <code>routerLink</code> directive. We just need to refer to the route names we
+used in the <code>@RouteConfig</code>:</p>
+<div class="example-title">app/js/phone_list/phone_list.html</div><code-example language="html" format="linenums">&lt;ul class=&quot;phones&quot;&gt;
+  &lt;li *ngFor=&quot;let phone of phones | async | phoneFilter:query | orderBy:orderProp&quot;
+      class=&quot;thumbnail phone-listing&quot;&gt;
+    &lt;a [routerLink]=&quot;[&#39;/Phone&#39;, {phoneId: phone.id}]&quot; class=&quot;thumb&quot;&gt;&lt;img [src]=&quot;phone.imageUrl&quot;&gt;&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&#39;/Phone&#39;, {phoneId: phone.id}]&quot; class=&quot;name&quot;&gt;{{phone.name}}&lt;/a&gt;
+    &lt;p&gt;{{phone.snippet}}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code-example><p>For this to work the directive just needs to be declared in the component:</p>
+<code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { RouterLink } from &#39;@angular/router&#39;;
+import { Observable } from &#39;rxjs&#39;;
+
+import { Phones, Phone } from &#39;../core/phones.service&#39;;
+import PhoneFilterPipe from &#39;./phone_filter.pipe&#39;;
+import OrderByPipe from &#39;./order_by.pipe&#39;;
+
+@Component({
+  selector: &#39;pc-phone-list&#39;,
+  templateUrl: &#39;js/phone_list/phone_list.html&#39;,
+  pipes: [PhoneFilterPipe, OrderByPipe],
+  directives: [RouterLink]
+})
+class PhoneList {
+</code-example><p>Also, the unit tests for <code>PhoneList</code> now need to set up some router providers
+so that the <code>RouterLink</code> directive can be injected in the tests:</p>
+<code-example language="ts" format="linenums">import { provide, ApplicationRef } from &#39;@angular/core&#39;;
+import { LocationStrategy, HashLocationStrategy } from &#39;@angular/common&#39;;
+import { HTTP_PROVIDERS } from &#39;@angular/http&#39;;
+import { ROUTER_PROVIDERS, ROUTER_PRIMARY_COMPONENT } from &#39;@angular/router&#39;;
+import { Observable } from &#39;rxjs/Rx&#39;;
+import {
+  describe,
+  beforeEachProviders,
+  inject,
+  it,
+  expect,
+  MockApplicationRef
+} from &#39;@angular/core/testing&#39;;
+import { MockLocationStrategy } from &#39;@angular/common/testing&#39;;
+import { TestComponentBuilder } from &#39;@angular/compiler/testing&#39;;
+
+import AppComponent from &#39;../../app/js/app.component&#39;;
+import PhoneList from &#39;../../app/js/phone_list/phone_list.component&#39;;
+import { Phones, Phone } from &#39;../../app/js/core/phones.service&#39;;
+
+class MockPhones extends Phones {
+  query():Observable&lt;Phone[]&gt; {
+    return Observable.of(
+      [{name: &#39;Nexus S&#39;, snippet: &#39;&#39;}, {name: &#39;Motorola DROID&#39;, snippet: &#39;&#39;}]
+    )
+  }
+}
+
+describe(&#39;PhoneList&#39;, () =&gt; {
+
+  beforeEachProviders(() =&gt; [
+    HTTP_PROVIDERS,
+    ROUTER_PROVIDERS,
+    provide(ApplicationRef, {useClass: MockApplicationRef}),
+    provide(ROUTER_PRIMARY_COMPONENT, {useValue: AppComponent}),
+    provide(LocationStrategy, {useClass: MockLocationStrategy}),
+    provide(Phones, {useClass: MockPhones})
+  ]);
+
+
+  it(&#39;should create &quot;phones&quot; model with 2 phones fetched from xhr&#39;,
+      inject([TestComponentBuilder], (tcb) =&gt; {
+    return tcb.createAsync(PhoneList).then((fixture) =&gt; {
+      fixture.detectChanges();
+
+      let compiled = fixture.debugElement.nativeElement;
+
+      expect(compiled.querySelectorAll(&#39;.phone-listing&#39;).length).toBe(2);
+      expect(compiled.querySelector(&#39;.phone-listing:nth-child(1)&#39;).textContent).toContain(&#39;Nexus S&#39;);
+      expect(compiled.querySelector(&#39;.phone-listing:nth-child(2)&#39;).textContent).toContain(&#39;Motorola DROID&#39;);
+    });
+  }));
+
+
+  it(&#39;should set the default value of orderProp model&#39;,
+      inject([TestComponentBuilder], (tcb) =&gt; {
+    return tcb.createAsync(PhoneList).then((fixture) =&gt; {
+      fixture.detectChanges();
+      let compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector(&#39;select option:last-child&#39;).selected).toBe(true);
+    });
+  }));
+
+});
+</code-example><p>To bring our Protractor test suite up to speed with the latest changes,
+there are a few remaining things we need to do. Firstly, now that we&#39;re
+no longer running Angular 1 at all, we should let Protractor know it
+should not be looking for one but instead find <em>Angular 2 apps</em> from
+the page. Add the following configuration option to <code>protractor-conf.js</code>:</p>
+<code-example language="js" format="">useAllAngular2AppRoots: true
+</code-example><p>Also, there are a couple of Protractor API calls in our test code that
+are using the Angular 1 <code>$location</code> service under the hood. As that
+service is no longer there, we need to replace those calls with ones
+that use WebDriver&#39;s generic URL APIs instead. The first of these is
+the redirection spec:</p>
+<code-example language="js" format="linenums">it(&#39;should redirect index.html to index.html#/phones&#39;, function() {
+  browser.get(&#39;app/index.html&#39;);
+  browser.waitForAngular();
+  browser.getCurrentUrl().then(function(url) {
+    expect(url.endsWith(&#39;/phones&#39;)).toBe(true);
+  });
+});
+</code-example><p>And the second is the phone links spec:</p>
+<code-example language="js" format="linenums">  it(&#39;should render phone specific links&#39;, function() {
+    var query = element(by.css(&#39;input&#39;));
+    // https://github.com/angular/protractor/issues/2019
+    var str = &#39;nexus&#39;;
+    for (var i = 0; i &lt; str.length; i++) {
+      query.sendKeys(str.charAt(i));
+    }
+    element.all(by.css(&#39;.phones li a&#39;)).first().click();
+    browser.getCurrentUrl().then(function(url) {
+      expect(url.endsWith(&#39;/phones/nexus-s&#39;)).toBe(true);
+    });
+  });
+});
+</code-example><p>Now our E2E test suite is passing too, and we&#39;re ready to remove
+Angular 1 from the project!</p>
+<h2 id="saying-goodbye-to-angular-1">Saying Goodbye to Angular 1</h2>
+<p>It is time to take off the training wheels and let our application begin
+its new life as a pure, shiny Angular 2 app. The remaining tasks all have to
+do with removing code - which of course is every programmer&#39;s favorite task!</p>
+<p>First, rename <code>app.module.ts</code> to <code>main.ts</code>. It will no longer be setting up
+an Angular 1 module, so it doesn&#39;t really make sense to call it a module.
+Then remove all references to the <code>UpgradeAdapter</code> from <code>main.ts</code>. Also remove
+the Angular 1 bootstrap code and the imports of the <code>core</code>, <code>phoneList</code>, and
+<code>phoneDetail</code> modules. Instead import the <code>PhoneList</code> and <code>PhoneDetail</code>
+components directly - they are needed in the route configuration.</p>
+<p>When you&#39;re done, this is what <code>main.ts</code> should look like:</p>
+<div class="example-title">app/js/main.ts</div><code-example language="ts" format="linenums">import { provide } from &#39;@angular/core&#39;;
+import { LocationStrategy, HashLocationStrategy } from &#39;@angular/common&#39;;
+import { bootstrap } from &#39;@angular/platform-browser-dynamic&#39;;
+import { ROUTER_PROVIDERS } from &#39;@angular/router&#39;;
+
+import { Phones } from &#39;./core/phones.service&#39;;
+import AppComponent from &#39;./app.component&#39;;
+
+import { HTTP_PROVIDERS } from &#39;@angular/http&#39;;
+
+bootstrap(AppComponent, [
+  HTTP_PROVIDERS,
+  ROUTER_PROVIDERS,
+  provide(LocationStrategy, {useClass: HashLocationStrategy}),
+  Phones
+]);
+</code-example><p>You may also completely remove the following files. They are Angular 1
+module configuration files and type definition files, and not required
+in Angular 2:</p>
+<ul>
+<li><code>app/js/core/core.module.ts</code></li>
+<li><code>app/js/core/upgrade_adapter.ts</code></li>
+<li><code>app/js/phone_detail/phone_detail.module.ts</code></li>
+<li><code>app/js/phone_list/phone_list.module.ts</code></li>
+</ul>
+<p>The external typings for Angular 1 may be uninstalled as well. The only ones
+we still need are for Jasmine.</p>
+<code-example format="">npm run typings uninstall jquery -- --save --ambient
+npm run typings uninstall angular -- --save --ambient
+npm run typings uninstall angular-route -- --save --ambient
+npm run typings uninstall angular-resource -- --save --ambient
+npm run typings uninstall angular-mocks -- --save --ambient
+</code-example><p>Finally, from <code>index.html</code> and <code>karma.conf.js</code>, remove all references to
+Angular 1 scripts as well as jQuery. Instead of importing <code>js/app.module</code>
+with SystemJS, import <code>js/main</code>. When you&#39;re done, this is what <code>index.html</code>
+should look like:</p>
+<div class="example-title">app/index.html</div><code-example language="html" format="linenums">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;Google Phone Gallery&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;bower_components/bootstrap/dist/css/bootstrap.css&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/app.css&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;css/animations.css&quot;&gt;
+  &lt;script src=&quot;../node_modules/es6-shim/es6-shim.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../node_modules/zone.js/dist/zone.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../node_modules/reflect-metadata/Reflect.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../node_modules/systemjs/dist/system.src.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;systemjs.config.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    System.import(&#39;js/main&#39;);
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;pc-app&gt;&lt;/pc-app&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code-example><p>And this is what <code>karma.conf.js</code> should look like:</p>
+<div class="example-title">test/karma.conf.js</div><code-example language="js" format="linenums">module.exports = function(config){
+  config.set({
+
+    basePath : &#39;..&#39;,
+
+    files : [
+      &#39;node_modules/systemjs/dist/system-polyfills.js&#39;,
+      &#39;node_modules/es6-shim/es6-shim.js&#39;,
+      &#39;node_modules/zone.js/dist/zone.js&#39;,
+      &#39;node_modules/reflect-metadata/Reflect.js&#39;,
+      &#39;node_modules/systemjs/dist/system.src.js&#39;,
+      {pattern: &#39;node_modules/rxjs/**/*.js&#39;, included: false, watched: false},
+      {pattern: &#39;node_modules/@angular/**/*.js&#39;, included: false, watched: false},
+      &#39;test/karma_test_shim.js&#39;,
+      {pattern: &#39;app/js/**/*.js&#39;, included: false, watched: true},
+      {pattern: &#39;test/unit/**/*.js&#39;, included: false, watched: true},
+      {pattern: &#39;app/js/**/*.html&#39;, included: false, watched: true}
+    ],
+
+    proxies: {
+      // required for component assests fetched by Angular&#39;s compiler
+      &quot;/js&quot;: &quot;/base/app/js&quot;
+    },
+
+    autoWatch : true,
+
+    frameworks: [&#39;jasmine&#39;],
+
+    browsers : [&#39;Chrome&#39;, &#39;Firefox&#39;],
+
+    plugins : [
+      &#39;karma-chrome-launcher&#39;,
+      &#39;karma-firefox-launcher&#39;,
+      &#39;karma-jasmine&#39;
+    ],
+
+    junitReporter : {
+      outputFile: &#39;test_out/unit.xml&#39;,
+      suite: &#39;unit&#39;
+    }
+
+  });
+};
+</code-example><p>That is the last we&#39;ll see of Angular 1! It has served us well but now
+it&#39;s time to say goodbye.</p><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/ts/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>

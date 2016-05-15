@@ -1,0 +1,636 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/data.service.ts]" value="import { Injectable } from '@angular/core';
+
+@Injectable()
+export class DataService {
+  constructor() {
+  }
+  getHeroName() {
+    return 'Windstorm';
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero-di-inject-additional.component.ts]" value="import {
+  Attribute,
+  Component,
+  ElementRef,
+  Inject,
+  Optional,
+  Query,
+  QueryList
+} from '@angular/core';
+
+@Component({
+  selector: 'hero-title',
+  template: `
+    <h1>{{titlePrefix}} {{title}}</h1>
+    <button (click)=&quot;ok()&quot;>OK</button>
+    <ng-content></ng-content>
+  `
+})
+export class TitleComponent {
+  constructor(
+    @Inject('titlePrefix')
+    @Optional()
+      private titlePrefix:string,
+    @Attribute('title')
+      private title:string,
+    @Query('okMsg')
+      private msg:QueryList<ElementRef>) {
+  }
+
+  ok() {
+    let msgEl =
+      this.msg.first.nativeElement;
+    msgEl.textContent = 'OK!';
+  }
+}
+
+@Component({
+  selector: 'hero-di-inject-additional',
+  template: `<hero-title title=&quot;Tour of Heroes&quot;>
+    <span #okMsg class=&quot;ok-msg&quot;></span>
+  </hero-title>`,
+  directives: [TitleComponent]
+})
+export class AppComponent {
+
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero-di-inject.component.ts]" value="import { Component, Inject } from '@angular/core';
+
+@Component({
+  selector: 'hero-di-inject',
+  template: `<h1>Hero: {{name}}</h1>`
+})
+export class HeroComponent {
+  constructor(
+    @Inject('heroName')
+      private name:string) {
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero-di.component.ts]" value="import { Component } from '@angular/core';
+
+import { DataService } from './data.service';
+
+@Component({
+  selector: 'hero-di',
+  template: `<h1>Hero: {{name}}</h1>`
+})
+export class HeroComponent {
+  name:string;
+  constructor(dataService:DataService) {
+    this.name = dataService.getHeroName();
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero-io.component.ts]" value="import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'my-confirm',
+  template: `
+    <button (click)=&quot;onOkClick()&quot;>
+      {{okMsg}}
+    </button>
+    <button (click)=&quot;onNotOkClick()&quot;>
+      {{notOkMsg}}
+    </button>
+  `
+})
+export class ConfirmComponent {
+  @Input() okMsg:string;
+  @Input('cancelMsg') notOkMsg:string;
+  @Output() ok =
+    new EventEmitter();
+  @Output('cancel') notOk =
+    new EventEmitter();
+
+  onOkClick() {
+    this.ok.next(true);
+  }
+  onNotOkClick() {
+    this.notOk.next(true);
+  }
+}
+
+
+@Component({
+  selector: 'hero-io',
+  template: `
+    <my-confirm [okMsg]=&quot;'OK'&quot;
+                [cancelMsg]=&quot;'Cancel'&quot;
+                (ok)=&quot;onOk()&quot;
+                (cancel)=&quot;onCancel()&quot;>
+    </my-confirm>
+    <span *ngIf=&quot;okClicked&quot;>OK clicked</span>
+    <span *ngIf=&quot;cancelClicked&quot;>Cancel clicked</span>
+  `,
+  directives: [ConfirmComponent]
+})
+export class AppComponent {
+  okClicked:boolean;
+  cancelClicked:boolean;
+
+  onOk() {
+    this.okClicked = true;
+  }
+  onCancel() {
+    this.cancelClicked = true;
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero-lifecycle.component.ts]" value="import { Component, OnInit }
+  from '@angular/core';
+
+@Component({
+  selector: 'hero-lifecycle',
+  template: `<h1>Hero: {{name}}</h1>`
+})
+export class HeroComponent
+    implements OnInit {
+  name:string;
+  ngOnInit() {
+    this.name = 'Windstorm';
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/hero.component.ts]" value="import { Component } from '@angular/core';
+
+@Component({
+  selector: 'hero-view',
+  template: 
+    '<h1>Hero: {{getName()}}</h1>'
+})
+export class HeroComponent {
+  title = 'Hero Detail';
+  getName() {return 'Windstorm';}
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/heroes-bindings.component.ts]" value="import { Component, HostBinding, HostListener } from '@angular/core';
+
+@Component({
+  selector: 'heroes-bindings',
+  template: `<h1 [class.active]=&quot;active&quot;>
+    Tour ofHeroes
+  </h1>`
+})
+export class HeroesComponent {
+  @HostBinding() title = 'Tooltip content';
+  @HostBinding('class.heading')
+    hClass = true
+  active:boolean;
+
+  constructor() {}
+
+  @HostListener('click')
+  clicked() {
+    this.active = !this.active;
+  }
+
+  @HostListener('dblclick', ['$event'])
+  doubleClicked(evt:Event) {
+    this.active = true;
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/heroes-queries.component.ts]" value="import {
+  Component,
+  ViewChildren,
+  ContentChild,
+  QueryList,
+  Input
+} from '@angular/core';
+
+@Component({
+  selector: 'active-label',
+  template: `<span class=&quot;active-label&quot;
+                   *ngIf=&quot;active&quot;>
+    Active
+  </span>`
+})
+class ActiveLabelComponent {
+  active:boolean;
+
+  activate() {
+    this.active = true;
+  }
+}
+
+@Component({
+  selector: 'hero',
+  template: `<h2 [class.active]=active>
+    {{hero.name}}
+    <ng-content></ng-content>
+  </h2>`
+})
+class HeroComponent {
+  @Input() hero:any;
+  active:boolean;
+
+  @ContentChild(ActiveLabelComponent)
+  label:ActiveLabelComponent
+
+  activate() {
+    this.active = true;
+    this.label.activate();
+  }
+}
+
+
+@Component({
+  selector: 'heroes-queries',
+  template: `
+    <hero *ngFor=&quot;let hero of heroData&quot;
+          [hero]=&quot;hero&quot;>
+      <active-label></active-label>
+    </hero>
+    <button (click)=&quot;activate()&quot;>
+      Activate
+    </button>
+  `,
+  directives: [
+    HeroComponent,
+    ActiveLabelComponent
+  ]
+})
+export class HeroesQueriesComponent {
+  heroData = [
+    {id: 1, name: 'Windstorm'},
+    {id: 2, name: 'Superman'}
+  ];
+
+  @ViewChildren(HeroComponent)
+  heroCmps:QueryList<HeroComponent>;
+
+  activate() {
+    this.heroCmps.forEach(
+      (cmp) => cmp.activate()
+    );
+  }
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/main.ts]" value="import { provide }
+  from '@angular/core';
+import { bootstrap }
+  from '@angular/platform-browser-dynamic';
+import {
+} from '@angular/router';
+import {
+  LocationStrategy,
+  HashLocationStrategy
+} from '@angular/common';
+
+import { HeroComponent }
+  from './hero.component';
+import { HeroComponent as HeroLifecycleComponent } from './hero-lifecycle.component';
+import { HeroComponent as HeroDIComponent } from './hero-di.component';
+import { HeroComponent as HeroDIInjectComponent } from './hero-di-inject.component';
+import { AppComponent as AppDIInjectAdditionalComponent } from './hero-di-inject-additional.component';
+import { AppComponent as AppIOComponent } from './hero-io.component';
+import { HeroesComponent as HeroesHostBindingsComponent } from './heroes-bindings.component';
+import { HeroesQueriesComponent } from './heroes-queries.component';
+
+import { DataService } from './data.service';
+
+bootstrap(HeroComponent);
+bootstrap(HeroLifecycleComponent);
+bootstrap(HeroDIComponent, [DataService]);
+bootstrap(HeroDIInjectComponent, [
+  provide('heroName', {useValue: 'Windstorm'})
+]);
+bootstrap(AppDIInjectAdditionalComponent);
+bootstrap(AppIOComponent);
+bootstrap(HeroesHostBindingsComponent);
+bootstrap(HeroesQueriesComponent);
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[styles.css]" value="/* Master Styles */
+h1 {
+  color: #369; 
+  font-family: Arial, Helvetica, sans-serif;   
+  font-size: 250%;
+}
+h2, h3 { 
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;   
+  font-weight: lighter;
+}
+body { 
+  margin: 2em; 
+}
+body, input[text], button { 
+  color: #888; 
+  font-family: Cambria, Georgia; 
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa; 
+  cursor: auto;
+}
+
+/* Navigation link styles */
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.router-link-active {
+  color: #039be5;
+}
+
+/* items class */
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.items li.selected:hover {
+  background-color: #BBD8DC;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+/* everywhere else */
+* { 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+  <head>
+    <script>document.write('<base href=&quot;' + document.location + '&quot; />');</script>
+    <meta charset=&quot;UTF-8&quot;>
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+    <link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;>
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src=&quot;https://npmcdn.com/es6-shim@0.35.0/es6-shim.min.js&quot;></script>
+
+    <script src=&quot;https://npmcdn.com/zone.js@0.6.12?main=browser&quot;></script>
+    <script src=&quot;https://npmcdn.com/reflect-metadata@0.1.3&quot;></script>
+    <script src=&quot;https://npmcdn.com/systemjs@0.19.27/dist/system.src.js&quot;></script>
+
+    <script src=&quot;systemjs.config.js&quot;></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
+  <body>
+    <a id=&quot;toc&quot;></a>
+    <h1>TypeScript to JavaScript</h1>
+    <a href=&quot;#class-metadata&quot;>Classes and Class Metadata</a><br>
+    <a href=&quot;#property-metadata&quot;>Input and Output Metadata</a><br>
+    <a href=&quot;#dependency-injection&quot;>Dependency Injection</a><br>
+    <a href=&quot;#other-property-metadata&quot;>Host and Query Metadata</a><br>
+
+    <hr>
+    <h4 id=&quot;class-metadata&quot;>Classes and Class Metadata</h4>
+    <hero-view id=&quot;class-metadata&quot;>Loading hero-view...</hero-view>
+    <hero-lifecycle>Loading hero-lifecycle...</hero-lifecycle>
+
+    <hr>
+    <h4 id=&quot;property-metadata&quot;>Input and Output Metadata</h4>
+    <hero-io>Loading hero-io...</hero-io>
+
+    <hr>
+    <h4 id=&quot;dependency-injection&quot;>Dependency Injection</h4>
+    <hero-di>Loading hero-di...</hero-di>
+    <hero-di-inject>Loading hero-di-inject...</hero-di-inject>
+    <hero-di-inject-additional>Loading hero-di-inject-additional...</hero-di-inject-additional>
+
+    <hr>
+    <h4 id=&quot;other-property-metadata&quot;>Host and Query Metadata</h4>
+    <heroes-bindings>Loading heroes-bindings...</heroes-bindings>
+    <heroes-queries id=&quot;other-property-metadata&quot;>Loading heroes-queries...</heroes-queries>
+  </body>
+
+</html>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="cookbook"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - TypeScript to JavaScript"><input type="hidden" name="files[systemjs.config.js]" value="/**
+ * PLUNKER VERSION (based on systemjs.config.js in angular.io)
+ * System configuration for Angular 2 samples
+ * Adjust as necessary for your application needs.
+ */
+(function(global) {
+
+  var ngVer = '@2.0.0-rc.1'; // lock in the angular package version; do not let it float to current!
+
+  //map tells the System loader where to look for things
+  var  map = {
+    'app':                        'app',
+
+    '@angular':                   'https://npmcdn.com/@angular', // sufficient if we didn't pin the version
+    'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api', // get latest
+    'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
+    'ts':                         'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
+    'typescript':                 'https://npmcdn.com/typescript@1.8.10/lib/typescript.js',
+ };
+
+  //packages tells the System loader how to load when no filename and/or no extension
+  var packages = {
+    'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
+    'rxjs':                       { defaultExtension: 'js' },
+    'angular2-in-memory-web-api': { defaultExtension: 'js' },
+  };
+
+  var ngPackageNames = [
+    'common',
+    'compiler',
+    'core',
+    'http',
+    'platform-browser',
+    'platform-browser-dynamic',
+    'router',
+    'router-deprecated',
+    'upgrade',
+  ];
+
+  // Add map entries for each angular package
+  // only because we're pinning the version with `ngVer`.
+  ngPackageNames.forEach(function(pkgName) {
+    map['@angular/'+pkgName] = 'https://npmcdn.com/@angular/' + pkgName + ngVer;
+  });
+
+  // Add package entries for angular packages
+  ngPackageNames.forEach(function(pkgName) {
+
+    // Bundled (~40 requests):
+    packages['@angular/'+pkgName] = { main: pkgName + '.umd.js', defaultExtension: 'js' };
+
+    // Individual files (~300 requests):
+    //packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
+  });
+
+  var config = {
+    // DEMO ONLY! REAL CODE SHOULD NOT TRANSPILE IN THE BROWSER
+    transpiler: 'typescript',
+    typescriptOptions: {
+      emitDecoratorMetadata: true
+    },
+
+    map: map,
+    packages: packages
+  }
+
+  System.config(config);
+
+})(this);
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"></form><script>document.getElementById("mainForm").submit();</script></body></html>

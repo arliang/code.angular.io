@@ -1,0 +1,573 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Structural Directives - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/ts/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title is-nav-title-selected">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/npm-packages.html" title="Details of the recommended npm packages and the different kinds of package dependencies">Npm Packages</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item is-selected"><a href="/docs/ts/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/testing.html" title="Techniques and practices for testing an Angular 2 app">Testing</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/typescript-configuration.html" title="TypeScript configuration for Angular 2 developers">TypeScript Configuration</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/upgrade.html" title="Angular 1 applications can be incrementally upgraded to Angular 2.">Upgrading from 1.x</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/webpack.html" title="Create your Angular 2 applications with a Webpack based tooling">Introduction to Webpack</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title ">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/a1-a2-quick-reference.html" title="Learn how Angular 1 concepts and techniques map to Angular 2">Angular 1 to 2 Quick Ref</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dependency-injection.html" title="Techniques for Dependency Injection">Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dynamic-form.html" title="Render dynamic forms with NgFormModel">Dynamic Form</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/ts-to-js.html" title="Convert Angular 2 TypeScript examples into ES5 JavaScript">TypeScript to JavaScript</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">Structural Directives</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/structural-directives.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/structural-directives.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/structural-directives.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><p>One of the defining features of a single page application is its manipulation
+of the DOM tree. Instead of serving a whole new page every time a user
+navigates, whole sections of the DOM appear and disappear according
+to the application state. In this chapter we&#39;ll to look at how Angular
+manipulates the DOM and how we can do it ourselves in our own directives.</p>
+<p>In this chapter we will</p>
+<ul>
+<li><a href="#definition">learn what structural directives are</a></li>
+<li><a href="#ngIf">study <em>ngIf</em></a></li>
+<li><a href="#template">discover the &lt;template&gt; element</a></li>
+<li><a href="#asterisk">understand the asterisk (*) in <em>*ngFor</em></a></li>
+<li><a href="#unless">write our own structural directive</a></li>
+</ul>
+<p>Try the <a href="/resources/live-examples/structural-directives/ts/plnkr.html">live example</a>.</p><a id="definition"></a><div class="l-main-section"></div><h2 id="what-are-structural-directives-">What are structural directives?</h2>
+<p>There are three kinds of Angular directives:</p>
+<ol>
+<li>Components</li>
+<li>Attribute directives</li>
+<li>Structural directives</li>
+</ol>
+<p>The <em>Component</em> is really a directive with a template.
+It&#39;s the most common of the three directives and we write lots of them as we build our application.</p>
+<p>The <a href="attribute-directives.html"><em>Attribute</em> directive</a> changes the appearance or behavior of an element.
+The built-in <a href="template-syntax.html#ngStyle">NgStyle</a> directive, for example,
+can change several element styles at the same time.
+We can use it to render text bold, italic, and lime green by binding to a
+component property that requests such a sickening result.</p>
+<p>A <em>Structural</em> directive changes the DOM layout by adding and removing DOM elements.
+We&#39;ve seen three of the built-in structural directives in other chapters: <a href="template-syntax.html#ngIf">ngIf</a>,
+<a href="template-syntax.html#ngSwitch">ngSwitch</a> and <a href="template-syntax.html#ngFor">ngFor</a>.</p>
+<code-example language="html" format=".">&lt;div *ngIf=&quot;hero&quot;&gt;{{hero}}&lt;/div&gt;
+&lt;div *ngFor=&quot;let hero of heroes&quot;&gt;{{hero}}&lt;/div&gt;
+&lt;div [ngSwitch]=&quot;status&quot;&gt;
+  &lt;template [ngSwitchWhen]=&quot;&#39;in-mission&#39;&quot;&gt;In Mission&lt;/template&gt;
+  &lt;template [ngSwitchWhen]=&quot;&#39;ready&#39;&quot;&gt;Ready&lt;/template&gt;
+  &lt;template ngSwitchDefault&gt;Unknown&lt;/template&gt;
+&lt;/div&gt;
+</code-example><a id="ngIf"></a><div class="l-main-section"></div><h2 id="ngif-case-study">NgIf Case Study</h2>
+<p>Let’s focus on <code>ngIf</code>. It&#39;s a great example of a structural
+directive: it takes a boolean and makes an entire chunk of DOM appear
+or disappear.</p>
+<code-example language="html" format=".">&lt;p *ngIf=&quot;condition&quot;&gt;
+  condition is true and ngIf is true.
+&lt;/p&gt;
+&lt;p *ngIf=&quot;!condition&quot;&gt;
+  condition is false and ngIf is false.
+&lt;/p&gt;
+</code-example><p>The <code>ngIf</code> directive does not hide the element.
+Using browser developer tools we can see that, when the condition is true, the top
+paragraph is in the DOM and the bottom disused paragraph is completely
+absent from the DOM! In its place are empty <code>&lt;script&gt;</code> tags.</p>
+<figure class="image-display"><img src="/resources/images/devguide/structural-directives/element-not-in-dom.png" alt="element not in dom"></figure><h3 id="why-remove-rather-than-hide-">Why <em>remove</em> rather than <em>hide</em>?</h3>
+<p>We could hide the unwanted paragraph by setting its css <code>display</code> style to <code>none</code>.
+The element would remain in the DOM while invisible. Instead we removed it with <code>ngIf</code>.</p>
+<p>The difference matters. When we hide an element,
+the component&#39;s behavior continues.
+It remains attached to its DOM element. It continues to listen to events.
+Angular keeps checking for changes that could affect data bindings.
+Whatever the component was doing it keeps doing.</p>
+<p>Although invisible, the component &mdash; and all of its descendent components &mdash;
+tie up resources that might be more useful elsewhere.
+The performance and memory burden can be substantial and the user may not benefit at all.</p>
+<p>On the positive side, showing the element again is very quick.
+The component&#39;s previous state is preserved and ready to display.
+The component doesn&#39;t re-initialize &mdash; an operation that could be expensive.</p>
+<p><code>ngIf</code> is different.
+Setting <code>ngIf</code> to false <strong>does</strong> affect the component&#39;s resource consumption.
+Angular removes the element from DOM, stops change detection for the associated component,
+detaches it from DOM events (the attachments that it made) and destroys the component.
+The component can be garbage-collected (we hope) and free up memory.</p>
+<p>Components often have child components which themselves have children.
+All of them are destroyed when <code>ngIf</code> destroys the common ancestor.
+This cleanup effort is usually a good thing.</p>
+<p>Of course it isn&#39;t <em>always</em> a good thing.
+It might be a bad thing if we need that particular component again soon.</p>
+<p>The component&#39;s state might be expensive to re-construct.
+When <code>ngIf</code> becomes <code>true</code> again, Angular recreates the component and its subtree.
+Angular runs every component&#39;s initialization logic again. That could be expensive ... as when
+a component re-fetches data that had been in memory just moments ago.</p>
+<div class="l-sub-section"><p><em>Design thought</em>: minimize initialization effort and consider caching state in a
+companion service.</p>
+</div><p>Although there are pros and cons to each approach,
+in general it is best to use <code>ngIf</code> to remove unwanted components rather than
+hide them.</p>
+<p><strong>These same considerations apply to every structural directive, whether built-in or custom.</strong>
+We should ask ourselves &mdash; and the users of our directives &mdash; to think carefully
+about the consequences of adding and removing elements and of creating and destroying components.</p>
+<p>Let&#39;s see these dynamics at work. For fun, we&#39;ll stack the deck <em>against</em>
+our recommendation and consider a component called <code>heavy-loader</code> that
+<strong><em>pretends</em></strong> to load a ton of data when initialized.</p>
+<p>We&#39;ll display two instances of the component.  We toggle the visibility of the first one with CSS.
+We toggle the second into and out of the DOM with <code>ngIf</code>.</p>
+<code-tabs><code-pane language="html" name="template (excerpt)" format="linenums">&lt;div&gt;&lt;!-- Visibility --&gt;
+  &lt;button (click)=&quot;isVisible = !isVisible&quot;&gt;show | hide&lt;/button&gt;
+  &lt;heavy-loader [style.display]=&quot;isVisible ? &#39;inline&#39; : &#39;none&#39;&quot; [logs]=&quot;logs&quot;&gt;&lt;/heavy-loader&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;!-- NgIf --&gt;
+  &lt;button (click)=&quot;condition = !condition&quot;&gt;if | !if&lt;/button&gt;
+  &lt;heavy-loader *ngIf=&quot;condition&quot; [logs]=&quot;logs&quot;&gt;&lt;/heavy-loader&gt;
+&lt;/div&gt;
+
+&lt;h4&gt;heavy-loader log:&lt;/h4&gt;
+&lt;div *ngFor=&quot;let message of logs&quot;&gt;{{message}}&lt;/div&gt;
+</code-pane><code-pane language="ts" name="heavy-loader.component.ts" format="linenums">import { Component, Input, Output } from &#39;@angular/core&#39;;
+
+let nextId = 1;
+
+@Component({
+  selector: &#39;heavy-loader&#39;,
+  template: &#39;&lt;span&gt;heavy loader #{{id}} on duty!&lt;/span&gt;&#39;
+})
+export class HeavyLoaderComponent {
+  id = nextId++;
+  @Input() logs: string[];
+
+  ngOnInit() {
+    // Mock todo: get 10,000 rows of data from the server
+    this.log(`heavy-loader ${this.id} initialized,
+      loading 10,000 rows of data from the server`);
+  }
+
+  ngOnDestroy() {
+    // Mock todo: clean-up
+    this.log(`heavy-loader ${this.id} destroyed, cleaning up`);
+  }
+
+  private log(msg: string) {
+    this.logs.push(msg);
+    this.tick();
+  }
+
+  // Triggers the next round of Angular change detection
+  // after one turn of the browser event loop
+  // ensuring display of msg added in onDestroy
+  private tick() { setTimeout(() =&gt; { }, 0); }
+}
+</code-pane></code-tabs><p>We also log when a component is created or destroyed
+using the built-in <code>ngOnInit</code> and <code>ngOnDestroy</code> <a href="lifecycle-hooks.html">lifecycle hooks</a>.
+Here it is in action:</p>
+<figure class="image-display"><img src="/resources/images/devguide/structural-directives/heavy-loader-toggle.gif" alt="heavy loader toggle"></figure><p>Both components are in the DOM at the start.
+First we toggle the component&#39;s visibility repeatedly. The component never leaves the DOM.
+When visible it&#39;s always the same instance and the log is quiet.</p>
+<p>Then we toggle the second component with <code>ngIf</code>.
+We create a new instance every time and the log shows that we&#39;re paying
+a heavy price to create and destroy it.</p>
+<p>If we really expected to &quot;wink&quot; the component like this, toggling visibility would be the better choice.
+In most UIs, when we &quot;close&quot; a component we&#39;re unlikely see it again for a long time, if ever.
+The <code>ngIf</code> would be preferred in that case.</p>
+<a id="template"></a><div class="l-main-section"></div><h2 id="the-lt-template-tag">The <em>&lt;template&gt;</em> tag</h2>
+<p>Structural directives, like <code>ngIf</code>, do their magic by using the
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template">HTML 5 template tag</a>.</p>
+<p>Outside of an Angular app, the <code>&lt;template&gt;</code> tag&#39;s default CSS <code>display</code> property is <code>none</code>.
+It&#39;s contents are <strong><em>invisible</em></strong> within
+a hidden <a href="https://developer.mozilla.org/en/docs/Web/API/DocumentFragment">document fragment</a>.</p>
+<p>Inside of an app, Angular <strong><em>removes</em></strong> the<code>&lt;template&gt;</code> tags and their children.
+The contents are gone &mdash; but not forgotten as we&#39;ll see soon.</p>
+<p>We can confirm these effects by wrapping the middle &quot;hip&quot; of the phrase &quot;Hip! Hip! Hooray!&quot; within a <code>&lt;template&gt;</code> tag.</p>
+<code-example language="html" format=".">&lt;p&gt;
+  Hip!
+&lt;/p&gt;
+&lt;template&gt;
+  &lt;p&gt;
+    Hip!
+  &lt;/p&gt;
+&lt;/template&gt;
+&lt;p&gt;
+  Hooray!
+&lt;/p&gt;
+</code-example><p>The display is a &#39;Hip! Hooray!&#39;, short of perfect enthusiasm. The DOM effects are different when Angular is in control.</p>
+<figure class="image-display"><img src="/resources/images/devguide/structural-directives/template-in-out-of-a2.png" alt="template outside angular"></figure><p>Evidently Angular replaces the <code>&lt;template&gt;</code> tag and its contents with empty <code>&lt;script&gt;</code> tags.
+That&#39;s just its default behavior.
+It can do something different as we saw when applying a variety of <code>ngSwitch</code> directives to <code>&lt;template&gt;</code> tags:</p>
+<code-example language="html" format=".">&lt;div [ngSwitch]=&quot;status&quot;&gt;
+  &lt;template [ngSwitchWhen]=&quot;&#39;in-mission&#39;&quot;&gt;In Mission&lt;/template&gt;
+  &lt;template [ngSwitchWhen]=&quot;&#39;ready&#39;&quot;&gt;Ready&lt;/template&gt;
+  &lt;template ngSwitchDefault&gt;Unknown&lt;/template&gt;
+&lt;/div&gt;
+</code-example><p>When one of those <code>ngSwitch</code> conditions is true, Angular inserts the template&#39;s content into the DOM.</p>
+<p>What does this have to do with <code>ngIf</code> and <code>ngFor</code>?  We didn&#39;t use a <code>&lt;template&gt;</code> tag with those directives.</p>
+<a id="asterisk"></a><div class="l-main-section"></div><h2 id="the-asterisk-effect">The asterisk (*) effect</h2>
+<p>Here are those directives again. See the difference?</p>
+<code-example language="html" format=".">&lt;div *ngIf=&quot;hero&quot;&gt;{{hero}}&lt;/div&gt;
+&lt;div *ngFor=&quot;let hero of heroes&quot;&gt;{{hero}}&lt;/div&gt;
+</code-example><p>We&#39;re prefixing these directive names with an asterisk (*).</p>
+<p>The asterisk is &quot;syntactic sugar&quot;. It simplifies <code>ngIf</code> and <code>ngFor</code> for both the writer and the reader.
+Under the hood, Angular replaces the asterisk version with a more verbose <code>&lt;template&gt;</code> form.</p>
+<p>The next two <code>ngIf</code> examples are effectively the same and we may write in either style:</p>
+<code-example language="html" format=".">&lt;!-- Examples (A) and (B) are the same --&gt;
+&lt;!-- (A) *ngIf paragraph --&gt;
+&lt;p *ngIf=&quot;condition&quot;&gt;
+  Our heroes are true!
+&lt;/p&gt;
+
+&lt;!-- (B) [ngIf] with template --&gt;
+&lt;template [ngIf]=&quot;condition&quot;&gt;
+  &lt;p&gt;
+    Our heroes are true!
+  &lt;/p&gt;
+&lt;/template&gt;
+</code-example><p>Most of us would rather write in style (A).</p>
+<p>It&#39;s worth knowing that Angular expands style (A) into style (B).
+It moves the paragraph and its contents inside a <code>&lt;template&gt;</code> tag.
+It moves the directive up to the <code>&lt;template&gt;</code> tag where it becomes a property binding,
+surrounded in square brackets. The boolean value of the host component&#39;s <code>condition</code> property
+determines whether the templated content is displayed or not.</p>
+<p>Angular transforms <code>*ngFor</code> in a similar manner:</p>
+<code-example language="html" format=".">&lt;!-- Examples (A) and (B) are the same --&gt;
+
+&lt;!-- (A) *ngFor div --&gt;
+&lt;div *ngFor=&quot;let hero of heroes&quot;&gt;{{ hero }}&lt;/div&gt;
+
+&lt;!-- (B) ngFor with template --&gt;
+&lt;template ngFor let-hero [ngForOf]=&quot;heroes&quot;&gt;
+  &lt;div&gt;{{ hero }}&lt;/div&gt;
+&lt;/template&gt;
+</code-example><p>The basic pattern is the same:&nbsp; create a <code>&lt;template&gt;</code>, relocate the content,
+and move the directive onto the <code>&lt;template&gt;</code>.</p>
+<p>There are extra nuances stemming from
+Angular&#39;s <a href="template-syntax.html#ngForMicrosyntax">ngFor micro-syntax</a> which expands
+into an additional <code>ngForOf</code> property binding (the iterable) and
+the <code>hero</code> template input variable (the current item in each iteration).</p>
+<a id="unless"></a><div class="l-main-section"></div><h2 id="make-a-structural-directive">Make a structural directive</h2>
+<p>Let&#39;s write our own structural directive, an <code>Unless</code> directive, the not-so-evil twin of <code>ngIf</code>.</p>
+<p>Unlike <code>ngIf</code> which displays the template content when <code>true</code>,
+our directive displays the content when the condition is <strong><em>false</em></strong>.</p>
+<p>Creating a directive is similar to creating a component.</p>
+<ul>
+<li><p>import the <code>Directive</code> decorator.</p>
+</li>
+<li><p>add a CSS <strong>attribute selector</strong> (in brackets) that identifies our directive.</p>
+</li>
+<li><p>specify the name of the public <code>input</code> property for binding
+(typically the name of the directive itself).</p>
+</li>
+<li><p>apply the decorator to our implementation class.</p>
+</li>
+</ul>
+<p>Here is how we begin:</p>
+<div class="example-title">unless.directive.ts (excerpt)</div><code-example language="ts" format=".">import { Directive, Input } from &#39;@angular/core&#39;;
+
+@Directive({ selector: &#39;[myUnless]&#39; })
+export class UnlessDirective {
+}
+</code-example><div class="l-sub-section"><h3 id="selector-brackets-nbsp-">Selector brackets [&nbsp;]</h3>
+<p>The CSS syntax for selecting an attribute is a name in square brackets.
+We surround our directive name in square brackets. See <em>Directive configuration</em> on the
+<a href="cheatsheet.html">cheatsheet</a>.</p>
+<h3 id="selector-name-prefixes">Selector name prefixes</h3>
+<p>We recommend picking a selector name with a prefix to ensure
+that it cannot conflict with any standard HTML attribute, now or in the future.</p>
+<p>We do <strong>not</strong> prefix our <code>unless</code> directive name with <strong><code>ng</code></strong>.
+That prefix belongs to Angular and
+we don&#39;t want to confuse our directives with their directives.</p>
+<p>Our prefix is <code>my</code>.</p>
+</div><p>We&#39;ll need access to the template <em>and</em> something that can render its contents.
+We access the template with a <code>TemplateRef</code>.  The renderer is a <code>ViewContainerRef</code>.
+We inject both into our constructor as private variables.</p>
+<code-example language="ts" format=".">constructor(
+  private templateRef: TemplateRef&lt;any&gt;,
+  private viewContainer: ViewContainerRef
+  ) { }
+</code-example><p>The consumer of our directive will bind a boolean value to our directive&#39;s <code>myUnless</code> input property.
+The directive adds or removes the template based on that value.</p>
+<p>Let&#39;s add the <code>myUnless</code> property now as a setter-only property.</p>
+<code-example language="ts" format=".">@Input() set myUnless(condition: boolean) {
+  if (!condition) {
+    this.viewContainer.createEmbeddedView(this.templateRef);
+  } else {
+    this.viewContainer.clear();
+  }
+}
+</code-example><div class="l-sub-section"><p>The <code>@Input()</code> annotation marks this property as an input for the directive.</p>
+</div><p>Nothing fancy here: if the condition is false,
+we render the template, otherwise we clear the element content.</p>
+<p>The end result should look like this:</p>
+<div class="example-title">unless.directive.ts</div><code-example language="ts" format="linenums">import { Directive, Input } from &#39;@angular/core&#39;;
+
+import { TemplateRef, ViewContainerRef } from &#39;@angular/core&#39;;
+
+@Directive({ selector: &#39;[myUnless]&#39; })
+export class UnlessDirective {
+
+  constructor(
+    private templateRef: TemplateRef&lt;any&gt;,
+    private viewContainer: ViewContainerRef
+    ) { }
+
+  @Input() set myUnless(condition: boolean) {
+    if (!condition) {
+      this.viewContainer.createEmbeddedView(this.templateRef);
+    } else {
+      this.viewContainer.clear();
+    }
+  }
+}
+</code-example><p>Now we add it to the <code>directives</code>array of the host component and try it.
+First we add some test HTML to the template:</p>
+<code-example language="html" format=".">&lt;p *myUnless=&quot;condition&quot;&gt;
+  condition is false and myUnless is true.
+&lt;/p&gt;
+
+&lt;p *myUnless=&quot;!condition&quot;&gt;
+  condition is true and myUnless is false.
+&lt;/p&gt;
+</code-example><p>We run it and it behaves as expected, doing the opposite of <code>ngIf</code>.
+When <code>condition</code> is <code>true</code>, the top paragraph is removed (replaced by <code>&lt;script&gt;</code> tags) and the bottom paragraph appears.</p>
+<figure class="image-display"><img src="/resources/images/devguide/structural-directives/myUnless-is-true.png" alt="myUnless is true"></figure><p>Our <code>myUnless</code> directive is dead simple. Surely we left something out.
+Surely <code>ngIf</code> is more complex?</p>
+<p><a href="https://github.com/angular/angular/blob/master/modules/%40angular/common/src/directives/ng_if.ts">Look at the source code</a>.
+It&#39;s well documented and we shouldn&#39;t be shy
+about consulting the source when we want to know how something works.</p>
+<p><code>ngIf</code> isn&#39;t much different! There are a few
+additional checks to improve performance (don&#39;t clear or recreate the
+view unless necessary) but otherwise it&#39;s much the same.</p>
+<div class="l-main-section"></div><h2 id="wrap-up">Wrap up</h2>
+<p>Here is the pertinent source for this chapter.</p>
+<code-tabs><code-pane language="ts" name="unless.directive.ts" format="linenums">import { Directive, Input } from &#39;@angular/core&#39;;
+
+import { TemplateRef, ViewContainerRef } from &#39;@angular/core&#39;;
+
+@Directive({ selector: &#39;[myUnless]&#39; })
+export class UnlessDirective {
+
+  constructor(
+    private templateRef: TemplateRef&lt;any&gt;,
+    private viewContainer: ViewContainerRef
+    ) { }
+
+  @Input() set myUnless(condition: boolean) {
+    if (!condition) {
+      this.viewContainer.createEmbeddedView(this.templateRef);
+    } else {
+      this.viewContainer.clear();
+    }
+  }
+}
+</code-pane><code-pane language="ts" name="heavy-loader.component.ts" format="linenums">import { Component, Input, Output } from &#39;@angular/core&#39;;
+
+let nextId = 1;
+
+@Component({
+  selector: &#39;heavy-loader&#39;,
+  template: &#39;&lt;span&gt;heavy loader #{{id}} on duty!&lt;/span&gt;&#39;
+})
+export class HeavyLoaderComponent {
+  id = nextId++;
+  @Input() logs: string[];
+
+  ngOnInit() {
+    // Mock todo: get 10,000 rows of data from the server
+    this.log(`heavy-loader ${this.id} initialized,
+      loading 10,000 rows of data from the server`);
+  }
+
+  ngOnDestroy() {
+    // Mock todo: clean-up
+    this.log(`heavy-loader ${this.id} destroyed, cleaning up`);
+  }
+
+  private log(msg: string) {
+    this.logs.push(msg);
+    this.tick();
+  }
+
+  // Triggers the next round of Angular change detection
+  // after one turn of the browser event loop
+  // ensuring display of msg added in onDestroy
+  private tick() { setTimeout(() =&gt; { }, 0); }
+}
+</code-pane><code-pane language="ts" name="structural-directives.component.ts" format="linenums">import { Component, Input, Output } from &#39;@angular/core&#39;;
+import { UnlessDirective }          from &#39;./unless.directive&#39;;
+import { HeavyLoaderComponent }     from &#39;./heavy-loader.component&#39;;
+
+@Component({
+  selector: &#39;structural-directives&#39;,
+  templateUrl: &#39;app/structural-directives.component.html&#39;,
+  styles: [&#39;button { min-width: 100px; }&#39;],
+  directives: [UnlessDirective, HeavyLoaderComponent]
+})
+export class StructuralDirectivesComponent {
+  heroes = [&#39;Mr. Nice&#39;, &#39;Narco&#39;, &#39;Bombasto&#39;];
+  hero = this.heroes[0];
+  condition = true;
+  isVisible = true;
+  logs: string[] = [];
+  status = &#39;ready&#39;;
+}
+</code-pane><code-pane language="html
+  " name="structural-directives.component.html" format="linenums">&lt;h1&gt;Structural Directives&lt;/h1&gt;
+
+&lt;div *ngIf=&quot;hero&quot;&gt;{{hero}}&lt;/div&gt;
+&lt;div *ngFor=&quot;let hero of heroes&quot;&gt;{{hero}}&lt;/div&gt;
+&lt;div [ngSwitch]=&quot;status&quot;&gt;
+  &lt;template [ngSwitchWhen]=&quot;&#39;in-mission&#39;&quot;&gt;In Mission&lt;/template&gt;
+  &lt;template [ngSwitchWhen]=&quot;&#39;ready&#39;&quot;&gt;Ready&lt;/template&gt;
+  &lt;template ngSwitchDefault&gt;Unknown&lt;/template&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+
+&lt;button
+  (click)=&quot;condition = !condition&quot;
+  [style.background] = &quot;condition ? &#39;orangered&#39;: &#39;lightgreen&#39;&quot;
+  &gt;
+  Set &#39;condition&#39; to {{condition ? &#39;False&#39;: &#39;True&#39;}}
+&lt;/button&gt;
+
+&lt;p *ngIf=&quot;condition&quot;&gt;
+  condition is true and ngIf is true.
+&lt;/p&gt;
+&lt;p *ngIf=&quot;!condition&quot;&gt;
+  condition is false and ngIf is false.
+&lt;/p&gt;
+&lt;p *myUnless=&quot;condition&quot;&gt;
+  condition is false and myUnless is true.
+&lt;/p&gt;
+
+&lt;p *myUnless=&quot;!condition&quot;&gt;
+  condition is true and myUnless is false.
+&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;div&gt;&lt;!-- Visibility --&gt;
+  &lt;button (click)=&quot;isVisible = !isVisible&quot;&gt;show | hide&lt;/button&gt;
+  &lt;heavy-loader [style.display]=&quot;isVisible ? &#39;inline&#39; : &#39;none&#39;&quot; [logs]=&quot;logs&quot;&gt;&lt;/heavy-loader&gt;
+&lt;/div&gt;
+
+&lt;div&gt;&lt;!-- NgIf --&gt;
+  &lt;button (click)=&quot;condition = !condition&quot;&gt;if | !if&lt;/button&gt;
+  &lt;heavy-loader *ngIf=&quot;condition&quot; [logs]=&quot;logs&quot;&gt;&lt;/heavy-loader&gt;
+&lt;/div&gt;
+
+&lt;h4&gt;heavy-loader log:&lt;/h4&gt;
+&lt;div *ngFor=&quot;let message of logs&quot;&gt;{{message}}&lt;/div&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;
+  Hip!
+&lt;/p&gt;
+&lt;template&gt;
+  &lt;p&gt;
+    Hip!
+  &lt;/p&gt;
+&lt;/template&gt;
+&lt;p&gt;
+  Hooray!
+&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;!-- Examples (A) and (B) are the same --&gt;
+&lt;!-- (A) *ngIf paragraph --&gt;
+&lt;p *ngIf=&quot;condition&quot;&gt;
+  Our heroes are true!
+&lt;/p&gt;
+
+&lt;!-- (B) [ngIf] with template --&gt;
+&lt;template [ngIf]=&quot;condition&quot;&gt;
+  &lt;p&gt;
+    Our heroes are true!
+  &lt;/p&gt;
+&lt;/template&gt;
+
+&lt;hr&gt;
+
+&lt;!-- Examples (A) and (B) are the same --&gt;
+
+&lt;!-- (A) *ngFor div --&gt;
+&lt;div *ngFor=&quot;let hero of heroes&quot;&gt;{{ hero }}&lt;/div&gt;
+
+&lt;!-- (B) ngFor with template --&gt;
+&lt;template ngFor let-hero [ngForOf]=&quot;heroes&quot;&gt;
+  &lt;div&gt;{{ hero }}&lt;/div&gt;
+&lt;/template&gt;
+</code-pane></code-tabs><p>We learned that we can manipulate our HTML layout with
+structural directives like <code>ngFor</code> and <code>ngIf</code> and we
+wrote our own structural directive, <code>myUnless</code>, to do something similar.</p>
+<p>Angular offers more sophisticated techniques for managing layout
+such as <em>structural components</em> that can take external content
+and incorporate that content within their own templates.
+Tab and tab pane controls are good examples.</p>
+<p>We&#39;ll learn about structural components in a future chapter.</p><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/ts/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Attribute Directives - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/ts/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title is-nav-title-selected">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists"><ul><li class="nav-list-item is-selected"><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/npm-packages.html" title="Details of the recommended npm packages and the different kinds of package dependencies">Npm Packages</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/testing.html" title="Techniques and practices for testing an Angular 2 app">Testing</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/typescript-configuration.html" title="TypeScript configuration for Angular 2 developers">TypeScript Configuration</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/upgrade.html" title="Angular 1 applications can be incrementally upgraded to Angular 2.">Upgrading from 1.x</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/webpack.html" title="Create your Angular 2 applications with a Webpack based tooling">Introduction to Webpack</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title ">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/a1-a2-quick-reference.html" title="Learn how Angular 1 concepts and techniques map to Angular 2">Angular 1 to 2 Quick Ref</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dependency-injection.html" title="Techniques for Dependency Injection">Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dynamic-form.html" title="Render dynamic forms with NgFormModel">Dynamic Form</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/ts-to-js.html" title="Convert Angular 2 TypeScript examples into ES5 JavaScript">TypeScript to JavaScript</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">Attribute Directives</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/attribute-directives.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/attribute-directives.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/attribute-directives.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Attribute directives attach behavior to elements.</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><p>An <strong>Attribute</strong> directive changes the appearance or behavior of a DOM element.</p>
+<p>In this chapter we will</p>
+<ul>
+<li><a href="#write-directive">write an attribute directive to change the background color</a></li>
+<li><a href="#apply-directive">apply the attribute directive to an element in a template</a></li>
+<li><a href="#respond-to-user">respond to user-initiated events</a></li>
+<li><a href="#bindings">pass values into the directive using data binding</a></li>
+</ul>
+<p><a href="/resources/live-examples/attribute-directives/ts/plnkr.html">Live example</a>.</p><h2 id="directives-overview">Directives overview</h2>
+<p>There are three kinds of directives in Angular:</p>
+<ol>
+<li>Components</li>
+<li>Structural directives  </li>
+<li>Attribute directives</li>
+</ol>
+<p>A <em>Component</em> is really a directive with a template. 
+It&#39;s the most common of the three directives and we tend to write lots of them as we build applications.</p>
+<p><a href="structural-directives.html"><em>Structural</em> directives</a> can change the DOM layout by adding and removing DOM elements. 
+<a href="template-syntax.html#ngFor">NgFor</a> and <a href="template-syntax.html#ngIf">NgIf</a> are two familiar examples.</p>
+<p>An <em>Attribute</em> directive can change the appearance or behavior of an element.
+The built-in <a href="template-syntax.html#ngStyle">NgStyle</a> directive, for example,
+can change several element styles at the same time.</p>
+<p>We are going to write our own attribute directive to set an element&#39;s background color
+when the user hovers over that element.</p>
+<div class="l-sub-section"><p>We don&#39;t need <em>any</em> directive to simply set the background color.
+We can set it with the special <a href="template-syntax.html#style-binding">Style Binding</a> like this:</p>
+<code-example language="html" format="">&lt;p [style.background]=&quot;&#39;lime&#39;&quot;&gt;I am green with envy!&lt;/p&gt;
+</code-example><p>That wouldn&#39;t be nearly as much fun as creating our own directive.</p>
+<p>Besides, we&#39;re not just <em>setting</em> the color; we&#39;ll be <em>changing</em> the color
+in response to a user action, a mouse hover.</p>
+</div><div class="l-main-section"></div><a id="write-directive"></a><h2 id="build-a-simple-attribute-directive">Build a simple attribute directive</h2>
+<p>An attribute directive minimally requires building a controller class annotated with 
+<code>@Directive</code>, which specifies the selector identifying
+the attribute associated with the directive. 
+The controller class implements the desired directive behavior.</p>
+<p>Let&#39;s build a small illustrative example together.</p>
+<h3 id="our-first-draft">Our first draft</h3>
+<p>Create a new project folder (<code>attribute-directives</code>) and follow the steps in the <a href="../quickstart.html">QuickStart</a>.</p>
+<div class="l-sub-section"><p>Alternatively, begin with a
+<a href="https://github.com/angular/quickstart/blob/master/README.md">download of the QuickStart source</a>.</p>
+</div><p>Create the following source file in the indicated folder with the given code:</p>
+<div class="example-title">app/highlight.directive.ts</div><code-example language="ts" format="linenums">import { Directive, ElementRef, Input } from &#39;@angular/core&#39;;
+
+@Directive({ selector: &#39;[myHighlight]&#39; })
+export class HighlightDirective {
+    constructor(el: ElementRef) {
+       el.nativeElement.style.backgroundColor = &#39;yellow&#39;;
+    }
+}
+</code-example><p>We begin by importing some symbols from the Angular <code>core</code>.
+We need the <code>Directive</code> symbol for the <code>@Directive</code> decorator.
+We need the <code>ElementRef</code> to <a href="dependency-injection.html">inject</a> into the directive&#39;s constructor
+so we can access the DOM element.
+We don&#39;t need <code>Input</code> immediately but we will need it later in the chapter.</p>
+<p>Then we define the directive metadata in a configuration object passed
+as an argument to the <code>@Directive</code> decorator function. </p>
+<p><code>@Directive</code> requires a CSS selector to identify
+the HTML in the template that is associated with our directive.
+The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">CSS selector for an attribute</a>
+is the attribute name in square brackets.
+Our directive&#39;s selector is <code>[myHighlight]</code>. 
+Angular will locate all elements in the template that have an attribute named <code>myHighlight</code>. </p>
+<div class="l-sub-section"><h3 id="why-not-call-it-highlight-">Why not call it &quot;highlight&quot;?</h3>
+<p><em>highlight</em> is a nicer name than <em>myHighlight</em> and, technically, it would work if we called it that.</p>
+<p>However, we recommend picking a selector name with a prefix to ensure
+that it cannot conflict with any standard HTML attribute, now or in the future.
+There is also less risk of colliding with a third-party directive name when we give ours a prefix.</p>
+<p>We do <strong>not</strong> prefix our <code>highlight</code> directive name with <strong><code>ng</code></strong>.
+That prefix belongs to Angular.</p>
+<p>We need a prefix of our own, preferably short, and <code>my</code> will do for now.</p>
+</div><p>After the `@Directive` metadata comes the directive's controller class, which contains the logic for the directive. We export `HighlightDirective` to make it accessible to other components.</p><p>Angular creates a new instance of the directive&#39;s controller class for
+each matching element, injecting an Angular <code>ElementRef</code> 
+into the constructor.
+<code>ElementRef</code> is a service that grants us direct access to the DOM element
+through its <code>nativeElement</code> property.
+That&#39;s all we need to set the element&#39;s background color using the browser DOM API.</p>
+<div class="l-main-section"></div><a id="apply-directive"></a><h2 id="apply-the-attribute-directive">Apply the attribute directive</h2>
+<p>The <code>AppComponent</code> in this sample is a test harness for our <code>HighlightDirective</code>.
+Let&#39;s give it a new template that 
+applies the directive as an attribute to a paragraph (<code>p</code>) element.
+In Angular terms, the <code>&lt;p&gt;</code> element will be the attribute <strong>host</strong>.</p>
+<p>We'll put the template in its own <code>app.component.html</code>file that looks like this:</p><div class="example-title">app/app.component.html</div><code-example language="html" format=".">&lt;h1&gt;My First Attribute Directive&lt;/h1&gt;
+&lt;p myHighlight&gt;Highlight me!&lt;/p&gt;
+</code-example><p>A separate template file is clearly overkill for a 2-line template. 
+Hang in there; we&#39;re going to expand it later.
+Meanwhile, we&#39;ll revise the <code>AppComponent</code> to reference this template.</p>
+<div class="example-title">app/app.component.ts</div><code-example language="ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+
+import { HighlightDirective } from &#39;./highlight.directive&#39;;
+
+@Component({
+  selector: &#39;my-app&#39;,
+  templateUrl: &#39;app/app.component.html&#39;,
+  directives: [HighlightDirective]
+})
+
+export class AppComponent { }
+</code-example><p>We&#39;ve added an <code>import</code> statement to fetch the &#39;Highlight&#39; directive and, 
+added that class to a <code>directives</code> component metadata so that Angular 
+will recognize our directive when it encounters <code>myHighlight</code> in the template. </p>
+<p>We run the app and see that our directive highlights the paragraph text.</p>
+<figure class="image-display"><img src="/resources/images/devguide/attribute-directives/first-highlight.png" alt="First Highlight"></figure><div class="l-sub-section"><h3 id="your-directive-isn-t-working-">Your directive isn&#39;t working?</h3>
+<p>Did you remember to set the <code>directives</code> attribute of <code>@Component</code>? It is easy to forget!</p>
+<p>Open the console in the browser tools and look for an error like this:</p>
+<code-example format="nocode">EXCEPTION: Template parse errors:
+  Can't bind to 'myHighlight' since it isn't a known native property</code-example><p>Angular detects that we&#39;re trying to bind to <em>something</em> but it doesn&#39;t know what.
+We have to tell it by listing <code>HighlightDirective</code> in the <code>directives</code> metadata array.</p>
+</div><p>Let&#39;s recap what happened.</p>
+<p>Angular found the <code>myHighlight</code> attribute on the <code>&lt;p&gt;</code> element. It created
+an instance of the <code>HighlightDirective</code> class, 
+injecting a reference to the element into the constructor 
+where we set the <code>&lt;p&gt;</code> element&#39;s background style to yellow.</p>
+<div class="l-main-section"></div><a id="respond-to-user"></a><h2 id="respond-to-user-action">Respond to user action</h2>
+<p>We are not satisfied to simply set an element color.
+Our directive should set the color in response to a user action.
+Specifically, we want to set the color when the user hovers over an element.</p>
+<p>We&#39;ll need to</p>
+<ol>
+<li>detect when the user hovers into and out of the element,</li>
+<li>respond to those actions by setting and clearing the highlight color, respectively.</li>
+</ol>
+<p>Let&#39;s start with event detection. 
+Add a <code>host</code> property to the directive metadata and give it a configuration object
+that specifies two mouse events and the directive methods to call when they are raised:</p>
+<code-example language="ts" format=".">host: {
+  &#39;(mouseenter)&#39;: &#39;onMouseEnter()&#39;,
+  &#39;(mouseleave)&#39;: &#39;onMouseLeave()&#39;
+}
+</code-example><div class="l-sub-section"><p>The <code>host</code> property refers to the DOM element that hosts our attribute directive, the <code>&lt;p&gt;</code> in our case.</p>
+<p>We could have attached event listeners by manipulating the host DOM element directly, but
+there are at least three problems with such an approach:</p>
+<ol>
+<li>We have to write the listeners correctly.</li>
+<li>We must <em>detach</em> our listener when the directive is destroyed to avoid memory leaks.</li>
+<li>We&#39;d be talking to DOM API directly which, we learned, is something to avoid.</li>
+</ol>
+<p>Let&#39;s roll with the <code>host</code> property. </p>
+</div><p>Now we implement the two mouse event handlers:</p>
+<code-example language="ts" format=".">onMouseEnter() { this.highlight(&quot;yellow&quot;); }
+onMouseLeave() { this.highlight(null); }
+
+private highlight(color: string) {
+  this.el.style.backgroundColor = color;
+}
+</code-example><p>Notice that they delegate to a helper method that sets the color via a private local variable, <code>el</code>.
+We revise the constructor to capture the <code>ElementRef.nativeElement</code> in this variable.</p>
+<code-example language="ts" format=".">private el:HTMLElement;
+constructor(el: ElementRef) { this.el = el.nativeElement; }
+</code-example><p>Here&#39;s the updated directive:</p>
+<div class="example-title">app/highlight.directive.ts</div><code-example language="ts" format="linenums">import { Directive, ElementRef, Input } from &#39;@angular/core&#39;;
+
+@Directive({
+  selector: &#39;[myHighlight]&#39;,
+  host: {
+    &#39;(mouseenter)&#39;: &#39;onMouseEnter()&#39;,
+    &#39;(mouseleave)&#39;: &#39;onMouseLeave()&#39;
+  }
+})
+
+export class HighlightDirective {
+
+  private el:HTMLElement;
+  constructor(el: ElementRef) { this.el = el.nativeElement; }
+
+  onMouseEnter() { this.highlight(&quot;yellow&quot;); }
+  onMouseLeave() { this.highlight(null); }
+
+  private highlight(color: string) {
+    this.el.style.backgroundColor = color;
+  }
+
+}
+</code-example><p>We run the app and confirm that the background color appears as we move the mouse over the <code>p</code> and
+disappears as we move out.</p>
+<figure class="image-display"><img src="/resources/images/devguide/attribute-directives/highlight-directive-anim.gif" alt="Second Highlight"></figure><div class="l-main-section"></div><a id="bindings"></a><h2 id="configure-the-directive-with-binding">Configure the directive with binding</h2>
+<p>Currently the highlight color is hard-coded within the directive. That&#39;s inflexible.
+We should set the color externally with a binding like this:</p>
+<code-example language="html" format="">&lt;p [myHighlight]=&quot;color&quot;&gt;Highlight me!&lt;/p&gt;
+</code-example><p>We&#39;ll extend our directive class with a bindable <strong>input</strong> <code>highlightColor</code> property and use it when we highlight text.</p>
+<p>Here is the final version of the class:</p>
+<div class="example-title">app/highlight.directive.ts (class only)</div><code-example language="ts" format="linenums">export class HighlightDirective {
+  private _defaultColor = &#39;red&#39;;
+  private el: HTMLElement;
+
+  constructor(el: ElementRef) { this.el = el.nativeElement; }
+
+  @Input(&#39;myHighlight&#39;) highlightColor: string;
+
+  onMouseEnter() { this.highlight(this.highlightColor || this._defaultColor); }
+  onMouseLeave() { this.highlight(null); }
+
+  private highlight(color:string) {
+    this.el.style.backgroundColor = color;
+  }
+}
+</code-example><a id="input"></a><p>The new <code>highlightColor</code> property is called an <em>input</em> property because data flows from the binding expression into our directive.
+Notice the <code>@Input()</code> decorator applied to the property.</p>
+<code-example language="ts" format="">@Input(&#39;myHighlight&#39;) highlightColor: string;
+</code-example><p><code>@Input</code> adds metadata to the class that makes the <code>highlightColor</code> property available for 
+property binding under the <code>myHighlight</code> alias. 
+We must add this input metadata or Angular will reject the binding.
+See the <a href="#why-input">appendix</a> below to learn why.</p>
+<div class="l-sub-section"><h3 id="-input-_alias_-">@Input(<em>alias</em>)</h3>
+<p>The developer who uses this directive expects to bind to the attribute name, <code>myHighlight</code>.
+The directive property name is <code>highlightColor</code>. That&#39;s a disconnect.</p>
+<p>We could resolve the discrepancy by renaming the property to <code>myHighlight</code> and define it as follows:</p>
+<code-example language="ts" format="">@Input() myHighlight: string;
+</code-example><p>Maybe we don&#39;t want that property name inside the directive perhaps because it 
+doesn&#39;t express our intention well. 
+We can <strong>alias</strong> the <code>highlightColor</code> property with the attribute name by
+passing <code>myHighlight</code> into the <code>@Input</code> decorator:</p>
+<code-example language="ts" format="">@Input(&#39;myHighlight&#39;) highlightColor: string;
+</code-example></div><p>Now that we&#39;re getting the highlight color as an input, we modify the <code>onMouseEnter()</code> method to use
+it instead of the hard-coded color name.
+We also define red as the default color to fallback on in case
+the user neglects to bind with a color.</p>
+<code-example language="ts" format="">onMouseEnter() { this.highlight(this.highlightColor || this._defaultColor); }
+</code-example><p>Now we&#39;ll update our <code>AppComponent</code> template to let 
+users pick the highlight color and bind their choice to our directive.</p>
+<p>Here is the updated template:</p>
+<code-example language="html" format="linenums">&lt;h1&gt;My First Attribute Directive&lt;/h1&gt;
+&lt;h4&gt;Pick a highlight color&lt;/h4&gt;
+&lt;div&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color=&#39;lightgreen&#39;&quot;&gt;Green
+  &lt;input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color=&#39;yellow&#39;&quot;&gt;Yellow
+  &lt;input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color=&#39;cyan&#39;&quot;&gt;Cyan
+&lt;/div&gt;
+&lt;p [myHighlight]=&quot;color&quot;&gt;Highlight me!&lt;/p&gt;
+</code-example><div class="l-sub-section"><h3 id="where-is-the-templated-color-property-">Where is the templated <em>color</em> property?</h3>
+<p>The eagle-eyed may notice that the radio button click handlers in the template set a <code>color</code> property
+and we are binding that <code>color</code> to the directive. 
+We should expect to find a <code>color</code> on the host <code>AppComponent</code>.</p>
+<p><strong>We never defined a color property for the host <em>AppComponent</em></strong>!
+And yet this code works. Where is the template <code>color</code> value going?</p>
+<p>Browser debugging reveals that Angular dynamically added a <code>color</code> property 
+to the runtime instance of the <code>AppComponent</code>.</p>
+<p>This is <em>convenient</em> behavior but it is also <em>implicit</em> behavior that could be confusing. 
+While it&#39;s cool that this technique works, we recommend adding the <code>color</code> property to the <code>AppComponent</code>.</p>
+</div><p>Here is our second version of the directive in action.</p>
+<figure class="image-display"><img src="/resources/images/devguide/attribute-directives/highlight-directive-v2-anim.gif" alt="Highlight v.2"></figure><div class="l-main-section"></div><h2 id="bind-to-a-second-property">Bind to a second property</h2>
+<p>Our directive only has a single, customizable property. What if we had <strong><em>two properties</em></strong>?</p>
+<p>Let&#39;s allow the template developer to set the default color, the color that prevails until the user picks a highlight color.
+We&#39;ll add a second <strong>input</strong> property to <code>HighlightDirective</code> called <code>defaultColor</code>:</p>
+<code-example language="ts" format=".">@Input() set defaultColor(colorName:string){
+  this._defaultColor = colorName || this._defaultColor;
+}
+</code-example><p>The <code>defaultColor</code> property has a setter that overrides the hard-coded default color, &quot;red&quot;.
+We don&#39;t need a getter.</p>
+<p>How do we bind to it? We already &quot;burned&quot; the <code>myHighlight</code> attribute name as a binding target.</p>
+<p>Remember that a <em>component is a directive too</em>. 
+We can add as many component property bindings as we need by stringing them along in the template
+as in this example that sets the <code>a</code>, <code>b</code>, <code>c</code> properties to the string literals &#39;a&#39;, &#39;b&#39;, and &#39;c&#39;. </p>
+<code-example format=".">&lt;my-component [a]="'a'" [b]="'b'" [c]="'c'">&lt;my-component></code-example><p>We do the same thing with an attribute directive.</p>
+<code-example language="html" format=".">&lt;p [myHighlight]=&quot;color&quot; [defaultColor]=&quot;&#39;violet&#39;&quot;&gt;
+  Highlight me too!
+&lt;/p&gt;
+</code-example><p>Here we&#39;re binding the user&#39;s color choice to the <code>myHighlight</code> attribute as we did before.
+We&#39;re <em>also</em> binding the literal string, &#39;violet&#39;, to the <code>defaultColor</code>.</p>
+<p>Here is the final version of the directive in action.</p>
+<figure class="image-display"><img src="/resources/images/devguide/attribute-directives/highlight-directive-final-anim.gif" alt="Final Highlight"></figure><div class="l-main-section"></div><h2 id="summary">Summary</h2>
+<p>We now know how to</p>
+<ul>
+<li><a href="#write-directive">build a simple <strong>attribute directive</strong> to attach behavior to an HTML element</a>,</li>
+<li><a href="#apply-directive">use that directive in a template</a>,</li>
+<li><a href="#respond-to-user">respond to <strong>events</strong> to change behavior based on an event</a>,</li>
+<li>and <a href="#bindings">use <strong>binding</strong> to pass values to the attribute directive</a>.</li>
+</ul>
+<p>The final source:</p>
+<code-tabs><code-pane language="ts" name="app.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+
+import { HighlightDirective } from &#39;./highlight.directive&#39;;
+
+@Component({
+  selector: &#39;my-app&#39;,
+  templateUrl: &#39;app/app.component.html&#39;,
+  directives: [HighlightDirective]
+})
+
+export class AppComponent { }
+</code-pane><code-pane language="html" name="app.component.html" format="linenums">&lt;h1&gt;My First Attribute Directive&lt;/h1&gt;
+&lt;h4&gt;Pick a highlight color&lt;/h4&gt;
+&lt;div&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color=&#39;lightgreen&#39;&quot;&gt;Green
+  &lt;input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color=&#39;yellow&#39;&quot;&gt;Yellow
+  &lt;input type=&quot;radio&quot; name=&quot;colors&quot; (click)=&quot;color=&#39;cyan&#39;&quot;&gt;Cyan
+&lt;/div&gt;
+&lt;p [myHighlight]=&quot;color&quot;&gt;Highlight me!&lt;/p&gt;
+
+&lt;p [myHighlight]=&quot;color&quot; [defaultColor]=&quot;&#39;violet&#39;&quot;&gt;
+  Highlight me too!
+&lt;/p&gt;
+</code-pane><code-pane language="ts" name="highlight.directive.ts" format="linenums">import { Directive, ElementRef, Input } from &#39;@angular/core&#39;;
+
+@Directive({
+  selector: &#39;[myHighlight]&#39;,
+  host: {
+    &#39;(mouseenter)&#39;: &#39;onMouseEnter()&#39;,
+    &#39;(mouseleave)&#39;: &#39;onMouseLeave()&#39;
+  }
+})
+export class HighlightDirective {
+  private _defaultColor = &#39;red&#39;;
+  private el: HTMLElement;
+
+  constructor(el: ElementRef) { this.el = el.nativeElement; }
+
+  @Input() set defaultColor(colorName:string){
+    this._defaultColor = colorName || this._defaultColor;
+  }
+
+  @Input(&#39;myHighlight&#39;) highlightColor: string;
+
+  onMouseEnter() { this.highlight(this.highlightColor || this._defaultColor); }
+  onMouseLeave() { this.highlight(null); }
+
+  private highlight(color:string) {
+    this.el.style.backgroundColor = color;
+  }
+}
+</code-pane><code-pane language="ts" name="main.ts" format="linenums">import { bootstrap }    from &#39;@angular/platform-browser-dynamic&#39;;
+
+import { AppComponent } from &#39;./app.component&#39;;
+
+bootstrap(AppComponent);
+</code-pane><code-pane language="html
+  " name="index.html" format="linenums">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Attribute Directives&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+    &lt;!-- Polyfill(s) for older browsers --&gt;
+    &lt;script src=&quot;node_modules/es6-shim/es6-shim.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script src=&quot;node_modules/zone.js/dist/zone.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/reflect-metadata/Reflect.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/systemjs/dist/system.src.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script src=&quot;systemjs.config.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      System.import(&#39;app&#39;).catch(function(err){ console.error(err); });
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;my-app&gt;loading...&lt;/my-app&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code-pane></code-tabs><a id="why-input"></a><div class="l-main-section"></div><h3 id="appendix-input-properties">Appendix: Input properties</h3>
+<p>Earlier we declared the <code>highlightColor</code> property to be an <strong><em>input</em></strong> property of our
+<code>HighlightDirective</code></p>
+<p>We&#39;ve seen properties in bindings before. 
+We never had to declare them as anything. Why now?</p>
+<p>Angular makes a subtle but important distinction between binding <strong>sources</strong> and <strong>targets</strong>.</p>
+<p>In all previous bindings, the directive or component property was a binding <strong><em>source</em></strong>.
+A property is a <em>source</em> if it appears in the template expression to the <strong><em>right</em></strong> of the equals (=).</p>
+<p>A property is a <em>target</em> when it appears in <strong>square brackets</strong> ([ ]) to the <strong>left</strong> of the equals (=) ...
+as it is does when we bind to the <code>myHighlight</code> property of the <code>HighlightDirective</code>, </p>
+<code-example language="html" format=".">&lt;p [myHighlight]=&quot;color&quot;&gt;Highlight me!&lt;/p&gt;
+</code-example><p>The &#39;color&#39; in <code>[myHighlight]=&quot;color&quot;</code> is a binding <strong><em>source</em></strong>.
+A source property doesn&#39;t require a declaration.</p>
+<p>The &#39;myHighlight&#39; in <code>[myHighlight]=&quot;color&quot;</code> <em>is</em> a binding <strong><em>target</em></strong>.
+We must declare it as an <em>input</em> property.
+Angular rejects the binding with a clear error if we don&#39;t.</p>
+<p>Angular treats a <em>target</em> property differently for a good reason.
+A component or directive in target position needs protection.</p>
+<p>Imagine that our <code>HighlightDirective</code> did truly wonderous things.
+We graciously made a gift of it to the world. </p>
+<p>To our surprise, some people &mdash; perhaps naively &mdash;
+started binding to <em>every</em> property of our directive. 
+Not just the one or two properties we expected them to target. <em>Every</em> property.
+That could really mess up our directive in ways we didn&#39;t anticipate and have no desire to support.</p>
+<p>The <em>input</em> declaration ensures that consumers of our directive can only bind to
+the properties of our public API ... nothing else.</p><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/ts/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>

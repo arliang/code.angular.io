@@ -1,0 +1,810 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Http Client - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/ts/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title is-nav-title-selected">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item is-selected"><a href="/docs/ts/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/npm-packages.html" title="Details of the recommended npm packages and the different kinds of package dependencies">Npm Packages</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/testing.html" title="Techniques and practices for testing an Angular 2 app">Testing</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/typescript-configuration.html" title="TypeScript configuration for Angular 2 developers">TypeScript Configuration</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/upgrade.html" title="Angular 1 applications can be incrementally upgraded to Angular 2.">Upgrading from 1.x</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/webpack.html" title="Create your Angular 2 applications with a Webpack based tooling">Introduction to Webpack</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title ">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/a1-a2-quick-reference.html" title="Learn how Angular 1 concepts and techniques map to Angular 2">Angular 1 to 2 Quick Ref</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dependency-injection.html" title="Techniques for Dependency Injection">Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dynamic-form.html" title="Render dynamic forms with NgFormModel">Dynamic Form</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/ts-to-js.html" title="Convert Angular 2 TypeScript examples into ES5 JavaScript">TypeScript to JavaScript</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">Http Client</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/server-communication.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/server-communication.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/server-communication.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Talk to a remote server with the Angular Http Client.</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><p><a href="https://tools.ietf.org/html/rfc2616">HTTP</a> is the primary protocol for browser/server communication.</p>
+<div class="l-sub-section"><p>The <a href="https://tools.ietf.org/html/rfc6455"><code>WebSocket</code></a> protocol is another important communication technology;
+we won&#39;t cover it in this chapter.</p>
+</div><p>Modern browsers support two HTTP-based APIs: 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest (XHR)</a> and 
+<a href="https://en.wikipedia.org/wiki/JSONP">JSONP</a>. A few browsers also support
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a>. </p>
+<p>The Angular HTTP client library simplifies application programming of the <strong>XHR</strong> and <strong>JSONP</strong> APIs
+as we&#39;ll learn in this chapter covering:</p>
+<ul><li><a href="#http-client">Http client sample overview</a></li><li><a href="#fetch-data">Fetch data with http.get</a></li><li><a href="#rxjs">RxJS Observable of HTTP Responses</a></li><li><a href="#enable-rxjs-operators">Enabling RxJS Operators</a></li><li><a href="#extract-data">Extract JSON data</a></li><li><a href="#error-handling">Error handling</a></li><li><a href="#update">Send data to the server</a></li><li><a href="#promises">Promises instead of observables</a></li><li><a href="#cross-origin-requests">Cross-origin requests: Wikipedia example</a></li><ul><li><a href="#search-parameters">Set query string parameters</a></li><li><a href="#more-observables">Debounce search term input</a></li></ul><li><a href="#in-mem-web-api">Appendix: the in-memory web api service</a></li></ul><p>We illustrate these topics with code that you can 
+<a href="/resources/live-examples/server-communication/ts/plnkr.html">run live in a browser</a>.
+</p><div class="l-main-section"></div><a id="http-client"></a><h2 id="the-http-client-demo">The <em>Http</em> Client Demo</h2>
+<p>We use the Angular <code>Http</code> client to communicate via <code>XMLHttpRequest (XHR)</code>.</p>
+<p>We&#39;ll demonstrate with a mini-version of the <a href="../tutorial">tutorial</a>&#39;s &quot;Tour of Heroes&quot; (ToH) application.
+This version gets some heroes from the server, displays them in a list, lets us add new heroes, and saves them to the server.</p>
+<p>It works like this.</p>
+<figure class="image-display"><img src="/resources/images/devguide/server-communication/http-toh.gif" alt="ToH mini app" width="250"></figure><p>It&#39;s implemented with two components &mdash; a parent <code>TohComponent</code> shell and the <code>HeroListComponent</code> child.
+We&#39;ve seen these kinds of component in many other documentation samples. 
+Let&#39;s see how they change to support communication with a server.</p>
+<div class="l-sub-section"><p>We&#39;re overdoing the &quot;separation of concerns&quot; by creating two components for a tiny demo. 
+We&#39;re making a point about application structure that is easier to justify when the app grows.</p>
+</div><p>Here is the <code>TohComponent</code> shell:</p>
+<div class="example-title">app/toh/toh.component.ts</div><code-example language="ts" format="linenums">import { Component }         from &#39;@angular/core&#39;;
+import { HTTP_PROVIDERS }    from &#39;@angular/http&#39;;
+
+import { HeroListComponent } from &#39;./hero-list.component&#39;;
+import { HeroService }       from &#39;./hero.service&#39;;
+
+@Component({
+  selector: &#39;my-toh&#39;,
+  template: `
+  &lt;h1&gt;Tour of Heroes&lt;/h1&gt;
+  &lt;hero-list&gt;&lt;/hero-list&gt;
+  `,
+  directives: [HeroListComponent],
+  providers:  [
+    HTTP_PROVIDERS,
+    HeroService,
+  ]
+})
+export class TohComponent { }
+</code-example><p>As usual, we import the symbols we need. The newcomer is <code>HTTP_PROVIDERS</code>, 
+an array of service providers from the Angular HTTP library.
+We&#39;ll be using that library to access the server.
+We also import a <code>HeroService</code> that we&#39;ll look at shortly.</p>
+<p>The component specifies both the <code>`HTTP_PROVIDERS</code> and the <code>HeroService</code> in the metadata <code>providers</code> array,
+making them available to the child components of this &quot;Tour of Heroes&quot; application.</p>
+<div class="l-sub-section"><p>Alternatively, we may choose to add the <code>HTTP_PROVIDERS</code> while bootstrapping the app:</p>
+<div class="example-title">app/main.ts</div><code-example language="ts" format=".">import { HTTP_PROVIDERS } from &#39;@angular/http&#39;;
+bootstrap(TohComponent, [HTTP_PROVIDERS]);
+</code-example><p>Learn about providers in the <a href="dependency-injection.html">Dependency Injection</a> chapter.</p>
+</div><p>This sample only has one child, the <code>HeroListComponent</code>.  Here&#39;s its template:</p>
+<div class="example-title">app/toh/hero-list.component.html (template)</div><code-example language="html" format="linenums">&lt;h3&gt;Heroes:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li *ngFor=&quot;let hero of heroes&quot;&gt;
+    {{hero.name}}
+  &lt;/li&gt;
+&lt;/ul&gt;
+New hero name:
+&lt;input #newHeroName /&gt;
+&lt;button (click)=&quot;addHero(newHeroName.value); newHeroName.value=&#39;&#39;&quot;&gt;
+  Add Hero
+&lt;/button&gt;
+&lt;div class=&quot;error&quot; *ngIf=&quot;errorMessage&quot;&gt;{{errorMessage}}&lt;/div&gt;
+</code-example><p>The component template displays a list of heroes with the <code>ngFor</code> repeater directive.</p>
+<figure class="image-display"><img src="/resources/images/devguide/server-communication/hero-list.png" alt="Hero List"></figure><p>Beneath the heroes is an input box and an <em>Add Hero</em> button where we can enter the names of new heroes
+and add them to the database. 
+We use a <a href="template-syntax.html#ref-vars">template reference variable</a>, <code>newHeroName</code>, to access the 
+value of the input box in the <code>(click)</code> event binding.
+When the user clicks the button, we pass that value to the component&#39;s <code>addHero</code> method and then
+clear it to make ready for a new hero name.</p>
+<p>Below the button is an area for an error message.</p>
+<a id="oninit"></a><a id="HeroListComponent"></a><h3 id="the-herolistcomponent-class">The <em>HeroListComponent</em> class</h3>
+<p>Here&#39;s the component class:</p>
+<div class="example-title">app/toh/hero-list.component.ts (class)</div><code-example language="ts" format="linenums">export class HeroListComponent implements OnInit {
+
+  constructor (private heroService: HeroService) {}
+
+  errorMessage: string;
+  heroes:Hero[];
+
+  ngOnInit() { this.getHeroes(); }
+
+  getHeroes() {
+    this.heroService.getHeroes()
+                     .subscribe(
+                       heroes =&gt; this.heroes = heroes,
+                       error =&gt;  this.errorMessage = &lt;any&gt;error);
+  }
+
+  addHero (name: string) {
+    if (!name) {return;}
+    this.heroService.addHero(name)
+                     .subscribe(
+                       hero  =&gt; this.heroes.push(hero),
+                       error =&gt;  this.errorMessage = &lt;any&gt;error);
+  }
+}
+</code-example><p>We <a href="dependency-injection.html">inject</a> the <code>HeroService</code> into the constructor.
+That&#39;s the instance of the <code>HeroService</code> that we provided in the parent shell <code>TohComponent</code>.</p>
+<p>Notice that the component <strong>does not talk to the server directly!</strong> 
+The component doesn&#39;t know or care how we get the data. 
+Those details it delegates to the <code>heroService</code> class (which we&#39;ll get to in a moment).</p>
+<p>This is a golden rule: <strong>always delegate data access to a supporting service class</strong>.</p>
+<p>Although <em>at runtime</em> the component requests heroes immediately after creation, 
+we do <strong>not</strong> call the service&#39;s <code>get</code> method in the component&#39;s constructor.
+We call it inside the <code>ngOnInit</code> <a href="lifecycle-hooks.html">lifecycle hook</a> instead
+and count on Angular to call <code>ngOnInit</code> when it instantiates this component. </p>
+<div class="l-sub-section"><p>This is a &quot;best practice&quot;. 
+Components are easier to test and debug when their constructors are simple and all real work 
+(especially calling a remote server) is handled in a separate method.</p>
+</div><p>The service&#39;s <code>getHeroes()</code> and <code>addHero()</code> methods return an <code>Observable</code> of HTTP hero data.
+We subscribe to this <code>Observable</code>, 
+specifying the actions to take when the request succeeds or fails. 
+We&#39;ll get to observables and subscription shortly.</p>
+<p>With our basic intuitions about the component squared away, we can turn to development of the backend data source
+and the client-side <code>HeroService</code> that talks to it.</p>
+<h3 id="fetch-data">Fetch data</h3>
+<p>In many of our previous samples we faked the interaction with the server by
+returning mock heroes in a service like this one:</p>
+<code-example language="ts" format=".">import { Injectable } from &#39;@angular/core&#39;;
+
+import { Hero } from &#39;./hero&#39;;
+import { HEROES } from &#39;./mock-heroes&#39;;
+
+@Injectable()
+export class HeroService {
+  getHeroes() {
+    return Promise.resolve(HEROES);
+  }
+}
+</code-example><p>In this chapter, we get the heroes from the server using a (browser-based) HTTP client service.
+Here&#39;s the new <code>HeroService</code>: </p>
+<div class="example-title">app/toh/hero.service.ts</div><code-example language="ts" format="linenums">import { Injectable }     from &#39;@angular/core&#39;;
+import { Http, Response } from &#39;@angular/http&#39;;
+
+import { Hero }           from &#39;./hero&#39;;
+import { Observable }     from &#39;rxjs/Observable&#39;;
+
+@Injectable()
+export class HeroService {
+  constructor (private http: Http) {}
+
+  private heroesUrl = &#39;app/heroes&#39;;  // URL to web API
+
+  getHeroes (): Observable&lt;Hero[]&gt; {
+    return this.http.get(this.heroesUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+  private extractData(res: Response) {
+    if (res.status &lt; 200 || res.status &gt;= 300) {
+      throw new Error(&#39;Response status: &#39; + res.status);
+    }
+    let body = res.json();
+    return body.data || { };
+  }
+
+  private handleError (error: any) {
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg = error.message || &#39;Server error&#39;;
+    console.error(errMsg); // log to console instead
+    return Observable.throw(errMsg);
+  }
+}
+</code-example><p>The imported <code>Http</code> client service gets
+<a href="dependency-injection.html">injected</a> into the <code>HeroService</code> constructor.</p>
+<div class="l-sub-section"><p><code>Http</code> is not part of the Angular core. It&#39;s an optional service in its own <code>@angular/http</code> library
+that we installed with npm (see the <code>package.json</code>) and 
+registered for module loading by SystemJS (see <code>systemjs.config.js</code>)</p>
+</div><p>Look closely at how we call <code>http.get</code></p>
+<div class="example-title">app/toh/hero.service.ts (getHeroes)</div><code-example language="ts" format=".">getHeroes (): Observable&lt;Hero[]&gt; {
+  return this.http.get(this.heroesUrl)
+                  .map(this.extractData)
+                  .catch(this.handleError);
+}
+</code-example><p>We pass the resource URL to <code>get</code> and it calls the server which should return heroes.</p>
+<div class="l-sub-section"><p>It <em>will</em> return heroes once we&#39;ve set up the <a href="in-mem-web-api">in-memory web api</a>
+described in the appendix below.
+Alternatively, we can (temporarily) target a JSON file by changing the endpoint URL:</p>
+<code-example language="ts" format=".">private heroesUrl = &#39;app/heroes.json&#39;; // URL to JSON file
+</code-example></div><p><a id="rxjs"></a>
+The return value may surprise us. Many of us would expect a 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">promise</a>.
+We&#39;d expect to chain a call to <code>then()</code> and extract the heroes.
+Instead we&#39;re calling a <code>map()</code> method. 
+Clearly this is not a promise.</p>
+<p>In fact, the <code>http.get</code> method returns an <strong>Observable</strong> of HTTP Responses (<code>Observable&lt;Response&gt;</code>) from the RxJS library
+and <code>map</code> is one of the RxJS <em>operators</em>.</p>
+<div class="l-main-section"></div><h3 id="rxjs-library">RxJS Library</h3>
+<p><a href="https://github.com/ReactiveX/RxJS">RxJS</a> (&quot;Reactive Extensions&quot;) is a 3rd party library, endorsed by Angular,
+that implements the <a href="https://www.youtube.com/watch?v=UHI0AzD_WfY" title="Rob Wormald on observables"><em>asynchronous observable</em></a> pattern.</p>
+<p>All of our Developer Guide samples have installed the RxJS npm package and loaded via <code>system.js</code>
+because observables are used widely in Angular applications.
+We certainly need it now when working with the HTTP client.
+And we must take a critical extra step to make RxJS observables usable.</p>
+<h3 id="enable-rxjs-operators">Enable RxJS Operators</h3>
+<p>The RxJS library is quite large. 
+Size matters when we build a production application and deploy it to mobile devices.
+We should include only those features that we actually need.</p>
+<p>Accordingly, Angular exposes a stripped down version of <code>Observable</code> in the <code>rxjs/Observable</code> module, 
+a version that lacks almost all operators including the ones we&#39;d like to use here
+such as the <code>map</code> method we called above in <code>getHeroes</code>.</p>
+<p>It&#39;s up to us to add the operators we need. 
+We could add each operator, one-by-one, until we had a custom <em>Observable</em> implementation tuned
+precisely to our requirements.</p>
+<p>That would be a distraction today. We&#39;re learning HTTP, not counting bytes.
+So we&#39;ll make it easy on ourselves and enrich <em>Observable</em> with the full set of operators.
+It only takes one <code>import</code> statement. 
+It&#39;s best to add that statement early when we&#39;re bootstrapping the application. 
+:</p>
+<div class="example-title">app/main.ts (import rxjs)</div><code-example language="ts" format=".">// Add all operators to Observable
+import &#39;rxjs/Rx&#39;;
+</code-example><a id="extract-data"></a><h3 id="process-the-response-object">Process the response object</h3>
+<p>Remember that our <code>getHeroes()</code> method mapped the <code>http.get</code> response object to heroes with an <code>extractData</code> helper method:</p>
+<div class="example-title">app/toh/hero.service.ts (excerpt)</div><code-example language="ts" format=".">private extractData(res: Response) {
+  if (res.status &lt; 200 || res.status &gt;= 300) {
+    throw new Error(&#39;Response status: &#39; + res.status);
+  }
+  let body = res.json();
+  return body.data || { };
+}
+</code-example><p>The <code>response</code> object does not hold our data in a form we can use directly. 
+To make it useful in our application we must</p>
+<ul>
+<li>check the response status,</li>
+<li>parse the response data into a JSON object</li>
+</ul>
+<div class="alert is-important"><p><em>Beta alert</em>: error status interception and parsing may be absorbed within <code>http</code> when Angular is released. </p>
+</div><h4 id="non-success-status-codes">Non-success status codes</h4>
+<p>A status code outside the 200-299 range denotes an error from the <em>application point of view</em>
+but it is not an error from the <em>HTTP point of view</em>. 
+For example, a <code>404 - Not Found</code> is a response like any other. 
+The request went out; a response came back; here it is, thank you very much.
+We&#39;d have an exception only if <code>http</code> failed to operate (e.g., it errored internally).</p>
+<p>Because a status code outside the 200-299 range <em>is an error</em> from the application point of view, 
+we intercept it and throw, moving the observable chain to the error path.</p>
+<p>The <code>catch</code> operator that is next in the <code>getHeroes</code> observable chain will handle our thrown error.</p>
+<h4 id="parse-to-json">Parse to JSON</h4>
+<p>The response data are in JSON string form.
+We must parse that string into JavaScript objects which we do by calling <code>response.json()</code>.</p>
+<div class="l-sub-section"><p>This is not Angular&#39;s own design. 
+The Angular HTTP client follows the ES2015 specification for the
+<a href="https://fetch.spec.whatwg.org/#response-class">response object</a> returned by the <code>Fetch</code> function.
+That spec defines a <code>json()</code> method that parses the response body into a JavaScript object.</p>
+</div><div class="l-sub-section"><p>We shouldn&#39;t expect the decoded JSON to be the heroes array directly.
+The server we&#39;re calling always wraps JSON results in an object with a <code>data</code>
+property. We have to unwrap it to get the heroes.
+This is conventional web api behavior, driven by 
+<a href="https://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines#Always_return_JSON_with_an_Object_on_the_outside">security concerns</a>.</p>
+</div><div class="alert is-important"><p>Make no assumptions about the server API. 
+Not all servers return an object with a <code>data</code> property.</p>
+</div><h3 id="do-not-return-the-response-object">Do not return the response object</h3>
+<p>Our <code>getHeroes()</code> could have returned the HTTP response. Bad idea! 
+The point of a data service is to hide the server interaction details from consumers.
+The component that calls the <code>HeroService</code> wants heroes. 
+It has no interest in what we do to get them.
+It doesn&#39;t care where they come from.
+And it certainly doesn&#39;t want to deal with a response object.</p>
+<div class="callout is-important"><header>HTTP GET is delayed </header><p>The <code>http.get</code> does <strong>not send the request just yet!</strong> This observable is
+<a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/creating.md#cold-vs-hot-observables"><em>cold</em></a>
+which means the request won&#39;t go out until something <em>subscribes</em> to the observable.
+That <em>something</em> is the <a href="#subscribe">HeroListComponent</a>.</p>
+</div><a id="error-handling"></a><h3 id="always-handle-errors">Always handle errors</h3>
+<p>Whenever we deal with I/O we must be prepared for something to go wrong as it surely will. 
+We should catch errors in the <code>HeroService</code> and do something with them. 
+We may also pass an error message back to the component for presentation to the user
+but only if we can say something the user can understand and act upon.</p>
+<p>In this simple app we provide rudimentary error handling in both the service and the component.</p>
+<p>The eagle-eyed reader may have spotted our use of the <code>catch</code> operator in conjunction with a <code>handleError</code> method.
+We haven&#39;t discussed so far how that actually works. </p>
+<p>We use the Observable <code>catch</code> operator on the service level.
+It takes an error handling function with an error object as the argument.
+Our service handler, <code>handleError</code>, logs the response to the console, 
+transforms the error into a user-friendly message, and returns the message in a new, failed observable via <code>Observable.throw</code>.</p>
+<div class="example-title">app/toh/hero.service.ts (excerpt)</div><code-example language="ts" format=".">getHeroes (): Observable&lt;Hero[]&gt; {
+  return this.http.get(this.heroesUrl)
+                  .map(this.extractData)
+                  .catch(this.handleError);
+}
+private handleError (error: any) {
+  // In a real world app, we might use a remote logging infrastructure
+  let errMsg = error.message || &#39;Server error&#39;;
+  console.error(errMsg); // log to console instead
+  return Observable.throw(errMsg);
+}
+</code-example><a id="subscribe"></a><a id="hero-list-component"></a><h4><b>HeroListComponent</b> error handling</h4><p>Back in the <code>HeroListComponent</code>, where we called <code>heroService.getHeroes()</code>, 
+we supply the <code>subscribe</code> function with a second function to handle the error message.
+It sets an <code>errorMessage</code> variable which we&#39;ve bound conditionally in the template.</p>
+<div class="example-title">app/toh/hero-list.component.ts (getHeroes)</div><code-example language="ts" format=".">getHeroes() {
+  this.heroService.getHeroes()
+                   .subscribe(
+                     heroes =&gt; this.heroes = heroes,
+                     error =&gt;  this.errorMessage = &lt;any&gt;error);
+}
+</code-example><div class="l-sub-section"><p>Want to see it fail? Reset the api endpoint in the <code>HeroService</code> to a bad value. Remember to restore it!</p>
+</div><a id="update"></a>
+<a id="post"></a><div class="l-main-section"></div><h2 id="send-data-to-the-server">Send data to the server</h2>
+<p>So far we&#39;ve seen how to retrieve data from a remote location using an HTTP service. 
+Let&#39;s add the ability to create new heroes and save them in the backend.</p>
+<p>We&#39;ll create an easy method for the <code>HeroListComponent</code> to call, an <code>addHero()</code> method that takes
+just the name of a new hero:</p>
+<code-example language="ts" format=".">addHero (name: string): Observable&lt;Hero&gt; {
+</code-example><p>To implement it, we need to know some details about the server&#39;s api for creating heroes.</p>
+<p><a href="#server">Our data server</a> follows typical REST guidelines.
+It expects a <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5"><code>POST</code></a> request
+at the same endpoint where we <code>GET</code> heroes.
+It expects the new hero data to arrive in the body of the request, 
+structured like a <code>Hero</code> entity but without the <code>id</code> property.
+The body of the request should look like this:</p>
+<code-example format="." language="javascript">{ "name": "Windstorm" }</code-example><p>The server will generate the <code>id</code> and return the entire <code>JSON</code> representation
+of the new hero including its generated id. The hero arrives tucked inside a response object
+with its own <code>data</code> property.</p>
+<p>Now that we know how the API works, we implement <code>addHero()</code>like this:</p>
+<div class="example-title">app/toh/hero.service.ts (additional imports)</div><code-example language="ts" format=".">import { Headers, RequestOptions } from &#39;@angular/http&#39;;
+</code-example><div class="example-title">app/toh/hero.service.ts (addHero)</div><code-example language="ts" format=".">  addHero (name: string): Observable&lt;Hero&gt; { 
+    let body = JSON.stringify({ name });
+    let headers = new Headers({ &#39;Content-Type&#39;: &#39;application/json&#39; });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.heroesUrl, body, options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+</code-example><h3 id="headers">Headers</h3>
+<p>The <code>Content-Type</code> header allows us to inform the server that the body will represent JSON.</p>
+<p><a href="../api/http/Headers-class.html">Headers</a> are one of the <a href="../api/http/RequestOptions-class.html">RequestOptions</a>.
+Compose the options object and pass it in as the <em>third</em> parameter of the <code>post</code> method, as shown above.</p>
+<h3 id="body">Body</h3>
+<p>Despite the content type being specified as JSON, the POST body must actually be a <em>string</em>.
+Hence, we explicitly encode the JSON hero content before passing it in as the body argument.</p>
+<div class="l-sub-section"><p>We may be able to skip the <code>JSON.stringify</code> step in the near future.</p>
+</div><h3 id="json-results">JSON results</h3>
+<p>As with <code>getHeroes()</code>, we <a href="#extract-data">extract the data</a> from the response using the
+<code>extractData()</code> helper.</p>
+<p>Back in the <code>HeroListComponent</code>, we see that <em>its</em> <code>addHero()</code> method subscribes to the observable returned by the <em>service&#39;s</em> <code>addHero()</code> method.
+When the data arrive it pushes the new hero object into its <code>heroes</code> array for presentation to the user.</p>
+<div class="example-title">app/toh/hero-list.component.ts (addHero)</div><code-example language="ts" format=".">addHero (name: string) {
+  if (!name) {return;}
+  this.heroService.addHero(name)
+                   .subscribe(
+                     hero  =&gt; this.heroes.push(hero),
+                     error =&gt;  this.errorMessage = &lt;any&gt;error);
+}
+</code-example><a id="promises"></a><h2 id="fall-back-to-promises">Fall back to Promises</h2>
+<p>Although the Angular <code>http</code> client API returns an <code>Observable&lt;Response&gt;</code> we can turn it into a 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise<response></response></a> if we prefer.
+It&#39;s easy to do and a promise-based version looks much like the observable-based version in simple cases.</p>
+<div class="l-sub-section"><p>While promises may be more familiar, observables have many advantages. 
+Don&#39;t rush to promises until you give observables a chance.</p>
+</div><p>Let&#39;s rewrite the <code>HeroService</code> using promises , highlighting just the parts that are different.</p>
+<code-tabs><code-pane language="ts" name="app/toh/hero.service.ts (promise-based)" format="linenums">getHeroes (): Promise&lt;Hero[]&gt; {
+  return this.http.get(this.heroesUrl)
+                  .toPromise()
+                  .then(this.extractData)
+                  .catch(this.handleError);
+}
+
+addHero (name: string): Promise&lt;Hero&gt; {
+  let body = JSON.stringify({ name });
+  let headers = new Headers({ &#39;Content-Type&#39;: &#39;application/json&#39; });
+  let options = new RequestOptions({ headers: headers });
+
+  return this.http.post(this.heroesUrl, body, options)
+             .toPromise()
+             .then(this.extractData)
+             .catch(this.handleError);
+}
+
+private extractData(res: Response) {
+  if (res.status &lt; 200 || res.status &gt;= 300) {
+    throw new Error(&#39;Bad response status: &#39; + res.status);
+  }
+  let body = res.json();
+  return body.data || { };
+}
+
+private handleError (error: any) {
+  // In a real world app, we might send the error to remote logging infrastructure
+  let errMsg = error.message || &#39;Server error&#39;;
+  console.error(errMsg); // log to console instead
+  return Promise.reject(errMsg);
+}
+</code-pane><code-pane language="ts" name="app/toh/hero.service.ts (observable-based)" format="linenums">  getHeroes (): Observable&lt;Hero[]&gt; {
+    return this.http.get(this.heroesUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  addHero (name: string): Observable&lt;Hero&gt; { 
+    let body = JSON.stringify({ name });
+    let headers = new Headers({ &#39;Content-Type&#39;: &#39;application/json&#39; });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.heroesUrl, body, options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  private extractData(res: Response) {
+    if (res.status &lt; 200 || res.status &gt;= 300) {
+      throw new Error(&#39;Response status: &#39; + res.status);
+    }
+    let body = res.json();
+    return body.data || { };
+  }
+
+  private handleError (error: any) {
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg = error.message || &#39;Server error&#39;;
+    console.error(errMsg); // log to console instead
+    return Observable.throw(errMsg);
+  }
+</code-pane></code-tabs><p>Converting from an observable to a promise is as simple as calling <code>toPromise(success, fail)</code>.</p>
+<p>We move the observable&#39;s <code>map</code> callback to the first <em>success</em> parameter and its <code>catch</code> callback to the second <em>fail</em> parameter
+and we&#39;re done!
+Or we can follow the promise <code>then.catch</code> pattern as we do in the second <code>addHero</code> example.</p>
+<p>Our <code>errorHandler</code> forwards an error message as a failed promise instead of a failed Observable.</p>
+<p>The diagnostic <em>log to console</em> is just one more <code>then</code> in the promise chain.</p>
+<p>We have to adjust the calling component to expect a <code>Promise</code> instead of an <code>Observable</code>.</p>
+<code-tabs><code-pane language="ts" name="app/toh/hero-list.component.ts (promise-based)" format="linenums">getHeroes() {
+  this.heroService.getHeroes()
+                   .then(
+                     heroes =&gt; this.heroes = heroes,
+                     error =&gt;  this.errorMessage = &lt;any&gt;error);
+}
+
+addHero (name: string) {
+  if (!name) {return;}
+  this.heroService.addHero(name)
+                   .then(
+                     hero  =&gt; this.heroes.push(hero),
+                     error =&gt;  this.errorMessage = &lt;any&gt;error);
+}
+</code-pane><code-pane language="ts" name="app/toh/hero-list.component.ts (observable-based)" format="linenums">  getHeroes() {
+    this.heroService.getHeroes()
+                     .subscribe(
+                       heroes =&gt; this.heroes = heroes,
+                       error =&gt;  this.errorMessage = &lt;any&gt;error);
+  }
+
+  addHero (name: string) {
+    if (!name) {return;}
+    this.heroService.addHero(name)
+                     .subscribe(
+                       hero  =&gt; this.heroes.push(hero),
+                       error =&gt;  this.errorMessage = &lt;any&gt;error);
+  }
+</code-pane></code-tabs><p>The only obvious difference is that we call <code>then</code> on the returned promise instead of <code>subscribe</code>.
+We give both methods the same functional arguments. </p>
+<div class="l-sub-section"><p>The less obvious but critical difference is that these two methods return very different results!</p>
+<p>The promise-based <code>then</code> returns another promise. We can keep chaining more <code>then</code> and <code>catch</code> calls, getting a new promise each time.</p>
+<p>The <code>subscribe</code> method returns a <code>Subscription</code>. A <code>Subscription</code> is not another <code>Observable</code>. 
+It&#39;s the end of the line for observables. We can&#39;t call <code>map</code> on it or call <code>subscribe</code> again.
+The <code>Subscription</code> object has a different purpose, signified by its primary method, <code>unsubscribe</code>.</p>
+<p>Learn more about observables to understand the implications and consequences of subscriptions.</p>
+</div><a id="cross-origin-requests"></a><h2 id="cross-origin-requests-wikipedia-example">Cross-origin requests: Wikipedia example</h2>
+<p>We just learned how to make <code>XMLHttpRequests</code> using Angular&#39;s built-in <code>Http</code> service. 
+This is the most common approach for server communication. 
+It doesn&#39;t work in all scenarios.</p>
+<p>For security reasons, web browsers block <code>XHR</code> calls to a remote server whose origin is different from the origin of the web page.
+The <em>origin</em> is the combination of URI scheme, hostname and port number. 
+This is called the <a href="https://en.wikipedia.org/wiki/Same-origin_policy">Same-origin Policy</a>.</p>
+<div class="l-sub-section"><p>Modern browsers do allow <code>XHR</code> requests to servers from a different origin if the server supports the 
+<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> protocol.
+If the server requires user credentials, we&#39;ll enable them in the <a href="#headers">request headers</a>.</p>
+</div><p>Some servers do not support CORS but do support an older, read-only alternative called <a href="https://en.wikipedia.org/wiki/JSONP">JSONP</a>.
+Wikipedia is one such server.</p>
+<div class="l-sub-section"><p>This <a href="http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about/2067584#2067584">StackOverflow answer</a> covers many details of JSONP.</p>
+</div><h3 id="search-wikipedia">Search wikipedia</h3>
+<p>Let&#39;s build a simple search that shows suggestions from wikipedia as we type in a text box.</p>
+<figure class="image-display"><img src="/resources/images/devguide/server-communication/wiki-1.gif" alt="Wikipedia search app (v.1)" width="250"></figure><p>Wikipedia offers both <code>CORS</code> and <code>JSONP</code> search APIs, let&#39;s use the latter for this example.
+The Angular <code>Jsonp</code> service both extends the <code>Http</code> service for JSONP and restricts us to <code>GET</code> requests. 
+All other HTTP methods throw an error because JSONP is a read-only facility. </p>
+<p>As always, we wrap our interaction with an Angular data access client service inside a dedicated service, here called <code>WikipediaService</code>.</p>
+<div class="example-title">app/wiki/wikipedia.service.ts</div><code-example language="ts" format="linenums">import { Injectable } from &#39;@angular/core&#39;;
+import { Jsonp, URLSearchParams } from &#39;@angular/http&#39;;
+
+@Injectable()
+export class WikipediaService {
+  constructor(private jsonp: Jsonp) {}
+
+  search (term: string) {
+
+    let wikiUrl = &#39;http://en.wikipedia.org/w/api.php&#39;;
+
+    var params = new URLSearchParams();
+params.set(&#39;search&#39;, term); // the user&#39;s search value
+    params.set(&#39;action&#39;, &#39;opensearch&#39;);
+    params.set(&#39;format&#39;, &#39;json&#39;);
+    params.set(&#39;callback&#39;, &#39;JSONP_CALLBACK&#39;);
+
+    // TODO: Add error handling
+    return this.jsonp
+               .get(wikiUrl, { search: params })
+               .map(request =&gt; &lt;string[]&gt; request.json()[1]);
+  }
+}
+</code-example><p>The constructor expects Angular to inject its <code>jsonp</code> service. 
+We register that service with <code>JSONP_PROVIDERS</code> in the  <a href="#wikicomponent">component below</a> that calls our <code>WikipediaService</code>.</p>
+<a id="query-parameters"></a><h3 id="search-parameters">Search parameters</h3>
+<p>The <a href="https://www.mediawiki.org/wiki/API:Opensearch">Wikipedia &#39;opensearch&#39; API</a>
+expects four parameters (key/value pairs) to arrive in the request URL&#39;s query string.
+The keys are <code>search</code>, <code>action</code>, <code>format</code>, and <code>callback</code>.
+The value of the <code>search</code> key is the user-supplied search term to find in Wikipedia.
+The other three are the fixed values &quot;opensearch&quot;, &quot;json&quot;, and &quot;JSONP_CALLBACK&quot; respectively.</p>
+<div class="l-sub-section"><p>The <code>JSONP</code> technique requires that we pass a callback function name to the server in the query string: <code>callback=JSONP_CALLBACK</code>.
+The server uses that name to build a JavaScript wrapper function in its response which Angular ultimately calls to extract the data.
+All of this happens under the hood.</p>
+</div><p>If we&#39;re looking for articles with the word &quot;Angular&quot;, we could construct the query string by hand and call <code>jsonp</code> like this:</p>
+<code-example language="ts" format=".">let queryString =
+  `?search=${term}&amp;action=opensearch&amp;format=json&amp;callback=JSONP_CALLBACK`
+
+return this.jsonp
+           .get(wikiUrl + queryString)
+           .map(request =&gt; &lt;string[]&gt; request.json()[1]);
+</code-example><p>In more parameterized examples we might prefer to build the query string with the Angular <code>URLSearchParams</code> helper as shown here:</p>
+<div class="example-title">app/wiki/wikipedia.service.ts (search parameters)</div><code-example language="ts" format=".">    var params = new URLSearchParams();
+params.set(&#39;search&#39;, term); // the user&#39;s search value
+    params.set(&#39;action&#39;, &#39;opensearch&#39;);
+    params.set(&#39;format&#39;, &#39;json&#39;);
+    params.set(&#39;callback&#39;, &#39;JSONP_CALLBACK&#39;);
+</code-example><p>This time we call <code>jsonp</code> with <em>two</em> arguments: the <code>wikiUrl</code> and an options object whose <code>search</code> property is the <code>params</code> object.</p>
+<div class="example-title">app/wiki/wikipedia.service.ts (call jsonp)</div><code-example language="ts" format=".">// TODO: Add error handling
+return this.jsonp
+           .get(wikiUrl, { search: params })
+           .map(request =&gt; &lt;string[]&gt; request.json()[1]);
+</code-example><p><code>Jsonp</code> flattens the <code>params</code> object into the same query string we saw earlier before putting the request on the wire.</p>
+<a id="wikicomponent"></a><h3 id="the-wikicomponent">The WikiComponent</h3>
+<p>Now that we have a service that can query the Wikipedia API, 
+we turn to the component that takes user input and displays search results.</p>
+<div class="example-title">app/wiki/wiki.component.ts</div><code-example language="ts" format="linenums">import { Component }        from &#39;@angular/core&#39;;
+import { JSONP_PROVIDERS }  from &#39;@angular/http&#39;;
+import { Observable }       from &#39;rxjs/Observable&#39;;
+
+import { WikipediaService } from &#39;./wikipedia.service&#39;;
+
+@Component({
+  selector: &#39;my-wiki&#39;,
+  template: `
+    &lt;h1&gt;Wikipedia Demo&lt;/h1&gt;
+    &lt;p&gt;&lt;i&gt;Fetches after each keystroke&lt;/i&gt;&lt;/p&gt;
+
+    &lt;input #term (keyup)=&quot;search(term.value)&quot;/&gt;
+
+    &lt;ul&gt;
+      &lt;li *ngFor=&quot;let item of items | async&quot;&gt;{{item}}&lt;/li&gt;
+    &lt;/ul&gt;
+  `,
+  providers:[JSONP_PROVIDERS, WikipediaService]
+})
+export class WikiComponent {
+
+  constructor (private wikipediaService: WikipediaService) {}
+
+  items: Observable&lt;string[]&gt;;
+
+  search (term: string) {
+    this.items = this.wikipediaService.search(term);
+  }
+}
+</code-example><p>The <code>providers</code> array in the component metadata specifies the Angular <code>JSONP_PROVIDERS</code> collection that supports the <code>Jsonp</code> service.
+We register that collection at the component level to make <code>Jsonp</code> injectable in the <code>WikipediaService</code>.</p>
+<p>The component presents an <code>&lt;input&gt;</code> element <em>search box</em> to gather search terms from the user. 
+and calls a <code>search(term)</code> method after each <code>keyup</code> event.</p>
+<p>The <code>search(term)</code> method delegates to our <code>WikipediaService</code> which returns an observable array of string results (<code>Observable&lt;string[]</code>). 
+Instead of subscribing to the observable inside the component as we did in the <code>HeroListComponent</code>, 
+we forward the observable result to the template (via <code>items</code>) where the <a href="pipes.html#async-pipe">async pipe</a>
+in the <code>ngFor</code> handles the subscription.</p>
+<div class="l-sub-section"><p>We often use the <a href="pipes.html#async-pipe">async pipe</a> in read-only components where the component has no need to interact with the data.
+We couldn&#39;t use the pipe in the <code>HeroListComponent</code> because the &quot;add hero&quot; feature pushes newly created heroes into the list.</p>
+</div><h2 id="our-wasteful-app">Our wasteful app</h2>
+<p>Our wikipedia search makes too many calls to the server. 
+It is inefficient and potentially expensive on mobile devices with limited data plans.</p>
+<h3 id="1-wait-for-the-user-to-stop-typing">1. Wait for the user to stop typing</h3>
+<p>At the moment we call the server after every key stroke.
+The app should only make requests when the user <em>stops typing</em> .
+Here&#39;s how it <em>should</em> work &mdash; and <em>will</em> work  &mdash;  when we&#39;re done refactoring:</p>
+<figure class="image-display"><img src="/resources/images/devguide/server-communication/wiki-2.gif" alt="Wikipedia search app (v.2)" width="250"></figure><h3 id="2-search-when-the-search-term-changes">2. Search when the search term changes</h3>
+<p>Suppose the user enters the word <em>angular</em> in the search box and pauses for a while. 
+The application issues a search request for <em>Angular</em>.</p>
+<p>Then the user backspaces over the last three letters, <em>lar</em>, and immediately re-types <em>lar</em> before pausing once more.
+The search term is still &quot;angular&quot;. The app shouldn&#39;t make another request.</p>
+<h3 id="3-cope-with-out-of-order-responses">3. Cope with out-of-order responses</h3>
+<p>The user enters <em>angular</em>, pauses, clears the search box, and enters <em>http</em>. 
+The application issues two search requests, one for <em>angular</em> and one for <em>http</em>. </p>
+<p>Which response will arrive first? We can&#39;t be sure. 
+A load balancer could dispatch the requests to two different servers with different response times.
+The results from the first <em>angular</em> request might arrive after the later <em>http</em> results.
+The user will be confused if we display the <em>angular</em> results to the <em>http</em> query.</p>
+<p>When there are multiple requests in-flight, the app should present the responses
+in the original request order. That won&#39;t happen if <em>angular</em> results arrive last.</p>
+<p><a id="more-observables"></a></p>
+<h2 id="more-fun-with-observables">More fun with Observables</h2>
+<p>We can address these problems and improve our app with the help of some nifty observable operators. </p>
+<p>We could make our changes to the <code>WikipediaService</code>. 
+But we sense that our concerns are driven by the user experience so we update the component class instead.</p>
+<div class="example-title">app/wiki/wiki-smart.component.ts</div><code-example language="ts" format="linenums">import { Component }        from &#39;@angular/core&#39;;
+import { JSONP_PROVIDERS }  from &#39;@angular/http&#39;;
+import { Observable }       from &#39;rxjs/Observable&#39;;
+import { Subject }          from &#39;rxjs/Subject&#39;;
+
+import { WikipediaService } from &#39;./wikipedia.service&#39;;
+
+@Component({
+  selector: &#39;my-wiki-smart&#39;,
+  template: `
+    &lt;h1&gt;Smarter Wikipedia Demo&lt;/h1&gt;
+    &lt;p&gt;&lt;i&gt;Fetches when typing stops&lt;/i&gt;&lt;/p&gt;
+
+    &lt;input #term (keyup)=&quot;search(term.value)&quot;/&gt;
+
+    &lt;ul&gt;
+      &lt;li *ngFor=&quot;let item of items | async&quot;&gt;{{item}}&lt;/li&gt;
+    &lt;/ul&gt;
+  `,
+  providers:[JSONP_PROVIDERS, WikipediaService]
+})
+export class WikiSmartComponent {
+
+  constructor (private wikipediaService: WikipediaService) { }
+
+  private searchTermStream = new Subject&lt;string&gt;();
+
+  search(term:string) { this.searchTermStream.next(term); }
+
+  items:Observable&lt;string[]&gt; = this.searchTermStream
+    .debounceTime(300)
+    .distinctUntilChanged()
+    .switchMap((term:string) =&gt; this.wikipediaService.search(term));
+}
+</code-example><p>We made no changes to the template or metadata, confining them all to the component class.
+Let&#39;s review those changes.</p>
+<h3 id="create-a-stream-of-search-terms">Create a stream of search terms</h3>
+<p>We&#39;re binding to the search box <code>keyup</code> event and calling the component&#39;s <code>search</code> method after each keystroke.</p>
+<p>We turn these events into an observable stream of search terms using a <code>Subject</code> 
+which we import from the RxJS observable library:</p>
+<code-example language="ts" format="">import { Subject }          from &#39;rxjs/Subject&#39;;
+</code-example><p>Each search term is a string, so we create a new <code>Subject</code> of type <code>string</code> called <code>searchTermStream</code>.
+After every keystroke, the <code>search</code> method adds the search box value to that stream
+via the subject&#39;s <code>next</code> method.</p>
+<code-example language="ts" format=".">private searchTermStream = new Subject&lt;string&gt;();
+
+search(term:string) { this.searchTermStream.next(term); }
+</code-example><h3 id="listen-for-search-terms">Listen for search terms</h3>
+<p>Earlier, we passed each search term directly to the service and bound the template to the service results.
+Now we listen to the <em>stream of terms</em>, manipulating the stream before it reaches the <code>WikipediaService</code>.</p>
+<code-example language="ts" format=".">items:Observable&lt;string[]&gt; = this.searchTermStream
+  .debounceTime(300)
+  .distinctUntilChanged()
+  .switchMap((term:string) =&gt; this.wikipediaService.search(term));
+</code-example><p>We wait for the user to stop typing for at least 300 milliseconds 
+(<a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/debounce.md">debounce</a>).
+Only changed search values make it through to the service 
+(<a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/distinctuntilchanged.md">distinctUntilChanged</a>).</p>
+<p>The <code>WikipediaService</code> returns a separate observable of string arrays (<code>Observable&lt;string[]&gt;</code>) for each request.
+We could have multiple requests <em>in flight</em>, all awaiting the server&#39;s reply,
+which means multiple <em>observables-of-strings</em> could arrive at any moment in any order.</p>
+<p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/flatmaplatest.md">switchMap</a>
+(formerly known as <code>flatMapLatest</code>) returns a new observable that combines these <code>WikipediaService</code> observables, 
+re-arranges them in their original request order,
+and delivers to subscribers only the most recent search results. </p>
+<p>The displayed list of search results stays in sync with the user&#39;s sequence of search terms.</p>
+<a id="in-mem-web-api"></a><div class="l-main-section"></div><h2 id="appendix-tour-of-heroes-in-memory-server">Appendix: Tour of Heroes in-memory server</h2>
+<p>If we only cared to retrieve data, we could tell Angular to get the heroes from a <code>heroes.json</code> file like this one:</p>
+<div class="example-title">app/heroes.json</div><code-example language="json" format=".">{
+  "data": [
+    { "id": "1", "name": "Windstorm" },
+    { "id": "2", "name": "Bombasto" },
+    { "id": "3", "name": "Magneta" },
+    { "id": "4", "name": "Tornado" }
+  ]
+}
+</code-example><div class="l-sub-section"><p>We wrap the heroes array in an object with a <code>data</code> property for the same reason that a data server does:
+to mitigate the <a href="http://stackoverflow.com/questions/3503102/what-are-top-level-json-arrays-and-why-are-they-a-security-risk">security risk</a>
+posed by top-level JSON arrays. </p>
+</div><p>We&#39;d set the endpoint to the JSON file like this:</p>
+<code-example language="ts" format=".">private heroesUrl = &#39;app/heroes.json&#39;; // URL to JSON file
+</code-example><p>The <em>get heroes</em> scenario would work.
+But we want to <em>save</em> data too. We can&#39;t save changes to a JSON file. We need a web API server.
+We didn&#39;t want the hassle of setting up and maintaining a real server for this chapter.
+So we turned to an <em>in-memory web API simulator</em> instead.</p>
+<div class="l-sub-section"><p>The in-memory web api is not part of the Angular core. 
+It&#39;s an optional service in its own <code>angular2-in-memory-web-api</code> library
+that we installed with npm (see <code>package.json</code>) and 
+registered for module loading by SystemJS (see <code>systemjs.config.js</code>)</p>
+</div><p>The in-memory web API gets its data from a custom application class with a <code>createDb()</code>
+method that returns a map whose keys are collection names and whose values 
+are arrays of objects in those collections.</p>
+<p>Here&#39;s the class we created for this sample by copy-and-pasting the JSON data:</p>
+<div class="example-title">app/hero-data.ts</div><code-example language="ts" format=".">export class HeroData {
+  createDb() {
+    let heroes = [
+      { &quot;id&quot;: &quot;1&quot;, &quot;name&quot;: &quot;Windstorm&quot; },
+      { &quot;id&quot;: &quot;2&quot;, &quot;name&quot;: &quot;Bombasto&quot; },
+      { &quot;id&quot;: &quot;3&quot;, &quot;name&quot;: &quot;Magneta&quot; },
+      { &quot;id&quot;: &quot;4&quot;, &quot;name&quot;: &quot;Tornado&quot; }
+    ];
+    return {heroes};
+  }
+}
+</code-example><p>Ensure that the <code>HeroService</code> endpoint refers to the web API:</p>
+<code-example language="ts" format=".">private heroesUrl = &#39;app/heroes&#39;;  // URL to web API
+</code-example><p>Finally, we need to redirect client HTTP requests to the in-memory web API.</p>
+<p>This redirection is easy to configure because Angular&#39;s <code>http</code> service delegates the client/server communication tasks
+to a helper service called the <code>XHRBackend</code>. </p>
+<p>To enable our server simulation, we replace the default <code>XHRBackend</code> service with 
+the in-memory web API service using standard Angular provider registration
+in <code>TohComponent</code>. We initialize the in-memory web API with mock hero data at the same time.</p>
+<p>Here are the pertinent details, excerpt from <code>TohComponent</code>, starting with the imports:</p>
+<div class="example-title">toh.component.ts (web API imports)</div><code-example language="ts" format=".">import { provide }           from &#39;@angular/core&#39;;
+import { XHRBackend }        from &#39;@angular/http&#39;;
+
+// in-memory web api imports
+import { InMemoryBackendService,
+        SEED_DATA }          from &#39;angular2-in-memory-web-api/core&#39;;
+import { HeroData }          from &#39;../hero-data&#39;;
+</code-example><p>Then we add the following two provider definitions to the <code>providers</code> array in component metadata:</p>
+<div class="example-title">toh.component.ts (web API providers)</div><code-example language="ts" format=".">// in-memory web api providers
+provide(XHRBackend, { useClass: InMemoryBackendService }), // in-mem server
+provide(SEED_DATA,  { useClass: HeroData }) // in-mem server data
+</code-example><p>See the full source code in the <a href="/resources/live-examples/server-communication/ts/plnkr.html">live example</a>.</p><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/ts/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>

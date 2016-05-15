@@ -1,0 +1,520 @@
+<html lang="en"><head></head><body><form id="mainForm" method="post" action="http://plnkr.co/edit/?p=preview" target="_self"><input type="hidden" name="files[app/app.component.js]" value="(function(app) {
+  app.AppComponent =
+    ng.core.Component({
+      selector: 'my-app',
+      template: '<h1>My First Angular 2 App</h1>'
+    })
+    .Class({
+      constructor: function() {}
+    });
+})(window.app || (window.app = {}));
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[app/main.js]" value="(function(app) {
+  document.addEventListener('DOMContentLoaded', function() {
+    ng.platformBrowserDynamic.bootstrap(app.AppComponent);
+  });
+})(window.app || (window.app = {}));
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[karma-test-shim.js]" value="/*global jasmine, __karma__, window*/
+(function () {
+
+// Error.stackTraceLimit = Infinity;
+
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
+
+// Cancel Karma's synchronous start,
+// we call `__karma__.start()` later, once all the specs are loaded.
+__karma__.loaded = function () { };
+
+// SET THE RUNTIME APPLICATION ROOT HERE
+var appRoot ='app'; // no trailing slash!
+
+// RegExp for client application base path within karma (which always starts 'base\')
+var karmaBase = '^\/base\/'; // RegEx string for base of karma folders
+var appPackage = 'base/' + appRoot; //e.g., base/app
+var appRootRe = new RegExp(karmaBase + appRoot + '\/');
+var onlyAppFilesRe = new RegExp(karmaBase + appRoot + '\/(?!.*\.spec\.js$)([a-z0-9-_\.\/]+)\.js$');
+
+var moduleNames = [];
+
+// Configure systemjs packages to use the .js extension for imports from the app folder
+var packages = {};
+packages[appPackage] = {
+    defaultExtension: false,
+    format: 'register',
+    map: Object.keys(window.__karma__.files)
+      .filter(onlyAppFiles)
+      // Create local module name mapping to karma file path for app files
+      // with karma's fingerprint in query string, e.g.:
+      // './hero.service': '/base/app/hero.service.js?f4523daf879cfb7310ef6242682ccf10b2041b3e'
+      .reduce(function (pathsMapping, appPath) {
+        var moduleName = appPath.replace(appRootRe, './').replace(/\.js$/, '');
+        pathsMapping[moduleName] = appPath + '?' + window.__karma__.files[appPath];
+        return pathsMapping;
+      }, {})
+  }
+
+System.config({ packages: packages });
+
+// Configure Angular for the browser and
+// with test versions of the platform providers
+  Promise.all([
+    System.import('angular2/testing'),
+    System.import('angular2/platform/testing/browser')
+  ])
+  .then(function (results) {
+    var testing = results[0];
+    var browser = results[1];
+    testing.setBaseTestProviders(
+      browser.TEST_BROWSER_PLATFORM_PROVIDERS,
+      browser.TEST_BROWSER_APPLICATION_PROVIDERS);
+
+    // Load all spec files
+    // (e.g. 'base/app/hero.service.spec.js')
+    return Promise.all(
+      Object.keys(window.__karma__.files)
+        .filter(onlySpecFiles)
+        .map(function (moduleName) {
+          moduleNames.push(moduleName);
+          return System.import(moduleName);
+        }));
+  })
+
+  .then(success, fail);
+
+////// Helpers //////
+
+function onlyAppFiles(filePath) {
+  return onlyAppFilesRe.test(filePath);
+}
+
+function onlySpecFiles(filePath) {
+  return /\.spec\.js$/.test(filePath);
+}
+
+function success () {
+  console.log(
+    'Spec files loaded:\n  ' +
+    moduleNames.join('\n  ') +
+    '\nStarting Jasmine testrunner');
+  __karma__.start();
+}
+
+function fail(error) {
+  __karma__.error(error.stack || error);
+}
+
+})();
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[karma.conf.js]" value="module.exports = function(config) {
+
+  var appBase   = 'app/';      // transpiled app JS files
+  var appAssets ='/base/app/'; // component assets fetched by Angular's compiler
+
+  config.set({
+    basePath: '',
+    frameworks: ['jasmine'],
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-htmlfile-reporter')
+    ],
+
+    customLaunchers: {
+      // From the CLI. Not used here but interesting
+      // chrome setup for travis CI using chromium
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
+    files: [
+      // Polyfills.
+      'node_modules/es6-shim/es6-shim.js',
+
+      // Zone.js dependencies
+      // Note - do not include zone.js itself here, it is already
+      // included in angular2-polyfills
+      'node_modules/zone.js/dist/zone.js',
+      'node_modules/zone.js/dist/jasmine-patch.js',
+      'node_modules/zone.js/dist/async-test.js',
+      'node_modules/zone.js/dist/fake-async-test.js',
+
+      { pattern: 'node_modules/reflect-metadata/Reflect.js', included: true, watched: false },
+      { pattern: 'https://code.angularjs.org/tools/system.js', included: true, watched: false },
+
+      // RxJs.
+      { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
+
+      {pattern: 'karma-test-shim.js', included: true, watched: true},
+      {pattern: 'built/test/matchers.js', included: true, watched: true},
+
+      // paths loaded via module imports
+      {pattern: 'built/**/*.js', included: false, watched: true},
+
+      {pattern: 'node_modules/@angular/**/*.js', included: false, watched: true},
+      {pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: true},
+
+      // transpiled application &amp; spec code paths to be loaded via module imports
+      {pattern: appBase + '**/*.js', included: false, watched: true},
+
+      // asset (HTML &amp; CSS) paths loaded via Angular's component compiler
+      // (these paths need to be rewritten, see proxies section)
+      {pattern: appBase + '**/*.html', included: false, watched: true},
+      {pattern: appBase + '**/*.css', included: false, watched: true},
+
+      // paths for debugging with source maps in dev tools
+      {pattern: appBase + '**/*.ts', included: false, watched: false},
+      {pattern: appBase + '**/*.js.map', included: false, watched: false}
+    ],
+
+    // proxied base paths for loading assets
+    proxies: {
+      // required for component assets fetched by Angular's compiler
+      &quot;/app/&quot;: appAssets
+    },
+
+    exclude: [],
+    preprocessors: {},
+    reporters: ['progress', 'html'],
+
+    // HtmlReporter configuration
+    htmlReporter: {
+      // Open this file to see results in browser
+      outputFile: '_test-output/tests.html',
+
+      // Optional
+      pageTitle: 'Unit Tests',
+      subPageTitle: __dirname
+    },
+
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    browsers: ['Chrome'],
+    singleRun: false
+  })
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[spec.js]" value="describe(&quot;Jasmine sample test&quot;, function() {
+	
+	it(&quot;1+1 should be 2&quot;, function() {
+		
+		var result = 1 + 1;
+		
+		expect(result).toBe(2);
+	});
+});
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[wallaby.js]" value="// Configuration for the Wallaby Visual Studio Code testing extension
+// https://marketplace.visualstudio.com/items?itemName=WallabyJs.wallaby-vscode
+// Note: Wallaby is not open source and costs money
+module.exports = function () {
+
+  return {
+    files: [
+      // System.js for module loading
+      {pattern: 'node_modules/systemjs/dist/system-polyfills.js', instrument: false},
+      {pattern: 'node_modules/systemjs/dist/system.js', instrument: false},
+
+      // Polyfills
+      {pattern: 'node_modules/es6-shim/es6-shim.js', instrument: false},
+      {pattern: 'node_modules/angular2/bundles/angular2-polyfills.js', instrument: false},
+
+      // Zone.js dependencies
+      // Note - do not include zone.js itself or long-stack-trace-zone.js` here as
+      // they are included already in angular2-polyfills
+      {pattern: 'node_modules/zone.js/dist/jasmine-patch.js', instrument: false},
+      {pattern: 'node_modules/zone.js/dist/async-test.js', instrument: false},
+      {pattern: 'node_modules/zone.js/dist/fake-async-test.js', instrument: false},
+
+     // Rx.js, Angular 2 itself, and the testing library not here because loaded by systemjs
+
+      {pattern: 'app/**/*+(ts|html|css)', load: false},
+      {pattern: 'app/**/*.spec.ts', ignore: true}
+    ],
+
+    tests: [
+      {pattern: 'app/**/*.spec.ts', load: false}
+    ],
+
+    middleware: function (app, express) {
+      app.use('/node_modules', express.static(require('path').join(__dirname, 'node_modules')));
+    },
+
+    testFramework: 'jasmine',
+
+    bootstrap: function (wallaby) {
+      wallaby.delayStart();
+
+      System.config({
+        defaultJSExtensions: true,
+        packages: {
+          app: {
+            meta: {
+              '*': {
+                scriptLoad: true
+              }
+            }
+          }
+        },
+        paths: {
+          'npm:*': 'node_modules/*'
+        },
+        map: {
+          'angular2': 'npm:angular2',
+          'rxjs': 'npm:rxjs'
+        }
+      });
+
+      // Configure Angular for the browser and
+      // with test versions of the platform providers
+      Promise.all([
+        System.import('angular2/testing'),
+        System.import('angular2/platform/testing/browser')
+      ])
+      .then(function (results) {
+        var testing = results[0];
+        var browser = results[1];
+        testing.setBaseTestProviders(
+          browser.TEST_BROWSER_PLATFORM_PROVIDERS,
+          browser.TEST_BROWSER_APPLICATION_PROVIDERS);
+
+        // Load all spec files
+        return Promise.all(wallaby.tests.map(function (specFile) {
+          return System.import(specFile);
+        }));
+      })
+      .then(function () {
+        wallaby.start();
+      })
+      .catch(function (e) {
+        setTimeout(function () {
+          throw e;
+        }, 0);
+      });
+    },
+
+    debug: true
+  };
+};
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[styles.css]" value="/* Master Styles */
+h1 {
+  color: #369; 
+  font-family: Arial, Helvetica, sans-serif;   
+  font-size: 250%;
+}
+h2, h3 { 
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;   
+  font-weight: lighter;
+}
+body { 
+  margin: 2em; 
+}
+body, input[text], button { 
+  color: #888; 
+  font-family: Cambria, Georgia; 
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa; 
+  cursor: auto;
+}
+
+/* Navigation link styles */
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.router-link-active {
+  color: #039be5;
+}
+
+/* items class */
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.items li.selected:hover {
+  background-color: #BBD8DC;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+/* everywhere else */
+* { 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[index.html]" value="<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular 2 QuickStart JS</title>
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+    <link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;>
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfill -->
+    <script src=&quot;https://npmcdn.com/es6-shim@0.35.0/es6-shim.min.js&quot;></script>
+
+    <script src=&quot;https://npmcdn.com/zone.js@0.6.12?main=browser&quot;></script>
+    <script src=&quot;https://npmcdn.com/reflect-metadata@0.1.3&quot;></script>
+
+    <script src=&quot;https://npmcdn.com/rxjs@5.0.0-beta.6/bundles/Rx.umd.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/@angular/core/core.umd.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/@angular/common/common.umd.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/@angular/compiler/compiler.umd.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/@angular/platform-browser/platform-browser.umd.js&quot;></script>
+    <script src=&quot;https://npmcdn.com/@angular/platform-browser-dynamic/platform-browser-dynamic.umd.js&quot;></script>
+
+    <!-- 2. Load our 'modules' -->
+    <script src='app/app.component.js'></script>
+    <script src='app/main.js'></script>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+
+</html>
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="tags[0]" value="angular2"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="quickstart"><input type="hidden" name="private" value="true"><input type="hidden" name="description" value="Angular 2 Example - QuickStart"></form><script>document.getElementById("mainForm").submit();</script></body></html>

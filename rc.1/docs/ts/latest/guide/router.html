@@ -1,0 +1,2004 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Routing &amp; Navigation - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/ts/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title ">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/npm-packages.html" title="Details of the recommended npm packages and the different kinds of package dependencies">Npm Packages</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/testing.html" title="Techniques and practices for testing an Angular 2 app">Testing</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/typescript-configuration.html" title="TypeScript configuration for Angular 2 developers">TypeScript Configuration</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/upgrade.html" title="Angular 1 applications can be incrementally upgraded to Angular 2.">Upgrading from 1.x</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/webpack.html" title="Create your Angular 2 applications with a Webpack based tooling">Introduction to Webpack</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title ">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/a1-a2-quick-reference.html" title="Learn how Angular 1 concepts and techniques map to Angular 2">Angular 1 to 2 Quick Ref</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dependency-injection.html" title="Techniques for Dependency Injection">Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dynamic-form.html" title="Render dynamic forms with NgFormModel">Dynamic Form</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/ts-to-js.html" title="Convert Angular 2 TypeScript examples into ES5 JavaScript">TypeScript to JavaScript</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">Routing &amp; Navigation</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/router.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/router.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/router.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Discover the basics of screen navigation with the Angular 2 Component Router.</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><div class="alert is-critical"><p>This chapter is a <em>work in progress</em>.</p>
+<p>It describes the <em>release candidate</em> Component Router which
+replaces the <a href="router-deprecated.html"><em>beta</em> router</a>.</p>
+</div><p>The Angular <strong><em>Component Router</em></strong> enables navigation from one <a href="./glossary.html#view">view</a> to the next
+as users perform application tasks.</p>
+<p>We cover the router&#39;s primary features in this chapter, illustrating them through the evolution
+of a small application that we can <a href="/resources/live-examples/router/ts/plnkr.html">run live</a>.</p>
+<div class="l-sub-section"><img src="/resources/images/devguide/plunker-separate-window-button.png" alt="pop out the window" align="right" style="margin-right:-20px"><p>To see the URL changes in the browser address bar, 
+pop out the preview window by clicking the blue &#39;X&#39; button in the upper right corner.</p>
+</div><div class="l-main-section"></div><h2 id="overview">Overview</h2>
+<p>The browser is a familiar model of application navigation.
+We enter a URL in the address bar and the browser navigates to a corresponding page.
+We click links on the page and the browser navigates to a new page.
+We click the browser&#39;s back and forward buttons and the browser navigates
+backward and forward through the history of pages we&#39;ve seen.</p>
+<p>The Angular <strong><em>Component Router</em></strong> (&quot;the router&quot;) borrows from this model.
+It can interpret a browser URL as an instruction
+to navigate to a client-generated view and pass optional parameters along to the supporting view component
+to help it decide what specific content to present.
+We can bind the router to links on a page and it will navigate to
+the appropriate application view when the user clicks a link.
+We can navigate imperatively when the user clicks a button, selects from a drop box,
+or in response to some other stimulus from any source. And the router logs activity
+in the browser&#39;s history journal so the back and forward buttons work as well.</p>
+<p>We&#39;ll learn many router details in this chapter which covers</p>
+<ul>
+<li>setting the <a href="#base-href">base href</a></li>
+<li>importing from the <a href="#import">router library</a></li>
+<li><a href="#route-config">configuring a router</a></li>
+<li>the <a href="#link-parameters-array">link parameters array</a> that propels router navigation</li>
+<li>navigating when the user clicks a data-bound <a href="#router-link">RouterLink</a></li>
+<li>navigating under <a href="#navigate">program control</a></li>
+<li>embedding critical information in the URL with <a href="#positional-parameters">positional parameters</a></li>
+<li>creating a <a href="#child-router">child router</a> with its own routes</li>
+<li>setting a <a href="#default">default route</a></li>
+<li>confirming or canceling navigation with <a href="#lifecycle-hooks">router lifecycle hooks</a></li>
+<li>passing optional information in <a href="#matrix-parameters">matrix parameters</a></li>
+<li>choosing the &quot;HTML5&quot; or &quot;hash&quot; <a href="#browser-url-styles">URL style</a></li>
+</ul>
+<p>We proceed in phases marked by milestones building from a simple two-pager with placeholder views
+up to a modular, multi-view design with child routes.</p>
+<p>But first, an overview of router basics.</p>
+<div class="l-main-section"></div><h2 id="the-basics">The Basics</h2>
+<p>Let&#39;s begin with a few core concepts of the Component Router.
+Then we can explore the details through a sequence of examples.</p>
+<h3 id="-lt-base-href-"><em>&lt;base href&gt;</em></h3>
+<p>Most routing applications should add a <code>&lt;base&gt;</code> element to the <strong><code>index.html</code></strong> just after the  <code>&lt;head&gt;</code> tag
+to tell the router how to compose navigation URLs.</p>
+<p>If the <code>app</code> folder is the application root, as it is for our sample application,
+set the <code>href</code> value <em>exactly</em> as shown here.</p>
+<div class="example-title">index.html (base href)</div><code-example language="html" format=".">&lt;base href=&quot;/&quot;&gt;
+</code-example><h3 id="router-imports">Router imports</h3>
+<p>The Angular Component Router is an optional service that presents a particular component view for a given URL.
+It is not part of the Angular 2 core. It is in its own library package, <code>@angular/router</code>.
+We import what we need from it as we would from any other Angular package.</p>
+<div class="example-title">app/app.component.ts (import)</div><code-example language="ts" format=".">BAD FILENAME: ../../../_fragments/router/ts/app/app.component.1-import-router.ts.md   Current path: docs,ts,latest,guide,router PathToDocs: ../../../</code-example><div class="l-sub-section"><p>We cover other options in the <a href="#browser-url-styles">details below</a>.</p>
+</div><h3 id="configuration">Configuration</h3>
+<p>When the browser&#39;s URL changes, the router looks for a corresponding <strong><code>RouteDefinition</code></strong>
+from which it can determine the component to display.</p>
+<p>A router has no route definitions until we configure it.
+The preferred way to simultaneously create a router and add its routes is with a <strong><code>@RouteConfig</code></strong> <a href="glossary.html#decorator">decorator</a>
+applied to the router&#39;s host component.</p>
+<p>In this example, we configure the top-level <code>AppComponent</code> with three route definitions</p>
+<div class="example-title">app.component.ts (excerpt)</div><code-example language="ts" format="."> @Component({ ... })
+@Routes([
+  {path: &#39;/crisis-center&#39;, component: CrisisListComponent},
+  {path: &#39;/heroes&#39;,        component: HeroListComponent},
+  {path: &#39;/hero/:id&#39;,      component: HeroDetailComponent}
+])
+export class AppComponent  implements OnInit {
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.navigate([&#39;/crisis-center&#39;]);
+  }
+}
+</code-example><div class="l-sub-section"><p>There are several flavors of <code>RouteDefinition</code>.
+The most common by far is the named <strong><code>Route</code></strong> which maps a URL path to a component</p>
+<p>The <code>name</code> field is the route name which <strong>must</strong> be spelled in <strong>PascalCase</strong> 
+to avoid potential confusion with the route <code>path</code>.</p>
+<p>The <code>:id</code> in the third route is a token for a route parameter. In a URL such as <code>/hero/42</code>, &quot;42&quot;
+is the value of the <code>id</code> parameter. The corresponding <code>HeroDetailComponent</code>
+will use that value to find and present the hero whose <code>id</code> is 42.
+We&#39;ll learn more about route parameters later in this chapter.</p>
+</div><h3 id="router-outlet">Router Outlet</h3>
+<p>Now we know how the router gets its configuration.
+When the browser URL for this application becomes <code>/heroes</code>,
+the router matches that URL to the <code>RouteDefinition</code> named <em>Heroes</em> and displays the <code>HeroListComponent</code>
+in a <strong><code>RouterOutlet</code></strong> that we&#39;ve placed in the host view&#39;s HTML.</p>
+<code-example format="" language="html">&lt;!-- Routed views go here -->
+&lt;router-outlet>&lt;/router-outlet></code-example><h3 id="router-links">Router Links</h3>
+<p>Now we have routes configured and a place to render them, but
+how do we navigate? The URL could arrive directly from the browser address bar.
+But most of the time we navigate as a result of some user action such as the click of
+an anchor tag.</p>
+<p>We add a <strong><code>RouterLink</code></strong> directive  to the anchor tag and bind it to a template expression that
+returns an array of route link parameters (the <strong>link parameters array</strong>). The router ultimately resolves that array
+into a URL and a component view.</p>
+<p>We see such bindings in the following <code>AppComponent</code> template:</p>
+<code-example language="ts" format=".">template: `
+  &lt;h1&gt;Component Router&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;]&quot;&gt;Crisis Center&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&#39;/heroes&#39;]&quot;&gt;Heroes&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+`,
+</code-example><div class="l-sub-section"><p>We&#39;re adding two anchor tags with <code>RouterLink</code> directives.
+We bind each <code>RouterLink</code> to an array containing the string name of a route definition.
+&#39;CrisisCenter&#39; and &#39;Heroes&#39; are the names of the <code>Routes</code> we configured above.</p>
+<p>We&#39;ll learn to write more complex link expressions &mdash; and why they are arrays &mdash;
+<a href="#link-parameters-array">later</a> in the chapter.</p>
+</div><h3 id="let-s-summarize">Let&#39;s summarize</h3>
+<p>The <code>@RouterConfig</code> configuration tied the <code>AppComponent</code> to a router configured with routes.
+The component has a <code>RouterOutlet</code> where it can display views produced by the router.
+It has <code>RouterLinks</code> that users can click to navigate via the router.</p>
+<p>The <code>AppComponent</code> has become a <strong><em>Routing Component</em></strong>, a component that can route.</p>
+<p>Here are the key <em>Component Router</em> terms and their meanings:</p>
+<table><tr><th>Router Part</th><th>Meaning</th></tr><tr><td><code>Router</code></td><td>Displays the application component for the active URL.
+Manages navigation from one component to the next.</td></tr><tr><td><code>@RouteConfig</code></td><td>Configures a router with <code>RouteDefinitions</code>, each mapping a URL path to a component.</td></tr><tr><td><code>RouteDefinition</code></td><td>Defines how the router should navigate to a component based on a URL pattern.</td></tr><tr><td><code>Route</code></td><td>The most common form of <code>RouteDefinition</code> consisting of a path, a route name,
+and a component type.</td></tr><tr><td><code>RouterOutlet</code></td><td>The directive (<code>&lt;router-outlet></code>) that marks where the router should display a view.</td></tr><tr><td><code>RouterLink</code></td><td>The directive for binding a clickable HTML element to
+a route. Clicking an anchor tag with a <code>routerLink</code> directive
+that is bound to a <i>Link Parameters Array</i> triggers a navigation.</td></tr><tr><td><i>Link Parameters Array</i></td><td>An array that the router inteprets into a routing instruction.
+We can bind a <code>RouterLink</code> to that array or pass the array as an argument to
+the <code>Router.navigate</code> method.</td></tr><tr><td><i>Routing Component</i></td><td>An Angular component with an attached router.</td></tr></table><p>We&#39;ve barely touched the surface of the router and its capabilities.</p>
+<p>The following detail sections describe a sample routing application
+as it evolves over a sequence of milestones. 
+We strongly recommend taking the time to read and understand this story.</p>
+<div class="l-main-section"></div><h2 id="the-sample-application">The Sample Application</h2>
+<p>We have an application in mind as we move from milestone to milestone.</p>
+<div class="l-sub-section"><p>While we make incremental progress toward the ultimate sample application, this chapter is not a tutorial.
+We discuss code and design decisions pertinent to routing and application design.
+We gloss over everything in between.</p>
+<p>The full source is available in the <a href="/resources/live-examples/router/ts/plnkr.html">live example</a>.</p>
+</div><p>Our client is the Hero Employment Agency.
+Heroes need work and The Agency finds Crises for them to solve.</p>
+<p>The application has two main feature areas:</p>
+<ol>
+<li>A <em>Crisis Center</em> where we maintain the list of crises for assignment to heroes.</li>
+<li>A <em>Heroes</em> area where we maintain the list of heroes employed by The Agency.</li>
+</ol>
+<p>Run the <a href="/resources/live-examples/router/ts/plnkr.html">live example</a>.
+It opens in the <em>Crisis Center</em>.  We&#39;ll come back to that.</p>
+<p>Click the <em>Heroes</em> link. We&#39;re presented with a list of Heroes.</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/hero-list.png" alt="Hero List" width="250"></figure><p>We select one and the application takes us to a hero editing screen.</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/hero-detail.png" alt="Crisis Center Detail" width="250"></figure><p>Our changes take effect immediately. We click the &quot;Back&quot; button and the
+app returns us to the Heroes list.</p>
+<p>We could have clicked the browser&#39;s back button instead.
+That would have returned us to the Heroes List as well.
+Angular app navigation updates the browser history as normal web navigation does.</p>
+<p>Now click the <em>Crisis Center</em> link. We go to the <em>Crisis Center</em> and its list of ongoing crises.</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/crisis-center-list.png" alt="Crisis Center List"></figure><p>We select one and the application takes us to a crisis editing screen.</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/crisis-center-detail.png" alt="Crisis Center Detail"></figure><p>This is a bit different from the <em>Hero Detail</em>. <em>Hero Detail</em> saves the changes as we type.
+In <em>Crisis Detail</em> our changes are temporary until we either save or discard them by pressing the &quot;Save&quot; or &quot;Cancel&quot; buttons. 
+Both buttons navigate back to the <em>Crisis Center</em> and its list of crises.</p>
+<p>Suppose we click a crisis, make a change, but <strong><em>do not click either button</em></strong>.
+Maybe we click the browser back button instead. Maybe we click the &quot;Heroes&quot; link. </p>
+<p>Do either. Up pops a dialog box.</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/confirm-dialog.png" alt="Confirm Dialog" width="300"></figure><p>We can say &quot;OK&quot; and lose our changes or click &quot;Cancel&quot; and continue editing.</p>
+<p>The router supports a <code>routerCanDeactivate</code> lifecycle hook that gives us a chance to clean-up
+or ask the user&#39;s permission before navigating away from the current view.</p>
+<p>Here we see an entire user session that touches all of these features.</p>
+<a id="full-app-demo"></a><figure class="image-display"><img src="/resources/images/devguide/router/router-anim.gif" alt="App in action"></figure><p>Here&#39;s a diagram of all application routing options:</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/complete-nav.png" alt="Navigation diagram"></figure><p>This app illustrates the router features we&#39;ll cover in this chapter</p>
+<ul>
+<li>navigating to a component (<em>Heroes</em> link to &quot;Heroes List&quot;)</li>
+<li>including a route parameter (passing the Hero <code>id</code> while routing to the &quot;Hero Detail&quot;)</li>
+<li>child routes (the <em>Crisis Center</em> has its own routes)</li>
+<li>the <code>routerCanDeactivate</code> lifecycle hook (ask permission to discard unsaved changes)</li>
+</ul>
+<a id="getting-started"></a><div class="l-main-section"></div><h2 id="milestone-1-getting-started-with-the-router">Milestone #1: Getting Started with the Router</h2>
+<p>Let&#39;s begin with a simple version of the app that navigates between two empty views.</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/router-1-anim.gif" alt="App in action"></figure><a id="base-href"></a><p><a id="base-href"></a></p>
+<h3 id="set-the-lt-base-href-">Set the <em>&lt;base href&gt;</em></h3>
+<p>The Component Router uses the browser&#39;s
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries">history.pushState</a>
+for navigation. Thanks to <code>pushState</code>, we can make our in-app URL paths look the way we want them to
+look, e.g. <code>localhost:3000/crisis-center</code>. Our in-app URLs can be indistinguishable from server URLs.</p>
+<p>Modern HTML 5 browsers were the first to support <code>pushState</code> which is why many people refer to these URLs as
+&quot;HTML 5 style&quot; URLs.</p>
+<p>We must <strong>add a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base">&lt;base href&gt; element</a> tag</strong>
+to the <code>index.html</code> to make <code>pushState</code> routing work. 
+The browser also needs the base <code>href</code> value to prefix <em>relative</em> URLs when downloading and linking to 
+css files, scripts, and images.</p>
+<p>Add the base element just after the  <code>&lt;head&gt;</code> tag.
+If the <code>app</code> folder is the application root, as it is for our application,
+set the <code>href</code> value in <strong><code>index.html</code></strong> <em>exactly</em> as shown here.</p>
+<div class="example-title">index.html (base href)</div><code-example language="html" format=".">&lt;base href=&quot;/&quot;&gt;
+</code-example><div class="l-sub-section"><p>HTML 5 style navigation is the Component Router default.
+Learn why &quot;HTML 5&quot; style is preferred, how to adjust its behavior, and how to switch to the
+older hash (#) style if necessary in the <a href="#browser-url-styles">Browser URL Styles</a> appendix below.</p>
+</div><div class="l-sub-section"><h4 id="live-example-note">Live example note</h4>
+<p>We have to get tricky when we run the live example because the host service sets
+the application base address dynamically. That&#39;s why we replace the <code>&lt;base href...&gt;</code> with a
+script that writes a <code>&lt;base&gt;</code> tag on the fly to match.</p>
+<code-example format="">&lt;script>document.write('&lt;base href="' + document.location + '" />');&lt;/script></code-example><p>We should only need this trick for the live example, not production code.</p>
+</div><a id="import"></a><h3 id="import-from-the-component-router-library">Import from the Component Router library</h3>
+<p>The Component Router is not part of the Angular 2 core. It is in its own library.
+The router is an optional service because not all applications need routing and,
+depending on your requirements, you may need a different routing library.</p>
+<p>The Component Router library is in its own <code>@angular/router</code> package.
+We import what we need from it as we would from any Angular package:</p>
+<div class="example-title">app/app.component.ts (import)</div><code-example language="ts" format=".">BAD FILENAME: ../../../_fragments/router/ts/app/app.component.1-import-router.ts.md   Current path: docs,ts,latest,guide,router PathToDocs: ../../../</code-example><h3 id="booting-with-the-router-service-providers">Booting with the router service providers</h3>
+<p>Our app launches from the <code>main.ts</code> file in the <code>/app</code> folder so let&#39;s start there.
+It&#39;s short and all of it is relevant to routing.</p>
+<div class="example-title">main.ts</div><code-example language="ts" format=".">import { bootstrap }        from &#39;@angular/platform-browser-dynamic&#39;;
+import { ROUTER_PROVIDERS } from &#39;@angular/router&#39;;
+
+import { AppComponent }     from &#39;./app.component&#39;;
+bootstrap(AppComponent, [
+  ROUTER_PROVIDERS
+]);
+</code-example><p>We import our root <code>AppComponent</code> and Angular&#39;s <code>bootstrap</code> function as expected.</p>
+<p>We also import <code>ROUTER_PROVIDERS</code> from the router library.
+The router is a service implemented by a collection of <em>Dependency Injection</em> providers, most of which are identified in the
+<code>ROUTER_PROVIDERS</code> array.</p>
+<p>We&#39;re booting Angular with <code>AppComponent</code> as our app&#39;s root component and
+registering providers, as we often do, in the providers array in the second parameter of the <code>bootstrap</code> function.
+Providing the router providers at the root makes the Component Router available everywhere in our application.</p>
+<div class="l-sub-section"><p>Learn about providers, the <code>provide</code> function, and injected services in the
+<a href="dependency-injection.html">Dependency Injection chapter</a>.</p>
+</div><h3 id="the-appcomponent-shell">The <em>AppComponent</em> shell</h3>
+<p>The root <code>AppComponent</code> is the application shell. It has title at the top, a navigation bar with two links,
+and a <em>Router Outlet</em> at the bottom where the router swaps views on and off the page. Here&#39;s what we mean:</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/shell-and-outlet.png" alt="Shell" width="300"></figure><p><a id="shell-template"></a>
+The corresponding component template looks like this:</p>
+<code-example language="ts" format=".">template: `
+  &lt;h1&gt;Component Router&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;]&quot;&gt;Crisis Center&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&#39;/heroes&#39;]&quot;&gt;Heroes&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+`,
+</code-example><h3 id="-routeroutlet-"><em>RouterOutlet</em></h3>
+<p><code>RouterOutlet</code> is a component from the router library.
+The router displays views within the bounds of the <code>&lt;router-outlet&gt;</code> tags.</p>
+<div class="l-sub-section"><p>A template may hold exactly one <strong><em>unnamed</em></strong> <code>&lt;router-outlet&gt;</code>.</p>
+</div><a id="router-link"></a><h3 id="-routerlink-binding"><em>RouterLink</em> binding</h3>
+<p>Above the outlet, within the anchor tags, we see <a href="template-syntax.html#property-binding">Property Bindings</a> to
+the <code>RouterLink</code> directive that look like <code>[routerLink]=&quot;[...]&quot;</code>. We imported <code>RouterLink</code> from the router library.</p>
+<p>The template expression to the right of the equals (=) returns a <em>link parameters array</em>.</p>
+<p>A link parameters array holds the ingredients for router navigation:</p>
+<ul>
+<li>the name of the route that prescribes the destination component and a path for the URL</li>
+<li>the optional route and query parameters that go into the route URL</li>
+</ul>
+<p>The arrays in this example each have a single string parameter, the name of a <code>Route</code> that
+we&#39;ll configure for this application with <code>@RouteConfig()</code>. We don&#39;t need to set route parameters yet.</p>
+<div class="l-sub-section"><p>Learn more about the link parameters array in the <a href="#link-parameters-array">appendix below</a>.</p>
+</div><a id="route-config"></a><h3 id="-routeconfig-"><em>@RouteConfig()</em></h3>
+<p>A router holds a list of route definitions. The list is empty for a new router. We must configure it.</p>
+<p>A router also needs a <strong>Host Component</strong>, a point of origin for its navigations.</p>
+<p>It&#39;s natural to combine the creation of a new router, its configuration, and its assignment to a host component
+in a single step. That&#39;s the purpose of the <code>@RouteConfig</code> decorator which we put to good use here:</p>
+<code-example language="ts" format="."> @Component({ ... })
+@Routes([
+  {path: &#39;/crisis-center&#39;, component: CrisisListComponent},
+  {path: &#39;/heroes&#39;,        component: HeroListComponent},
+  {path: &#39;*&#39;,        component: CrisisListComponent}
+])
+export class AppComponent { }
+</code-example><p>The <code>@RouteConfig</code> decorator creates a new router.
+We applied the decorator to <code>AppComponent</code> which makes that the router&#39;s host component.
+The argument to <code>@RouteConfig()</code> is an array of <strong>Route Definitions</strong>.</p>
+<p>We&#39;re supplying two definitions:</p>
+<code-example language="ts" format=".">{path: &#39;/crisis-center&#39;, component: CrisisListComponent},
+{path: &#39;/heroes&#39;,        component: HeroListComponent},
+{path: &#39;*&#39;,        component: CrisisListComponent}
+</code-example><p>Each definition translates to a <a href="../api/router/Route-class.html">Route</a> which has a</p>
+<ul>
+<li><code>path</code> - the URL path segment for this route</li>
+<li><code>name</code> - the name of the route</li>
+<li><code>component</code> - the component associated with this route.</li>
+</ul>
+<p>The router draws upon its registry of route definition when</p>
+<ol>
+<li>the browser URL changes</li>
+<li>we tell the router to go to a named route</li>
+</ol>
+<p>In plain English, we might say of the first route:</p>
+<ol>
+<li><p><em>When the browser&#39;s location URL changes to <strong>match the path</strong> segment <code>/crisis-center</code>, create or retrieve an instance of
+the <code>CrisisCenterComponent</code> and display its view.</em></p>
+</li>
+<li><p><em>When the application requests navigation to a route <strong>named</strong> <code>CrisisCenter</code>, compose a browser URL
+with the path segment <code>/crisis-center</code>, update the browser&#39;s address location and history, create or retrieve an instance of
+the <code>CrisisListComponent</code>, and display that component&#39;s list view.</em></p>
+</li>
+</ol>
+<h3 id="-getting-started-wrap-up">&quot;Getting Started&quot; wrap-up</h3>
+<p>We&#39;ve got a very basic, navigating app, one that can switch between two views
+when the user clicks a link.</p>
+<p>We&#39;ve learned how to</p>
+<ul>
+<li>load the router library</li>
+<li>add a nav bar to the shell template with anchor tags and <code>routerLink</code> directives</li>
+<li>added a <code>router-outlet</code> to the shell template where views will be displayed</li>
+<li>configure the router with <code>@RouterConfig</code></li>
+<li>set the router to compose &quot;HTML 5&quot; browser URLs.</li>
+</ul>
+<p>The rest of the starter app is mundane, with little interest from a router perspective.
+Here are the details for readers inclined to build the sample through to this milestone.</p>
+<p>Our starter app&#39;s structure looks like this:</p>
+<div class="filetree"><div class="file">router-sample</div><div class="children"><div class="file">app<div class="children"><div class="file">app.component.ts</div><div class="file">crisis-list.component.ts</div><div class="file">hero-list.component.ts</div><div class="file">main.ts</div></div></div><div class="file">node_modules ...</div><div class="file">typings ...</div><div class="file">index.html</div><div class="file">package.json</div><div class="file">styles.css</div><div class="file">tsconfig.json</div><div class="file">typings.json</div></div></div><p>Here are the files discussed in this milestone</p>
+<code-tabs><code-pane language="ts" name="app.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { ROUTER_DIRECTIVES, Routes } from &#39;@angular/router&#39;;
+
+import { CrisisListComponent } from &#39;./crisis-list.component&#39;;
+import { HeroListComponent }   from &#39;./hero-list.component&#39;;
+
+@Component({
+  selector: &#39;my-app&#39;,
+  template: `
+    &lt;h1&gt;Component Router&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;]&quot;&gt;Crisis Center&lt;/a&gt;
+      &lt;a [routerLink]=&quot;[&#39;/heroes&#39;]&quot;&gt;Heroes&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `,
+  directives: [ROUTER_DIRECTIVES]
+})
+@Routes([
+  {path: &#39;/crisis-center&#39;, component: CrisisListComponent},
+  {path: &#39;/heroes&#39;,        component: HeroListComponent},
+  {path: &#39;*&#39;,        component: CrisisListComponent}
+])
+export class AppComponent { }
+</code-pane><code-pane language="ts" name="main.ts" format="linenums">import { bootstrap }        from &#39;@angular/platform-browser-dynamic&#39;;
+import { ROUTER_PROVIDERS } from &#39;@angular/router&#39;;
+
+import { AppComponent }     from &#39;./app.component&#39;;
+bootstrap(AppComponent, [
+  ROUTER_PROVIDERS
+]);
+</code-pane><code-pane language="ts" name="hero-list.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+
+@Component({
+  template: `
+    &lt;h2&gt;HEROES&lt;/h2&gt;
+    &lt;p&gt;Get your heroes here&lt;/p&gt;`
+})
+export class HeroListComponent { }
+</code-pane><code-pane language="ts" name="crisis-list.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+
+@Component({
+  template: `
+    &lt;h2&gt;CRISIS CENTER&lt;/h2&gt;
+    &lt;p&gt;Get your crisis here&lt;/p&gt;`
+})
+export class CrisisListComponent { }
+</code-pane><code-pane language="html" name="index.html" format="linenums">&lt;html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- Set the base href --&gt;
+    &lt;base href=&quot;/&quot;&gt;
+    &lt;title&gt;Router Sample&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+    &lt;!-- Polyfill(s) for older browsers --&gt;
+    &lt;script src=&quot;node_modules/es6-shim/es6-shim.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script src=&quot;node_modules/zone.js/dist/zone.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/reflect-metadata/Reflect.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/systemjs/dist/system.src.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script src=&quot;systemjs.config.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      System.import(&#39;app&#39;).catch(function(err){ console.error(err); });
+    &lt;/script&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;my-app&gt;loading...&lt;/my-app&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code-pane></code-tabs>
+<a id="heroes-feature"></a><div class="l-main-section"></div><h2 id="milestone-2-the-heroes-feature">Milestone #2: The Heroes Feature</h2>
+<p>We&#39;ve seen how to navigate using the <code>RouterLink</code> directive.</p>
+<p>Now we&#39;ll learn some new tricks such as how to</p>
+<ul>
+<li>organize our app into <em>feature areas</em></li>
+<li>navigate imperatively from one component to another</li>
+<li>pass information along in route parameters (<code>RouteParams</code>)</li>
+</ul>
+<p>To demonstrate, we&#39;ll build out the <em>Heroes</em> feature.</p>
+<h3 id="the-heroes-feature-area-">The Heroes &quot;feature area&quot;</h3>
+<p>A typical application has multiple <em>feature areas</em>, each an island of functionality
+with its own workflow(s), dedicated to a particular business purpose.</p>
+<p>We could continue to add files to the <code>app/</code> folder.
+That&#39;s unrealistic and ultimately not maintainable.
+We think it&#39;s better to put each feature area in its own folder.</p>
+<p>Our first step is to <strong>create a separate <code>app/heroes/</code> folder</strong>
+and add <em>Hero Management</em> feature files there.</p>
+<p>We won&#39;t be creative about it. Our example is pretty much a
+copy of the code and capabilities in the &quot;<a href="../tutorial/index.html">Tutorial: Tour of Heroes</a>&quot;.</p>
+<p>Here&#39;s how the user will experience this version of the app</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/router-2-anim.gif" alt="App in action"></figure><h3 id="add-heroes-functionality">Add Heroes functionality</h3>
+<p>We delete the placeholder <code>hero-list.component.ts</code> that&#39;s in
+the <code>app/</code> folder.</p>
+<p>We create a new <code>hero-list.component.ts</code> in the <code>app/heroes/</code>
+folder and copy over the contents of the final <code>heroes.component.ts</code> from the tutorial.
+We also copy the <code>hero-detail.component.ts</code> and the <code>hero.service.ts</code> files
+into the <code>heroes/</code> folder.</p>
+<p>When we&#39;re done organizing, we have three <em>Hero Management</em> files:</p>
+<div class="filetree"><div class="file">app/heroes</div><div class="children"><div class="file">hero-detail.component.ts</div><div class="file">hero-list.component.ts</div><div class="file">hero.service.ts</div></div></div><p>We provide the <code>HeroService</code> in the application root <code>AppComponent</code>
+so that is available everywhere in the app.</p>
+<p>Now it&#39;s time for some surgery to bring these files and the rest of the app
+into alignment with our application router.</p>
+<h3 id="new-route-definition-with-route-parameter">New route definition with route parameter</h3>
+<p>The new Heroes feature has two interacting components, the list and the detail.
+The list view is self-sufficient; we navigate to it, it gets a list of heroes and displays them.
+It doesn&#39;t need any outside information.</p>
+<p>The detail view is different. It displays a particular hero. It can&#39;t know which hero on its own.
+That information must come from outside.</p>
+<p>In our example, when the user selects a hero from the list, we navigate to the detail view to show that hero.
+We&#39;ll tell the detail view which hero to display by including the selected hero&#39;s id in the route URL.</p>
+<p>With that plan in mind, we return to the <code>app.component.ts</code> to  make changes to the router&#39;s configuration</p>
+<p>First, we import the two components from their new locations in the <code>app/heroes/</code> folder:</p>
+<code-example language="ts" format=".">import { HeroDetailComponent }   from &#39;./heroes/hero-detail.component&#39;;
+import { HeroListComponent }     from &#39;./heroes/hero-list.component&#39;;
+import { HeroService }           from &#39;./heroes/hero.service&#39;;
+</code-example><p>Then we update the <code>@RouteConfig</code> route definitions :</p>
+<code-example language="ts" format="."> @Component({ ... })
+@Routes([
+  {path: &#39;/crisis-center&#39;, component: CrisisListComponent},
+  {path: &#39;/heroes&#39;,        component: HeroListComponent},
+  {path: &#39;/hero/:id&#39;,      component: HeroDetailComponent}
+])
+export class AppComponent  implements OnInit {
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.navigate([&#39;/crisis-center&#39;]);
+  }
+}
+</code-example><p>The <code>CrisisCenter</code> and <code>Heroes</code> definitions didn&#39;t change.
+While we moved <code>hero-list.component.ts</code> to a new location in the <code>app/heroes/</code> folder, that only affects the <code>import</code> statement;
+it doesn&#39;t affect its route definition.</p>
+<p>We added a new route definition for the <code>HeroDetailComponent</code> &mdash; and this definition has a twist.</p>
+<code-example language="ts" format=".">{path: &#39;/hero/:id&#39;,      component: HeroDetailComponent}
+</code-example><p>Notice the <code>:id</code> token in the path. That creates a slot in the path for a <strong>Route Parameter</strong>.
+In this case, we&#39;re expecting the router to insert the <code>id</code> of a hero into that slot.</p>
+<p>If we tell the router to navigate to the detail component and display &quot;Magneta&quot;, we expect hero <code>id</code> (15) to appear in the
+browser URL like this:</p>
+<code-example format="." language="bash">localhost:3000/hero/15</code-example><p>If a user enters that URL into the browser address bar, the router should recognize the
+pattern and go to the same &quot;Magneta&quot; detail view.</p>
+<div class="l-sub-section"><h4 id="route-parameter-or-query-parameter-">Route parameter or query parameter?</h4>
+<p>Embedding the route parameter token, <code>:id</code>, in the route definition path is a good choice for our scenario 
+because the <code>id</code> is <em>required</em> by the <code>HeroDetailComponent</code> and because
+the value <code>15</code> in the path clearly distinguishes the route to &quot;Magneta&quot; from 
+a route for some other hero.</p>
+<p>A <a href="#query-parameter">query parameter</a> might be a better choice if we were passing an <em>optional</em> value to <code>HeroDetailComponent</code>.</p>
+</div><a id="navigate"></a><h3 id="navigate-to-the-detail-imperatively">Navigate to the detail imperatively</h3>
+<p><em>We don&#39;t navigate to the detail component by clicking a link</em>.
+We won&#39;t be adding a new anchor tag to the shell navigation bar.</p>
+<p>Instead, we&#39;ll <em>detect</em> when the user selects a hero from the list and <em>command</em> the router
+to present the hero detail view of the selected hero.</p>
+<p>We&#39;ll adjust the <code>HeroListComponent</code> to implement these tasks, beginning with its constructor
+which acquires the router service and the <code>HeroService</code> by dependency injection:</p>
+<code-example language="ts" format=".">constructor(
+  private router: Router,
+  private service: HeroService) { }
+</code-example><p>We make a few changes to the template:</p>
+<code-example language="ts" format=".">template: `
+  &lt;h2&gt;HEROES&lt;/h2&gt;
+  &lt;ul class=&quot;items&quot;&gt;
+    &lt;li *ngFor=&quot;let hero of heroes&quot;
+      (click)=&quot;onSelect(hero)&quot;&gt;
+      &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+    &lt;/li&gt;
+  &lt;/ul&gt;
+`
+</code-example><p>The template defines an <code>*ngFor</code> repeater such as <a href="displaying-data.html#ngFor">we&#39;ve seen before</a>.
+There&#39;s a <code>(click)</code> <a href="template-syntax.html#event-binding">EventBinding</a> to the component&#39;s <code>onSelect</code> method
+which we implement as follows:</p>
+<code-example language="ts" format=".">  onSelect(hero: Hero) {
+    this.router.navigate([&#39;/hero&#39;, hero.id]);
+  }
+</code-example><p>It calls the router&#39;s <strong><code>navigate</code></strong> method with a <strong>Link Parameters Array</strong>.
+This array is similar to the  <em>link parameters array</em> we met <a href="#shell-template">earlier</a> in an anchor tag while
+binding to the <code>RouterLink</code> directive. This time we see it in code rather than in HTML.</p>
+<p><a id="positional-parameters"></a></p>
+<h3 id="setting-the-route-parameters-object">Setting the route parameters object</h3>
+<p>We&#39;re navigating to the <code>HeroDetailComponent</code> where we expect to see the details of the selected hero.
+We&#39;ll need <em>two</em> pieces of information: the destination and the hero&#39;s <code>id</code>.</p>
+<p>Accordingly, the <em>link parameters array</em> has <em>two</em> items:  the <strong>name</strong> of the destination route and a <strong>route parameters object</strong> that specifies the
+<code>id</code> of the selected hero.</p>
+<code-example language="ts" format=".">[&#39;HeroDetail&#39;, { id: hero.id }] // {id: 15}
+</code-example><p>The router composes the appropriate two-part destination URL from this array:</p>
+<code-example format="." language="bash">localhost:3000/hero/15</code-example><h3 id="getting-the-route-parameter">Getting the route parameter</h3>
+<p><a id="hero-detail-ctor"></a>
+How does the target <code>HeroDetailComponent</code> learn about that <code>id</code>?
+Certainly not by analyzing the URL!  That&#39;s the router&#39;s job.</p>
+<p>The router extracts the route parameter (<code>id:15</code>) from the URL and supplies it to
+the <code>HeroDetailComponent</code> via the <strong>RouteParams</strong> service.</p>
+<p>As usual, we write a constructor that asks Angular to inject that service among the other services
+that the component require and reference them as private variables.</p>
+<code-example language="ts" format=".">constructor(
+  private router: Router,
+  private service: HeroService) {}
+</code-example><p>Later, in the <code>ngOnInit</code> method,
+we ask the <code>RouteParams</code> service for the <code>id</code> parameter by name and
+tell the <code>HeroService</code> to fetch the hero with that <code>id</code>.</p>
+<code-example language="ts" format=".">BAD FILENAME: ../../../_fragments/router/ts/app/heroes/hero-detail.component.1-ngOnInit.ts.md   Current path: docs,ts,latest,guide,router PathToDocs: ../../../</code-example><div class="l-sub-section"><p>Angular calls the <code>ngOnInit</code> method shortly after creating an instance of the <code>HeroDetailComponent</code>.</p>
+<p>We put the data access logic in the <code>ngOnInit</code> method rather than inside the constructor
+to improve the component&#39;s testability.
+We explore this point in greater detail in the <a href="#onInit">OnInit appendix</a> below.</p>
+</div><h3 id="navigating-back-to-the-list-component">Navigating back to the list component</h3>
+<p>The <code>HeroDetailComponent</code> has a &quot;Back&quot; button wired to its <code>gotoHeroes</code> method that navigates imperatively
+back to the <code>HeroListComponent</code>.</p>
+<p>The router <code>navigate</code> method takes the same one-item <em>link parameters array</em> 
+that we wrote for the <code>[routerLink]</code> directive binding.
+It holds the <strong>name of the <code>HeroListComponent</code> route</strong>: </p>
+<code-example language="ts" format=".">gotoHeroes() {
+  // Like &lt;a [routerLink]=&quot;[&#39;/heroes&#39;]&quot;&gt;Heroes&lt;/a&gt;
+  this.router.navigate([&#39;/heroes&#39;]);
+}
+</code-example><h3 id="heroes-app-wrap-up">Heroes App Wrap-up</h3>
+<p>We&#39;ve reached the second milestone in our router education.</p>
+<p>We&#39;ve learned how to</p>
+<ul>
+<li>organize our app into <em>feature areas</em></li>
+<li>navigate imperatively from one component to another</li>
+<li>pass information along in route parameters (<code>RouteParams</code>)</li>
+</ul>
+<p>After these changes, the folder structure looks like this:</p>
+<div class="filetree"><div class="file">router-sample</div><div class="children"><div class="file">app</div><div class="children"><div class="file">heroes</div><div class="children"><div class="file">hero-detail.component.ts</div><div class="file">hero-list.component.ts</div><div class="file">hero.service.ts</div></div><div class="file">app.component.ts</div><div class="file">crisis-list.component.ts</div><div class="file">main.ts</div></div><div class="file">node_modules ...</div><div class="file">typings ...</div><div class="file">index.html</div><div class="file">package.json</div><div class="file">styles.css</div><div class="file">tsconfig.json</div><div class="file">typings.json</div></div></div><p><a id="heroes-app-code"></a></p>
+<h3 id="the-heroes-app-code">The Heroes App code</h3>
+<p>Here are the relevant files for this version of the sample application.</p>
+<code-tabs><code-pane language="ts" name="app.component.ts" format="linenums">import { Component, OnInit }   from &#39;@angular/core&#39;;
+import { Router, ROUTER_DIRECTIVES, Routes } from &#39;@angular/router&#39;;
+
+import { CrisisListComponent } from &#39;./crisis-list.component&#39;;
+ import { HeroDetailComponent }   from &#39;./heroes/hero-detail.component&#39;;
+ import { HeroListComponent }     from &#39;./heroes/hero-list.component&#39;;
+ import { HeroService }           from &#39;./heroes/hero.service&#39;;
+
+@Component({
+  selector: &#39;my-app&#39;,
+  template: `
+    &lt;h1&gt;Component Router&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;]&quot;&gt;Crisis Center&lt;/a&gt;
+      &lt;a [routerLink]=&quot;[&#39;/heroes&#39;]&quot;&gt;Heroes&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `,
+  providers:  [HeroService],
+  directives: [ROUTER_DIRECTIVES]
+})
+@Routes([
+  {path: &#39;/crisis-center&#39;, component: CrisisListComponent},
+  {path: &#39;/heroes&#39;,        component: HeroListComponent},
+  {path: &#39;/hero/:id&#39;,      component: HeroDetailComponent}
+])
+export class AppComponent  implements OnInit {
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.navigate([&#39;/crisis-center&#39;]);
+  }
+}
+</code-pane><code-pane language="ts" name="hero-list.component.ts" format="linenums">// TODO SOMEDAY: Feature Componetized like HeroCenter
+import {Component, OnInit}   from &#39;@angular/core&#39;;
+import {Router}              from &#39;@angular/router&#39;;
+
+import {Hero, HeroService}   from &#39;./hero.service&#39;;
+
+@Component({
+  template: `
+    &lt;h2&gt;HEROES&lt;/h2&gt;
+    &lt;ul class=&quot;items&quot;&gt;
+      &lt;li *ngFor=&quot;let hero of heroes&quot;
+        (click)=&quot;onSelect(hero)&quot;&gt;
+        &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  `
+})
+export class HeroListComponent implements OnInit {
+  heroes: Hero[];
+
+  constructor(
+    private router: Router,
+    private service: HeroService) { }
+
+  ngOnInit() {
+    this.service.getHeroes().then(heroes =&gt; this.heroes = heroes)
+  }
+
+  onSelect(hero: Hero) {
+    this.router.navigate([&#39;/hero&#39;, hero.id]);
+  }
+}
+</code-pane><code-pane language="ts" name="hero-detail.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { OnActivate, Router, RouteSegment } from &#39;@angular/router&#39;;
+
+import { Hero, HeroService } from &#39;./hero.service&#39;;
+
+@Component({
+  template: `
+  &lt;h2&gt;HEROES&lt;/h2&gt;
+  &lt;div *ngIf=&quot;hero&quot;&gt;
+    &lt;h3&gt;&quot;{{hero.name}}&quot;&lt;/h3&gt;
+    &lt;div&gt;
+      &lt;label&gt;Id: &lt;/label&gt;{{hero.id}}&lt;/div&gt;
+    &lt;div&gt;
+      &lt;label&gt;Name: &lt;/label&gt;
+      &lt;input [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;name&quot;/&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      &lt;button (click)=&quot;gotoHeroes()&quot;&gt;Back&lt;/button&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+  `,
+})
+export class HeroDetailComponent implements OnActivate  {
+  hero: Hero;
+
+  constructor(
+    private router: Router,
+    private service: HeroService) {}
+
+  routerOnActivate(curr: RouteSegment): void {
+    let id = +curr.getParam(&#39;id&#39;);
+    this.service.getHero(id).then(hero =&gt; this.hero = hero);
+  }
+
+  gotoHeroes() {
+    // Like &lt;a [routerLink]=&quot;[&#39;/heroes&#39;]&quot;&gt;Heroes&lt;/a&gt;
+    this.router.navigate([&#39;/heroes&#39;]);
+  }
+}
+</code-pane><code-pane language="ts" name="hero.service.ts" format="linenums">import {Injectable} from &#39;@angular/core&#39;;
+
+export class Hero {
+  constructor(public id: number, public name: string) { }
+}
+
+let HEROES = [
+  new Hero(11, &#39;Mr. Nice&#39;),
+  new Hero(12, &#39;Narco&#39;),
+  new Hero(13, &#39;Bombasto&#39;),
+  new Hero(14, &#39;Celeritas&#39;),
+  new Hero(15, &#39;Magneta&#39;),
+  new Hero(16, &#39;RubberMan&#39;)
+];
+
+let heroesPromise = Promise.resolve(HEROES);
+
+@Injectable()
+export class HeroService {
+  getHeroes() { return heroesPromise; }
+
+  getHero(id: number | string) {
+    return heroesPromise
+      .then(heroes =&gt; heroes.filter(h =&gt; h.id === +id)[0]);
+  }
+}
+</code-pane></code-tabs>
+<a id="crisis-center-feature"></a><div class="l-main-section"></div><h2 id="milestone-3-the-crisis-center">Milestone #3: The Crisis Center</h2>
+<p>The <em>Crisis Center</em> is a fake view at the moment. Time to make it useful.</p>
+<p>The new <em>Crisis Center</em> begins as a virtual copy of the <em>Heroes</em> feature.
+We create a new <code>app/crisis-center</code> folder, copy the Hero files,
+and change every mention of &quot;hero&quot; to &quot;crisis&quot;.</p>
+<p>A <code>Crisis</code> has an <code>id</code> and <code>name</code>, just like a <code>Hero</code>
+The new <code>CrisisListComponent</code> displays lists of crises.
+When the user selects a crisis, the app navigates to the <code>CrisisDetailComponent</code>
+for display and editing of the crisis name.</p>
+<p>Voilà, instant feature module!</p>
+<p>There&#39;s no point to this exercise unless we can learn something.
+We do have new ideas and techniques in mind:</p>
+<ul>
+<li><p>The application should navigate to the <em>Crisis Center</em> by default.</p>
+</li>
+<li><p>The user should be able to cancel unwanted changes.</p>
+</li>
+<li><p>The router should prevent navigation away from the detail view while there are pending changes.</p>
+</li>
+</ul>
+<p>There are also a few lingering annoyances in the <em>Heroes</em> implementation that we can cure in the <em>Crisis Center</em>.</p>
+<ul>
+<li><p>We currently register every route of every view at the highest level of the application.
+If we expand the <em>Crisis Center</em> with a 100 new views, we&#39;ll make 100 changes to the
+<code>AppComponent</code> route configuration. If we rename a <em>Crisis Center</em> component or change a route definition,
+we&#39;ll be changing the <code>AppComponent</code> too.</p>
+</li>
+<li><p>If we followed <em>Heroes</em> lead, we&#39;d be adding the <code>CrisisService</code> to the providers in <code>app.component.ts</code>.
+Then both <code>HeroService</code> and <code>CrisisService</code> would be available everywhere although
+they&#39;re only needed in their respective feature modules. That stinks.</p>
+</li>
+</ul>
+<p>Changes to a sub-module such as <em>Crisis Center</em> shouldn&#39;t provoke changes to the <code>AppComponent</code> or <code>main.ts</code>.
+We need to <a href="https://blog.8thlight.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html"><em>separate our concerns</em></a>.</p>
+<p>We&#39;ll fix all of these problems and add the new routing features to <em>Crisis Center</em>.</p>
+<p>The most significant fix is the introduction of a <strong>child <em>Routing Component</em></strong>
+and its <strong>child router</strong></p>
+<p>We&#39;ll leave <em>Heroes</em> in its less-than-perfect state to
+serve as a contrast with what we hope is a superior <em>Crisis Center</em>.</p>
+<h3 id="a-free-standing-crisis-center-feature-module">A free-standing Crisis Center Feature Module</h3>
+<p>The <em>Crisis Center</em> is one of two application workflows.
+Users navigate between them depending on whether they are managing crises or heroes.</p>
+<p>The <code>CrisisCenter</code> and <code>Heroes</code> components are children of the root <code>AppComponent</code>.</p>
+<p>Unfortunately, they and their related files are physically commingled in the same folder with the <code>AppComponent</code>.
+We&#39;d prefer to separate them in their own <em>feature areas</em> so they can operate and evolve independently.
+Someday we might re-use one or the other in a different application.
+Someday we might load one of them dynamically only when the user chose to enter its workflow.</p>
+<p>Some might call it <a href="http://martinfowler.com/bliki/Yagni.html">yagni</a> to even think about such things.
+But we&#39;re right to be nervous about the way <em>Heroes</em> and <em>Crisis Center</em> artifacts are
+bubbling up to the root <code>AppComponent</code> and blending with each other.
+That&#39;s a <a href="http://martinfowler.com/bliki/CodeSmell.html">code smell</a>.</p>
+<p>Isolating feature area modules from each other looks good to us.</p>
+<div class="l-sub-section"><p>It&#39;s looking good as a general pattern for Angular applications.</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/component-tree.png" alt="Component Tree"></figure><ul>
+<li>each feature area in its own module folder</li>
+<li>each area with its own root component</li>
+<li>each area root component with its own router-outlet and child routes</li>
+<li>area routes rarely (if ever) cross</li>
+</ul>
+</div><p>We&#39;ll make the <em>Crisis Center</em> stand on its own and leave the <em>Heroes</em> as it is
+so we can compare the effort, results, and consequences.
+Then each of us can decide which path to prefer (as if we didn&#39;t already know).</p>
+<p><a id="child-router"></a></p>
+<h3 id="child-routing-component">Child Routing Component</h3>
+<p>We create a new <code>app/crisis-center</code> folder and add <code>crisis-center.component.ts</code> to it with the following contents:</p>
+<div class="example-title">crisis-center/crisis-center.component.ts (minus imports)</div><code-example language="ts" format="linenums">@Component({
+  template:  `
+    &lt;h2&gt;CRISIS CENTER&lt;/h2&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `,
+  directives: [ROUTER_DIRECTIVES],
+  providers:  [CrisisService]
+})
+@Routes([
+  {path: &#39;/&#39;,    component: CrisisListComponent}, // , useAsDefault: true}, // coming soon
+  {path: &#39;/:id&#39;, component: CrisisDetailComponent}
+])
+export class CrisisCenterComponent { }
+</code-example><p>The <code>CrisisCenterComponent</code> parallels the <code>AppComponent</code>.</p>
+<p>The <code>CrisisCenterComponent</code> is the root of the <em>Crisis Center</em> area
+just as <code>AppComponent</code> is the root of the entire application.</p>
+<p>This <code>CrisisCenterComponent</code> is a shell for crisis management
+just as the <code>AppComponent</code> is a shell to manage the high-level workflow.</p>
+<p><code>AppComponent</code> has a <code>@RouteConfig</code> decorator that defines the top-level routes.
+<code>CrisisCenterComponent</code> has a <code>@RouteConfig</code> decorator that defines <em>Crisis Center</em> child routes.</p>
+<p>The <code>CrisisCenterComponent</code> template is dead simple &mdash; simpler even than the <code>AppComponent</code> template.
+It has no content, no links, just a <code>&lt;router-outlet&gt;</code> for the <em>Crisis Center</em> child views.</p>
+<p>It has no selector either. It doesn&#39;t need one. We don&#39;t <em>embed</em> this component in a parent template. We <em>navigate</em> to it
+from the outside, via a parent router (more on that soon).</p>
+<h3 id="service-isolation">Service isolation</h3>
+<p>We add the <code>CrisisService</code> to the component&#39;s providers array
+instead of registering it with the <code>bootstrap</code> function in <code>main.ts</code>.</p>
+<code-example language="ts" format="">providers:  [CrisisService]
+</code-example><p>This step limits the scope of that service to the <em>Crisis Center</em> component and its sub-component tree.
+No component outside of the <em>Crisis Center</em> needs access to the <code>CrisisService</code>.
+By restricting its scope, we feel confident that we can evolve it independently without fear of breaking
+unrelated application modules &mdash; modules that <em>shouldn&#39;t have access to it anyway</em>.</p>
+<h3 id="child-route-configuration">Child Route Configuration</h3>
+<p>The <code>CrisisCenterComponent</code> is a <em>Routing Component</em> like the <code>AppComponent</code>.</p>
+<p>The <code>@RouteConfig</code> decorator that adorns the <code>CrisisCenterComponent</code> class defines routes in much the same way
+that we did earlier.</p>
+<div class="example-title">app/crisis-center/crisis-center.component.ts (routes only)</div><code-example language="ts" format=".">@Routes([
+  {path: &#39;/&#39;,    component: CrisisListComponent}, // , useAsDefault: true}, // coming soon
+  {path: &#39;/:id&#39;, component: CrisisDetailComponent}
+])
+</code-example><p>The two routes terminate in the two <em>Crisis Center</em> child components, <code>CrisisListComponent</code> and <code>CrisisDetailComponent</code>.</p>
+<p>There is an <em>important difference</em> in the treatment of the root <code>AppComponent</code> paths and these paths. 
+Normally paths that begin with <code>/</code> refer to the root of the application.
+Here they refer to the <strong>root of the child component!</strong>.</p>
+<p>The Component Router composes the final route by concatenating route paths beginning with the ancestor paths to this child router.
+In our example, there is one ancestor path: &quot;crisis-center&quot;.
+The final route to the <code>CrisisDetailComponent</code> displaying the crisis whose <code>id</code> is 2 would be something like:</p>
+<code-example format="">localhost:3000/crisis-center/2</code-example><p>We cannot know this simply by looking at the <code>CrisisCenterComponent</code> alone.
+We can&#39;t tell that it is a <em>child</em> routing component.
+We can&#39;t tell that its routes are child routes; they are indistinguiable from top level application routes.</p>
+<p>Such ignorance is intentional. The <em>Crisis Center</em> shouldn&#39;t know that it is the child of anything.
+Today it is a child component one level down. 
+Tomorrow it might be the top level component of its own application. 
+Next month it might be re-purposed in a different application.
+The <em>Crisis Center</em> itself is indifferent to these possibilities.</p>
+<p><em>We</em> make it a child component of our application by reconfiguring the routes of the top level <code>AppComponent</code>.</p>
+<h3 id="parent-route-configuration">Parent Route Configuration</h3>
+<p>Here is the revised route configuration for the parent <code>AppComponent</code>:</p>
+<div class="example-title">app/app.component.ts (routes only)</div><code-example language="ts" format="">BAD FILENAME: ../../../_fragments/router/ts/app/app.component-route-config.ts.md   Current path: docs,ts,latest,guide,router PathToDocs: ../../../</code-example><p>The last two <em>Hero</em> routes haven&#39;t changed.</p>
+<p>The first <em>Crisis Center</em> route has changed &mdash; <em>significantly</em> &mdash; and we&#39;ve formatted it to draw attention to the differences:</p>
+<code-example language="ts" format=".">BAD FILENAME: ../../../_fragments/router/ts/app/app.component-route-config-cc.ts.md   Current path: docs,ts,latest,guide,router PathToDocs: ../../../</code-example><p>Notice that the <strong>path ends with a slash and three trailing periods (<code>/...</code>)</strong>.</p>
+<p>That means this is an incomplete route (a <strong><em>non-terminal route</em></strong>).  The finished route will be some combination of
+the parent <code>/crisis-center/</code> route and a route from the <strong>child router</strong> that belongs to the designated component.</p>
+<p>All is well.
+The parent route&#39;s designated component is the <code>CrisisCenterComponent</code> which is a <em>Routing Component</em> with its own router and routes.</p>
+<p><a id="default"></a></p>
+<h3 id="default-route">Default route</h3>
+<p>The other important change is the addition of the <code>useAsDefault</code> property.
+Its value is <code>true</code> which makes <em>this</em> route the <em>default</em> route.
+When the application launches, in the absence of any routing information from the browser&#39;s URL, the router
+will default to the <em>Crisis Center</em>. That&#39;s our plan.</p>
+<h3 id="routing-to-the-child">Routing to the Child</h3>
+<p>We&#39;ve set the top level default route to go to the <code>CrisisCenterComponent</code>.
+The final route will be a combination of <code>/crisis-center/</code> 
+and one of the child <code>CrisisCenterComponent</code> router&#39;s two routes. Which one?</p>
+<p>It could be either of them. In the absence of additional information, the router can&#39;t decide and must throw an error.</p>
+<p>We&#39;ve tried the sample application and it didn&#39;t fail. We must have done something right.</p>
+<p>Look at the end of the child <code>CrisisCenterComponent</code>s first route.</p>
+<div class="example-title">app/crisis-center/crisis-center.component.ts (default route)</div><code-example language="ts" format=".">{path: &#39;/&#39;,    component: CrisisListComponent}, // , useAsDefault: true}, // coming soon
+</code-example><p>We see <code>useAsDefault: true</code> once again. 
+That tells the router to compose the final URL using the path from the default <em>child</em> route.
+Concatenate the base URL with the parent path, <code>/crisis-center/</code>, and the child path, <code>/</code>. 
+Remove superfluous slashes. We get:</p>
+<code-example format="">localhost:3000/crisis-center/
+</code-example><div class="l-main-section"></div><p><a id="lifecycle-hooks"></a></p>
+<h2 id="router-lifecycle-hooks">Router Lifecycle Hooks</h2>
+<p>Angular components have <a href="lifecycle-hooks.html">lifecycle hooks</a>. For example, Angular calls the hook methods of the
+<a href="../api/core/OnInit-interface.html">OnInit</a> and <a href="../api/core/OnDestroy-interface.html">OnDestroy</a>
+interfaces when it creates and destroys components.</p>
+<p>The router also has hooks for <em>its</em> lifecycle such as
+<a href="../api/router/CanActivate-decorator.html">CanActivate</a>, <a href="../api/router/OnActivate-interface.html">OnActivate</a>, and
+<a href="../api/router/CanDeactivate-interface.html">CanDeactivate</a>.
+These three hooks can change the way the router navigates <em>to</em> a component or <em>away</em> from a component.</p>
+<p>The router lifecycle hooks <em>supplement</em> the component lifecycle hooks.
+We still need the component hooks but the router hooks do what the component hooks cannot.
+For example, the component hooks can&#39;t stop component creation or destruction.
+They can&#39;t pause view navigation to wait for an asynchronous process to finish because they are synchronous.</p>
+<p>A <em>router</em> hook can permit or prevent a navigation. 
+If the hook returns <code>true</code>, the navigation proceeds; if it returns <code>false</code>, the
+router cancels the navigation and stays on the current view.
+A hook can also tell the router to navigate to a <em>different</em> component.</p>
+<p>Router hook methods can act synchronously by returning a boolean value directly or
+act asynchronously by returning a promise that resolves to a boolean.</p>
+<p>Let&#39;s look at <code>CanDeactivate</code>, one of the most important router hooks.</p>
+<div class="l-sub-section"><p>We&#39;ll examine other router hooks in a future update to this chapter.</p>
+</div><h3 id="-candeactivate-handling-unsaved-changes"><em>CanDeactivate</em>: handling unsaved changes</h3>
+<p>Back in the &quot;Heroes&quot; workflow, the app accepts every change to a hero immediately without hesitation or validation.</p>
+<p>In the real world, we might have to accumulate the users changes.
+We might have to validate across fields. We might have to validate on the server.
+We might have to hold changes in a pending state until the user confirms them <em>as a group</em> or
+cancels and reverts all changes.</p>
+<p>What do we do about unapproved, unsaved changes when the user navigates away?
+We can&#39;t just leave and risk losing the user&#39;s changes; that would be a terrible experience.</p>
+<p>We&#39;d like to pause and let the user decide what to do. 
+If the user cancels, we&#39;ll stay put and allow more changes.
+If the user approves, the app can save. </p>
+<p>We still might delay navigation until the save succeeds.
+If we let the user move to the next screen immediately and 
+the save failed (perhaps the data are ruled invalid), we would have lost the context of the error.</p>
+<p>We can&#39;t block while waiting for the server &mdash; that&#39;s not possible in a browser.
+We need to stop the navigation while we wait, asynchronously, for the server
+to return with its answer.</p>
+<p>We need the <code>CanDeactivate</code> hook.</p>
+<h3 id="cancel-and-save">Cancel and Save</h3>
+<p>Our sample application doesn&#39;t talk to a server. 
+Fortunately, we have another way to demonstrate an asynchronous router hook.</p>
+<p>Users update crisis information in the <code>CrisisDetailComponent</code>.
+Unlike the <code>HeroDetailComponent</code>, the user changes do not update the
+crisis entity immediately. We update the entity when the user presses the <em>Save</em> button.
+We discard the changes if the user presses he <em>Cancel</em> button.</p>
+<p>Both buttons navigate back to the crisis list after save or cancel.</p>
+<div class="example-title">crisis-detail.component.ts (excerpt)</div><code-example language="ts" format=".">export class CrisisDetailComponent implements OnActivate {// , CanDeactivate {
+
+  crisis: Crisis;
+  editName: string;
+
+  cancel() {
+    this.editName = this.crisis.name;
+    this.gotoCrises();
+  }
+
+  save() {
+    this.crisis.name = this.editName;
+    this.gotoCrises();
+  }
+}
+</code-example><p>What if the user tries to navigate away without saving or canceling?
+The user could push the browser back button or click the heroes link.
+Both actions trigger a navigation.
+Should the app save or cancel automatically?</p>
+<p>We&#39;ll do neither. Instead we&#39;ll ask the user to make that choice explicitly
+in a confirmation dialog box that <em>waits asynchronously for the user&#39;s
+answer</em>.</p>
+<div class="l-sub-section"><p>We could wait for the user&#39;s answer with synchronous, blocking code.
+Our app will be more responsive ... and can do other work ...
+by waiting for the user&#39;s answer asynchronously. Waiting for the user asynchronously
+is like waiting for the server asynchronously.</p>
+</div><p>The <code>DialogService</code> (injected in the <code>AppComponent</code> for app-wide use) does the asking.</p>
+<p>It returns a <a href="http://exploringjs.com/es6/ch_promises.html">promise</a> that
+<em>resolves</em> when the user eventually decides what to do: either
+to discard changes and navigate away (<code>true</code>) or to preserve the pending changes and stay in the crisis editor (<code>false</code>).</p>
+<a id="CanDeactivate"></a>
+<a id="routerCanDeactivate"></a><p>We execute the dialog inside the router&#39;s <code>routerCanDeactivate</code> lifecycle hook method.</p>
+<div class="example-title">crisis-detail.component.ts (excerpt)</div><code-example language="ts" format="linenums">// import { CanDeactivate } from &#39;@angular/router&#39;;
+import { DialogService } from &#39;../dialog.service&#39;;
+
+export class CrisisDetailComponent implements OnActivate {// , CanDeactivate {
+
+  crisis: Crisis;
+  editName: string;
+
+  // NOT IMPLEMENTED YET
+  routerCanDeactivate(): any {
+    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged.
+    if (!this.crisis || this.crisis.name === this.editName) {
+      return true;
+    }
+    // Otherwise ask the user with the dialog service and return its
+    // promise which resolves to true or false when the user decides
+    return this.dialog.confirm(&#39;Discard changes?&#39;);
+  }
+}
+</code-example><p>Notice that the <code>routerCanDeactivate</code> method <em>can</em> return synchronously; 
+it returns <code>true</code> immediately if there is no crisis or there are no pending changes.
+But it can also return a promise and the router will wait for that promise to resolve to truthy (navigate) or falsey (stay put).</p>
+<p><strong>Two critical points</strong></p>
+<ol>
+<li><p>The router hook is optional. We don&#39;t inherit from a base class. We simply implement the interface method or not.</p>
+</li>
+<li><p>We rely on the router to call the hook. We don&#39;t worry about all the ways that the user
+could navigate away. That&#39;s the router&#39;s job.
+We simply write this method and let the router take it from there.</p>
+</li>
+</ol>
+<p>The relevant <em>Crisis Center</em> code for this milestone is</p>
+<code-tabs><code-pane language="ts" name="crisis-center.component.ts" format="linenums">import { Component }     from &#39;@angular/core&#39;;
+import { ROUTER_DIRECTIVES, Routes } from &#39;@angular/router&#39;;
+
+import { CrisisDetailComponent } from &#39;./crisis-detail.component&#39;;
+import { CrisisListComponent }   from &#39;./crisis-list.component&#39;;
+import { CrisisService }         from &#39;./crisis.service&#39;;
+
+@Component({
+  template:  `
+    &lt;h2&gt;CRISIS CENTER&lt;/h2&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `,
+  directives: [ROUTER_DIRECTIVES],
+  providers:  [CrisisService]
+})
+@Routes([
+  {path: &#39;&#39;,    component: CrisisListComponent}, // , useAsDefault: true}, // coming soon
+  {path: &#39;/:id&#39;, component: CrisisDetailComponent}
+])
+export class CrisisCenterComponent { }
+</code-pane><code-pane language="ts" name="crisis-list.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { OnActivate, Router, RouteSegment } from &#39;@angular/router&#39;;
+
+import { Crisis, CrisisService } from &#39;./crisis.service&#39;;
+
+@Component({
+  template: `
+    &lt;ul class=&quot;items&quot;&gt;
+      &lt;li *ngFor=&quot;let crisis of crises&quot;
+        (click)=&quot;onSelect(crisis)&quot;&gt;
+        &lt;span class=&quot;badge&quot;&gt;{{crisis.id}}&lt;/span&gt; {{crisis.name}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  `,
+})
+export class CrisisListComponent implements OnActivate {
+  crises: Crisis[];
+
+  constructor(
+    private service: CrisisService,
+    private router: Router) {}
+
+  routerOnActivate(curr: RouteSegment): void {
+    this.service.getCrises().then(crises =&gt; this.crises = crises);
+  }
+
+  onSelect(crisis: Crisis) {
+    this.router.navigateByUrl( `/crisis-list/${crisis.id}`);
+  }
+}
+</code-pane><code-pane language="ts" name="crisis-detail.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { OnActivate, Router, RouteSegment } from &#39;@angular/router&#39;;
+
+import { Crisis, CrisisService } from &#39;./crisis.service&#39;;
+// import { CanDeactivate } from &#39;@angular/router&#39;;
+import { DialogService } from &#39;../dialog.service&#39;;
+
+@Component({
+  template: `
+  &lt;div *ngIf=&quot;crisis&quot;&gt;
+    &lt;h3&gt;&quot;{{editName}}&quot;&lt;/h3&gt;
+    &lt;div&gt;
+      &lt;label&gt;Id: &lt;/label&gt;{{crisis.id}}&lt;/div&gt;
+    &lt;div&gt;
+      &lt;label&gt;Name: &lt;/label&gt;
+      &lt;input [(ngModel)]=&quot;editName&quot; placeholder=&quot;name&quot;/&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      &lt;button (click)=&quot;save()&quot;&gt;Save&lt;/button&gt;
+      &lt;button (click)=&quot;cancel()&quot;&gt;Cancel&lt;/button&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+  `,
+  styles: [&#39;input {width: 20em}&#39;]
+})
+export class CrisisDetailComponent implements OnActivate {// , CanDeactivate {
+
+  crisis: Crisis;
+  editName: string;
+
+  constructor(
+    private service: CrisisService,
+    private router: Router,
+    private dialog: DialogService
+    ) { }
+
+  routerOnActivate(curr: RouteSegment): void {
+    let id = +curr.getParam(&#39;id&#39;);
+    this.service.getCrisis(id).then(crisis =&gt; {
+      if (crisis) {
+        this.editName = crisis.name;
+        this.crisis = crisis;
+      } else { // id not found
+        this.gotoCrises();
+      }
+    });
+  }
+
+  // NOT IMPLEMENTED YET
+  routerCanDeactivate(): any {
+    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged.
+    if (!this.crisis || this.crisis.name === this.editName) {
+      return true;
+    }
+    // Otherwise ask the user with the dialog service and return its
+    // promise which resolves to true or false when the user decides
+    return this.dialog.confirm(&#39;Discard changes?&#39;);
+  }
+
+  cancel() {
+    this.editName = this.crisis.name;
+    this.gotoCrises();
+  }
+
+  save() {
+    this.crisis.name = this.editName;
+    this.gotoCrises();
+  }
+
+  gotoCrises() {
+    // Like &lt;a [routerLink]=&quot;[/crisis-center/]&quot;&gt;Crisis Center&lt;/a
+    this.router.navigateByUrl(&#39;/crisis-center/&#39;); // absolute url
+  }
+}
+</code-pane><code-pane language="ts
+  " name="crisis.service.ts" format="linenums">import { Injectable } from &#39;@angular/core&#39;;
+
+@Injectable()
+export class CrisisService {
+
+  static nextCrisisId = 100;
+
+  getCrises() { return crisesPromise; }
+
+  getCrisis(id: number | string) {
+    return crisesPromise
+      .then(crises =&gt; crises.filter(c =&gt; c.id === +id)[0]);
+  }
+
+}
+</code-pane></code-tabs><a id="matrix-parameters"></a>
+<a id="query-parameter"></a><div class="l-main-section"></div><h2 id="milestone-4-query-parameters">Milestone #4: Query Parameters</h2>
+<p>We use <a href="#positional-parameters"><em>route parameters</em></a> to specify a <em>required</em> parameterized value <em>within</em> the route URL
+as we do when navigating to the <code>HeroDetailComponent</code> in order to view-and-edit the hero with <em>id:15</em>.</p>
+<code-example format="." language="bash">localhost:3000/hero/15</code-example><p>Sometimes we wish to add <em>optional</em> information to a route request. 
+For example, the <code>HeroListComponent</code> doesn&#39;t need help to display a list of heroes. 
+But it might be nice if the previously-viewed hero were pre-selected when returning from the <code>HeroDetailComponent</code>.</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/selected-hero.png" alt="Selected hero"></figure><p>That becomes possible if we can include hero Magneta&#39;s <code>id</code> in the URL when we
+return from the <code>HeroDetailComponent</code>, a scenario we&#39;ll pursue in a moment. </p>
+<p>Optional information takes other forms. Search criteria are often loosely structured, e.g., <code>name=&#39;wind*&#39;</code>.
+Multiple values are common &mdash; <code>after=&#39;12/31/2015&#39; &amp; before=&#39;1/1/2017&#39;</code> &mdash; in no particular order &mdash;
+ <code>before=&#39;1/1/2017&#39; &amp; after=&#39;12/31/2015&#39;</code> &mdash; in a variety of formats &mdash; <code>during=&#39;currentYear&#39;</code> .</p>
+<p>These kinds of parameters don&#39;t fit easily in a URL <em>path</em>. Even if we could define a suitable URL token scheme, 
+doing so greatly complicates the pattern matching required to translate an incoming URL to a named route.</p>
+<p>The <strong>URL query string</strong> is the ideal vehicle for conveying arbitrarily complex information during navigation. 
+The query string isn&#39;t involved in pattern matching and affords enormous flexiblity of expression.
+Almost anything serializable can appear in a query string.</p>
+<p>The Component Router supports navigation with query strings as well as route parameters.
+We define query string parameters in the <em>route parameters object</em> just like we do with route parameters.</p>
+<p><a id="route-or-query-parameter"></a></p>
+<h3 id="route-parameters-or-query-parameters-">Route Parameters or Query Parameters?</h3>
+<p>There is no hard-and-fast rule. In general,</p>
+<p><em>prefer a route parameter when</em></p>
+<ul>
+<li>the value is required.</li>
+<li>the value is necessary to distinguish one route path from another.</li>
+</ul>
+<p><em>prefer a query parameter when</em> </p>
+<ul>
+<li>the value is optional.</li>
+<li>the value is complex and/or multi-variate.  </li>
+</ul>
+<p><a id="positional-parameters-object"></a></p>
+<h3 id="route-parameters-object">Route parameters object</h3>
+<p>When navigating to the <code>HeroDetailComponent</code> we specified the <code>id</code> of the hero-to-edit in the 
+<em>route parameters object</em> and made it the second item of the <a href="#link-parameters-array"><em>link parameters array</em></a>. </p>
+<code-example language="ts" format=".">[&#39;HeroDetail&#39;, { id: hero.id }] // {id: 15}
+</code-example><p>The router embedded the <code>id</code> value in the navigation URL because we had defined it
+as a route parameter with an  <code>:id</code> placeholder token in the route <code>path</code>:</p>
+<code-example language="ts" format=".">{path: &#39;/hero/:id&#39;,      component: HeroDetailComponent}
+</code-example><p>When the user clicks the back button, the <code>HeroDetailComponent</code> constructs another <em>link parameters array</em>
+which it uses to navigate back to the <code>HeroListComponent</code>.</p>
+<code-example language="ts" format=".">gotoHeroes() {
+  // Like &lt;a [routerLink]=&quot;[&#39;/heroes&#39;]&quot;&gt;Heroes&lt;/a&gt;
+  this.router.navigate([&#39;/heroes&#39;]);
+}
+</code-example><p>This array lacks a route parameters object because we had no reason to send information to the <code>HeroListComponent</code>.</p>
+<p>Now we have a reason. We&#39;d like to send the id of the current hero with the navigation request so that the
+<code>HeroListComponent</code> can highlight that hero in its list.</p>
+<p>We do that with a route parameters object in the same manner as before. 
+We also defined a junk parameter (<code>foo</code>) that the <code>HeroListComponent</code> should ignore.
+Here&#39;s the revised navigation statement:</p>
+<code-example language="ts" format=".">this.router.navigate([`/heroes`, {id: heroId, foo: &#39;foo&#39;}]);
+</code-example><p>The application still works. Clicking &quot;back&quot; returns to the hero list view. </p>
+<p>Look at the browser address bar.</p>
+<div class="l-sub-section"><img src="/resources/images/devguide/plunker-separate-window-button.png" alt="pop out the window" align="right" style="margin-right:-20px"><p>When running in plunker, pop out the preview window by clicking the blue &#39;X&#39; button in the upper right corner.</p>
+</div><p>It should look something like this, depending on where you run it:</p>
+<code-example format="." language="bash">localhost:3000/heroes?id=15&foo=foo</code-example><p>The <code>id</code> value appears in the query string (<code>?id=15&amp;foo=foo</code>), not in the URL path.
+The path for the &quot;Heroes&quot; route doesn&#39;t have an <code>:id</code> token.</p>
+<div class="alert is-helpful"><p>The router replaces route path tokens with corresponding values from the route parameters object.
+<strong>Every parameter <em>not</em> consumed by a route path goes in the query string.</strong></p>
+</div><h3 id="query-parameters-in-the-routeparams-service">Query parameters in the <em>RouteParams</em> service</h3>
+<p>The list of heroes is unchanged. No hero row is highlighted. </p>
+<div class="l-sub-section"><p>The <a href="/resources/live-examples/router/ts/plnkr.html">live example</a> <em>does</em> highlight the selected
+row because it demonstrates the final state of the application which includes the steps we&#39;re <em>about</em> to cover.
+At the moment we&#39;re describing the state of affairs <em>prior</em> to those steps.</p>
+</div><p>The <code>HeroListComponent</code> isn&#39;t expecting any parameters at all and wouldn&#39;t know what to do with them.
+Let&#39;s change that.</p>
+<p>When navigating from the <code>HeroListComponent</code> to the <code>HeroDetailComponent</code> 
+the router picked up the route parameter object and made it available to the <code>HeroDetailComponent</code>
+in the <code>RouteParams</code> service. We injected that service in the constructor of the <code>HeroDetailComponent</code>.</p>
+<p>This time we&#39;ll be navigating in the opposite direction, from the <code>HeroDetailComponent</code> to the <code>HeroListComponent</code>.
+This time we&#39;ll inject the <code>RouteParams</code> service in the constructor of the <code>HeroListComponent</code>.</p>
+<p>First we extend the router import statement to include the <code>RouteParams</code> service symbol;</p>
+<div class="example-title">hero-list.component.ts (import)</div><code-example language="ts" format=".">BAD FILENAME: ../../../_fragments/router/ts/app/heroes/hero-list.component-import-route-params.ts.md   Current path: docs,ts,latest,guide,router PathToDocs: ../../../</code-example><p>Then we extend the constructor to inject the <code>RouteParams</code> service and extract the <code>id</code> parameter as the <code>selectedId</code>:</p>
+<div class="example-title">hero-list.component.ts (constructor)</div><code-example language="ts" format=".">private selectedId: number;
+
+constructor(
+  private service: HeroService,
+  private router: Router) {  }
+</code-example><div class="l-sub-section"><p>All route parameters are strings. 
+The (+) in front of the <code>routeParameters.get</code> expression is a JavaScript trick to convert the string to an integer.</p>
+</div><p>We add an <code>isSelected</code> method that returns true when a hero&#39;s id matches the selected id.</p>
+<div class="example-title">hero-list.component.ts (constructor)</div><code-example language="ts" format=".">isSelected(hero: Hero) { return hero.id === this.selectedId; }
+</code-example><p>Finally, we update our template with a <a href="template-syntax.html#class-binding">Class Binding</a> to that <code>isSelected</code> method. 
+The binding adds the <code>selected</code> CSS class when the method returns <code>true</code> and removes it when <code>false</code>.
+Look for it within the repeated <code>&lt;li&gt;</code> tag as shown here:</p>
+<div class="example-title">hero-list.component.ts (template)</div><code-example language="ts" format=".">template: `
+  &lt;h2&gt;HEROES&lt;/h2&gt;
+  &lt;ul class=&quot;items&quot;&gt;
+    &lt;li *ngFor=&quot;let hero of heroes&quot;
+      [class.selected]=&quot;isSelected(hero)&quot;
+      (click)=&quot;onSelect(hero)&quot;&gt;
+      &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+    &lt;/li&gt;
+  &lt;/ul&gt;
+`
+</code-example><p>When the user navigates from the heroes list to the &quot;Magneta&quot; hero and back, &quot;Magneta&quot; appears selected:</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/selected-hero.png" alt="Selected List"></figure><p>The <code>foo</code> query string parameter is harmless and continues to be ignored.</p>
+<h3 id="child-routers-and-query-parameters">Child Routers and Query Parameters</h3>
+<p>We can define query parameters for child routers too.</p>
+<p>The technique is precisely the same. 
+In fact, we made exactly the same changes to the <em>Crisis Center</em> feature.
+Confirm the similarities in these <em>Hero</em> and <em>CrisisCenter</em> components,
+arranged side-by-side for easy comparison:</p>
+<code-tabs><code-pane language="ts" name="hero-list.component.ts" format="linenums">// TODO SOMEDAY: Feature Componetized like CrisisCenter
+import { Component }          from &#39;@angular/core&#39;;
+import { OnActivate, Router, RouteSegment, RouteTree } from &#39;@angular/router&#39;;
+
+import { Hero, HeroService}   from &#39;./hero.service&#39;;
+
+@Component({
+  template: `
+    &lt;h2&gt;HEROES&lt;/h2&gt;
+    &lt;ul class=&quot;items&quot;&gt;
+      &lt;li *ngFor=&quot;let hero of heroes&quot;
+        [class.selected]=&quot;isSelected(hero)&quot;
+        (click)=&quot;onSelect(hero)&quot;&gt;
+        &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  `
+})
+export class HeroListComponent implements OnActivate {
+  heroes: Hero[];
+
+  private selectedId: number;
+
+  constructor(
+    private service: HeroService,
+    private router: Router) {  }
+
+  routerOnActivate(curr: RouteSegment, prev?: RouteSegment, currTree?: RouteTree, prevTree?: RouteTree): void {
+    this.selectedId = +curr.getParam(&#39;id&#39;);
+    this.service.getHeroes().then(heroes =&gt; this.heroes = heroes);
+  }
+
+  isSelected(hero: Hero) { return hero.id === this.selectedId; }
+
+  onSelect(hero: Hero) {
+    this.router.navigate([&#39;/hero&#39;, hero.id]);
+  }
+
+}
+</code-pane><code-pane language="ts" name="crisis-list.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { OnActivate, Router, RouteSegment, RouteTree } from &#39;@angular/router&#39;;
+
+import { Crisis, CrisisService } from &#39;./crisis.service&#39;;
+
+@Component({
+  template: `
+    &lt;ul class=&quot;items&quot;&gt;
+      &lt;li *ngFor=&quot;let crisis of crises&quot;
+        [class.selected]=&quot;isSelected(crisis)&quot;
+        (click)=&quot;onSelect(crisis)&quot;&gt;
+        &lt;span class=&quot;badge&quot;&gt;{{crisis.id}}&lt;/span&gt; {{crisis.name}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  `,
+})
+export class CrisisListComponent implements OnActivate {
+  crises: Crisis[];
+  private currSegment: RouteSegment;
+  private selectedId: number;
+
+  constructor(
+    private service: CrisisService,
+    private router: Router) { }
+
+  isSelected(crisis: Crisis) { return crisis.id === this.selectedId; }
+
+  routerOnActivate(curr: RouteSegment, prev: RouteSegment, currTree: RouteTree) {
+    this.currSegment = curr;
+    this.selectedId = +currTree.parent(curr).getParam(&#39;id&#39;);
+    this.service.getCrises().then(crises =&gt; this.crises = crises);
+  }
+
+  onSelect(crisis: Crisis) {
+    // Absolute link
+    // this.router.navigate([`/crisis-center`, crisis.id]);
+
+    // Relative link
+    this.router.navigate([`./${crisis.id}`], this.currSegment);
+  }
+}
+</code-pane><code-pane language="ts" name="hero-detail.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { OnActivate, Router, RouteSegment } from &#39;@angular/router&#39;;
+
+import { Hero, HeroService } from &#39;./hero.service&#39;;
+
+@Component({
+  template: `
+  &lt;h2&gt;HEROES&lt;/h2&gt;
+  &lt;div *ngIf=&quot;hero&quot;&gt;
+    &lt;h3&gt;&quot;{{hero.name}}&quot;&lt;/h3&gt;
+    &lt;div&gt;
+      &lt;label&gt;Id: &lt;/label&gt;{{hero.id}}&lt;/div&gt;
+    &lt;div&gt;
+      &lt;label&gt;Name: &lt;/label&gt;
+      &lt;input [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;name&quot;/&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      &lt;button (click)=&quot;gotoHeroes()&quot;&gt;Back&lt;/button&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+  `,
+})
+export class HeroDetailComponent implements OnActivate  {
+  hero: Hero;
+
+  constructor(
+    private router: Router,
+    private service: HeroService) {}
+
+
+  routerOnActivate(curr: RouteSegment): void {
+    let id = +curr.getParam(&#39;id&#39;);
+    this.service.getHero(id).then(hero =&gt; this.hero = hero);
+  }
+
+  gotoHeroes() {
+    let heroId = this.hero ? this.hero.id : null;
+    // Pass along the hero id if available
+    // so that the HeroList component can select that hero.
+    // Add a totally useless `foo` parameter for kicks.
+    this.router.navigate([`/heroes`, {id: heroId, foo: &#39;foo&#39;}]);
+  }
+}
+</code-pane><code-pane language="ts
+    " name="crisis-detail.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { CanDeactivate, OnActivate, Router, RouteSegment } from &#39;@angular/router&#39;;
+
+import { Crisis, CrisisService } from &#39;./crisis.service&#39;;
+import { DialogService } from &#39;../dialog.service&#39;;
+
+@Component({
+  template: `
+  &lt;div *ngIf=&quot;crisis&quot;&gt;
+    &lt;h3&gt;&quot;{{editName}}&quot;&lt;/h3&gt;
+    &lt;div&gt;
+      &lt;label&gt;Id: &lt;/label&gt;{{crisis.id}}&lt;/div&gt;
+    &lt;div&gt;
+      &lt;label&gt;Name: &lt;/label&gt;
+      &lt;input [(ngModel)]=&quot;editName&quot; placeholder=&quot;name&quot;/&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      &lt;button (click)=&quot;save()&quot;&gt;Save&lt;/button&gt;
+      &lt;button (click)=&quot;cancel()&quot;&gt;Cancel&lt;/button&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+  `,
+  styles: [&#39;input {width: 20em}&#39;]
+})
+
+export class CrisisDetailComponent implements OnActivate, CanDeactivate {
+  crisis: Crisis;
+  editName: string;
+  private curSegment: RouteSegment;
+
+  constructor(
+    private service: CrisisService,
+    private router: Router,
+    private dialog: DialogService
+    ) { }
+
+  routerOnActivate(curr: RouteSegment) {
+    this.curSegment = curr;
+
+    let id = +curr.getParam(&#39;id&#39;);
+    this.service.getCrisis(id).then(crisis =&gt; {
+      if (crisis) {
+        this.editName = crisis.name;
+        this.crisis = crisis;
+      } else { // id not found
+        this.gotoCrises();
+      }
+    });
+  }
+
+  routerCanDeactivate(): any {
+    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged.
+    if (!this.crisis || this.crisis.name === this.editName) {
+      return true;
+    }
+    // Otherwise ask the user with the dialog service and return its
+    // promise which resolves to true or false when the user decides
+    return this.dialog.confirm(&#39;Discard changes?&#39;);
+  }
+
+  cancel() {
+    this.editName = this.crisis.name;
+    this.gotoCrises();
+  }
+
+  save() {
+    this.crisis.name = this.editName;
+    this.gotoCrises();
+  }
+
+  gotoCrises() {
+    let crisisId = this.crisis ? this.crisis.id : null;
+    // Pass along the hero id if available
+    // so that the CrisisListComponent can select that hero.
+    // Add a totally useless `foo` parameter for kicks.
+    // Absolute link
+    this.router.navigate([&#39;/crisis-center&#39;, {id: crisisId, foo: &#39;foo&#39;}]);
+
+    // Relative link
+    // this.router.navigate([&#39;../&#39;, {id: crisisId, foo: &#39;foo&#39;}], this.curSegment);
+  }
+}
+</code-pane></code-tabs><p>When we navigate back from a <code>CrisisDetailComponent</code> that is showing the <em>Asteroid</em> crisis,
+we see that crisis properly selected in the list like this:</p>
+<figure class="image-display"><img src="/resources/images/devguide/router/selected-crisis.png" alt="Selected crisis"></figure><p><strong>Look at the browser address bar again</strong>. It&#39;s <em>different</em>. It looks something like this:</p>
+<code-example format="." language="bash">localhost:3000/crisis-center/;id=3;foo=foo</code-example><p>The query string parameters are no longer separated by &quot;?&quot; and &quot;&amp;&quot;.
+They are <strong>separated by semicolons (;)</strong> 
+This is <em>matrix URL</em> notation &mdash; something we may not have seen before.</p>
+<div class="l-sub-section"><p><em>Matrix URL</em> notation is an idea first floated
+in a <a href="http://www.w3.org/DesignIssues/MatrixURIs.html">1996 proposal</a> by the founder of the web, Tim Berners-Lee.</p>
+<p>Although matrix notation never made it into the HTML standard, it is legal and
+it became popular among browser routing systems as a way to isolate parameters
+belonging to parent and child routes. The Angular Component Router is such a system.</p>
+<p>The syntax may seem strange to us but users are unlikely to notice or care
+as long as the URL can be emailed and pasted into a browser address bar
+as this one can.</p>
+</div><a id="final-app"></a><div class="l-main-section"></div><h2 id="wrap-up">Wrap Up</h2>
+<p>As we end our chapter, we take a parting look at
+the entire application.</p>
+<p>We can always try the <a href="/resources/live-examples/router/ts/plnkr.html">live example</a> and download the source code from there.</p>
+<p>Our final project folder structure looks like this:</p>
+<div class="filetree"><div class="file">router-sample</div><div class="children"><div class="file">app</div><div class="children"><div class="file">crisis-center/...</div><div class="file">heroes/...</div><div class="file">app.component.ts</div><div class="file">dialog.service.ts</div><div class="file">main.ts      </div></div><div class="file">node_modules ...</div><div class="file">typings ...</div><div class="file">index.html</div><div class="file">package.json</div><div class="file">styles.css</div><div class="file">tsconfig.json</div><div class="file">typings.json</div></div></div><p>The pertinent top level application files are</p>
+<code-tabs><code-pane language="ts" name="app.component.ts" format="linenums">import { Component, OnInit } from &#39;@angular/core&#39;;
+import { Routes, Router, ROUTER_DIRECTIVES } from &#39;@angular/router&#39;;
+
+import { CrisisCenterComponent } from &#39;./crisis-center/crisis-center.component&#39;;
+import { HeroListComponent }     from &#39;./heroes/hero-list.component&#39;;
+import { HeroDetailComponent }   from &#39;./heroes/hero-detail.component&#39;;
+
+import { DialogService }         from &#39;./dialog.service&#39;;
+import { HeroService }           from &#39;./heroes/hero.service&#39;;
+
+@Component({
+  selector: &#39;my-app&#39;,
+  template: `
+    &lt;h1 class=&quot;title&quot;&gt;Component Router&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;]&quot;&gt;Crisis Center&lt;/a&gt;
+      &lt;a [routerLink]=&quot;[&#39;/heroes&#39;]&quot;&gt;Heroes&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `,
+  providers:  [DialogService, HeroService],
+  directives: [ROUTER_DIRECTIVES]
+})
+@Routes([
+  {path: &#39;/crisis-center&#39;,  component: CrisisCenterComponent},
+  {path: &#39;/heroes&#39;,  component: HeroListComponent},
+  {path: &#39;/hero/:id&#39;, component: HeroDetailComponent},
+])
+export class AppComponent implements OnInit {
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.navigate([&#39;/crisis-center&#39;]);
+  }
+}
+</code-pane><code-pane language="ts" name="main.ts" format="linenums">import { bootstrap }        from &#39;@angular/platform-browser-dynamic&#39;;
+import { ROUTER_PROVIDERS } from &#39;@angular/router&#39;;
+
+import { AppComponent }     from &#39;./app.component&#39;;
+
+bootstrap(AppComponent, [ROUTER_PROVIDERS]);
+</code-pane><code-pane language="ts" name="dialog.service.ts" format="linenums">import { Injectable } from &#39;@angular/core&#39;;
+/**
+ * Async modal dialog service
+ * DialogService makes this app easier to test by faking this service.
+ * TODO: better modal implemenation that doesn&#39;t use window.confirm
+ */
+@Injectable()
+export class DialogService {
+  /**
+   * Ask user to confirm an action. `message` explains the action and choices.
+   * Returns promise resolving to `true`=confirm or `false`=cancel
+   */
+  confirm(message?: string) {
+    return new Promise&lt;boolean&gt;((resolve, reject) =&gt;
+      resolve(window.confirm(message || &#39;Is it OK?&#39;)));
+  };
+}
+</code-pane><code-pane language="html
+  " name="index.html" format="linenums">&lt;html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- Set the base href --&gt;
+    &lt;base href=&quot;/&quot;&gt;
+    &lt;title&gt;Router Sample&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+
+    &lt;!-- Polyfill(s) for older browsers --&gt;
+    &lt;script src=&quot;node_modules/es6-shim/es6-shim.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script src=&quot;node_modules/zone.js/dist/zone.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/reflect-metadata/Reflect.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;node_modules/systemjs/dist/system.src.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script src=&quot;systemjs.config.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      System.import(&#39;app&#39;).catch(function(err){ console.error(err); });
+    &lt;/script&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;my-app&gt;loading...&lt;/my-app&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code-pane></code-tabs><p><a id="crisis-center-structure-and-code"></a></p>
+<h3 id="crisis-center">Crisis Center</h3>
+<p>The <em>Crisis Center</em> feature area within the <code>crisis-center</code> folder follows:</p>
+<div class="filetree"><div class="file">app</div><div class="children"><div class="file">crisis-center</div><div class="children"><div class="file">crisis-center.component.ts</div><div class="file">crisis-detail.component.ts</div><div class="file">crisis-list.component.ts</div><div class="file">crisis.service.ts</div></div></div></div><code-tabs><code-pane language="ts" name="crisis-center.component.ts" format="linenums">import { Component }     from &#39;@angular/core&#39;;
+import { ROUTER_DIRECTIVES, Routes } from &#39;@angular/router&#39;;
+
+import { CrisisDetailComponent } from &#39;./crisis-detail.component&#39;;
+import { CrisisListComponent }   from &#39;./crisis-list.component&#39;;
+import { CrisisService }         from &#39;./crisis.service&#39;;
+
+@Component({
+  template:  `
+    &lt;h2&gt;CRISIS CENTER&lt;/h2&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `,
+  directives: [ROUTER_DIRECTIVES],
+  providers:  [CrisisService]
+})
+@Routes([
+  {path: &#39;&#39;,    component: CrisisListComponent}, // , useAsDefault: true}, // coming soon
+  {path: &#39;/:id&#39;, component: CrisisDetailComponent}
+])
+export class CrisisCenterComponent { }
+</code-pane><code-pane language="ts" name="crisis-list.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { OnActivate, Router, RouteSegment, RouteTree } from &#39;@angular/router&#39;;
+
+import { Crisis, CrisisService } from &#39;./crisis.service&#39;;
+
+@Component({
+  template: `
+    &lt;ul class=&quot;items&quot;&gt;
+      &lt;li *ngFor=&quot;let crisis of crises&quot;
+        [class.selected]=&quot;isSelected(crisis)&quot;
+        (click)=&quot;onSelect(crisis)&quot;&gt;
+        &lt;span class=&quot;badge&quot;&gt;{{crisis.id}}&lt;/span&gt; {{crisis.name}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  `,
+})
+export class CrisisListComponent implements OnActivate {
+  crises: Crisis[];
+  private currSegment: RouteSegment;
+  private selectedId: number;
+
+  constructor(
+    private service: CrisisService,
+    private router: Router) { }
+
+  isSelected(crisis: Crisis) { return crisis.id === this.selectedId; }
+
+  routerOnActivate(curr: RouteSegment, prev: RouteSegment, currTree: RouteTree) {
+    this.currSegment = curr;
+    this.selectedId = +currTree.parent(curr).getParam(&#39;id&#39;);
+    this.service.getCrises().then(crises =&gt; this.crises = crises);
+  }
+
+  onSelect(crisis: Crisis) {
+    // Absolute link
+    // this.router.navigate([`/crisis-center`, crisis.id]);
+
+    // Relative link
+    this.router.navigate([`./${crisis.id}`], this.currSegment);
+  }
+}
+</code-pane><code-pane language="ts" name="crisis-detail.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { CanDeactivate, OnActivate, Router, RouteSegment } from &#39;@angular/router&#39;;
+
+import { Crisis, CrisisService } from &#39;./crisis.service&#39;;
+import { DialogService } from &#39;../dialog.service&#39;;
+
+@Component({
+  template: `
+  &lt;div *ngIf=&quot;crisis&quot;&gt;
+    &lt;h3&gt;&quot;{{editName}}&quot;&lt;/h3&gt;
+    &lt;div&gt;
+      &lt;label&gt;Id: &lt;/label&gt;{{crisis.id}}&lt;/div&gt;
+    &lt;div&gt;
+      &lt;label&gt;Name: &lt;/label&gt;
+      &lt;input [(ngModel)]=&quot;editName&quot; placeholder=&quot;name&quot;/&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      &lt;button (click)=&quot;save()&quot;&gt;Save&lt;/button&gt;
+      &lt;button (click)=&quot;cancel()&quot;&gt;Cancel&lt;/button&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+  `,
+  styles: [&#39;input {width: 20em}&#39;]
+})
+
+export class CrisisDetailComponent implements OnActivate, CanDeactivate {
+  crisis: Crisis;
+  editName: string;
+  private curSegment: RouteSegment;
+
+  constructor(
+    private service: CrisisService,
+    private router: Router,
+    private dialog: DialogService
+    ) { }
+
+  routerOnActivate(curr: RouteSegment) {
+    this.curSegment = curr;
+
+    let id = +curr.getParam(&#39;id&#39;);
+    this.service.getCrisis(id).then(crisis =&gt; {
+      if (crisis) {
+        this.editName = crisis.name;
+        this.crisis = crisis;
+      } else { // id not found
+        this.gotoCrises();
+      }
+    });
+  }
+
+  routerCanDeactivate(): any {
+    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged.
+    if (!this.crisis || this.crisis.name === this.editName) {
+      return true;
+    }
+    // Otherwise ask the user with the dialog service and return its
+    // promise which resolves to true or false when the user decides
+    return this.dialog.confirm(&#39;Discard changes?&#39;);
+  }
+
+  cancel() {
+    this.editName = this.crisis.name;
+    this.gotoCrises();
+  }
+
+  save() {
+    this.crisis.name = this.editName;
+    this.gotoCrises();
+  }
+
+  gotoCrises() {
+    let crisisId = this.crisis ? this.crisis.id : null;
+    // Pass along the hero id if available
+    // so that the CrisisListComponent can select that hero.
+    // Add a totally useless `foo` parameter for kicks.
+    // Absolute link
+    this.router.navigate([&#39;/crisis-center&#39;, {id: crisisId, foo: &#39;foo&#39;}]);
+
+    // Relative link
+    // this.router.navigate([&#39;../&#39;, {id: crisisId, foo: &#39;foo&#39;}], this.curSegment);
+  }
+}
+</code-pane><code-pane language="ts
+  " name="crisis.service.ts" format="linenums">import { Injectable } from &#39;@angular/core&#39;;
+
+@Injectable()
+export class CrisisService {
+
+  static nextCrisisId = 100;
+
+  getCrises() { return crisesPromise; }
+
+  getCrisis(id: number | string) {
+    return crisesPromise
+      .then(crises =&gt; crises.filter(c =&gt; c.id === +id)[0]);
+  }
+
+}
+</code-pane></code-tabs><h3 id="heroes">Heroes</h3>
+<p>The <em>Heroes</em> feature area within the <code>heroes</code> folder is next:</p>
+<div class="filetree"><div class="file">app</div><div class="children"><div class="file">heroes</div><div class="children"><div class="file">hero-detail.component.ts</div><div class="file">hero-list.component.ts</div><div class="file">hero.service.ts</div></div></div></div><code-tabs><code-pane language="ts" name="hero-list.component.ts" format="linenums">// TODO SOMEDAY: Feature Componetized like CrisisCenter
+import { Component }          from &#39;@angular/core&#39;;
+import { OnActivate, Router, RouteSegment, RouteTree } from &#39;@angular/router&#39;;
+
+import { Hero, HeroService}   from &#39;./hero.service&#39;;
+
+@Component({
+  template: `
+    &lt;h2&gt;HEROES&lt;/h2&gt;
+    &lt;ul class=&quot;items&quot;&gt;
+      &lt;li *ngFor=&quot;let hero of heroes&quot;
+        [class.selected]=&quot;isSelected(hero)&quot;
+        (click)=&quot;onSelect(hero)&quot;&gt;
+        &lt;span class=&quot;badge&quot;&gt;{{hero.id}}&lt;/span&gt; {{hero.name}}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  `
+})
+export class HeroListComponent implements OnActivate {
+  heroes: Hero[];
+
+  private selectedId: number;
+
+  constructor(
+    private service: HeroService,
+    private router: Router) {  }
+
+  routerOnActivate(curr: RouteSegment, prev?: RouteSegment, currTree?: RouteTree, prevTree?: RouteTree): void {
+    this.selectedId = +curr.getParam(&#39;id&#39;);
+    this.service.getHeroes().then(heroes =&gt; this.heroes = heroes);
+  }
+
+  isSelected(hero: Hero) { return hero.id === this.selectedId; }
+
+  onSelect(hero: Hero) {
+    this.router.navigate([&#39;/hero&#39;, hero.id]);
+  }
+
+}
+</code-pane><code-pane language="ts" name="hero-detail.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+import { OnActivate, Router, RouteSegment } from &#39;@angular/router&#39;;
+
+import { Hero, HeroService } from &#39;./hero.service&#39;;
+
+@Component({
+  template: `
+  &lt;h2&gt;HEROES&lt;/h2&gt;
+  &lt;div *ngIf=&quot;hero&quot;&gt;
+    &lt;h3&gt;&quot;{{hero.name}}&quot;&lt;/h3&gt;
+    &lt;div&gt;
+      &lt;label&gt;Id: &lt;/label&gt;{{hero.id}}&lt;/div&gt;
+    &lt;div&gt;
+      &lt;label&gt;Name: &lt;/label&gt;
+      &lt;input [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;name&quot;/&gt;
+    &lt;/div&gt;
+    &lt;p&gt;
+      &lt;button (click)=&quot;gotoHeroes()&quot;&gt;Back&lt;/button&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+  `,
+})
+export class HeroDetailComponent implements OnActivate  {
+  hero: Hero;
+
+  constructor(
+    private router: Router,
+    private service: HeroService) {}
+
+
+  routerOnActivate(curr: RouteSegment): void {
+    let id = +curr.getParam(&#39;id&#39;);
+    this.service.getHero(id).then(hero =&gt; this.hero = hero);
+  }
+
+  gotoHeroes() {
+    let heroId = this.hero ? this.hero.id : null;
+    // Pass along the hero id if available
+    // so that the HeroList component can select that hero.
+    // Add a totally useless `foo` parameter for kicks.
+    this.router.navigate([`/heroes`, {id: heroId, foo: &#39;foo&#39;}]);
+  }
+}
+</code-pane><code-pane language="ts
+  " name="hero.service.ts" format="linenums">import {Injectable} from &#39;@angular/core&#39;;
+
+export class Hero {
+  constructor(public id: number, public name: string) { }
+}
+
+let HEROES = [
+  new Hero(11, &#39;Mr. Nice&#39;),
+  new Hero(12, &#39;Narco&#39;),
+  new Hero(13, &#39;Bombasto&#39;),
+  new Hero(14, &#39;Celeritas&#39;),
+  new Hero(15, &#39;Magneta&#39;),
+  new Hero(16, &#39;RubberMan&#39;)
+];
+
+let heroesPromise = Promise.resolve(HEROES);
+
+@Injectable()
+export class HeroService {
+  getHeroes() { return heroesPromise; }
+
+  getHero(id: number | string) {
+    return heroesPromise
+      .then(heroes =&gt; heroes.filter(h =&gt; h.id === +id)[0]);
+  }
+}
+</code-pane></code-tabs>
+<div class="l-main-section"></div><h2 id="appendices">Appendices</h2>
+<p>The balance of this chapter is a set of appendices that
+elaborate some of the points we covered quickly above.</p>
+<p>The appendix material isn&#39;t essential. Continued reading is for the curious.</p>
+<div class="l-main-section"></div><a id="link-parameters-array"></a><h2 id="link-parameters-array">Link Parameters Array</h2>
+<p>We&#39;ve mentioned the <em>Link Parameters Array</em> several times. We&#39;ve used it several times.</p>
+<p>We&#39;ve bound the <code>RouterLink</code> directive to such an array like this:</p>
+<code-example language="ts" format=".">&lt;a [routerLink]=&quot;[&#39;/heroes&#39;]&quot;&gt;Heroes&lt;/a&gt;
+</code-example><p>We&#39;ve written a two element array when specifying a route parameter like this</p>
+<code-example language="ts" format=".">this.router.navigate([&#39;/hero&#39;, hero.id]);
+</code-example><p>These two examples cover our needs for an app with one level routing.
+The moment we add a child router, such as the <em>Crisis Center</em>, we create new link array possibilities.</p>
+<p>Recall that we specified a default child route for <em>Crisis Center</em> so this simple <code>RouterLink</code> is fine.</p>
+<code-example language="ts" format=".">&lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;]&quot;&gt;Crisis Center&lt;/a&gt;
+</code-example><p><em>If we had not specified a default route</em>, our single item array would fail
+because we didn&#39;t tell the router which child route to use.</p>
+<code-example language="ts" format=".">   // The link now fails with a &quot;non-terminal link&quot; error
+   &lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;]&quot;&gt;Crisis Center&lt;/a&gt;
+</code-example><p>We&#39;d need to write our anchor with a link array like this:</p>
+<code-example language="ts" format=".">&lt;a [routerLink]=&quot;[&#39;/crisis-center/&#39;]&quot;&gt;Crisis Center&lt;/a&gt;
+</code-example><p>Let&#39;s parse it out.</p>
+<ul>
+<li>The first item in the array identifies the parent route (&#39;CrisisCenter&#39;).</li>
+<li>There are no parameters for this parent route so we&#39;re done with it.</li>
+<li>There is no default for the child route so we need to pick one.</li>
+<li>We decide to go to the <code>CrisisListComponent</code> whose route name is &#39;CrisisList&#39;</li>
+<li>So we add that &#39;CrisisList&#39; as the second item in the array.</li>
+<li>Voila! <code>[&#39;CrisisCenter&#39;, &#39;CrisisList&#39;]</code>.</li>
+</ul>
+<p>Let&#39;s take it a step further.
+This time we&#39;ll build a link parameters array that navigates from the root of the application
+down to the &quot;Dragon Crisis&quot;.</p>
+<ul>
+<li>The first item in the array identifies the parent route (&#39;CrisisCenter&#39;).</li>
+<li>There are no parameters for this parent route so we&#39;re done with it.</li>
+<li>The second item identifies the child route for details about a particular crisis (&#39;CrisisDetail&#39;).</li>
+<li>The details child route requires an <code>id</code> route parameter</li>
+<li>We add <code>id</code> of the <em>Dragon Crisis</em> as the third item in the array (<code>{id:1}</code>)</li>
+</ul>
+<p>It looks like this!</p>
+<code-example language="ts" format=".">&lt;a [routerLink]=&quot;[&#39;/crisis-center/1&#39;]&quot;&gt;Dragon Crisis&lt;/a&gt;
+</code-example><p>If we wanted to, we could redefine our <code>AppComponent</code> template with <em>Crisis Center</em> routes exclusively:</p>
+<code-example language="ts" format=".">template: `
+  &lt;h1 class=&quot;title&quot;&gt;Component Router&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;]&quot;&gt;Crisis Center&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;, 1]&quot;&gt;Dragon Crisis&lt;/a&gt;
+    &lt;a [routerLink]=&quot;[&#39;/crisis-center&#39;, 2]&quot;&gt;Shark Crisis&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;router-outlet&gt;&lt;/router-outlet&gt;
+`,
+</code-example><p>In sum, we can write applications with one, two or more levels of routing.
+The link parameters array affords the flexibility to represent any routing depth and
+any legal sequence of route names and (optional) route parameter objects.</p>
+<a id="onInit"></a><div class="l-main-section"></div><h2 id="appendix-why-use-an-ngoninit-method">Appendix: Why use an <em>ngOnInit</em> method</h2>
+<p>We implemented an <code>ngOnInit</code> method in many of our Component classes.
+We did so, for example, in the <a href="#hero-detail-ctor">HeroDetailComponent</a>.
+We might have put the <code>ngOnInit</code> logic inside the constructor instead. We didn&#39;t for a reason. The reason is <em>testability</em>.</p>
+<p>A constructor that has major side-effects can be difficult to test because it starts doing things as soon as
+we create a test instance. In this case, it might have made a request to a remote server, something it shouldn&#39;t
+do under test. It may even be impossible to reach the server in the test environment.</p>
+<p>The better practice is to limit what the constructor can do. Mostly it should stash parameters in
+local variables and perform simple instance configuration.</p>
+<p>Yet we want an instance of this class to get the hero data from the <code>HeroService</code> soon after it is created.
+How do we ensure that happens if not in the constructor?</p>
+<p>Angular detects when a component has certain lifecycle methods like
+<a href="../api/core/OnInit-interface.html">ngOnInit</a> and
+<a href="../api/core/OnDestroy-interface.html">ngOnDestroy</a> and calls
+them
+at the appropriate moment.</p>
+<p>Angular will call <code>ngOnInit</code> when we navigate to the <code>HeroDetailComponent</code>, we&#39;ll get the <code>id</code> from the <code>RouteParams</code>
+and ask the server for the hero with that <code>id</code>.</p>
+<p>We too can call that <code>ngOnInit</code> method in our tests if we wish ... after taking control of the injected
+<code>HeroService</code> and (perhaps) mocking it.</p>
+<a name="browser-url-styles"></a>
+<a id="location-strategy"></a><div class="l-main-section"></div><h2 id="appendix-locationstrategy-and-browser-url-styles">Appendix: <em>LocationStrategy</em> and browser URL styles</h2>
+<p>When the router navigates to a new component view, it updates the browser&#39;s location and history
+with a URL for that view.
+This is a strictly local URL. The browser shouldn&#39;t send this URL to the server
+and should not reload the page.</p>
+<p>Modern HTML 5 browsers support
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries">history.pushState</a>,
+a technique that changes a browser&#39;s location and history without triggering a server page request.
+The router can compose a &quot;natural&quot; URL that is indistinguishable from
+one that would otherwise require a page load.</p>
+<p>Here&#39;s the <em>Crisis Center</em> URL in this &quot;HTML 5 pushState&quot; style:</p>
+<code-example format="." language="bash">localhost:3002/crisis-center/</code-example><p>Older browsers send page requests to the server when the location URL changes ...
+unless the change occurs after a &quot;#&quot; (called the &quot;hash&quot;).
+Routers can take advantage of this exception by composing in-application route
+URLs with hashes.  Here&#39;s a &quot;hash URL&quot; that routes to the <em>Crisis Center</em></p>
+<code-example format="." language="bash">localhost:3002/src/#/crisis-center/</code-example><p>The Angular Component Router supports both styles with two <code>LocationStrategy</code> providers:</p>
+<ol>
+<li><code>PathLocationStrategy</code> - the default &quot;HTML 5 pushState&quot; style.</li>
+<li><code>HashLocationStrategy</code> - the &quot;hash URL&quot; style.</li>
+</ol>
+<p>The router&#39;s <code>ROUTER_PROVIDERS</code> array sets the <code>LocationStrategy</code> to the <code>PathLocationStrategy</code>,
+making it the default strategy. 
+We can switch to the <code>HashLocationStrategy</code> with an override during the bootstrapping process if we prefer it.</p>
+<div class="l-sub-section"><p>Learn about &quot;providers&quot; and the bootstrap process in the
+<a href="dependency-injection#bootstrap">Dependency Injection chapter</a></p>
+</div><h3 id="which-strategy-is-best-">Which Strategy is Best?</h3>
+<p>We must choose a strategy and we need to make the right call early in the project.
+It won&#39;t be easy to change later once the application is in production
+and there are lots of application URL references in the wild.</p>
+<p>Almost all Angular 2 projects should use the default HTML 5 style.
+It produces URLs that are easier for users to understand.
+And it preserves the option to do <strong>server-side rendering</strong> later.</p>
+<p>Rendering critical pages on the server is a technique that can greatly improve
+perceived responsiveness when the app first loads.
+An app that would otherwise take ten or more seconds to start
+could be rendered on the server and delivered to the user&#39;s device
+in less than a second.</p>
+<p>This option is only available if application URLs look like normal web URLs
+without hashes (#) in the middle.</p>
+<p>Stick with the default unless you have a compelling reason to
+resort to hash routes.</p>
+<h3 id="html-5-urls-and-the-lt-base-href-">HTML 5 URLs and the  <em>&lt;base href&gt;</em></h3>
+<p>While the router uses the &quot;<a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries">HTML 5 pushState</a>&quot;
+style by default, we <em>must</em> configure that strategy with a <strong>base href</strong></p>
+<p>The preferred way to configure the strategy is to add a
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base">&lt;base href&gt; element</a> tag
+in the <code>&lt;head&gt;</code> of the <code>index.html</code>.</p>
+<code-example language="html" format=".">&lt;base href=&quot;/&quot;&gt;
+</code-example><p>Without that tag, the browser may not be able to load resources
+(images, css, scripts) when &quot;deep linking&quot; into the app.
+Bad things could happen when someone pastes an application link into the
+browser&#39;s address bar or clicks such a link in an email link.</p>
+<p>Some developers may not be able to add the <code>&lt;base&gt;</code> element, perhaps because they don&#39;t have
+access to <code>&lt;head&gt;</code> or the <code>index.html</code>.</p>
+<p>Those developers may still use HTML 5 URLs by taking two remedial steps:</p>
+<ol>
+<li>Provide the router with an appropriate <code>APP_BASE_HREF</code> value.</li>
+<li>Use <strong>absolute URLs</strong> for all web resources: css, images, scripts, and template html files.</li>
+</ol>
+<div class="l-sub-section"><p>Learn about the <a href="../api/router/APP_BASE_HREF-let.html">APP_BASE_HREF</a>
+in the API Guide.</p>
+</div><h3 id="-hashlocationstrategy-"><em>HashLocationStrategy</em></h3>
+<p>We can go old-school with the <code>HashLocationStrategy</code> by
+providing it as the router&#39;s <code>LocationStrategy</code> during application bootstrapping.</p>
+<p>First, import the <code>provide</code> symbol for Dependency Injection and the
+<code>Location</code> and <code>HashLocationStrategy</code> symbols from the router.</p>
+<p>Then <em>override</em> the default strategy defined in <code>ROUTE_PROVIDERS</code> by
+providing the <code>HashLocationStrategy</code> later in the <code>bootstrap</code> providers array argument:</p>
+<div class="example-title">main.ts (hash URL strategy)</div><code-example language="ts" format="linenums">import { bootstrap }            from &#39;@angular/platform-browser-dynamic&#39;;
+import { ROUTER_PROVIDERS }     from &#39;@angular/router&#39;;
+
+// Add these symbols to override the `LocationStrategy`
+import { provide }              from &#39;@angular/core&#39;;
+import { LocationStrategy,
+         HashLocationStrategy } from &#39;@angular/common&#39;;
+
+import { AppComponent }         from &#39;./app.component&#39;;
+
+bootstrap(AppComponent, [
+  ROUTER_PROVIDERS,
+  provide(LocationStrategy,
+         {useClass: HashLocationStrategy}) // .../#/crisis-center/
+]);
+</code-example><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/ts/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>

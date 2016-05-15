@@ -1,0 +1,768 @@
+<!DOCTYPE html><html lang="en" ng-app="angularIOApp" itemscope itemtype="http://schema.org/Framework"><head><title>Introduction to Webpack - ts</title><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta name="keywords" content="Angular, AngularJS, AngularDart, Javscript, Dart, Framework, JavaScript MVC, Google"/><meta name="robots" content="all"/><meta name="referrer" content="origin"/><meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/><meta property="og:title" content="Angular 2"/><meta property="og:image" content="/resources/images/logos/standard/shield-large.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="184"/><meta property="og:image:height" content="200"/><meta property="og:description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="name" content="Angular 2"/><meta itemprop="description" content="Angular is a development platform for building mobile and desktop web applications"/><meta itemprop="image" content="https://angular.io/resources/images/logos/standard/shield-large.png"/><link rel="icon" type="image/x-icon" href="/resources/images/icons/favicon.ico"/><link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"/><link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="/resources/css/vendor/icomoon/style.css"/><link rel="stylesheet" href="/resources/css/vendor/animate.css"/><link rel="stylesheet" href="/resources/css/main.css"/><!-- MOBILE ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/resources/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/resources/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/resources/images/favicons/manifest.json"></head><body ng-controller="AppCtrl as appCtrl" class="l-offset-nav l-offset-side-nav"><md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5"><nav><h1><a href="/" md-button>Angular <sup>by Google</sup></a></h1><button aria-label="View Menu" ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button" class="main-nav-button main-nav-mobile-trigger l-right">Site Menu <span class="icon icon-arrow-drop-down"></span></button><ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''"><li class="l-left"><a class="main-nav-button" href="/features.html" md-button>Features</a></li><li class="l-left"><a class="main-nav-button" href="/docs/ts/latest/" md-button>Docs</a></li><li class="l-left"><a class="main-nav-button" href="/events.html" md-button>Events</a></li><li class="l-left"><a class="main-nav-button" href="/news.html" md-button>News</a></li><li class="l-right"><a class="main-nav-button" href="/docs/ts/latest/quickstart.html" md-button>Get Started</a></li></ul></nav></md-toolbar><!-- Include this file ONLY when current.path[2] is defined--><nav class="side-nav l-pinned-left l-layer-4 l-offset-nav"><!-- SEARCH BAR--><header class="side-nav-search st-input-wrapper"><form class="st-input-inner"><label for="search-io" class="is-hidden">Search Docs</label><input type="search" id="search-io" placeholder="SEARCH DOCS..."/></form><button aria-label="View Docs Menu" ng-click="appCtrl.toggleDocsMenu($event)" md-button="md-button" class="mobile-trigger button">Docs <span class="icon icon-arrow-drop-down"></span></button></header><div ng-class="appCtrl.showDocsNav ? 'is-visible' : ''" class="side-nav-secondary"><div class="nav-blocks"><a href="/docs/ts/latest/quickstart.html" title="Get up and running with Angular 2" class="nav-title ">Quickstart</a></div><div class="nav-blocks"><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript." class="nav-title ">Tutorial<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/" title="The Tour of Heroes tutorial takes us through the steps of creating an Angular application in TypeScript.">1. Introduction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt1.html" title="We build a simple hero editor">2. The Hero Editor</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt2.html" title="We build a master/detail page with a list of heroes">3. Master/Detail</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt3.html" title="We refactor the master/detail view into separate components">4. Multiple Components</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt4.html" title="We create a reusable service to manage our hero data calls">5. Services</a></li><li class="nav-list-item "><a href="/docs/ts/latest/tutorial/toh-pt5.html" title="We add the Angular Component Router and learn to navigate among the views">6. Routing</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/" title="How to read and use this documentation" class="nav-title ">Basics<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-ordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/" title="How to read and use this documentation">1. Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/architecture.html" title="The basic building blocks of Angular 2 applications">2. Architecture</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/displaying-data.html" title="Interpolation and other forms of property binding help us show app data in the UI.">3. Displaying Data</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/user-input.html" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models.">4. User Input</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/forms.html" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors.">5. Forms</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/dependency-injection.html" title="Angular's dependency injection system creates and delivers dependent services &quot;just-in-time&quot;.">6. Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/template-syntax.html" title="Learn how to write templates that display data and consume user events with the help of data binding.">7. Template Syntax</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/cheatsheet.html" title="A quick guide to Angular syntax.">8. Angular Cheat Sheet</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/style-guide.html" title="Write Angular 2 with style.">9. Style Guide</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/glossary.html" title="Brief definitions of the most important words in the Angular 2 vocabulary">10. Glossary</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements." class="nav-title is-nav-title-selected">Developer Guide<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists"><ul><li class="nav-list-item "><a href="/docs/ts/latest/guide/attribute-directives.html" title="Attribute directives attach behavior to elements.">Attribute Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/component-styles.html" title="Learn how to apply CSS styles to components.">Component Styles</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/hierarchical-dependency-injection.html" title="Angular's hierarchical dependency injection system supports nested injectors in parallel with the component tree.">Hierarchical Injectors</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/server-communication.html" title="Talk to a remote server with the Angular Http Client.">Http Client</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/lifecycle-hooks.html" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them.">Lifecycle Hooks</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/npm-packages.html" title="Details of the recommended npm packages and the different kinds of package dependencies">Npm Packages</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/pipes.html" title="Pipes transform displayed values within a template.">Pipes</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/router-deprecated.html" title="The deprecated Beta Router.">Router (Deprecated Beta)</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/structural-directives.html" title="Angular has a powerful template engine that lets us easily manipulate the DOM structure of our elements.">Structural Directives</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/testing.html" title="Techniques and practices for testing an Angular 2 app">Testing</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/typescript-configuration.html" title="TypeScript configuration for Angular 2 developers">TypeScript Configuration</a></li><li class="nav-list-item "><a href="/docs/ts/latest/guide/upgrade.html" title="Angular 1 applications can be incrementally upgraded to Angular 2.">Upgrading from 1.x</a></li><li class="nav-list-item is-selected"><a href="/docs/ts/latest/guide/webpack.html" title="Create your Angular 2 applications with a Webpack based tooling">Introduction to Webpack</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios" class="nav-title ">Cookbook<img src="/resources/images/icons/ic_keyboard_arrow_down_black_24px.svg" class="inline-arrow-down-svg"/></a><div class="nav-unordered-lists is-hidden"><ul><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/" title="A collection of recipes for common Angular application scenarios">Overview</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/a1-a2-quick-reference.html" title="Learn how Angular 1 concepts and techniques map to Angular 2">Angular 1 to 2 Quick Ref</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/component-communication.html" title="Share information between different directives and components">Component Interaction</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dependency-injection.html" title="Techniques for Dependency Injection">Dependency Injection</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/dynamic-form.html" title="Render dynamic forms with NgFormModel">Dynamic Form</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/set-document-title.html" title="Setting the document or window title using the Title service.">Set the Document Title</a></li><li class="nav-list-item "><a href="/docs/ts/latest/cookbook/ts-to-js.html" title="Convert Angular 2 TypeScript examples into ES5 JavaScript">TypeScript to JavaScript</a></li></ul></div></div><div class="nav-blocks"><a href="/docs/ts/latest/api/" title="API Preview" class="nav-title ">API Reference</a></div></div></nav><script>// Could put in appCtrl but only needed here and clear here
+(function scrollToSelectedLink() {
+  var sideNav = document.getElementsByClassName('side-nav')[0];
+  var link = sideNav.getElementsByClassName('is-selected')[0];
+  if(link && link.offsetTop > window.innerHeight){
+    sideNav.scrollTop = link.offsetTop - (window.innerHeight/2);
+    //alert("offsetTop: " + link.offsetTop + " side-nav top is " + sideNav.scrollTop);
+  }
+})()</script><!-- Refer to jade.template.html and addJadeDataDocsProcessor to figure out where the context of this jade file originates--><header class="hero background-sky"><div class="inner-header"><h1 class="hero-title text-display-1 ">Introduction to Webpack</h1><span class="badges"></span></div><!-- Replace _ underscores with . dots --><!-- VERSION TREE CREATOR MIXIN --><!-- BUTTON TITLE GENERATION  --><!-- DROPDOWN BUTTON --><nav class="dropdown"><button aria-label="Select a version of Angular" md-button="md-button" ng-click="appCtrl.toggleVersionMenu($event)" class="dropdown-button">Angular 2 for TypeScript  <span class="icon icon-arrow-drop-down"></span></button><div ng-click="appCtrl.toggleVersionMenu($event)" ng-show="appCtrl.showMenu" class="overlay ng-hide"></div><!-- DROPDOWN MENU --><div ng-class="appCtrl.showMenu ? 'is-visible' : ''" class="dropdown-menu"><ul><li><a href="/docs/ts/latest/guide/webpack.html" md-button>Angular 2 for TypeScript </a></li></ul><ul><li><a href="/docs/js/latest/guide/webpack.html" md-button>Angular 2 for JavaScript </a></li></ul><ul><li><a href="/docs/dart/latest/guide/webpack.html" md-button>Angular 2 for Dart </a></li></ul></div></nav></header><div class="banner"><p class="text-body">Create your Angular 2 applications with a Webpack based tooling</p></div><article class="l-content-small grid-fluid docs-content"><script>function why(id, backTo) {
+  var id = "#"+id;
+  var el = document.querySelector(id);
+  el.hidden=el.hidden=!el.hidden;
+
+  if (el.hidden && backTo){
+    // the next line is required to work around a bug in WebKit (Chrome / Safari)
+    location.href = "#";
+    location.href =  "#" + backTo;
+  }
+}</script><script>function verbose(isVerbose) {
+  isVerbose = !! isVerbose;
+  var el = document.querySelector('button.verbose.off');
+  el.style.display = isVerbose ? 'block' : 'none';
+  var el = document.querySelector('button.verbose.on');
+  el.style.display = isVerbose ? 'none' : 'block';
+  
+  CCSStylesheetRuleStyle('main','.l-verbose-section', 'display',
+    isVerbose ? 'block' : 'none');
+}
+</script><script>function CCSStylesheetRuleStyle(stylesheet, selectorText, style, value){
+  /* returns the value of the element style of the rule in the stylesheet
+  *  If no value is given, reads the value
+  *  If value is given, the value is changed and returned
+  *  If '' (empty string) is given, erases the value.
+  *  The browser will apply the default one
+  *
+  * string stylesheet: part of the .css name to be recognized, e.g. 'default'
+  * string selectorText: css selector, e.g. '#myId', '.myClass', 'thead td'
+  * string style: camelCase element style, e.g. 'fontSize'
+  * string value optional : the new value
+  */
+  var CCSstyle = undefined, rules, sheet;
+  for(var m in document.styleSheets){
+    sheet = document.styleSheets[m];
+    if(sheet.href && sheet.href.indexOf(stylesheet) != -1){
+    rules = sheet[document.all ? 'rules' : 'cssRules'];
+    for(var n in rules){
+      console.log(rules[n].selectorText);
+      if(rules[n].selectorText == selectorText){
+        CCSstyle = rules[n].style;
+        break;
+      }
+    }
+    break;
+    }
+  }
+  if(value == undefined)
+    return CCSstyle[style]
+  else
+    return CCSstyle[style] = value
+}</script><p><a href="https://webpack.github.io/"><strong>Webpack</strong></a> is a popular module bundler,
+a tool for bundling application source code in convenient <em>chunks</em> 
+and for loading that code from a server into a browser.</p>
+<p>It&#39;s an excellent alternative to the <em>SystemJS</em> approach we use throughout the documentation.
+In this guide we get a taste of Webpack and how to use it with Angular 2 applications.</p>
+<p><a id="top"></a></p>
+<h2 id="table-of-contents">Table of contents</h2>
+<p><a href="#what-is-webpack">What is Webpack?</a></p>
+<ul>
+<li><a href="#entries-outputs">Entries and outputs</a></li>
+<li><a href="#loaders">Loaders</a></li>
+<li><a href="#plugins">Plugins</a></li>
+</ul>
+<p><a href="#configure-webpack">Configuring Webpack</a></p>
+<ul>
+<li><a href="#common-configuration">Common configuration</a></li>
+<li><a href="#development-configuration">Development configuration</a></li>
+<li><a href="#production-configuration">Production configuration</a></li>
+<li><a href="#test-configuration">Test configuration</a></li>
+</ul>
+<p><a href="#try">Trying it out</a></p>
+<p><a href="#conclusions">Conclusions</a></p>
+<div class="l-main-section"></div><a id="what-is-webpack"></a><h2 id="what-is-webpack-">What is Webpack?</h2>
+<p>Webpack is a powerful module bundler. 
+A <em>bundle</em> is a JavaScript file that incorporate <em>assets</em> that <em>belong</em> together and 
+should be served to the client in a response to a single file request.
+A bundle can include JavaScript, CSS styles, HTML, and almost any other kind of file.</p>
+<p>Webpack roams over your application source code, 
+looking for <code>import</code> statements, building a dependency graph, and emitting one (or more) <em>bundles</em>.
+With plugin &quot;loaders&quot; Webpack can preprocess and minify different non-JavaScript files such as TypeScript, SASS, and LESS files. </p>
+<p>We determine what Webpack does and how it does it with a JavaScript configuration file, <code>webpack.config.js</code>.</p>
+<a id="entries-outputs"></a><div class="l-main-section"></div><h3 id="entries-and-outputs">Entries and outputs</h3>
+<p>We feed Webpack with one or more <em>entry</em> files and let it find and incorporate the dependencies that radiate from those entries. 
+In this example, we start from the application&#39;s root file, <code>src/app.ts</code>:</p>
+<div class="example-title">webpack.config.js (single entry)</div><code-example language="ts" format=".">entry: {
+  app: &#39;src/app.ts&#39;
+}
+</code-example><p>Webpack inspects that file and traverses its <code>import</code> dependencies recursively.</p>
+<div class="example-title">src/app.ts</div><code-example language="ts" format=".">import { Component } from &#39;@angular/core&#39;;
+
+@Component({
+  ...
+})
+export class AppComponent {}
+</code-example><p>Here it sees that we&#39;re importing <em>@angular/core</em> so it adds that to its dependency list for (potential) inclusion in the bundle.
+It opens <em>@angular/core</em> and follows <em>its</em> network of <code>import</code> statements until it has build the complete dependency graph from <code>app.ts</code> down.</p>
+<p>Then it <strong>outputs</strong> these files to the <code>app.js</code> <em>bundle file</em> designated in configuration:</p>
+<div class="example-title">webpack.config.js (single output)</div><code-example language="ts" format=".">output: {
+  filename: &#39;app.js&#39;
+}
+</code-example><p>This <code>app.js</code> output bundle is a single JavaScript file that contains our application source and its dependencies. 
+We&#39;ll load it later with a &lt;script&gt; tag in our index.html. </p>
+<h4 id="multiple-bundles">Multiple bundles</h4>
+<p>We probably do not want one giant bundle of everything.
+We&#39;ll likely prefer to separate our volatile application app code from comparatively stable vendor code modules.</p>
+<p>We change the configuration so that we have two entry points, <code>app.ts</code> and <code>vendor.ts</code>:</p>
+<div class="example-title">webpack.config.js (two entries)</div><code-example language="ts" format=".">entry: {
+  app: &#39;src/app.ts&#39;,
+  vendor: &#39;src/vendor.ts&#39;
+},
+
+output: {
+  filename: &#39;[name].js&#39;
+}
+</code-example><p>Webpack constructs two separate dependency graphs
+and emits <em>two</em> bundle files, one called <code>app.js</code> containing only our application code and 
+another called <code>vendor.js</code> with all the vendor dependencies.</p>
+<div class="l-sub-section"><p>The <code>[name]</code> in the output name is a Webpack <em>placeholder</em> that is replaced with the entry names.
+<code>app</code> and <code>vendor</code> respectively.</p>
+<p>We need a plugin to make this work; we&#39;ll <a href="#commons-chunk-plugin">cover that later</a> in the chapter.</p>
+</div><p>We met <code>app.ts</code> earlier. We wrote <code>vendor.ts</code> such that it imports the vendor modules we need:</p>
+<div class="example-title">src/vendor.ts</div><code-example language="ts" format=".">// Angular 2
+import &#39;@angular/platform-browser&#39;;
+import &#39;@angular/platform-browser-dynamic&#39;;
+import &#39;@angular/core&#39;;
+import &#39;@angular/common&#39;;
+import &#39;@angular/http&#39;;
+import &#39;@angular/router-deprecated&#39;;
+
+// RxJS
+import &#39;rxjs&#39;;
+
+// Other vendors for example jQuery, Lodash or Bootstrap
+// You can import js, ts, css, sass, ...
+</code-example><a id="loaders"></a><div class="l-main-section"></div><h3 id="loaders">Loaders</h3>
+<p>Webpack can bundle any kind of file: JavaScript, TypeScript, CSS, SASS, LESS, images, html, fonts, whatever.
+Webpack itself doesn&#39;t know what to do with a non-JavaScript file.
+We teach it to process such files into JavaScript with <em>loaders</em>. 
+Here we configure loaders for TypeScript and CSS:</p>
+<div class="example-title">webpack.config.js (two entries)</div><code-example language="ts" format=".">loaders: [
+  {
+    test: /\.ts$/
+    loaders: &#39;ts&#39;
+  },
+  {
+    test: /\.css$/
+    loaders: &#39;style!css&#39;
+  }
+]
+</code-example><p>As Webpack encounters <code>import</code> statements like these ...</p>
+<code-example language="ts" format=".">import { AppComponent } from &#39;./app.component.ts&#39;;
+import &#39;uiframework/dist/uiframework.css&#39;;
+</code-example><p>... it applies the <code>test</code> RegEx patterns. When a pattern matches the filename, Webpack processes the file with the associated loader. </p>
+<p>The first <code>import</code> file matches the <code>.ts</code> pattern so Webpack processes it with the <code>ts</code> (TypeScript) loader.
+The imported file doesn&#39;t match the second pattern so its loader is ignored. </p>
+<p>The second <code>import</code> matches the second <code>.css</code> pattern for which we have <em>two</em> loaders chained by the (!) character. 
+Webpack applies chained loaders <em>right to left</em> so it applies 
+the <code>css</code> loader first (to flatten CSS <code>@import</code> and <code>url(...)</code> statements) and
+ then the <code>style</code> loader (to append the css inside <em>&lt;style&gt;</em> elements on the page).</p>
+<a id="plugins"></a><div class="l-main-section"></div><h3 id="plugins">Plugins</h3>
+<p>Webpack has a build pipeline with well-defined phases.
+We tap into that pipeline with plugins such as the <code>uglify</code> minification plugin:</p>
+<code-example language="ts" format=".">plugins: [
+  new webpack.optimize.UglifyJsPlugin()
+]
+</code-example><a id="configure-webpack"></a><div class="l-main-section"></div><h2 id="configure-webpack">Configure Webpack</h2>
+<p>After that brief orientation, we are ready to build our own Webpack configuration for Angular 2 apps. </p>
+<p>Begin by setting up the development environment.</p>
+<p>Create a <strong>new project folder</strong></p>
+<code-example format="">mkdir angular2-webpack
+cd    angular2-webpack
+</code-example><p>Add these files to the root directory:</p>
+<code-tabs><code-pane language="json" name="package.json" format="linenums">{
+  &quot;name&quot;: &quot;angular2-webpack&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;A webpack starter for angular 2&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;webpack-dev-server --inline --progress --port 8080&quot;,
+    &quot;test&quot;: &quot;karma start&quot;,
+    &quot;build&quot;: &quot;rm -rf dist &amp;&amp; webpack --config config/webpack.prod.js --progress --profile --bail&quot;,
+    &quot;postinstall&quot;: &quot;typings install&quot;
+  },
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;dependencies&quot;: {
+    &quot;@angular/common&quot;: &quot;2.0.0-rc.1&quot;,
+    &quot;@angular/compiler&quot;: &quot;2.0.0-rc.1&quot;,
+    &quot;@angular/core&quot;: &quot;2.0.0-rc.1&quot;,
+    &quot;@angular/http&quot;: &quot;2.0.0-rc.1&quot;,
+    &quot;@angular/platform-browser&quot;: &quot;2.0.0-rc.1&quot;,
+    &quot;@angular/platform-browser-dynamic&quot;: &quot;2.0.0-rc.1&quot;,
+    &quot;@angular/router-deprecated&quot;: &quot;2.0.0-rc.1&quot;,
+    &quot;es6-shim&quot;: &quot;^0.35.0&quot;,
+    &quot;reflect-metadata&quot;: &quot;0.1.2&quot;,
+    &quot;rxjs&quot;: &quot;5.0.0-beta.6&quot;,
+    &quot;zone.js&quot;: &quot;0.6.12&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;css-loader&quot;: &quot;^0.23.1&quot;,
+    &quot;extract-text-webpack-plugin&quot;: &quot;^1.0.1&quot;,
+    &quot;file-loader&quot;: &quot;^0.8.5&quot;,
+    &quot;html-loader&quot;: &quot;^0.4.3&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^2.15.0&quot;,
+    &quot;jasmine-core&quot;: &quot;^2.4.1&quot;,
+    &quot;karma&quot;: &quot;^0.13.22&quot;,
+    &quot;karma-jasmine&quot;: &quot;^0.3.8&quot;,
+    &quot;karma-phantomjs-launcher&quot;: &quot;^1.0.0&quot;,
+    &quot;karma-sourcemap-loader&quot;: &quot;^0.3.7&quot;,
+    &quot;karma-webpack&quot;: &quot;^1.7.0&quot;,
+    &quot;null-loader&quot;: &quot;^0.1.1&quot;,
+    &quot;phantomjs-prebuilt&quot;: &quot;^2.1.7&quot;,
+    &quot;raw-loader&quot;: &quot;^0.5.1&quot;,
+    &quot;style-loader&quot;: &quot;^0.13.1&quot;,
+    &quot;ts-loader&quot;: &quot;^0.8.1&quot;,
+    &quot;typescript&quot;: &quot;^1.8.9&quot;,
+    &quot;typings&quot;: &quot;^0.7.12&quot;,
+    &quot;webpack&quot;: &quot;^1.12.14&quot;,
+    &quot;webpack-dev-server&quot;: &quot;^1.14.1&quot;,
+    &quot;webpack-merge&quot;: &quot;^0.9.0&quot;
+  }
+}
+</code-pane><code-pane language="json" name="typings.json" format="linenums">{
+  &quot;ambientDependencies&quot;: {
+    &quot;es6-shim&quot;: &quot;registry:dt/es6-shim#0.31.2+20160317120654&quot;,
+    &quot;jasmine&quot;: &quot;registry:dt/jasmine#2.2.0+20160412134438&quot;,
+    &quot;node&quot;: &quot;registry:dt/node#4.0.0+20160509154515&quot;
+  }
+}
+</code-pane><code-pane language="json" name="tsconfig.json" format="linenums">{
+  &quot;compilerOptions&quot;: {
+    &quot;target&quot;: &quot;es5&quot;,
+    &quot;module&quot;: &quot;commonjs&quot;,
+    &quot;moduleResolution&quot;: &quot;node&quot;,
+    &quot;sourceMap&quot;: true,
+    &quot;emitDecoratorMetadata&quot;: true,
+    &quot;experimentalDecorators&quot;: true,
+    &quot;removeComments&quot;: false,
+    &quot;noImplicitAny&quot;: true,
+    &quot;suppressImplicitAnyIndexErrors&quot;: true
+  },
+  &quot;exclude&quot;: [
+    &quot;node_modules&quot;,
+    &quot;typings/main&quot;,
+    &quot;typings/main.d.ts&quot;
+  ]
+}
+</code-pane><code-pane language="js" name="webpack.config.js" format="linenums">module.exports = require(&#39;./config/webpack.dev.js&#39;);
+</code-pane><code-pane language="js" name="karma.conf.js" format="linenums">module.exports = require(&#39;./config/karma.conf.js&#39;);
+</code-pane><code-pane language="js" name="config/helpers.js" format="linenums">var path = require(&#39;path&#39;);
+
+var _root = path.resolve(__dirname, &#39;..&#39;);
+
+function root(args) {
+  args = Array.prototype.slice.call(arguments, 0);
+  return path.join.apply(path, [_root].concat(args));
+}
+
+exports.root = root;
+</code-pane></code-tabs><div class="l-sub-section"><p>Many of these files and much of their content should be familiar from other Angular 2 documentation chapters.</p>
+<p>Learn about the <code>package.json</code> in the <a href="../guide/npm-packages.html">npm packages</a> chapter.
+We require packages for Webpack use in addition to the ones listed in that chapter.</p>
+<p>Learn about <code>tsconfig.json</code> and <code>typings.json</code> in the <a href="../guide/typescript-configuration.html">Typescript configuration</a> chapter.</p>
+</div><p>Open a terminal/console window and install the <em>npm</em> packages with <code>npm install</code>.</p>
+<a id="common-configuration"></a><div class="l-main-section"></div><h3 id="common-configuration">Common Configuration</h3>
+<p>We will define separate configurations for development, production, and test environments.
+All three have some configuration in common.
+We&#39;ll gather that common configuration in a separate file called <code>webpack.common.js</code>.</p>
+<p>Let&#39;s see the entire file and then walk through it a section at a time:</p>
+<div class="example-title">config/webpack.common.js</div><code-example language="js" format=".">var webpack = require(&#39;webpack&#39;);
+var HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
+var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;);
+var helpers = require(&#39;./helpers&#39;);
+
+module.exports = {
+  entry: {
+    &#39;polyfills&#39;: &#39;./src/polyfills.ts&#39;,
+    &#39;vendor&#39;: &#39;./src/vendor.ts&#39;,
+    &#39;app&#39;: &#39;./src/main.ts&#39;
+  },
+
+  resolve: {
+    extensions: [&#39;&#39;, &#39;.js&#39;, &#39;.ts&#39;]
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.ts$/,
+        loader: &#39;ts&#39;
+      },
+      {
+        test: /\.html$/,
+        loader: &#39;html&#39;
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        loader: &#39;file?name=assets/[name].[hash].[ext]&#39;
+      },
+      {
+        test: /\.css$/,
+        exclude: helpers.root(&#39;src&#39;, &#39;app&#39;),
+        loader: ExtractTextPlugin.extract(&#39;style&#39;, &#39;css?sourceMap&#39;)
+      },
+      {
+        test: /\.css$/,
+        include: helpers.root(&#39;src&#39;, &#39;app&#39;),
+        loader: &#39;raw&#39;
+      }
+    ]
+  },
+
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: [&#39;app&#39;, &#39;vendor&#39;, &#39;polyfills&#39;]
+    }),
+
+    new HtmlWebpackPlugin({
+      template: &#39;src/index.html&#39;
+    })
+  ]
+};
+</code-example><p>Webpack is a NodeJS-based tool so its configuration is a JavaScript <em>commonjs</em> module file 
+that begins with <code>require</code> statements as such files do. </p>
+<p>The configuration exports several objects, beginning with the <em>entries</em> described earlier:</p>
+<div class="example-title">config/webpack.common.js</div><code-example language="js" format=".">entry: {
+  &#39;polyfills&#39;: &#39;./src/polyfills.ts&#39;,
+  &#39;vendor&#39;: &#39;./src/vendor.ts&#39;,
+  &#39;app&#39;: &#39;./src/main.ts&#39;
+},
+</code-example><p>We are splitting our application into three bundles:</p>
+<ul>
+<li>polyfills - the standard polyfills we require to run Angular 2 applications in most modern browsers.</li>
+<li>vendor - the vendor files we need: Angular 2, lodash, bootstrap.css...</li>
+<li>app - our application code.</li>
+</ul>
+<div class="callout is-critical"><header>Loading polyfills</header><p>Load Zone.js early, immediately after the other ES6 and metadata shims.</p>
+</div><p>Our app will <code>import</code> dozens if not hundreds of JavaScript and TypeScript files. 
+We <em>might</em> write <code>import</code> statements with explicit extensions as in this example:</p>
+<code-example language="ts" format=".">import { AppComponent } from &#39;./app.component.ts&#39;;
+</code-example><p>But most of our <code>import</code> statements won&#39;t mention the extension at all.
+So we  tell Webpack to <em>resolve</em> module file requests by looking for matching files with</p>
+<ul>
+<li>an explicit extention (signified by the empty extension string, <code>&#39;&#39;</code>) or </li>
+<li><code>.js</code> extension (for regular JavaScript files and pre-compiled TypeScript files) or </li>
+<li><code>.ts</code> extension.</li>
+</ul>
+<div class="example-title">config/webpack.common.js</div><code-example language="js" format=".">resolve: {
+  extensions: [&#39;&#39;, &#39;.js&#39;, &#39;.ts&#39;]
+},
+</code-example><div class="l-sub-section"><p>We could add  <code>.css</code> and <code>.html</code> later if we want Webpack to resolve extension-less files with <em>those</em> extension too.</p>
+</div><p>Next we specify the loaders:</p>
+<div class="example-title">config/webpack.common.js</div><code-example language="js" format=".">module: {
+  loaders: [
+    {
+      test: /\.ts$/,
+      loader: &#39;ts&#39;
+    },
+    {
+      test: /\.html$/,
+      loader: &#39;html&#39;
+    },
+    {
+      test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+      loader: &#39;file?name=assets/[name].[hash].[ext]&#39;
+    },
+    {
+      test: /\.css$/,
+      exclude: helpers.root(&#39;src&#39;, &#39;app&#39;),
+      loader: ExtractTextPlugin.extract(&#39;style&#39;, &#39;css?sourceMap&#39;)
+    },
+    {
+      test: /\.css$/,
+      include: helpers.root(&#39;src&#39;, &#39;app&#39;),
+      loader: &#39;raw&#39;
+    }
+  ]
+},
+</code-example><ul>
+<li>ts - a loader to transpile our Typescript code to ES5, guided by the <code>tsconfig.json</code> file</li>
+<li>html - for component templates</li>
+<li>images/fonts - Images and fonts are bundled as well.</li>
+<li>css - The pattern matches application-wide styles; the second handles component-scoped styles (the ones specified in a component&#39;s <code>styleUrls</code> metadata property).</li>
+</ul>
+<div class="l-sub-section"><p>The first pattern excludes <code>.css</code> files within the <code>/src/app</code> directories where our component-scoped styles sit.
+It includes only <code>.css</code> files located at or above <code>/src</code>; these are the application-wide styles.
+The <code>ExtractTextPlugin</code> (described below) applies the <code>style</code> and <code>css</code> loaders to these files.</p>
+<p>The second pattern filters for component-scoped styles and loads them as strings via the <code>raw</code> loader &mdash;
+which is what Angular expects to do with styles specified in a <code>styleUrls</code> metadata property.</p>
+</div><p>Finally we add two plugins:</p>
+<div class="example-title">config/webpack.common.js</div><code-example language="js" format=".">plugins: [
+  new webpack.optimize.CommonsChunkPlugin({
+    name: [&#39;app&#39;, &#39;vendor&#39;, &#39;polyfills&#39;]
+  }),
+
+  new HtmlWebpackPlugin({
+    template: &#39;src/index.html&#39;
+  })
+]
+</code-example><a id="commons-chunk-plugin"></a><h4 id="-commonschunkplugin-"><em>CommonsChunkPlugin</em></h4>
+<p>We want the <code>app.js</code> bundle to contain only app code and the <code>vendor.js</code> bundle to contain only the vendor code. </p>
+<p>Our application code <code>imports</code> vendor code. Webpack is not smart enough to keep the vendor code out of the <code>app.js</code> bundle.
+We rely on the <code>CommonsChunkPlugin</code> to do that job. </p>
+<div class="l-sub-section"><p>It identifies the hierarchy among three <em>chunks</em>: <code>app</code> -&gt; <code>vendor</code> -&gt; <code>polyfills</code>. 
+Where Webpack finds that <code>app</code> has shared dependencies with <code>vendor</code>, it removes them from <code>app</code>.
+It would do the same if <code>vendor</code> and <code>polyfills</code> had shared dependencies (which they don&#39;t).</p>
+</div><a id="html-webpack-plugin"></a><h4 id="-htmlwebpackplugin-"><em>HtmlWebpackPlugin</em></h4>
+<p>Webpack generates a number of js and css files. 
+We <em>could</em> insert them into our <code>index.html</code> <em>manually</em>. That would be tedious and error-prone.
+Webpack can inject those scripts and links for us with the <code>HtmlWebpackPlugin</code>.</p>
+<a id="environment-configuration"></a><div class="l-main-section"></div><h3 id="environment-specific-configuration">Environment-specific configuration</h3>
+<p>The <code>webpack.common.js</code> configuration file does most of the heavy lifting. 
+We create separate, environment-specific configuration files that build on <code>webpack.common</code>
+by merging into it the peculiarities particular to their target environments.</p>
+<p>These files tend to be short and simple.</p>
+<a id="development-configuration"></a><div class="l-main-section"></div><h3 id="development-configuration">Development Configuration</h3>
+<p>Here is the development configuration file, <code>webpack.dev.js</code></p>
+<div class="example-title">config/webpack.dev.js</div><code-example language="js" format=".">var webpackMerge = require(&#39;webpack-merge&#39;);
+var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;);
+var commonConfig = require(&#39;./webpack.common.js&#39;);
+var helpers = require(&#39;./helpers&#39;);
+
+module.exports = webpackMerge(commonConfig, {
+  devtool: &#39;cheap-module-eval-source-map&#39;,
+
+  output: {
+    path: helpers.root(&#39;dist&#39;),
+    publicPath: &#39;http://localhost:8080/&#39;,
+    filename: &#39;[name].js&#39;,
+    chunkFilename: &#39;[id].chunk.js&#39;
+  },
+
+  plugins: [
+    new ExtractTextPlugin(&#39;[name].css&#39;)
+  ],
+
+  devServer: {
+    historyApiFallback: true,
+    stats: &#39;minimal&#39;
+  }
+});
+</code-example><p>The development build relies on the Webpack development server which we configure near the bottom of the file.</p>
+<p>Although we tell Webpack to put output bundles in the <code>dist</code> folder,
+the dev server keeps all bundles in memory; it doesn&#39;t write them to disk.
+So we won&#39;t find any files in the <code>dist</code> folder (at least not any generated from <code>this development build</code>).</p>
+<p>The <code>HtmlWebpackPlugin</code> (added in <code>webpack.common.js</code>) use the <em>publicPath</em> and the <em>filename</em> settings to generate 
+appropriate &lt;script&gt; and &lt;link&gt; tags into the <code>index.html</code>.</p>
+<p>Our CSS are buried inside our Javascript bundles by deault. The <code>ExtractTextPlugin</code> extracts them into
+external <code>.css</code> files that the <code>HtmlWebpackPlugin</code> inscribes as &lt;link&gt; tags into the <code>index.html</code>.</p>
+<p>Refer to the Webpack documentation for details on these and other configuation options in this file</p>
+<p>Grab the app code at the end of this guide and try:</p>
+<code-example format="">npm start
+</code-example><a id="production-configuration"></a><div class="l-main-section"></div><h3 id="production-configuration">Production Configuration</h3>
+<p>Configuration of a <em>production</em> build resembles <em>development</em> configuration ... with a few key changes.</p>
+<div class="example-title">config/webpack.prod.js</div><code-example language="js" format=".">var webpack = require(&#39;webpack&#39;);
+var webpackMerge = require(&#39;webpack-merge&#39;);
+var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;);
+var commonConfig = require(&#39;./webpack.common.js&#39;);
+var helpers = require(&#39;./helpers&#39;);
+
+const ENV = process.env.NODE_ENV = process.env.ENV = &#39;production&#39;;
+
+module.exports = webpackMerge(commonConfig, {
+  devtool: &#39;source-map&#39;,
+
+  output: {
+    path: helpers.root(&#39;dist&#39;),
+    publicPath: &#39;/&#39;,
+    filename: &#39;[name].[hash].js&#39;,
+    chunkFilename: &#39;[id].[hash].chunk.js&#39;
+  },
+
+  htmlLoader: {
+    minimize: false // workaround for ng2
+  },
+
+  plugins: [
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin(&#39;[name].[hash].css&#39;),
+    new webpack.DefinePlugin({
+      &#39;process.env&#39;: {
+        &#39;ENV&#39;: JSON.stringify(ENV)
+      }
+    })
+  ]
+});
+</code-example><p>We don&#39;t use a development server. We&#39;re expected to deploy the application and its dependencies to a real production server.</p>
+<p>This time the output bundle files are physically placed in the <code>dist</code> folder.</p>
+<p>Webpack generates file names with cache-busting hash.
+Thanks to the <code>HtmlWebpackPlugin</code> we don&#39;t have to update the <code>index.html</code> file when the hashes changes.</p>
+<p>There are additional plugins:</p>
+<ul>
+<li><strong>NoErrorsPlugin</strong> - stops the build if there is any error.</li>
+<li><strong>DedupePlugin</strong> - detects identical (and nearly identical) files and removes them from the output.</li>
+<li><strong>UglifyJsPlugin</strong> - minifies the bundles.</li>
+<li><strong>ExtractTextPlugin</strong> - extracts embedded css as external files, adding cache-busting hash to the filename.</li>
+<li><strong>DefinePlugin</strong> - use to define environment variables that we can reference within our application.</li>
+</ul>
+<p>Thanks to the <em>DefinePlugin</em> and the <code>ENV</code> variable defined at top, we can enable Angular 2 production mode like this:</p>
+<code-example language="ts" format=".">if (process.env.ENV === &#39;production&#39;) {
+  enableProdMode();
+}
+</code-example><p>Grab the app code at the end of this guide and try:</p>
+<code-example format="">npm run build
+</code-example><a id="test-configuration"></a><div class="l-main-section"></div><h3 id="test-configuration">Test Configuration</h3>
+<p>We don&#39;t need much configuration to run unit tests. 
+We don&#39;t need the loaders and plugins that we declared for our development and production builds.
+We probably don&#39;t need to load and process <code>css</code> files for unit tests and doing so would slow us down;
+we&#39;ll use the <code>null</code> loader for all CSS.</p>
+<p>We could merge our test configuration into the <code>webpack.common</code> configuration and override the parts we don&#39;t want or need.
+But it might be simpler to start over with a completely fresh configuration.</p>
+<div class="example-title">config/webpack.test.js</div><code-example language="js" format=".">module.exports = {
+  devtools: &#39;source-map&#39;,
+
+  resolve: {
+    extensions: [&#39;&#39;, &#39;.ts&#39;, &#39;.js&#39;]
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.ts$/,
+        loader: &#39;ts&#39;
+      },
+      {
+        test: /\.html$/,
+        loader: &#39;html&#39;
+
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        loader: &#39;null&#39;
+      },
+      {
+        test: /\.css$/,
+        loader: &#39;null&#39;
+      }
+    ]
+  }
+}
+</code-example><p>Here&#39;s our karma configuration:</p>
+<div class="example-title">config/karma.conf.js</div><code-example language="js" format=".">var webpackConfig = require(&#39;./webpack.test&#39;);
+
+module.exports = function (config) {
+  var _config = {
+    basePath: &#39;&#39;,
+
+    frameworks: [&#39;jasmine&#39;],
+
+    files: [
+      {pattern: &#39;./config/karma-test-shim.js&#39;, watched: false}
+    ],
+
+    preprocessors: {
+      &#39;./config/karma-test-shim.js&#39;: [&#39;webpack&#39;, &#39;sourcemap&#39;]
+    },
+
+    webpack: webpackConfig,
+
+    webpackMiddleware: {
+      stats: &#39;errors-only&#39;
+    },
+
+    webpackServer: {
+      noInfo: true
+    },
+
+    reporters: [&#39;progress&#39;],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: false,
+    browsers: [&#39;PhantomJS&#39;],
+    singleRun: true
+  };
+
+  config.set(_config);
+};
+</code-example><p>We&#39;re telling Karma to use webpack to run the tests. </p>
+<p>We don&#39;t precompile our TypeScript; Webpack transpiles our Typescript files on the fly, in memory, and feeds the emitted JS directly to Karma.
+There are no temporary files on disk.</p>
+<p>The <code>karma-test-shim</code> tells Karma what files to pre-load and 
+primes the Angular test framework with test versions of the providers that every app expects to be pre-loaded.</p>
+<div class="example-title">config/karma-test-shim.js</div><code-example language="js" format=".">Error.stackTraceLimit = Infinity;
+
+require(&#39;es6-shim&#39;);
+require(&#39;reflect-metadata&#39;);
+
+require(&#39;zone.js/dist/zone&#39;);
+require(&#39;zone.js/dist/long-stack-trace-zone&#39;);
+require(&#39;zone.js/dist/jasmine-patch&#39;);
+require(&#39;zone.js/dist/async-test&#39;);
+
+var appContext = require.context(&#39;../src&#39;, true, /\.spec\.ts/);
+
+appContext.keys().forEach(appContext);
+
+var testing = require(&#39;@angular/core/testing&#39;);
+var browser = require(&#39;@angular/platform-browser-dynamic/testing&#39;);
+
+testing.setBaseTestProviders(
+  browser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+  browser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+);
+</code-example><p>Notice that we do <em>not</em> load our application code explicitly.
+We tell Webpack to find and load our test files (the files ending in <code>.spec.ts</code>).
+Each spec file imports all &mdash; and only &mdash; the application source code that it tests.
+Webpack loads just <em>those</em> specific application files and ignores the other files that we aren&#39;t testing.</p>
+<p>Grab the app code at the end of this guide and try:</p>
+<code-example format="">npm test
+</code-example><a id="try"></a><h2 id="trying-it-out">Trying it out</h2>
+<p>Here is the source code for a small application that we can bundle with the
+Webpack techniques we learned in this chapter.</p>
+<code-tabs><code-pane language="html" name="src/index.html" format="linenums">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;base href=&quot;/&quot;&gt;
+    &lt;title&gt;Angular With Webpack&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;my-app&gt;Loading...&lt;/my-app&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code-pane><code-pane language="ts" name="src/main.ts" format="linenums">import { bootstrap } from &#39;@angular/platform-browser-dynamic&#39;;
+import { enableProdMode } from &#39;@angular/core&#39;;
+
+import { AppComponent } from &#39;./app/app.component&#39;;
+
+if (process.env.ENV === &#39;production&#39;) {
+  enableProdMode();
+}
+
+bootstrap(AppComponent, []);
+</code-pane><code-pane language="css" name="public/css/styles.css" format="linenums">body {
+    background: #0147A7;
+    color: #fff;
+}
+</code-pane></code-tabs><code-tabs><code-pane language="ts" name="src/app/app.component.ts" format="linenums">import { Component } from &#39;@angular/core&#39;;
+
+import &#39;../../public/css/styles.css&#39;;
+
+@Component({
+  selector: &#39;my-app&#39;,
+  template: require(&#39;./app.component.html&#39;),
+  styles: [require(&#39;./app.component.css&#39;)]
+})
+export class AppComponent { }
+</code-pane><code-pane language="html" name="src/app/app.component.html" format="linenums">&lt;main&gt;
+  &lt;h1&gt;Hello from Angular 2 App with Webpack&lt;/h1&gt;
+
+  &lt;img src=&quot;../../public/images/angular.png&quot;&gt;
+&lt;/main&gt;
+</code-pane><code-pane language="css" name="src/app/app.component.css" format="linenums">main {
+  padding: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  display: block;
+}
+</code-pane><code-pane language="ts" name="src/app/app.component.spec.ts" format="linenums">import {
+  it,
+  inject,
+  describe,
+  beforeEachProviders,
+  expect
+} from &#39;@angular/core/testing&#39;;
+
+import { AppComponent } from &#39;./app.component&#39;;
+
+describe(&#39;App&#39;, () =&gt; {
+  beforeEachProviders(() =&gt; [
+    AppComponent
+  ]);
+
+  it (&#39;should work&#39;, inject([AppComponent], (app: AppComponent) =&gt; {
+    // Add real test here
+    expect(2).toBe(2);
+  }));
+});
+</code-pane></code-tabs><code-tabs><code-pane language="ts" name="src/vendor.ts" format="linenums">// Angular 2
+import &#39;@angular/platform-browser&#39;;
+import &#39;@angular/platform-browser-dynamic&#39;;
+import &#39;@angular/core&#39;;
+import &#39;@angular/common&#39;;
+import &#39;@angular/http&#39;;
+import &#39;@angular/router-deprecated&#39;;
+
+// RxJS
+import &#39;rxjs&#39;;
+
+// Other vendors for example jQuery, Lodash or Bootstrap
+// You can import js, ts, css, sass, ...
+</code-pane><code-pane language="ts" name="src/polyfills.ts" format="linenums">import &#39;es6-shim&#39;;
+import &#39;reflect-metadata&#39;;
+require(&#39;zone.js/dist/zone&#39;);
+
+if (process.env.ENV === &#39;production&#39;) {
+  // Production
+
+} else {
+  // Development
+
+  Error[&#39;stackTraceLimit&#39;] = Infinity;
+
+  require(&#39;zone.js/dist/long-stack-trace-zone&#39;);
+}
+</code-pane></code-tabs><p>The <code>app.component.html</code> displays the Angular logo image which we can download
+from <a href="https://raw.githubusercontent.com/angular/angular.io/master/public/resources/images/logos/angular2/angular.png">here</a>.</p>
+<h3 id="highlights-">Highlights:</h3>
+<ul>
+<li><p>There are no &lt;script&gt; or &lt;link&gt; tags in the <code>index.html</code>. 
+The <code>HtmlWebpackPlugin</code> inserts them dynamically at runtime.</p>
+</li>
+<li><p>The <code>AppComponent</code> in <code>app.component.ts</code> imports the application-wide css with a simple <code>import</code> statement.</p>
+</li>
+<li><p>The <code>AppComponent</code> itself has its own html template and css files which we load with the <code>require()</code> method
+supplied by Webpack. Webpack stashes those component-scoped files in the <code>app.js</code> bundle too.</p>
+</li>
+<li><p>The <code>vendor.ts</code> consists of vendor dependency <code>import</code> statements that drive the <code>vendor.js</code> bundle.
+The application imports these modules too; they&#39;d be duplicated in the <code>app.js</code> bundle
+if the <code>CommonsChunkPlugin</code> hadn&#39;t detected the overlap and removed them from <code>app.js</code>.</p>
+</li>
+</ul>
+<a id="conclusions"></a><h2 id="conclusions">Conclusions</h2>
+<p>We&#39;ve learned just enough Webpack to configurate development, test and production builds 
+for a small Angular application.</p>
+<p><em>We could always do more</em>. Search the web for expert advice and expand your Webpack knowledge.</p>
+<p><a href="#top">Back to top</a></p><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--><!-- CHECK IF CURRENT PAGE IS SET, THEN SET NEXT PAGE--><!-- SET CURRENT PAGE FLAG WHEN YOU PASS IT--></article><div class="main-footer"><nav class="background-blue-grey-900 grid-fluid"><div class="c3 main-footer-branding"><div class="logo-inverse-large"></div></div><div class="c3"><h3 class="text-headline">RESOURCES</h3><ul class="text-body"><!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries--><!--li <a href="/libraries.html">Libraries</a>--><li><a href="/about/">About</a></li><li><a href="/resources/">Books & Training</a></li><li><a href="/resources/">Tools & Libraries</a></li><li><a href="/resources/">Community</a></li><li><a href="/presskit.html">Press Kit</a></li></ul></div><div class="c3"><h3 class="text-headline">HELP</h3><ul class="text-body"><li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li><li><a href="https://gitter.im/angular/angular">Gitter</a></li><li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li><li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li><li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li></ul></div><div class="c3"><h3 class="text-headline">COMMUNITY</h3><ul class="text-body"><li><a href="/events.html">Events</a></li><li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li><li><a href="https://twitter.com/angularjs"> Twitter</a></li><li><a href="https://github.com/angular/angular"> GitHub</a></li><li><a href="/contribute.html"> Contribute</a></li></ul></div></nav><footer class="background-steel"><small class="text-caption">Powered by Google ©2010-2016. Code licensed under an <a href="/license" class="text-snow">MIT-style License</a>. Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</small><a aria-label="View Style Guide" href="/docs/ts/latest/styleguide.html" title="Style Guide" md-button="md-button" class="styleguide-trigger text-snow"><span class="icon-favorite"></span></a></footer></div><!-- VENDORS --><script src="/resources/js/vendor/prettify.js"></script><script src="/resources/js/vendor/lang-basic.js"></script><script src="/resources/js/vendor/lang-dart.js"></script><script src="/resources/js/vendor/lodash.js"></script><script src="/resources/js/vendor/clipboard.min.js"></script><!-- Angular Material Dependencies --><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script><!-- Angular.io Site JS --><script src="/resources/js/site.js"></script><script src="/resources/js/controllers/app-controller.js"></script><script src="/resources/js/directives/cheatsheet.js"></script><script src="/resources/js/directives/api-list.js"></script><script src="/resources/js/directives/bio.js"></script><script src="/resources/js/directives/bold.js"></script><script src="/resources/js/directives/code.js"></script><script src="/resources/js/directives/copy.js"></script><script src="/resources/js/directives/code-tabs.js"></script><script src="/resources/js/directives/code-pane.js"></script><script src="/resources/js/directives/code-example.js"></script><script src="/resources/js/directives/scroll-y-offset-element.js"></script><!-- GA --><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-8594346-15', 'auto');
+ga('send', 'pageview')
+
+</script><!-- SWIFTYPE --><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+_st('install','VsuU7kH5Hnnj9tfyNvfK');
+</script><!-- Google Feedback --><script src="//www.gstatic.com/feedback/api.js" type="text/javascript"></script><!-- Twitter Widget --><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs");</script></body></html>
